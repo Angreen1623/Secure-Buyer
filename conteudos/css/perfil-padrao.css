@@ -1,0 +1,165 @@
+.meuperfil{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-flex;
+}
+
+.meuperfil-dados{
+    border-right: 1px solid #000;
+    width: 48vw;
+    padding-right: 20px;
+}
+
+.meuperfil  .group{
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.meuperfil .img{
+    width: 70px;
+    margin-right: 10px;
+}
+
+.meuperfil .img img{
+    width: 100%;
+}
+
+.title{
+    margin-bottom: 5px;
+}
+.title h1{
+    font-family: 'lovelace', 'arial', 'comic-sans';
+    font-size: 30px;
+}
+
+.subtitle{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.meuperfil .dados-item{
+    margin-bottom: 3%;
+}
+
+.meuperfil .dados-item h3{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.meuperfil .dados-item input{
+    width: 100%;
+    border-radius: 15px;
+    padding: 0.8%;
+    padding-left: 15px;
+}
+
+.meuperfil .buttons{
+    width: 100%;
+}
+
+.meuperfil .buttons .att-btn{
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 6px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.meuperfil .buttons .become-btn{
+    display: flex;
+    float: right;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 6px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.pedidos{
+    margin-left: 20px;
+}
+
+.pedidos .pedidos-box{
+    width: 45vw;
+}
+
+.pedidos .pedidos-box .group-images{
+    display: inline-flex;
+    width: 100%;
+}
+
+.pedidos .pedidos-box .image{
+    width: 125px;
+}
+.pedidos .pedidos-box img{
+    width: 100%;
+}
+
+.pedidos .pedidos-box .pedidos-item{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.pedidos .pedidos-box .description{
+    width: 70%;
+    height: 121px;
+    float: left;
+    padding: 10px 20px;
+    background-color: #E1D9CE;
+}
+
+.pedidos .pedidos-box .title h2{
+    font-weight: bolder;
+    font-size: 18px;
+}
+.pedidos .pedidos-box .loja h3{
+    font-weight: lighter;
+}
+
+.pedidos .pedidos-box .price{
+    display: flex;
+    float: right;
+}
+.pedidos .pedidos-box .price p{
+    font-family: 'lovelace', 'arial', 'comic sans';
+}
+
+.pedidos .pedidos-box .name{
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.pedidos .pedidos-box .btn{
+    display: flex;
+    float: right;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 35%;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 6px;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-right: 10%;
+    cursor: pointer;
+}
+

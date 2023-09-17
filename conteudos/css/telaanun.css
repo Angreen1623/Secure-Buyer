@@ -1,0 +1,98 @@
+/* Importar a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Definir a fonte personalizada 'lovelace' */
+@font-face {
+  font-family: 'lovelace';
+  src: url('font/lovelace.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Estilizar o cabeçalho */
+    /**fonte escrita:texto como surgimos**/
+    .p1{
+        display: inline-flex;
+        background-color: #E1D9CE;
+        border-radius: 35px;
+        padding: 20px 0;
+        width: 100%;
+      }
+
+    .nomedaloja{
+        line-height: 100px;
+        font-weight: bold;
+        text-align: left;
+        width: 100%;
+        padding: 15px;
+        font-size: 22px;
+       margin-left: 5px;
+       margin-right: 100px;
+    }
+
+    .descricao {
+        line-height: 40px;
+        font-weight: 20;
+        text-align: right;
+        padding: 15px;
+        font-size: 13px;
+        letter-spacing: 5px;
+        width: 100%;
+        float: left;
+        display: flex;
+        justify-content: flex-end;
+    }
+  .descmodelos1{
+    display: inline-block;
+    vertical-align: top; 
+    line-height: 45px;
+    font-weight: 20;
+    text-align: center;
+    word-spacing: normal;
+    word-wrap: break-word;
+  }
+  .preco1 {
+    display: inline-block;
+    color: black;
+    line-height: 50px;
+    font-weight: 500;
+    text-align: center;
+    font-family: 'lovelace', Arial, sans-serif;
+    font-size: 24px;
+  }
+  
+  
+    .imgmenor {
+        width: 150px;
+        height: 150px; 
+        margin-left: 50px;
+    }
+    .imgmodelo1 {
+      width: 300px;
+      height: 420px;
+    }
+
+.products-container{
+  display: flex;
+  justify-content: center;
+}
+
+.products .products-title{
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-left: 0;
+  color: black;
+  line-height: 50px;
+  font-weight: 500;
+  font-family: 'lovelace', Arial, sans-serif;
+  font-size: 24px;
+}
+
+.products .products-item{
+  display: inline-grid;
+  margin-right: 15px;
+}
+#event-description{
+  margin-right: 25px;
+  margin-left: 25px;
+}

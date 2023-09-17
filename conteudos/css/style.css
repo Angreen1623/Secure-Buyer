@@ -1,0 +1,342 @@
+body{
+    background-color: #F0F2EE;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.topbar{
+    display: inline-block;
+    width: 100%;
+    padding: 22px 65px;
+    border-bottom: 1px solid #e6e6e6;
+    float: left;
+}
+
+.topbar .left{
+    width: 20%;
+    float: left;
+}
+.topbar .logo{
+    float: left;
+    width: 60%;
+    text-align: center;
+}
+.topbar .right{
+    width: 20%;
+    float: left;
+    display: flex;
+    justify-content: flex-end;
+}
+.topbar .logo img{
+    width: 110px;
+    height: auto;
+}
+.topbar .right img{
+    width: 24px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 2px;
+}
+.topbar .left img{
+    width: 20px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 3px;
+}
+
+.topbar .left input{
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: #F0F2EE;
+}
+.topbar .left input:focus{
+    border-bottom: 1px solid #000;
+}
+.topbar .left input::placeholder{
+    color: #9b9b9b;
+    letter-spacing: 1px;
+}
+
+.topbar .right .group:first-child{
+    margin-right: 50px;
+}
+.topbar .right a{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #9b9b9b;
+    font-size: 14px;
+    letter-spacing: 4px;
+    line-height: 26px;
+}
+
+nav{
+    display: inline-block;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 25px 35px;
+}
+nav ul li a{
+    position: relative;
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.submenu{
+    position: absolute;
+    min-width: 250px;
+    background-color: #fff;
+    box-shadow: 0 5px 12px #ebebeb;
+    margin-top: 0;
+    margin-left: -15px;
+    
+    z-index: -99;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.submenu li{
+    display: block;
+    text-align: left;
+    margin: 15px;
+    padding: 0;
+}
+.submenu li a{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+nav ul li:hover .submenu{
+    z-index: 99;
+    opacity: 1;
+    margin-top: 25px;
+}
+
+nav ul li a:after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform ease 0.5s;
+}
+nav ul li a:hover:after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.banner{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner .img img{
+    height: 100%;
+    width: 100%;
+}
+
+.bag{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 100;
+    
+    background-color: #00000040;
+    display: none;
+}
+
+.open{
+    display: block!important;
+}
+
+.bag-sidebar{
+    position: relative;
+    top: 0;
+    float: right;
+    width: 600px;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.bag-sidebar .bag-title h4{
+    font-size: 28px;
+    font-weight: 500;
+    padding: 40px 30px 20px;
+    border-bottom: 1px solid #dbdbdb;
+}
+.bag-sidebar .bag-body{
+    padding: 30px 0;
+    background-color: #F0F2EE;
+    height: 100%;
+}
+.bag-sidebar .bag-item{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+.bag-sidebar .bag-item:last-child{
+    display: inline-block;
+    width: 100%;
+    padding: 0 30px;
+}
+.bag-sidebar .bag-item .img{
+    width: 121px;
+    float: left;
+}
+.bag-sidebar .bag-item .img img{
+    width: 100%;
+}
+.bag-sidebar .bag-item .text{
+    width: 70%;
+    height: 121px;
+    float: left;
+    padding: 10px 20px;
+    background-color: #E1D9CE;
+}
+.bag-sidebar .bag-item .bag-info h5{
+    font-size: 22px;
+    font-weight: 900;
+    display: block;
+    margin-bottom: -6px;
+}
+.bag-sidebar .bag-item .text h3{
+    font-size: 16px;
+    font-weight: lighter;
+    display: block;
+}
+.bag-sidebar .bag-item .bag-price h5{
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'lovelace', 'arial', 'comic sans';
+}
+.bag-sidebar .bag-item .text span{
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.bag-sidebar .bag-info{
+    border-bottom: 1px solid #000;
+}
+
+.bag-sidebar .text img{
+    width: 25px;
+}
+
+.bag-sidebar .right{
+    float: right;
+}
+
+.bag-buy{
+    background-color: #ffffff;
+    height: fit-content;
+    width: 100%;
+    padding: 20px 100px;
+    position: absolute;
+}
+
+.bag-buy .cupom{
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.bag-buy h4{
+    font-size: 18px;
+    font-weight: 900;
+}
+.bag-buy h3{
+    font-size: 18px;
+}
+
+.bag-buy img{
+    width: 25px;
+    margin-right: 10px;
+}
+
+.bag-buy .itens{
+    display:  flex;
+    margin-bottom: 10px;
+}
+
+.bag-buy .group{
+    display: inline-flex;
+}
+
+.bag-buy .left{
+    width: 65%;
+    float: left;
+}
+
+.bag-buy .right{
+    float: left;
+    display: flex;
+    justicontent: flex-end;
+}
+
+.bag-buy .bag-end{
+    width: 100%;
+    padding: 10px 10%;
+}
+
+.bag-buy .continue{
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.bag-sidebar .btn{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 50px;
+}
+.close-icon{
+    position: absolute;
+    right: 36.3rem;
+    top: 5.1rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    z-index: 101;
+
+    border-radius: 50%;
+    background-color: #000;
+}
+.close-icon img{
+    width: 60%;
+
+    margin: auto;
+    display: block;
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+@font-face{
+    font-family: Lovelace;
+    src: url(lovelace.ttf);
+	
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	outline: none;
+	box-sizing: border-box;
+	vertical-align: baseline;	
+  	font-family: 'Poppins',Arial, sans-serif;
+}

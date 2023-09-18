@@ -1,7 +1,9 @@
 .novidades{
-    position: relative;
     margin-left: 20px;
     margin-right: 20px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
 .novidades .title{

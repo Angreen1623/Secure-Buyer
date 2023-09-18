@@ -1,0 +1,204 @@
+.title{
+    text-align: 30px;
+    font-size: 50px;
+    margin-left: 40px;
+    font-family: 'lovelace';
+    text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151)
+}
+
+.subtitle1{
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: 90px;
+    font-family: 'poppins';
+}
+
+.subtitle2{
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: 10px;
+    font-family: 'poppins';
+}
+
+.subtitle3{
+    font-size: 20px;
+    font-family: 'poppins';
+    position: absolute;
+    left: 12%;
+    bottom: 37%;
+}
+
+.subtitle4{
+    font-size: 20px;
+    font-family: 'poppins';
+    width: 180px;
+    height: ;
+    position: absolute;
+    left: 51%;
+    bottom: 73%;
+}
+
+.subtitle5{
+    font-size: 20px;
+    font-family: 'poppins';
+    position: absolute;
+    left: 51%;
+    bottom: 45%;
+}
+
+input[type="text"]{
+    border-radius: 40px;
+    margin-left: 40px;
+    width: 700px;
+}
+
+.tbox1{
+    font-size: 20px;
+    margin-left: 40px;
+    border-radius: 1px;
+}
+
+.tbox2{
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: 100px;
+}
+
+.tbox3{
+    font-size: 20px;
+    margin-left: 40px;
+    border-radius: 1px;
+}
+
+.box{
+    height: 40px;
+}
+
+.box2{
+    height: 80px;
+}
+
+.box3{
+    height: 45px;
+    position: absolute;
+    left: 49%;
+    bottom: 40%;
+}
+
+.radius{
+    margin-left: 40px;
+}
+
+.rposit{
+    position: absolute;
+    left: 12%;
+    bottom: 25%;
+}
+
+input[type="radio"] {
+    transform: scale(1.5);
+    border: 0.1px solid black;
+}
+
+.label{
+    letter-spacing: 3px;
+    font-family: 'poppins';
+}
+
+.content {
+    align-self: center;
+    display: grid;
+}
+
+.vl{
+    border-left: 1px solid black;
+      height: 700px;
+      width: 1px;
+      position: absolute;
+      left: 50%;
+      margin-left: -3px;
+      margin-top: 200px;
+      top: 0;
+}
+
+.btn{
+    font-size: 25px;
+    font-family: 'poppins';
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.btn2{
+    font-size: 25px;
+    font-family: 'poppins';
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.button1{
+    display: inline-block;
+    background-color: rgb(0, 0, 0);
+    padding: 0px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    text-align: center;
+    height: 35px;
+    width: 120px;
+    margin-left: 950px;
+    position: absolute;
+    bottom: 35%;
+}
+
+.button2{
+    display: inline-block;
+    background-color: rgb(0, 0, 0);
+    padding: 0px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    text-align: center;
+    height: 35px;
+    width: 120px;
+    position: absolute;
+    bottom: 35%;
+    left: 60%;
+}
+
+.txt {
+    color: white;
+}
+
+.button a{
+    transition: all 0.3s ease 0s;
+}
+
+.tag{
+    font-size: 25px;
+    font-family: 'poppins';
+    margin-left: 20px;
+}
+
+.images{
+    height: 5px;
+    position: relative;
+    bottom: 86%;
+}
+
+.images .img1{
+    height: 200px;
+    position: absolute;
+    left: 51%;
+    top: 0;
+}
+
+.images .img2{
+    height: 200px;
+    position: absolute;
+    left: 64%;
+}
+
+.images .img3{
+    height: 200px;
+    position: absolute;
+    left: 77%;
+    top: 0;
+}

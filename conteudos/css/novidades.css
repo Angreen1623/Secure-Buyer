@@ -1,0 +1,60 @@
+.novidades{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.novidades .title{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.novidades .title h1{
+    font-size: 50px;
+    font-family: 'lovelace','arial','comic sans';
+    text-transform: uppercase;
+}
+
+.produtos .subtitle h2{
+    font-size: 40px;
+    font-family: 'lovelace','arial','comic sans';
+    margin-bottom: 30px;
+}
+
+.produtos-container{
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.produtos .produtos-item{
+    width: 100%;
+    display: grid;
+}
+
+.produtos .produtos-item .img{
+    width: 300px;
+    align-self: center;
+    display: contents;
+}
+.produtos .produtos-item .img img{
+    width: 100%;
+}
+
+.produtos .produtos-item .name{
+    text-align: center;
+    margin-top: 18px;
+}
+.produtos .produtos-item .name h3{
+    font-weight: lighter;
+    font-size: 16px;
+    text-wrap: wrap;
+}
+
+.produtos .produtos-item .preco{
+    text-align: center;
+}
+.produtos .produtos-item .preco p{
+    font-family: 'lovelace', 'arial', 'comic sans';
+    font-size: 24px;
+}

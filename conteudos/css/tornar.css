@@ -5,9 +5,9 @@
 
 .tornar-anunciante .image{
     position: absolute;    
-    width: 38%;
-    left: 0;
-    bottom: 0;
+    width: 40%;
+    left: -25px;
+    bottom: -10px;
 }
 .tornar-anunciante .image img{
     margin-left: 20px;

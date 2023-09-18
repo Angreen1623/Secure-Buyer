@@ -145,7 +145,6 @@
 }
 
 .pedidos .pedidos-box .btn{
-    display: flex;
     float: right;
     font-size: 16px;
     font-weight: lighter;

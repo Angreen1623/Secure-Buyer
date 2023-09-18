@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+@font-face {
+  font-family:'lovelace';
+  src: url(font/lovelace.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+/*--comando usado para a exibição da imagem na tela--*/
+.imagemformu
+{
+display: flex;
+justify-content: right;
+position: absolute;
+width: 100%;
+height: 650px;
+top: 150px;
+}
+
+/*--comandos de css usado para a fonte lovelace, neste caso o titulo que seria: "CRIE SUA CONTA"--*/
+aside h1{
+color:black;
+line-height: 50px;
+font-weight: 500;
+text-align: center;
+margin-left: 200px;
+max-width: 600px;
+font-size: 50px;
+font-family: 'lovelace',Arial, sans-serif;
+text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
+ }
+ .p1 {
+    display: inline-flex;
+    border-radius: 35px;
+    padding: 20px 0;
+    width: 100%;
+    position: relative; /* Adicione position: relative; */
+}
+
+.esquecisenha a {
+    color: black;
+    position: relative; /* Adicione position: relative; */
+    top: -20px; /* Mova o elemento para cima ajustando o valor de 'top' */
+}
+
+.naotemconta1 a, a {
+    color: black;
+    position: relative; /* Adicione position: relative; */
+    top: -20px; /* Mova o elemento para cima ajustando o valor de 'top' */
+    margin-left: 10px;
+
+}
+.naotemconta{
+    position: relative; /* Adicione position: relative; */
+    top: -20px; /* Mova o elemento para cima ajustando o valor de 'top' */
+    
+}
+
+
+/*--comandos dados para a exibição geometrica do formulario-*/
+form div
+{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/*--comandos dados para a exibição do formulario de acordo com o wf-*/
+.formularioentrar
+{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  position: absolute;
+  width: 100%px;
+  left: 80px;
+  top: 250px;
+  font-family: 'Poppins',Arial, sans-serif;
+}
+
+/*--comandos dados para o formulario em questões de tamanho/ usado para os outros em questoes de cor...-*/
+form input, textarea
+{
+  outline: unset;
+  padding: 10px;
+  width: 810px;
+  border:none;
+  border-radius: 36px;
+  background-color: rgb(255, 255, 255);
+}
+
+.buttons {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row-reverse;
+  }
+  
+  form input[type=submit],
+  form input[type=button] {
+    background-color: black;
+    color: white;
+    height: 45px;
+    width: 150px; 
+    margin-right: 10px;
+    margin-top: -70px;
+  }
+

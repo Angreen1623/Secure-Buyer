@@ -30,6 +30,7 @@
 .title h1{
     font-family: 'lovelace', 'arial', 'comic-sans';
     font-size: 30px;
+    text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
 }
 
 .subtitle{
@@ -160,5 +161,9 @@
     border-radius: 50px;
     margin-right: 10%;
     cursor: pointer;
+}
+
+.pedidos .pedidos-box .btn a{
+    color: #fff;
 }
 

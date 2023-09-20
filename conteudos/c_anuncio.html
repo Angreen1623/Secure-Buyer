@@ -76,165 +76,149 @@
         <div class="content">
             <div class="form-text">
                 <div class="form">
-                    <div class="text">
-                        <p>Título</p>
+                    <div class="vertical-group">
+                        <div class="text">
+                            <label class="subtitle">Título</label><br>
+                        </div>
+                        <input type="text">
                     </div>
-                    <div class="desc">
-                        <p>Descrição</p>
+                    <div class="vertical-group">
+                        <div class="text">
+                            <label class="subtitle">Descrição</label><br>
+                        </div>
+                        <input type="text" class="desc">
                     </div>
                 </div>
                 <div class="form2">
                     <div class="form-box">
                         <div class="quantidade">
-                            
+                            <p class="subtitle">Quantidade</p>
+                            <span class="btn menos">-</span>
+                            <span class="tag">1</span>
+                            <span class="btn mais">+</span>
                         </div>
                         <div class="sexo">
+                            <p class="subtitle">Sexo</p>
+                            <div class="radios">
 
+                                <div class="radio-item">
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male" class="label">MASCULINO</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female" class="label">FEMININO</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="female" name="gender" value="unissex">
+                                    <label for="unissex" class="label">UNISSEX</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-box">
-                        <div class="tipo-peca">
+                        <div class="tipo-peca"><p class="subtitle">Tipo de peça</p>
+                            <div class="radios">
+                                <div class="radio-item">
+                                <input type="radio" id="male" name="type" value="camisa">
+                                <label for="camisa" class="label">CAMISA</label><br>
+                                </div>
 
+                                <div class="radio-item">
+                                <input type="radio" id="female" name="type" value="blusa">
+                                <label for="blusa" class="label">BLUSA</label><br>
+                            </div>
+                                <div class="radio-item">
+                                <input type="radio" id="female" name="type" value="calçado">
+                                <label for="calçado" class="label">CALÇADO</label><br>
+                            </div>
+                                <div class="radio-item">
+                                <input type="radio" id="female" name="type" value="calça">
+                                <label for="calça" class="label">CALÇA</label><br>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-box">
+                        <p class="subtitle">Opções de tamanhos</p>
+                        <div class="tamanhos">
+                            <div class="checkboxes">
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="blusa">
+                                    <label for="blusa" class="label">12</label><br>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="calçado">
+                                    <label for="calçado" class="label">14</label><br>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="calça">
+                                    <label for="calça" class="label">16</label><br>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="calça">
+                                    <label for="calça" class="label">PP</label><br>
+                                </div>
+                            </div>
+                            <div class="checkboxes">
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="blusa">
+                                    <label for="blusa" class="label">P</label><br>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="calçado">
+                                    <label for="calçado" class="label">M</label><br>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="calça">
+                                    <label for="calça" class="label">G</label><br>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="checkbox" id="female" name="type" value="calça">
+                                    <label for="calça" class="label">GG</label><br>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="form-img">
                 <div class="vertical-group">
                     <div class="text">
-                        <p></p>
+                        <p class="subtitle">Fotos do produto</p>
                     </div>
                     <div class="images">
                         <div class="img">
-                            <img src="" alt="">
+                            <img src="../conteudos/img/modelo15.png" alt="rosto">
                         </div>
                         <div class="img">
-                            <img src="" alt="">
+                            <img src="../conteudos/img/modelo16.png" alt="corpo">
                         </div>
                         <div class="img">
-                            <img src="" alt="">
+                            <img src="../conteudos/img/modelo18.png" alt="produto">
                         </div>
                     </div>
                 </div>
-                <div class="vertical-group">
+                <div class="vertical-group-price">
                     <div class="text">
-                        <p></p>
+                        <label class="subtitle">Preço</label><br>
                     </div>
                     <input type="text">
                 </div>
-            </div>
-            <div class="vertical-group">
-                <div class="text">
-                    <p></p>
-                </div>
-            </div>
-            <div class="group">
-                <div class="btn">
-                    <span>Voltar</span>
-                </div>
-                <div class="btn">
-                    <span>Confirmar</span>
-                </div>
-
-            </div>
-        </div>
-
-            <form>
-                <div>
-
-                    <label class="tbox1">
-                        <label for="title">Título</label><br>
-                        <input type="text" placeholder="" class="box">
-                    </label>
-    
-                </div>
-                
-                <br>
-                <br>
-    
-                <div>
-    
-                    <label class="tbox2">
-                        <label for="male">Descrição</label><br>
-                        <input type="text" placeholder="" class="box2">
-                    </label>
-    
-                </div>
-            
-                
-    
-                <div>
-                    <p class="subtitle1">Quantidade</p>
-                    <tag class="btn">-</tag>
-                    <tag class="tag">1</tag>
-                    <tag class="btn2">+</tag>
-                </div>
-
-                <div>
-                    <p class="subtitle2">Sexo</p>
-
-                    <div class="radius">
-
-                        <input type="radio" id="male" name="gender" value="male">
-                        <label for="male" class="label">MASCULINO</label><br>
-
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female" class="label">FEMININO</label><br>
-                    
-                        <input type="radio" id="female" name="gender" value="unissex">
-                        <label for="unissex" class="label">UNISSEX</label><br>
+                <div class="group">
+                    <div class="btn">
+                        <span>Voltar</span>
                     </div>
-                    
-                </div>
-
-                <div>
-                    <p class="subtitle3">Tipo de peça</p>
-                    <div class="rposit">
-                        <input type="radio" id="male" name="gender" value="camisa">
-                        <label for="camisa" class="label">CAMISA</label><br>
-    
-                        <input type="radio" id="female" name="gender" value="blusa">
-                        <label for="blusa" class="label">BLUSA</label><br>
-                        
-                        <input type="radio" id="female" name="gender" value="calçado">
-                        <label for="calçado" class="label">CALÇADO</label><br>
-
-                        <input type="radio" id="female" name="gender" value="calça">
-                        <label for="calça" class="label">CALÇA</label><br>
+                    <div class="btn">
+                        <span>Confirmar</span>
                     </div>
-                    
+    
                 </div>
-
-                <div class="vl"></div>
-
-                <div>
-                    <p class="subtitle4">Fotos do produto</p>
-                </div>
-
-                <div class="images">
-                    <img src="../conteudos/img/modelo15.png" alt="rosto" class="img1">
-                    <img src="../conteudos/img/modelo16.png" alt="corpo" class="img2">
-                    <img src="../conteudos/img/modelo18.png" alt="produto" class="img3">
-                </div>
-
-                <div>
-
-                    <label class="tbox3">
-                        <label class="subtitle5">Preço</label><br>
-                        <input type="text" placeholder="" class="box3">
-                    </label>
-
-                </div>
-
-                <button class="button1"><p class="txt">Voltar</p></button>
-                <button class="button2"><p class="txt">Confirmar</p></button>
-                
-
-            </form>
+            </div>
             
-            
-            
-
         </div>
 
         <div class="bag open">

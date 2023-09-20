@@ -1,203 +1,123 @@
 .title{
-    text-align: 30px;
+    text-align: center;
     font-size: 50px;
     margin-left: 40px;
     font-family: 'lovelace';
     text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151)
 }
 
-.subtitle1{
+.content{
+    margin-left: 20px;
+}
+
+.content .form-text{
+    width: 60%;
+    padding: 10px;
+}
+
+.content .subtitle{
     font-size: 20px;
-    margin-left: 40px;
-    margin-top: 90px;
-    font-family: 'poppins';
+    margin-bottom: 10px;
 }
 
-.subtitle2{
-    font-size: 20px;
-    margin-left: 40px;
-    margin-top: 10px;
-    font-family: 'poppins';
+.content input{
+    width: 100%;
+    border-radius: 20px;
+    padding: 8px;
+    padding-left: 15px;
+    margin-bottom: 20px;
 }
 
-.subtitle3{
-    font-size: 20px;
-    font-family: 'poppins';
-    position: absolute;
-    left: 12%;
-    bottom: 37%;
-}
-
-.subtitle4{
-    font-size: 20px;
-    font-family: 'poppins';
-    width: 180px;
-    position: absolute;
-    left: 51%;
-    bottom: 73%;
-}
-
-.subtitle5{
-    font-size: 20px;
-    font-family: 'poppins';
-    position: absolute;
-    left: 51%;
-    bottom: 45%;
-}
-
-input[type="text"]{
-    border-radius: 40px;
-    margin-left: 40px;
-    width: 700px;
-}
-
-.tbox1{
-    font-size: 20px;
-    margin-left: 40px;
-    border-radius: 1px;
-}
-
-.tbox2{
-    font-size: 20px;
-    margin-left: 40px;
-    margin-top: 100px;
-}
-
-.tbox3{
-    font-size: 20px;
-    margin-left: 40px;
-    border-radius: 1px;
-}
-
-.box{
-    height: 40px;
-}
-
-.box2{
+.content .desc{
     height: 80px;
+    border-radius: 40px;
 }
 
-.box3{
-    height: 45px;
-    position: absolute;
-    left: 49%;
-    bottom: 40%;
+.form2{
+    display: flex;
 }
 
-.radius{
-    margin-left: 40px;
+.form2 .form-box{
+    margin-right: 15%;
 }
 
-.rposit{
-    position: absolute;
-    left: 12%;
-    bottom: 25%;
+.form2 .quantidade .btn{
+    margin: 0;
+}
+.form2 .quantidade .tag{
+    margin: 0;
 }
 
-input[type="radio"] {
+.form2 .quantidade .radios{
+    width: 100px;
+}
+
+.form2 .radios .radio-item{
+    display: flex;
+}
+
+.form2 .radio-item .label,
+.form2 .radio-item input{
+    display: flex;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+.form2 .radio-item .label{
+    margin-left: 10px;
+}
+
+.form2 .radio-item input{
     transform: scale(1.5);
-    border: 0.1px solid black;
 }
 
-.label{
-    letter-spacing: 3px;
-    font-family: 'poppins';
+.form2 .tamanhos{
+    display: inline-flex;
+}
+.form2 .tamanhos .checkboxes{
+    margin-right: 20px;
 }
 
-.content {
-    align-self: center;
-    display: grid;
+.form2 .checkboxes .radio-item{
+    display: flex;
 }
 
-.vl{
-    border-left: 1px solid black;
-      height: 700px;
-      width: 1px;
-      position: absolute;
-      left: 50%;
-      margin-left: -3px;
-      margin-top: 200px;
-      top: 0;
-}
-
-.btn{
-    font-size: 25px;
-    font-family: 'poppins';
-    margin-left: 40px;
-    cursor: pointer;
-}
-
-.btn2{
-    font-size: 25px;
-    font-family: 'poppins';
-    margin-left: 20px;
-    cursor: pointer;
-}
-
-.button1{
-    display: inline-block;
-    background-color: rgb(0, 0, 0);
-    padding: 0px 20px;
-    cursor: pointer;
-    border-radius: 50px;
-    text-align: center;
-    height: 35px;
-    width: 120px;
-    margin-left: 950px;
-    position: absolute;
-    bottom: 35%;
-}
-
-.button2{
-    display: inline-block;
-    background-color: rgb(0, 0, 0);
-    padding: 0px 20px;
-    cursor: pointer;
-    border-radius: 50px;
-    text-align: center;
-    height: 35px;
-    width: 120px;
-    position: absolute;
-    bottom: 35%;
-    left: 60%;
-}
-
-.txt {
-    color: white;
-}
-
-.button a{
-    transition: all 0.3s ease 0s;
-}
-
-.tag{
-    font-size: 25px;
-    font-family: 'poppins';
-    margin-left: 20px;
+.content .form-img{
+    width: 48%;
+    margin-left: 10px;
 }
 
 .images{
-    height: 5px;
-    position: relative;
-    bottom: 86%;
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 
-.images .img1{
-    height: 200px;
-    position: absolute;
-    left: 51%;
-    top: 0;
+.images .img{
+    width: 23%;
 }
 
-.images .img2{
-    height: 200px;
-    position: absolute;
-    left: 64%;
+.images img{
+    width: 100%;
 }
 
-.images .img3{
-    height: 200px;
-    position: absolute;
-    left: 77%;
-    top: 0;
+.form-img .group{
+    display: inline-flex;
+}
+
+.form-img .btn{
+    margin-right: 40px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: lighter;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }

@@ -154,7 +154,7 @@
         <form name="formul" onsubmit="return validaform()" method="post">
           <div>
             <label title="Digite seu email">E-mail</label>
-            <input type="text" name="email">
+            <input type="text" name="input_email">
           </div>
           <div>
             <label title="Digite uma mensagem para nós.">Senha</label>
@@ -166,15 +166,35 @@
           </p>   
         </div>       
         <div class="buttons">
-            <input type="submit" value="Enviar"> 
+            <input type="submit" value="Enviar" name="btnenviar"> 
             <input type="button" value="Voltar"> 
           </div>
           <p class="p1">
             <span class="naotemconta">Ainda não possui cadastro? </span>
-            <span class="naotemconta1"><a href="#"> Crie sua conta</a></span>
+            <span class="naotemconta1"><a href="criar-conta.html"> Crie sua conta</a></span>
           </p>            
         </form>
       </div>
+
+      <?php
+             extract($_POST, EXTR_OVERWRITE);
+             if(isset($btnenviar))
+              {
+                  include_once 'perfil.php';
+                  $per=new Perfil();
+                  $per->setTitulo($txt);
+                  $per->setCategoria($txtcate);
+                  $perfis = $per->listar();
+                
+                  foreach($perfis as $row){
+
+                    if($row['email'] == $input_email && $row['email'] == $input_email){
+
+                    }
+                    
+                  }
+              }
+      ?>
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>

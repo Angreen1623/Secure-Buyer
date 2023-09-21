@@ -54,7 +54,7 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.html">
+                        <a class="singin-btn" href="entrar.php">
                             <!-- foto do login -->
                             <img src="../conteudos/img/user.png" alt="Logar">
                         </a>
@@ -77,157 +77,284 @@
             </div>
             <!-- fim da barra superior -->
 
+        <!-- titulo da pagina -->
         <h1 class="title">CRIAR ANÚNCIO </h1>
 
+        <!-- conteúdo da página. Ah mas o titulo faz parte do conteúdo!!! ¯\_(ツ)_/¯ -->
         <div class="content">
+            <!-- o formulário -->
             <div class="form-text">
-                <div class="form">
+                <form action="">
+                    <!-- inputs de texto e os titulos deles -->
+                    <div class="form">
+                        <!-- Grupo de título + input -->
+                        <div class="vertical-group">
+                            <!-- titulo do input -->
+                            <div class="text">
+                                <label class="subtitle">Título</label><br>
+                            </div>
+                            <!-- input -->
+                            <input type="text">
+                        </div>
+                        <!-- fim do grupo -->
+
+                        <!-- Grupo de título + input -->
+                        <div class="vertical-group">
+                            <!-- titulo do input -->
+                            <div class="text">
+                                <label class="subtitle">Descrição</label><br>
+                            </div>
+                            <!-- input -->
+                            <input type="text" class="desc">
+                        </div>
+                        <!-- fim do grupo -->
+                    </div>
+                    <!-- fim dos formulários  -->
+
+                    <!-- segunda sessão de formulários, esses são os que ficam na horizontal -->
+                    <div class="form2">
+                        <!-- separei cada linha vertical em uma div diferente, div da primeira linha c/ quantidade e genero-->
+                        <div class="form-box">
+                            
+
+                            <!-- sexo -->
+                            <div class="sexo">
+                                <!-- titulo -->
+                                <p class="subtitle">Sexo</p>
+                                <!--  grupos de cada botão -->
+                                <div class="radios">
+                                    <!-- primeiro grupo, masculino -->
+                                    <div class="radio-item">
+                                        <!-- input -->
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <!-- titulo -->
+                                        <label for="male" class="label">MASCULINO</label>
+                                    </div>
+
+                                    <!-- primeiro grupo, feminino -->
+                                    <div class="radio-item">
+                                        <!-- input -->
+                                        <input type="radio" id="female" name="gender" value="female">
+                                        <!-- titulo -->
+                                        <label for="female" class="label">FEMININO</label>
+                                    </div>
+
+                                    <!-- primeiro grupo, unissex -->
+                                    <div class="radio-item">
+                                        <!-- input -->
+                                        <input type="radio" id="female" name="gender" value="unissex">
+                                        <!-- titulo -->
+                                        <label for="unissex" class="label">UNISSEX</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- div da segunda linha c/ tipo de roupa-->
+                        <div class="form-box">
+                            <!-- inputs com o tipo das peças -->
+                            <div class="tipo-peca">
+                                <!-- titulo -->
+                                <p class="subtitle">Tipo de peça</p>
+
+                                <!--  grupos de cada botão -->
+                                <div class="radios">
+                                    <!-- primeiro grupo, camisa -->
+                                    <div class="radio-item">
+                                        <input type="radio" id="male" name="type" value="camisa">
+                                        <label for="camisa" class="label">CAMISA</label><br>
+                                    </div>
+
+                                    <!-- segundo grupo, blusa -->
+                                    <div class="radio-item">
+                                        <input type="radio" id="female" name="type" value="blusa">
+                                        <label for="blusa" class="label">BLUSA</label><br>
+                                    </div>
+
+                                    <!-- terceiro grupo, calçado -->
+                                    <div class="radio-item">
+                                        <input type="radio" id="female" name="type" value="calçado">
+                                        <label for="calçado" class="label">CALÇADO</label><br>
+                                    </div>
+
+                                    <!-- quarto grupo, calça -->
+                                    <div class="radio-item">
+                                        <input type="radio" id="female" name="type" value="calça">
+                                        <label for="calça" class="label">CALÇA</label><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- div da terceira linha c/ opções de tamanho-->
+                        <div class="form-box">
+                            <!-- titulo -->
+                            <p class="subtitle">Opções de tamanhos</p>
+                            <!-- div para os botões e nome de cada opção -->
+                            <div class="tamanhos">
+                                <div class="checkboxes">
+                                    <!-- opção 12 -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="t12" class="checkbox">
+                                        <label for="t12" class="label">12</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-12" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                    <!-- opção 14 -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="t14">
+                                        <label for="t14" class="label">14</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-14" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                    <!-- opção 16 -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="t16">
+                                        <label for="t16" class="label">16</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-16" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                    <!-- opção PP -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="tpp">
+                                        <label for="tpp" class="label">PP</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-pp" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- segunda linha das opções -->
+                                <div class="checkboxes">
+                                    <!-- opção P -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="tp">
+                                        <label for="tp" class="label">P</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-p" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                    <!-- opção M -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="tm">
+                                        <label for="tm" class="label">M</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-m" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                    <!-- opção G -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="tg">
+                                        <label for="tg" class="label">G</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-g" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                    <!-- opção GG -->
+                                    <div class="radio-item">
+                                        <input type="checkbox" id="tamanhos" name="type" value="tgg">
+                                        <label for="tgg" class="label">GG</label>
+                                        <!-- quantidades -->
+                                        <div class="quantidade">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn menos">-</span>
+                                            <!-- número que aumenta e diminui -->
+                                            <input type="number" name="quantidade-gg" id="qnt" value="1" onchange="verTamanho()">
+                                            <!-- botão de menos -->
+                                            <span class="subtitle btn mais">+</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim do formulário de texto -->
+
+                    <!-- grupo das imagens, fotos e titulo -->
                     <div class="vertical-group">
                         <div class="text">
-                            <label class="subtitle">Título</label><br>
+                            <p class="subtitle">Fotos do produto</p>
+                        </div>
+
+                        <!-- as imagens -->
+                        <div class="images">
+                            <div class="img">
+                                <img src="../conteudos/img/modelo15.png" alt="rosto">
+                            </div>
+                            <div class="img">
+                                <img src="../conteudos/img/modelo16.png" alt="corpo">
+                            </div>
+                            <div class="img">
+                                <img src="../conteudos/img/modelo18.png" alt="produto">
+                            </div>
+                        </div>
+                        <!-- cabo imagem -->
+                    </div>
+                    <div class="vertical-group-price">
+                        <div class="text">
+                            <label class="subtitle">Preço</label><br>
                         </div>
                         <input type="text">
                     </div>
-                    <div class="vertical-group">
-                        <div class="text">
-                            <label class="subtitle">Descrição</label><br>
+                    <div class="buttons">
+                        <div class="btn">
+                            <span>Voltar</span>
                         </div>
-                        <input type="text" class="desc">
-                    </div>
-                </div>
-                <div class="form2">
-                    <div class="form-box">
-                        <div class="quantidade">
-                            <p class="subtitle">Quantidade</p>
-                            <span class="btn menos">-</span>
-                            <span class="tag">1</span>
-                            <span class="btn mais">+</span>
+                        <div class="btn">
+                            <span>Confirmar</span>
                         </div>
-                        <div class="sexo">
-                            <p class="subtitle">Sexo</p>
-                            <div class="radios">
-
-                                <div class="radio-item">
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <label for="male" class="label">MASCULINO</label>
-                                </div>
-
-                                <div class="radio-item">
-                                    <input type="radio" id="female" name="gender" value="female">
-                                    <label for="female" class="label">FEMININO</label>
-                                </div>
-
-                                <div class="radio-item">
-                                    <input type="radio" id="female" name="gender" value="unissex">
-                                    <label for="unissex" class="label">UNISSEX</label>
-                                </div>
-                            </div>
-                        </div>
+                    
                     </div>
-                    <div class="form-box">
-                        <div class="tipo-peca"><p class="subtitle">Tipo de peça</p>
-                            <div class="radios">
-                                <div class="radio-item">
-                                <input type="radio" id="male" name="type" value="camisa">
-                                <label for="camisa" class="label">CAMISA</label><br>
-                                </div>
-
-                                <div class="radio-item">
-                                <input type="radio" id="female" name="type" value="blusa">
-                                <label for="blusa" class="label">BLUSA</label><br>
-                            </div>
-                                <div class="radio-item">
-                                <input type="radio" id="female" name="type" value="calçado">
-                                <label for="calçado" class="label">CALÇADO</label><br>
-                            </div>
-                                <div class="radio-item">
-                                <input type="radio" id="female" name="type" value="calça">
-                                <label for="calça" class="label">CALÇA</label><br>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-box">
-                        <p class="subtitle">Opções de tamanhos</p>
-                        <div class="tamanhos">
-                            <div class="checkboxes">
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="blusa">
-                                    <label for="blusa" class="label">12</label><br>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="calçado">
-                                    <label for="calçado" class="label">14</label><br>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="calça">
-                                    <label for="calça" class="label">16</label><br>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="calça">
-                                    <label for="calça" class="label">PP</label><br>
-                                </div>
-                            </div>
-                            <div class="checkboxes">
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="blusa">
-                                    <label for="blusa" class="label">P</label><br>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="calçado">
-                                    <label for="calçado" class="label">M</label><br>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="calça">
-                                    <label for="calça" class="label">G</label><br>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="checkbox" id="female" name="type" value="calça">
-                                    <label for="calça" class="label">GG</label><br>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-img">
-                <div class="vertical-group">
-                    <div class="text">
-                        <p class="subtitle">Fotos do produto</p>
-                    </div>
-                    <div class="images">
-                        <div class="img">
-                            <img src="../conteudos/img/modelo15.png" alt="rosto">
-                        </div>
-                        <div class="img">
-                            <img src="../conteudos/img/modelo16.png" alt="corpo">
-                        </div>
-                        <div class="img">
-                            <img src="../conteudos/img/modelo18.png" alt="produto">
-                        </div>
-                    </div>
-                </div>
-                <div class="vertical-group-price">
-                    <div class="text">
-                        <label class="subtitle">Preço</label><br>
-                    </div>
-                    <input type="text">
-                </div>
-                <div class="group">
-                    <div class="btn">
-                        <span>Voltar</span>
-                    </div>
-                    <div class="btn">
-                        <span>Confirmar</span>
-                    </div>
-    
-                </div>
+                </form>
             </div>
             
         </div>
 
-        <div class="bag open">
+        <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>
             <div class="bag-sidebar">
                 <div class="bag-title">
@@ -305,4 +432,5 @@
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>
+<script src="../conteudos/js/c_anuncio.js"></script>
 </html>

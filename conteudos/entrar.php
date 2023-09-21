@@ -54,7 +54,7 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.html">
+                        <a class="singin-btn" href="entrar.php">
                             <!-- foto do login -->
                             <img src="../conteudos/img/user.png" alt="Logar">
                         </a>
@@ -76,7 +76,7 @@
 
             </div>
             <!-- fim da barra superior -->
-            
+
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>
             <div class="bag-sidebar">

@@ -6,14 +6,15 @@
   font-style: normal;
 }
 /*--comando usado para a exibição da imagem na tela--*/
-.imagemformu
-{
-display: flex;
-justify-content: right;
-position: absolute;
+.imagemformu{
+position: fixed;
+width: 40%;
+bottom: -10px;
+right: 0;
+}
+.imagemformu img{
 width: 100%;
-height: 650px;
-bottom  : 0;
+height: 100%;
 }
 
 /*--comandos de css usado para a fonte lovelace, neste caso o titulo que seria: "CRIE SUA CONTA"--*/
@@ -34,7 +35,7 @@ form div
 {
 display: flex;
 flex-direction: column;
-margin-bottom: 20px;
+margin-bottom: 10px;
 }
 
 /*--comandos dados para a exibição do formulario de acordo com o wf-*/

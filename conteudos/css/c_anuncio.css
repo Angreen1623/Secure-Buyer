@@ -8,6 +8,9 @@
 
 .content{
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content .form-text{
@@ -28,6 +31,44 @@
     margin-bottom: 20px;
 }
 
+.form2 .quantidade{
+    width: fit-content;
+    border-radius: 0;
+    padding: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-left: 10px;
+    text-align: center;
+    background-color: transparent;
+    display: flex;
+}
+
+.form2 .quantidade input{
+    width: 15px;
+    border-radius: 0;
+    padding: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: transparent;
+}
+.form2 .quantidade input::-webkit-outer-spin-button,
+.form2 .quantidade input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form2 .quantidade .btn{
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+}
+
+.form2 .quantidade .tag{
+    margin: 0;
+}
+
 .content .desc{
     height: 80px;
     border-radius: 40px;
@@ -35,21 +76,11 @@
 
 .form2{
     display: flex;
+    margin-bottom: 10px;
 }
 
 .form2 .form-box{
     margin-right: 15%;
-}
-
-.form2 .quantidade .btn{
-    margin: 0;
-}
-.form2 .quantidade .tag{
-    margin: 0;
-}
-
-.form2 .quantidade .radios{
-    width: 100px;
 }
 
 .form2 .radios .radio-item{
@@ -57,7 +88,8 @@
 }
 
 .form2 .radio-item .label,
-.form2 .radio-item input{
+.form2 .radio-item input[type=checkbox],
+.form2 .radio-item input[type=radio]{
     display: flex;
     width: fit-content;
     margin-bottom: 5px;
@@ -82,11 +114,6 @@
     display: flex;
 }
 
-.content .form-img{
-    width: 48%;
-    margin-left: 10px;
-}
-
 .images{
     display: inline-flex;
     justify-content: space-evenly;
@@ -97,15 +124,26 @@
     width: 23%;
 }
 
+.images .img .img-face{
+    background-image:url('../img/modelo15.png');
+    background-repeat:no-repeat;
+    background-position:left top;
+    background-size: 30%;
+}
+
 .images img{
     width: 100%;
 }
 
-.form-img .group{
+.vertical-group-price{
+    width: 200px;
+}
+
+.buttons{
     display: inline-flex;
 }
 
-.form-img .btn{
+.buttons .btn{
     margin-right: 40px;
     margin-top: 10px;
     font-size: 16px;

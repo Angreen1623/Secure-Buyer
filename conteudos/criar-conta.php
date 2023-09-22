@@ -60,7 +60,7 @@
                             echo 'entrar.php';
                         }?>">
                             <!-- foto do login -->
-                            <img src="conteudos/img/user.png" alt="Logar">
+                            <img src="../conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->
@@ -155,41 +155,43 @@
     </div>
     <!--INCIO "CRIE SUA CONTA"-->
     <!--titulo escrito "crie sua conta"-->
-    <aside>
-        <br><h1>CRIE SUA CONTA</h1>
-    </aside>
-    <!--inicio do formulário "crie sua conta"-->
-    <div class="formulariocriesuaconta">
-        <form name="formu" onsubmit="return criesuacon()" method="post">
-            <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
-            <div>
-                <label title="Digite seu nome">Nome</label>
-                <input type="text" name="nome" require>
-                </div> 
+    <div class="content">
+        <div class="title">
+            <h1>CRIE SUA CONTA</h1>
+        </div>
+        <!--inicio do formulário "crie sua conta"-->
+        <div class="formulariocriesuaconta">
+            <form name="formu" onsubmit="return criesuacon()" method="post">
+                <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
                 <div>
-                <label title="Digite seu sobrenome">Sobrenome</label>
-                <input type="text" name="sobrenome" require>
-            </div>
-            <div>
-                <!--nesta div o usuario ira digitar seu email-->
-                <label title="Digite seu email">E-mail</label>
-                <input type="text" name="email" require>
-            </div>
-            <div>
-                <!--nesta div o usuario ira digitar sua senha e ira confirmar a senha digitada-->
-                <label title="Digite sua senha">Senha</label>
-                <input type="password" id="senha" name="senha" require><!--comando usado para senha aparecer com privacidade-->
-            </div>
-            <div>
-                <label title="Confirme sua senha">Confirmar senha</label>
-                <input type="password" id="senha" name="confirmarsenha" require><!--comando usado para a confirmação de senha aparecer com privacidade-->
-            </div>
-            <div>
-                <input type="submit" value="Crie sua conta" name="btncadastro" require><!--botao criado para a criação de conta do usuario-->
-            </div>
-        </form>
-    </div>
+                    <label title="Digite seu nome">Nome</label>
+                    <input type="text" name="nome" require>
+                    </div> 
+                    <div>
+                    <label title="Digite seu sobrenome">Sobrenome</label>
+                    <input type="text" name="sobrenome" require>
+                </div>
+                <div>
+                    <!--nesta div o usuario ira digitar seu email-->
+                    <label title="Digite seu email">E-mail</label>
+                    <input type="text" name="email" require>
+                </div>
+                <div>
+                    <!--nesta div o usuario ira digitar sua senha e ira confirmar a senha digitada-->
+                    <label title="Digite sua senha">Senha</label>
+                    <input type="password" id="senha" name="senha" require><!--comando usado para senha aparecer com privacidade-->
+                </div>
+                <div>
+                    <label title="Confirme sua senha">Confirmar senha</label>
+                    <input type="password" id="senha" name="confirmarsenha" require><!--comando usado para a confirmação de senha aparecer com privacidade-->
+                </div>
+                <div>
+                    <input type="submit" value="Crie sua conta" name="btncadastro" require><!--botao criado para a criação de conta do usuario-->
+                </div>
+            </form>
+        </div>
     <!--fim do formulario "crie sua conta"-->
+    </div>
 
     <?php
         extract($_POST, EXTR_OVERWRITE);

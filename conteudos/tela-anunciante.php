@@ -59,7 +59,7 @@
                             echo 'entrar.php';
                         }?>">
                             <!-- foto do login -->
-                            <img src="conteudos/img/user.png" alt="Logar">
+                            <img src="../conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->

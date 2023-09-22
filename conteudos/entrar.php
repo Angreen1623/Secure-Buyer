@@ -54,9 +54,13 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.php">
+                        <a class="singin-btn" href="<?php extract($_POST, EXTR_OVERWRITE); if(isset($cod_perfil)){
+                            echo 'perfil.php';
+                        }else{ 
+                            echo 'entrar.php';
+                        }?>">
                             <!-- foto do login -->
-                            <img src="../conteudos/img/user.png" alt="Logar">
+                            <img src="conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->
@@ -178,7 +182,7 @@
           </div>
           <p class="p1">
             <span class="naotemconta">Ainda não possui cadastro? </span>
-            <span class="naotemconta1"><a href="criar-conta.html"> Crie sua conta</a></span>
+            <span class="naotemconta1"><a href="criar-conta.php"> Crie sua conta</a></span>
           </p>            
         </form>
       </div>

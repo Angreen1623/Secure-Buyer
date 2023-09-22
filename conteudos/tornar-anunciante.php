@@ -12,10 +12,11 @@
     <!--css-->
     <link rel="stylesheet" href="../conteudos/css/reset.css">
     <link rel="stylesheet" href="../conteudos/css/style.css">
-    <link rel="stylesheet" href="../conteudos/css/telaanun.css">
+    <link rel="stylesheet" href="../conteudos/css/tornar.css">
+    
 </head>
 <body>
-    <!--incio navbar-->
+
     <!-- Inicio da página -->
     <div class="wrapper">
         <!-- Inicio da navbar -->
@@ -53,9 +54,13 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.php">
+                        <a class="singin-btn" href="<?php extract($_POST, EXTR_OVERWRITE); if(isset($cod_perfil)){
+                            echo 'perfil.php';
+                        }else{ 
+                            echo 'entrar.php';
+                        }?>">
                             <!-- foto do login -->
-                            <img src="../conteudos/img/user.png" alt="Logar">
+                            <img src="conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->
@@ -75,7 +80,54 @@
 
             </div>
             <!-- fim da barra superior -->
-            
+
+        <div class="tornar-anunciante">
+            <div class="image">
+                <img src="img/modelo20.png" alt="">
+            </div>
+
+            <div class="form-container">
+                <div class="title">
+                    <h1>Tornar-se anunciante</h1>
+                </div>
+
+                <div class="form">
+                    <div class="text-form">
+                        <div class="vertical-group">
+                            <div class="label">
+                                <p>Nome da loja</p>
+                            </div>
+                            <input type="text" name="nome">
+                        </div>
+
+                        <div class="vertical-group">
+                            <div class="label">
+                                <p>CNPJ</p>
+                            </div>
+                            <input type="text" name="nome">
+                        </div>
+                        <div class="button">
+                            <div class="btn1">
+                                <span>Voltar</span>
+                            </div>
+                            <div class="btn2">
+                                <span>Confirmar mudanças</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="img-form">
+                        <div class="img">
+                            <img src="img/foto-perfil.png" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Adicionar foto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>
             <div class="bag-sidebar">
@@ -83,6 +135,7 @@
                     <h4>Meu carrinho</h4>
                 </div>
                 <div class="bag-body">
+
                     <div class="bag-item">
                         <div class="img">
                             <img src="../conteudos/img/modelo15.png" alt="">
@@ -99,6 +152,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="bag-item">
                         <div class="img">
                             <img src="../conteudos/img/modelo16.png" alt="">
@@ -115,12 +169,14 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="bag-buy">
 
                         <div class="group cupom">
                             <img src="../conteudos/img/cupom.png" alt="">
                             <h3>Adicionar cupom de desconto</h3>
                         </div>
+
                         <div class="itens">
                             <h4 class="left">Frete:</h4>
 
@@ -134,65 +190,18 @@
                             <h4 class="left">Total:</h4>
                             <h3 class="right">R$465,00</h3>
                         </div>
+
                         <div class="bag-end">
                             <span class="btn">Finalizar compra</span>
                         </div>
                         <span class="continue underline">Continuar comprando</span>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!--INICIO TELA ANUNCIANTE-->
-<!--informações sobre anunciante-->
-<header id="event-description">
     
-    <div class="p1"> 
-        <img src="../conteudos/img/modelo12.png" alt="Bella Benite" class="imgmenor">
-        <p class="nomedaloja">Glamour Global - Isabella Grenzel</p>
-        <p class="descricao">AVALIAÇÕES: 40 <br> PRODUTOS: 50 <br> ANUNCIANTE DESDE:  11/11/2023</p></div>
-    <div>
-
-    <div class="products">
-
-        <h1 class="products-title">TODOS OS PRODUTOS</h1>
-
-        <div class="products-container">
-
-            <div class="products-item">
-                <a href="produto.html">
-                <img src="../conteudos/img/modelo9.png" alt="MODELO 1 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Regata em viscose</p>
-                <p class="preco1">R$ 150,00</p>
-            </div>
-
-            <div class="products-item">
-                <a href="produto.html">
-                <img src="../conteudos/img/modelo10.png" alt="MODELO 2 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Cardigã em cashmere</p>
-                <p class="preco1">R$ 200,00</p>
-            </div>
-
-            <div class="products-item">
-                <a href="produto.html">
-                <img src="../conteudos/img/modelo11.png" alt="MODELO 3 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Sweater em intársia de cashmere</p>
-                <p class="preco1">R$ 210,00</p>
-            </div>
-
-            <div class="products-item">
-                <a href="produto.html">
-                <img src="../conteudos/img/modelo4.png" alt="MODELO 4 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Camiseta em algodão com cristais</p>
-                <p class="preco1">R$ 150,00</p>
-            </div>
-        </div>
-
-    </div>
-</header>
-
-<!--FINAL TELA ANUNCIANTE-->
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>

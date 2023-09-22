@@ -12,7 +12,7 @@
     <!--css-->
     <link rel="stylesheet" href="../conteudos/css/reset.css">
     <link rel="stylesheet" href="../conteudos/css/style.css">
-    <link rel="stylesheet" href="../conteudos/css/edt-anuncio.css">
+    <link rel="stylesheet" href="../conteudos/css/novidades.css">
     
 </head>
 <body>
@@ -54,9 +54,13 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.php">
+                        <a class="singin-btn" href="<?php extract($_POST, EXTR_OVERWRITE); if(isset($cod_perfil)){
+                            echo 'perfil.php';
+                        }else{ 
+                            echo 'entrar.php';
+                        }?>">
                             <!-- foto do login -->
-                            <img src="../conteudos/img/user.png" alt="Logar">
+                            <img src="conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->
@@ -77,54 +81,140 @@
             </div>
             <!-- fim da barra superior -->
 
-        <div class="editar-anuncio">
+        <div class="novidades">
+            <div class="title">
+                <h1>Novidades</h1>
+            </div>
+            <div class="produtos">
+                <div class="produtos-vetor">
+                    <div class="subtitle">
+                        <h2>Feminino</h2>
+                    </div>
 
-            <div class="form-container">
-                <div class="title">
-                    <h1>Editar Anúncio</h1>
+                    <div class="produtos-container">
+                        <div class="produtos-item">
+
+                            <div class="img"> 
+                                <a href="produto.html">
+                                    <img src="img/modelo1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="name">
+                                <h3>Vestido em cashmere e seda</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 250,00</p>
+                            </div>
+
+                        </div>
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/modelo2.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Jaqueta em denim</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 350,00</p>
+                            </div>
+
+                        </div>
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/modelo3.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Blusa em denim decorado</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 115,00</p>
+                            </div>
+
+                        </div>
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/4.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Camiseta em algodão com cristais</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 250,00</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="subtitle">
+                        <h2>Masculino</h2>
+                    </div>
+
+                    <div class="produtos-container">
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/modelo5.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Blazer em lã angorá com abotoamento central</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 180,00</p>
+                            </div>
+
+                        </div>
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/modelo6.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Jaqueta com abotoamento central em Re-Nylon</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 200,00</p>
+                            </div>
+
+                        </div>
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/modelo7.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Casaco em popeline técnica com abot. central</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 115,00</p>
+                            </div>
+
+                        </div>
+                        <div class="produtos-item">
+
+                            <div class="img">
+                                <a href="produto.html">
+                                <img src="img/modelo8.png" alt=""></a>
+                            </div>
+                            <div class="name">
+                                <h3>Sobretudo em mescla de algodão</h3>
+                            </div>
+                            <div class="preco">
+                                <p>R$ 225,00</p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form">
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Título</p>
-                        </div>
-                        <input type="text" name="nome">
-                    </div>
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Descrição</p>
-                        </div>
-                        <input type="text" name="nome" class="descricao">
-                    </div>
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Quantidade</p>
-                        </div>
-                        <span class="btn-qnt">-</span>
-                        <span>1</span>
-                        <span class="btn-qnt">+</span>
-                    </div>
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Aplicar promoção</p>
-                        </div>
-                        <input type="text" name="nome" placeholder="Valor do desconto">
-                    </div>
-                    <div class="button">
-                        <div class="btn">
-                            <span>Cancelar</span>
-                        </div>
-                        <div class="btn">
-                            <span>Confirmar mudanças</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="image">
-                    <img src="img/modelo21.png" alt="">
-                </div>
-
+                
             </div>
         </div>
 
@@ -204,5 +294,5 @@
     
 </body>
 <!--javascript-->
-<script src="../conteudos/js/script.js"></script>
+<script src="js/script.js"></script>
 </html>

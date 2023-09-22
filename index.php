@@ -27,7 +27,7 @@
                 <div class="left">
                     <label>
                         <!-- icone da lupa -->
-                        <img src="../conteudos/img/lupa.png" alt="">
+                        <img src="conteudos/img/lupa.png" alt="">
                         <!-- texto da lupa -->
                         <input type="search" placeholder="Pesquisar">
                     </label>
@@ -38,9 +38,9 @@
                 <div class="logo">
 
                     <!-- se vc clicar na logo volta para o index -->
-                    <a href="../index.html">
+                    <a href="index.html">
                         <!-- foto da logo -->
-                        <img src="../conteudos/img/logo-sb.png" alt="Icone">
+                        <img src="conteudos/img/logo-sb.png" alt="Icone">
                     </a>
 
                 </div>
@@ -53,9 +53,13 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.php">
+                        <a class="singin-btn" href="<?php extract($_POST, EXTR_OVERWRITE); if(isset($cod_perfil)){
+                            echo './conteudos/perfil.php';
+                        }else{ 
+                            echo './conteudos/entrar.php';
+                        }?>">
                             <!-- foto do login -->
-                            <img src="../conteudos/img/user.png" alt="Logar">
+                            <img src="conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->
@@ -65,7 +69,7 @@
                         <!-- se clicar no link abre o carrinho -->
                         <a id="bag-btn" class="bag-btn" href="#">
                             <!-- imagem da sacola -->
-                            <img src="../conteudos/img/bag.png" alt="Sacola">
+                            <img src="conteudos/img/bag.png" alt="Sacola">
                         </a>
                     </div>
                     <!-- fim do grupo -->

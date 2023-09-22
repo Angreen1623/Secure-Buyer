@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Buyer</title>
     <!--Logo-->
-    <link rel="apple-touch-icon" sizes="180x180" href="img/Icone/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/Icone/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/Icone/favicon-16x16.png">
-    <link rel="manifest" href="img/Icone/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../conteudos/img/Icone/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../conteudos/img/Icone/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../conteudos/img/Icone/favicon-16x16.png">
+    <link rel="manifest" href="../conteudos/img/Icone/site.webmanifest">
     <!--css-->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/criesuacon.css">
-
+    <link rel="stylesheet" href="../conteudos/css/reset.css">
+    <link rel="stylesheet" href="../conteudos/css/style.css">
+    <link rel="stylesheet" href="../conteudos/css/telaanun.css">
 </head>
 <body>
-
+    <!--incio navbar-->
     <!-- Inicio da página -->
     <div class="wrapper">
         <!-- Inicio da navbar -->
@@ -54,9 +53,13 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="entrar.php">
+                        <a class="singin-btn" href="<?php extract($_POST, EXTR_OVERWRITE); if(isset($cod_perfil)){
+                            echo 'perfil.php';
+                        }else{ 
+                            echo 'entrar.php';
+                        }?>">
                             <!-- foto do login -->
-                            <img src="../conteudos/img/user.png" alt="Logar">
+                            <img src="conteudos/img/user.png" alt="Logar">
                         </a>
                     </div>
                     <!-- fim do grupo do login -->
@@ -76,18 +79,17 @@
 
             </div>
             <!-- fim da barra superior -->
-
+            
         <div class="bag">
-            <span class="close-icon"><img src="img/close.png" alt="fechar"></span>
+            <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>
             <div class="bag-sidebar">
                 <div class="bag-title">
                     <h4>Meu carrinho</h4>
                 </div>
                 <div class="bag-body">
-
                     <div class="bag-item">
                         <div class="img">
-                            <img src="img/modelo15.png" alt="">
+                            <img src="../conteudos/img/modelo15.png" alt="">
                         </div>
                         <div class="text">
                             <div class="bag-info">
@@ -97,14 +99,13 @@
                             <h5 class="bag-price">R$350,00</h5>
                             <span>- 1 +</span>
                             <div class="right">
-                                <img src="img/del.png" alt="deletar">
+                                <img src="../conteudos/img/del.png" alt="deletar">
                             </div>
                         </div>
                     </div>
-
                     <div class="bag-item">
                         <div class="img">
-                            <img src="img/modelo16.png" alt="">
+                            <img src="../conteudos/img/modelo16.png" alt="">
                         </div>
                         <div class="text">
                             <div class="bag-info">
@@ -114,22 +115,21 @@
                             <h5 class="bag-price">R$115,00</h5>
                             <span>- 1 +</span>
                             <div class="right">
-                                <img src="img/del.png" alt="deletar">
+                                <img src="../conteudos/img/del.png" alt="deletar">
                             </div>
                         </div>
                     </div>
                     <div class="bag-buy">
 
                         <div class="group cupom">
-                            <img src="img/cupom.png" alt="">
+                            <img src="../conteudos/img/cupom.png" alt="">
                             <h3>Adicionar cupom de desconto</h3>
                         </div>
-
                         <div class="itens">
                             <h4 class="left">Frete:</h4>
 
                             <div class="group right">
-                                <img src="img/frete.png" alt="">
+                                <img src="../conteudos/img/frete.png" alt="">
                                 <h3 class="underline">Calcular</h3>
                             </div>
                         </div>
@@ -138,62 +138,66 @@
                             <h4 class="left">Total:</h4>
                             <h3 class="right">R$465,00</h3>
                         </div>
-
                         <div class="bag-end">
                             <span class="btn">Finalizar compra</span>
                         </div>
                         <span class="continue underline">Continuar comprando</span>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--INCIO "CRIE SUA CONTA"-->
-    <!--imagem do formulário-->
-    <div class="imagemformu">
-        <img src="img/modelo01.png">
-    </div>   
-    <!--titulo escrito "crie sua conta"-->
-    <aside>
-    <br><h1>CRIE SUA CONTA</h1>
-    </aside>
-    <!--inicio do formulário "crie sua conta"-->
-    <div class="formulariocriesuaconta">
-    <form name="formu" onsubmit="return criesuacon()" method="post">
-   
-
-     <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
+</section>
+<!--INICIO TELA ANUNCIANTE-->
+<!--informações sobre anunciante-->
+<header id="event-description">
+    
+    <div class="p1"> 
+        <img src="../conteudos/img/modelo12.png" alt="Bella Benite" class="imgmenor">
+        <p class="nomedaloja">Glamour Global - Isabella Grenzel</p>
+        <p class="descricao">AVALIAÇÕES: 40 <br> PRODUTOS: 50 <br> ANUNCIANTE DESDE:  11/11/2023</p></div>
     <div>
-        <label title="Digite seu nome">Nome</label>
-        <input type="text" name="nome"/>
-        <label title="Digite seu sobrenome">Sobrenome</label>
-        <input type="text" name="sobrenome"/>
+
+    <div class="products">
+
+        <h1 class="products-title">TODOS OS PRODUTOS</h1>
+
+        <div class="products-container">
+
+            <div class="products-item">
+                <a href="produto.html">
+                <img src="../conteudos/img/modelo9.png" alt="MODELO 1 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
+                <p class="descmodelos1">Regata em viscose</p>
+                <p class="preco1">R$ 150,00</p>
+            </div>
+
+            <div class="products-item">
+                <a href="produto.html">
+                <img src="../conteudos/img/modelo10.png" alt="MODELO 2 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
+                <p class="descmodelos1">Cardigã em cashmere</p>
+                <p class="preco1">R$ 200,00</p>
+            </div>
+
+            <div class="products-item">
+                <a href="produto.html">
+                <img src="../conteudos/img/modelo11.png" alt="MODELO 3 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
+                <p class="descmodelos1">Sweater em intársia de cashmere</p>
+                <p class="preco1">R$ 210,00</p>
+            </div>
+
+            <div class="products-item">
+                <a href="produto.html">
+                <img src="../conteudos/img/modelo4.png" alt="MODELO 4 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
+                <p class="descmodelos1">Camiseta em algodão com cristais</p>
+                <p class="preco1">R$ 150,00</p>
+            </div>
         </div>
-    <div>
-        <!--nesta div o usuario ira digitar seu email-->
-        <label title="Digite seu email">E-mail</label>
-        <input type="text" name="email">
-    </div>
-    <div>
-        <!--nesta div o usuario ira digitar sua senha e ira confirmar a senha digitada-->
-        <label title="Digite sua senha">Senha</label>
-        <input type="password" id="senha" name="senha"><!--comando usado para senha aparecer com privacidade-->
-        <label title="Confirme sua senha">Confirmar senha</label>
-        <input type="password" id="senha" name="confirmarsenha"><!--comando usado para a confirmação de senha aparecer com privacidade-->
-    </div>
-    <div>
-    <input type="submit" value="Crie sua conta"><!--botao criado para a criação de conta do usuario-->
-    </div>
-    </form>
-    </div>
-    <!--fim do formulario "crie sua conta"-->
 
+    </div>
+</header>
 
-
-
+<!--FINAL TELA ANUNCIANTE-->
 </body>
 <!--javascript-->
-<script src="js/script.js"></script>
-<script src="conteudos/js/criesuacon.js"></script>
+<script src="../conteudos/js/script.js"></script>
 </html>

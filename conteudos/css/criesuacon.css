@@ -6,12 +6,6 @@
   font-style: normal;
 }
 /*--comando usado para a exibição da imagem na tela--*/
-.imagemformu{
-position: fixed;
-width: 40%;
-bottom: -10px;
-right: 0;
-}
 .imagemformu img{
 width: 100%;
 height: 100%;

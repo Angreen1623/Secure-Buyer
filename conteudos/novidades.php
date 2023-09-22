@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
                 <div class="logo">
 
                     <!-- se vc clicar na logo volta para o index -->
-                    <a href="../index.html">
+                    <a href="../index.php">
                         <!-- foto da logo -->
                         <img src="../conteudos/img/logo-sb.png" alt="Icone">
                     </a>
@@ -95,7 +95,7 @@
                         <div class="produtos-item">
 
                             <div class="img"> 
-                                <a href="produto.html">
+                                <a href="produto.php">
                                     <img src="img/modelo1.png" alt="">
                                 </a>
                             </div>
@@ -110,7 +110,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/modelo2.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -124,7 +124,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/modelo3.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -138,7 +138,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/4.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -159,7 +159,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/modelo5.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -173,7 +173,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/modelo6.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -187,7 +187,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/modelo7.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -201,7 +201,7 @@
                         <div class="produtos-item">
 
                             <div class="img">
-                                <a href="produto.html">
+                                <a href="produto.php">
                                 <img src="img/modelo8.png" alt=""></a>
                             </div>
                             <div class="name">
@@ -295,4 +295,4 @@
 </body>
 <!--javascript-->
 <script src="js/script.js"></script>
-</html>
+</php>

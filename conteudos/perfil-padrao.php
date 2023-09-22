@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
                 <div class="logo">
 
                     <!-- se vc clicar na logo volta para o index -->
-                    <a href="../index.html">
+                    <a href="../index.php">
                         <!-- foto da logo -->
                         <img src="../conteudos/img/logo-sb.png" alt="Icone">
                     </a>
@@ -118,7 +118,7 @@
 
                 <div class="buttons">
                     <span class="att-btn">Atualizar dados</span>
-                    <a class="become-btn" href="tela-anunciante.html">Tornar-se anunciante</a>
+                    <a class="become-btn" href="tornar-anunciante.php">Tornar-se anunciante</a>
                 </div>
             </div>
 
@@ -268,4 +268,4 @@
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>
-</html>
+</php>

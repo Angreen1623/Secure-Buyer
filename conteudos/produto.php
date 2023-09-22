@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
                 <div class="logo">
 
                     <!-- se vc clicar na logo volta para o index -->
-                    <a href="../index.html">
+                    <a href="../index.php">
                         <!-- foto da logo -->
                         <img src="../conteudos/img/logo-sb.png" alt="Icone">
                     </a>
@@ -364,4 +364,4 @@
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>
 <script src="../conteudos/js/produto.js"></script>
-</html>
+</php>

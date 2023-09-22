@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +38,7 @@
                 <div class="logo">
 
                     <!-- se vc clicar na logo volta para o index -->
-                    <a href="../index.html">
+                    <a href="../index.php">
                         <!-- foto da logo -->
                         <img src="../conteudos/img/logo-sb.png" alt="Icone">
                     </a>
@@ -165,28 +165,28 @@
         <div class="products-container">
 
             <div class="products-item">
-                <a href="produto.html">
+                <a href="produto.php">
                 <img src="../conteudos/img/modelo9.png" alt="MODELO 1 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
                 <p class="descmodelos1">Regata em viscose</p>
                 <p class="preco1">R$ 150,00</p>
             </div>
 
             <div class="products-item">
-                <a href="produto.html">
+                <a href="produto.php">
                 <img src="../conteudos/img/modelo10.png" alt="MODELO 2 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
                 <p class="descmodelos1">Cardigã em cashmere</p>
                 <p class="preco1">R$ 200,00</p>
             </div>
 
             <div class="products-item">
-                <a href="produto.html">
+                <a href="produto.php">
                 <img src="../conteudos/img/modelo11.png" alt="MODELO 3 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
                 <p class="descmodelos1">Sweater em intársia de cashmere</p>
                 <p class="preco1">R$ 210,00</p>
             </div>
 
             <div class="products-item">
-                <a href="produto.html">
+                <a href="produto.php">
                 <img src="../conteudos/img/modelo4.png" alt="MODELO 4 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
                 <p class="descmodelos1">Camiseta em algodão com cristais</p>
                 <p class="preco1">R$ 150,00</p>
@@ -200,4 +200,4 @@
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>
-</html>
+</php>

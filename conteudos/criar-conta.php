@@ -209,7 +209,7 @@
                 $per->setsenha($senha);
                 $per->salvar();
 
-                $sqlresult = $per->listar();
+                $sqlresult = $per->obterid();
                 foreach ($sqlresult as $row) {
                     echo "<form method='post' name='cod' action='../index.php'><input type='hidden' name='cod_perfil' value='".$row['cod_perfil']."'>";
                     echo "<script language='JavaScript'>document.cod.submit();</script></form>";

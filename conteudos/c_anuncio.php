@@ -98,7 +98,7 @@
                                 <label class="subtitle">Título</label><br>
                             </div>
                             <!-- input -->
-                            <input type="text">
+                            <input type="text" name="nome">
                         </div>
                         <!-- fim do grupo -->
 
@@ -109,7 +109,7 @@
                                 <label class="subtitle">Descrição</label><br>
                             </div>
                             <!-- input -->
-                            <input type="text" class="desc">
+                            <input type="text" class="desc" name="descricao">
                         </div>
                         <!-- fim do grupo -->
                     </div>
@@ -130,7 +130,7 @@
                                     <!-- primeiro grupo, masculino -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="male" name="gender" value="male">
+                                        <input type="radio" id="gender" name="masculino" value="male">
                                         <!-- titulo -->
                                         <label for="male" class="label">MASCULINO</label>
                                     </div>
@@ -138,7 +138,7 @@
                                     <!-- primeiro grupo, feminino -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="female" name="gender" value="female">
+                                        <input type="radio" id="gender" name="femenino" value="female">
                                         <!-- titulo -->
                                         <label for="female" class="label">FEMININO</label>
                                     </div>
@@ -146,7 +146,7 @@
                                     <!-- primeiro grupo, unissex -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="female" name="gender" value="unissex">
+                                        <input type="radio" id="gender" name="unissex" value="unissex">
                                         <!-- titulo -->
                                         <label for="unissex" class="label">UNISSEX</label>
                                     </div>
@@ -165,25 +165,25 @@
                                 <div class="radios">
                                     <!-- primeiro grupo, camisa -->
                                     <div class="radio-item">
-                                        <input type="radio" id="male" name="type" value="camisa">
+                                        <input type="radio" id="peca" name="camisa" value="camisa">
                                         <label for="camisa" class="label">CAMISA</label><br>
                                     </div>
 
                                     <!-- segundo grupo, blusa -->
                                     <div class="radio-item">
-                                        <input type="radio" id="female" name="type" value="blusa">
+                                        <input type="radio" id="peca" name="blusa" value="blusa">
                                         <label for="blusa" class="label">BLUSA</label><br>
                                     </div>
 
                                     <!-- terceiro grupo, calçado -->
                                     <div class="radio-item">
-                                        <input type="radio" id="female" name="type" value="calçado">
+                                        <input type="radio" id="peca" name="calcado" value="calçado">
                                         <label for="calçado" class="label">CALÇADO</label><br>
                                     </div>
 
                                     <!-- quarto grupo, calça -->
                                     <div class="radio-item">
-                                        <input type="radio" id="female" name="type" value="calça">
+                                        <input type="radio" id="peca" name="calca" value="calça">
                                         <label for="calça" class="label">CALÇA</label><br>
                                     </div>
                                 </div>
@@ -199,56 +199,56 @@
                                 <div class="checkboxes">
                                     <!-- opção 12 -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="t12" class="checkbox">
+                                        <input type="checkbox" id="tamanhos[]" name="t12" value="t12" class="checkbox">
                                         <label for="t12" class="label">12</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-12" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_12" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
                                     </div>
                                     <!-- opção 14 -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="t14">
+                                        <input type="checkbox" id="tamanhos[]" name="t14" name="type" value="t14">
                                         <label for="t14" class="label">14</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-14" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_14" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
                                     </div>
                                     <!-- opção 16 -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="t16">
+                                        <input type="checkbox" id="tamanhos[]" name="t16" name="type" value="t16">
                                         <label for="t16" class="label">16</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-16" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_16" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
                                     </div>
                                     <!-- opção PP -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="tpp">
+                                        <input type="checkbox" id="tamanhos[]" name="tpp" name="type" value="tpp">
                                         <label for="tpp" class="label">PP</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-pp" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_pp" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
@@ -258,56 +258,56 @@
                                 <div class="checkboxes">
                                     <!-- opção P -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="tp">
+                                        <input type="checkbox" id="tamanhos[]" name="tp" name="type" value="tp">
                                         <label for="tp" class="label">P</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-p" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_p" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
                                     </div>
                                     <!-- opção M -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="tm">
+                                        <input type="checkbox" id="tamanhos[]" name="tm" name="type" value="tm">
                                         <label for="tm" class="label">M</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-m" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_m" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
                                     </div>
                                     <!-- opção G -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="tg">
+                                        <input type="checkbox" id="tamanhos[]" name="tg" name="type" value="tg">
                                         <label for="tg" class="label">G</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-g" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_g" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
                                     </div>
                                     <!-- opção GG -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos" name="type" value="tgg">
+                                        <input type="checkbox" id="tamanhos[]" name="tgg" name="type" value="tgg">
                                         <label for="tgg" class="label">GG</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn menos">-</span>
                                             <!-- número que aumenta e diminui -->
-                                            <input type="number" name="quantidade-gg" id="qnt" value="1" onchange="verTamanho()">
+                                            <input type="number" name="quantidade_gg" id="qnt" value="1" onchange="verTamanho()">
                                             <!-- botão de menos -->
                                             <span class="subtitle btn mais">+</span>
                                         </div>
@@ -342,14 +342,14 @@
                         <div class="text">
                             <label class="subtitle">Preço</label><br>
                         </div>
-                        <input type="text">
+                        <input type="text" name="preco">
                     </div>
                     <div class="buttons">
                         <div class="btn">
                             <span>Voltar</span>
                         </div>
                         <div class="btn">
-                            <span>Confirmar</span>
+                            <input type="button" value="Confirmar" name="btnconfirmar">
                         </div>
                     
                     </div>
@@ -357,6 +357,56 @@
             </div>
             
         </div>
+
+        <?php
+            extract($_POST, EXTR_OVERWRITE);
+            if(isset($btnconfirmar)){
+                include_once 'php-conexao-modelagem/produto.php';
+                $prod = new Produto();
+
+                $prod->setcod_perfil($cod_perfil);
+                $prod->settitulo_produto($nome);
+                $prod->setdescricao_produto($descricao);
+                $prod->settipo_peca($peca);
+                // $prod->setimagem_produto($);
+                $prod->setpreco_produto($preco);
+                $prod->setsexo($gender);
+                $prod->salvar();
+                $prod_cod = $prod->obterid();
+
+                include_once 'php-conexao-modelagem/tamanho.php';
+                $tam = new Tamanho();
+
+                $tam->setcod_produto($prod_cod);
+                foreach($tamanhos as $tamanho){
+                    if($tamanho = "t12"){
+                        $tam->setsize(12);
+                        $tam->setquant_tamanho($quantidade_12);
+                    }elseif($tamanho = "t14"){
+                        $tam->setsize(14);
+                        $tam->setquant_tamanho($quantidade_14);
+                    }elseif($tamanho = "t16"){
+                        $tam->setsize(16);
+                        $tam->setquant_tamanho($quantidade_16);
+                    }elseif($tamanho = "tpp"){
+                        $tam->setsize("PP");
+                        $tam->setquant_tamanho($quantidade_pp);
+                    }elseif($tamanho = "tp"){
+                        $tam->setsize("P");
+                        $tam->setquant_tamanho($quantidade_p);
+                    }elseif($tamanho = "tm"){
+                        $tam->setsize("m");
+                        $tam->setquant_tamanho($quantidade_m);
+                    }elseif($tamanho = "tg"){
+                        $tam->setsize("G");
+                        $tam->setquant_tamanho($quantidade_G);
+                    }elseif($tamanho = "tgg"){
+                        $tam->setsize("GG");
+                        $tam->setquant_tamanho($quantidade_GG);
+                    }
+                }
+            }
+        ?>
 
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>

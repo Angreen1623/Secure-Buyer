@@ -81,14 +81,6 @@ class Produto
     public function setsexo($sex) {
     $this->sex= $sex;
         }
-
-    public function getcod_perfil() {
-       return $this->cod_perfil; 
-      }
-        
-     public function setcod_perfil($codperfil) {
-     $this->cod_perfil= $codperfil;
-    }        
     //parte 3 - métodos
 
 function salvar()
@@ -172,6 +164,27 @@ function salvar()
            echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
        }
    } 
+   function obterid(){
+    try
+    {
+        $this->conn = new Conectar();
+        $sql = $this->conn->prepare("Select * from produto where titulo_produto like ? and descricao_produto like ? and tipo_peca like ? and imagem_produto like ? and preco_produto like ? and sexo like ? and cod_perfil like ?"); // informei o ?
+        @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
+        @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
+        @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);
+        @$sql->bindParam(4, $this->getimagem_produto(), PDO::PARAM_STR);
+        @$sql->bindParam(5, $this->getpreco_produto(), PDO::PARAM_STR);
+        @$sql->bindParam(6, $this->getsexo(), PDO::PARAM_STR);
+        @$sql->bindParam(7, $this->getcod_perfil(), PDO::PARAM_STR);
+        $sql->execute();
+        return $sql->fetchAll();
+        $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
+    }
+} 
 
 } //encerramento da classe produto 
 ?>

@@ -193,14 +193,14 @@
               {
                   include_once 'perfil.php';
                   $per=new Perfil();
-                  $per->setTitulo($txt);
-                  $per->setCategoria($txtcate);
+                  $per->setemail($input_email);
+                  $per->setsenha($senha);
                   $perfis = $per->listar();
                 
                   foreach($perfis as $row){
 
-                    if($row['email'] == $input_email && $row['email'] == $input_email){
-
+                    if($row['email'] == $input_email && $row['senha'] == $senha){
+                        
                     }
                     
                   }

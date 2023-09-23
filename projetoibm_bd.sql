@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Set-2023 às 18:51
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Tempo de geração: 24/09/2023 às 01:26
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,12 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `projetoibm_bd`
 --
-create DATABASE `projetoibm_bd`;
-use `projetoibm_bd`;
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `perfil`
+-- Estrutura para tabela `conexao`
+--
+
+CREATE TABLE `conexao` (
+  `endereco_ip` varchar(15) NOT NULL,
+  `cod_perfil` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `conexao`
+--
+
+INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
+('::1', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -37,12 +54,19 @@ CREATE TABLE `perfil` (
   `cnpj` varchar(18) DEFAULT NULL COMMENT 'xx.xxx.xxx/yyyy-zz',
   `imagem` varchar(500) DEFAULT NULL,
   `cod_perfil` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `perfil`
+--
+
+INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`) VALUES
+('Andre', 'Oliveira Paim', 'Email@teste', '123', NULL, NULL, NULL, 20);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Estrutura para tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -54,45 +78,45 @@ CREATE TABLE `produto` (
   `preco_produto` float NOT NULL,
   `sexo` varchar(8) NOT NULL,
   `cod_perfil` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tamanho`
+-- Estrutura para tabela `tamanho`
 --
 
 CREATE TABLE `tamanho` (
   `cod_produto` int(11) NOT NULL,
   `size` varchar(3) NOT NULL,
   `quant_tamanho` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `perfil`
+-- Índices de tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`cod_perfil`);
 
 --
--- Índices para tabela `produto`
+-- Índices de tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `produto`

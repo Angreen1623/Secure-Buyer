@@ -210,9 +210,32 @@
                 $per->salvar();
 
                 $sqlresult = $per->obterid();
+                
+                if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
+                    $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                    $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                }else{
+                    $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                }
+
+                echo $ip_maquina;
+
                 foreach ($sqlresult as $row) {
-                    echo "<form method='post' name='cod' action='../index.php'><input type='hidden' name='cod_perfil' value='".$row['cod_perfil']."'>";
-                    echo "<script language='JavaScript'>document.cod.submit();</script></form>";
+                    include_once 'php-conexao-modelagem/conexao.php';
+                    $ip = new Conexao();
+                    $ip->setendereco_ip($ip_maquina);
+                    $ip->setcod_perfil($row['cod_perfil']);
+
+                    $ips = $ip->listar();
+                    foreach($ips as $row2){
+                        if($ip_maquina = $row2['endereco_ip']){
+                            $ip->alterar();
+                            echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                        }
+                    }
+                    $ip->salvar();
+                    echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
                 }
             }
         }

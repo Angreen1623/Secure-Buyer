@@ -118,30 +118,80 @@
                     </div>
                 </div>
 
+        <!--inicio do php para preencher os campos-->
+
+
+        <?php
+        include_once 'php-conexao-modelagem/perfil.php';
+        $perfil = new Perfil();
+        $perfil->setcod_perfil($codper);
+        $dadosPerfil = $perfil->alterar();
+        ?>
+        <form action="" method="POST">
+        <?php
+        foreach ($dadosPerfil as $mostrar_dados) {
+        
+        ?>
                 <div class="dados">
                     <div class="dados-item">
                         <h3>Nome</h3>
-                        <input type="text" value="" name="nome">
+                        <input type="text" value='<?php echo $mostrar_dados[0]?>' name="nome" required>
                     </div>
                     <div class="dados-item">
                         <h3>Sobrenome</h3>
-                        <input type="text" value="" name="email">
+                        <input type="text" value='<?php echo $mostrar_dados[1]?>'  name="sobrenome" required>
                     </div>
                     <div class="dados-item">
                         <h3>Email</h3>
-                        <input type="text" value="" name="email">
+                        <input type="text" value='<?php echo $mostrar_dados[2]?>'  name="email" required>
                     </div>
                     <div class="dados-item">
-                        <h3>Alterar senha</h3>
-                        <input type="text" value="" name="nova-senha">
+                        <h3>Nova senha</h3>
+                        <input type="password" value=""  name="nova_senha">
+                    </div>
+                    <div class="dados-item">
+                        <h3>Confirmar nova senha</h3>
+                        <input type="password" value="" name="confirmar_senha">
+                    </div>
+                    <div class="dados-item">
+                        <input type="hidden" value='<?php echo $pro_mostrar[4]?>' name="cod_perfil">
                     </div>
                 </div>
 
                 <div class="buttons">
-                    <span class="att-btn">Atualizar dados</span>
+                    <input name = "btnalterar" type="submit" value="Alterar">
                     <a class="become-btn" href="tornar-anunciante.php">Tornar-se anunciante</a>
                 </div>
-            </div>
+              </div>
+            </form>
+            <?php
+             }
+             ?>
+        <?php
+        extract($_POST, EXTR_OVERWRITE);
+        if (isset($btnalterar)) {
+        $senha_nova = isset($nova_senha) ? $nova_senha : "";
+        $confirmar_senha = isset($confirmar_senha) ? $confirmar_senha : "";
+
+        if ($senha_nova == $confirmar_senha) {
+        $senha = $senha_nova;
+        } else {
+        echo "<br><br><h3>As senhas não coincidem.</h3>";
+        return;
+        }
+
+        $perfil = new Perfil();
+        $perfil->setnome($nome);  
+        $perfil->setsobrenome($sobrenome); 
+        $perfil->setemail($email);
+        $perfil->setsenha($senha);
+        $perfil->setcod_perfil($codper);
+        echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
+        echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+        }
+        ?>
+          <!--fim do php para preencher os campos e alterar-->
+            
 
             <div class="pedidos">
                 <div class="pedidos-box">

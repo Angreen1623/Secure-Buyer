@@ -185,5 +185,59 @@ function obterid()
 
 }
 
+function alterar()
+{
+  try
+  {
+    $this->conn = new Conectar();
+    $sql = $this->conn->prepare("select * from perfil where cod_perfil = ?"); //informe o ? (parametro)
+    @$sql-> bindParam(1,$this->getcod_perfil(), PDO::PARAM_STR);
+    $sql->execute();
+    return $sql->fetchAll();
+    $this->conn = null;
+  }
+  catch(PDOException $exc)
+  {
+    echo "Erro ao alterar. " . $exc->getMessage();
+  }
+}
+
+
+function alterar2()
+{
+  try
+  {
+    $this->conn = new Conectar();
+     // Verifica se uma senha foi fornecida
+     if (!empty($this->getsenha())) {
+      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ?, senha = ? where cod_perfil = ?");
+      @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
+      @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
+      @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);
+      @$sql-> bindParam(4, $this->getsenha(), PDO::PARAM_STR);
+      @$sql-> bindParam(5, $this->getcod_perfil(), PDO::PARAM_STR);
+      }
+      else {
+      // Se nenhuma senha foi fornecida, atualizar apenas nome, sobrenome e email
+      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ? where cod_perfil = ?");
+      @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
+      @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
+      @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);
+      @$sql-> bindParam(4, $this->getcod_perfil(), PDO::PARAM_STR);
+      }
+
+      if ($sql->execute() == 1)
+      {
+        return;
+      }  
+        
+      $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "Erro ao salvar o registro. " . $exc->getMessage();
+    }
+}
+
 }//encerramento da classe produto
 ?>

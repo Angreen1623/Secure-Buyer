@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/09/2023 às 01:26
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 24-Set-2023 às 20:01
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,11 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `projetoibm_bd`
 --
-
+create DATABASE `projetoibm_bd`;
+use `projetoibm_bd`;
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `conexao`
+-- Estrutura da tabela `conexao`
 --
 
 CREATE TABLE `conexao` (
@@ -33,16 +34,16 @@ CREATE TABLE `conexao` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `conexao`
+-- Extraindo dados da tabela `conexao`
 --
 
 INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
-('::1', 20);
+('::1', 22);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `perfil`
+-- Estrutura da tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -57,16 +58,16 @@ CREATE TABLE `perfil` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `perfil`
+-- Extraindo dados da tabela `perfil`
 --
 
 INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`) VALUES
-('Andre', 'Oliveira Paim', 'Email@teste', '123', NULL, NULL, NULL, 20);
+('Ednaldo', 'Pereira', 'ednaldo@gmail.com', 'banido123', NULL, NULL, NULL, 22);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produto`
+-- Estrutura da tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -83,7 +84,7 @@ CREATE TABLE `produto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tamanho`
+-- Estrutura da tabela `tamanho`
 --
 
 CREATE TABLE `tamanho` (
@@ -97,26 +98,26 @@ CREATE TABLE `tamanho` (
 --
 
 --
--- Índices de tabela `perfil`
+-- Índices para tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`cod_perfil`);
 
 --
--- Índices de tabela `produto`
+-- Índices para tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `produto`

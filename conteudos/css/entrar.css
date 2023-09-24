@@ -34,29 +34,19 @@ text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
  }
  .p1 {
     display: inline-flex;
-    border-radius: 35px;
-    padding: 20px 0;
     width: 100%;
     position: relative; /* Adicione position: relative; */
 }
 
 .esquecisenha a {
     color: black;
-    position: relative; /* Adicione position: relative; */
-    top: -20px; /* Mova o elemento para cima ajustando o valor de 'top' */
 }
 
 .naotemconta1 a, a {
     color: black;
     position: relative; /* Adicione position: relative; */
-    top: -20px; /* Mova o elemento para cima ajustando o valor de 'top' */
     margin-left: 10px;
 
-}
-.naotemconta{
-    position: relative; /* Adicione position: relative; */
-    top: -20px; /* Mova o elemento para cima ajustando o valor de 'top' */
-    
 }
 
 
@@ -71,13 +61,8 @@ form div
 /*--comandos dados para a exibição do formulario de acordo com o wf-*/
 .formularioentrar
 {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  position: absolute;
-  width: 100%px;
-  left: 80px;
-  top: 250px;
+  width: 100%;
+  margin-left: 20px;
   font-family: 'Poppins',Arial, sans-serif;
 }
 
@@ -106,6 +91,6 @@ form input, textarea
     height: 45px;
     width: 150px; 
     margin-right: 10px;
-    margin-top: -70px;
+    cursor: pointer;
   }
 

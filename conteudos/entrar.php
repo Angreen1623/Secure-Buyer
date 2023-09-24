@@ -186,27 +186,27 @@
         <form name="formul" onsubmit="return validaform()" method="post">
           <div>
             <label title="Digite seu email">E-mail</label>
-            <input type="text" name="input_email">
+            <input type="text" name="input_email" require>
           </div>
           <div>
             <label title="Digite uma mensagem para nós.">Senha</label>
-            <input type="password" name="senha">
+            <input type="password" name="senha" require>
           </div>
           <div>
-          <p class="p1">
-            <span class="esquecisenha"><a href="#">Esqueci a senha</a></span>
-          </p>   
-        </div>       
-        <div class="buttons">
-            <input type="submit" value="Enviar" name="btnenviar"> 
-            <input type="button" value="Voltar"> 
-          </div>
-          <p class="p1">
-            <span class="naotemconta">Ainda não possui cadastro? </span>
-            <span class="naotemconta1"><a href="criar-conta.php"> Crie sua conta</a></span>
-          </p>            
+            <p class="p1">
+                <span class="esquecisenha"><a href="#">Esqueci a senha</a></span>
+            </p>   
+            </div>       
+            <div class="buttons">
+                <input type="submit" value="Enviar" name="btnenviar">
+                <input type="button" value="Voltar">
+            </div>
+            <p class="p1">
+                <span class="naotemconta">Ainda não possui cadastro? </span>
+                <span class="naotemconta1"><a href="criar-conta.php"> Crie sua conta</a></span>
+            </p>            
         </form>
-      </div>
+    </div>
 
       <?php
              extract($_POST, EXTR_OVERWRITE);
@@ -222,6 +222,39 @@
 
                     if($row['email'] == $input_email && $row['senha'] == $senha){
 
+                        $per->setemail($email);
+                        $per->setsenha($senha);
+                        $per->obterid();
+
+                        $sqlresult = $per->obterid();
+                
+                        if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
+                            $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                            $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                        }else{
+                            $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                        }
+
+                        foreach ($sqlresult as $row) {
+                            include_once 'php-conexao-modelagem/conexao.php';
+                            $ip = new Conexao();
+                            $ip->setendereco_ip($ip_maquina);
+                            $ip->setcod_perfil($row['cod_perfil']);
+
+                            $ips = $ip->listar();
+                            foreach($ips as $row2){
+                                if($ip_maquina = $row2['endereco_ip']){
+                                    $ip->alterar();
+                                    echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                                }
+                            }
+                            $ip->salvar();
+                            echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                        }
+
+                    }else{
+                        echo "<script language='JavaScript'>alert('Email ou senha incorretos');</script>";
                     }
                     
                   }

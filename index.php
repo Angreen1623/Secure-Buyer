@@ -53,11 +53,33 @@
                     <!-- grupo do login -->
                     <div class="group">
                         <!-- se clicar no link vai para criar conta -->
-                        <a class="singin-btn" href="<?php extract($_POST, EXTR_OVERWRITE); if(isset($cod_perfil)){
-                            echo './conteudos/perfil.php';
+                        <a class="singin-btn" href="<?php
+                            include_once './conteudos/php-conexao-modelagem/conexao.php';
+                            $ip = new Conexao();
+
+                            if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
+                                $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                            }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                                $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                            }else{
+                                $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                            }
+                            $ip->setendereco_ip($ip_maquina);
+                    
+                            $ips = $ip->listar();
+                    
+                            foreach($ips as $row){
+                                if($ip_maquina = $row['endereco_ip']){
+                                    $codper = $row['cod_perfil'];
+                                }
+                            }
+                        
+                        if(isset($codper)){
+                            echo './conteudos/perfil-padrao.php';
                         }else{ 
                             echo './conteudos/entrar.php';
                         }?>">
+                        
                             <!-- foto do login -->
                             <img src="conteudos/img/user.png" alt="Logar">
                         </a>

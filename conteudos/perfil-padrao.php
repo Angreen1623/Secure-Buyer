@@ -160,7 +160,47 @@
 
                 <div class="buttons">
                     <input name = "btnalterar" type="submit" value="Alterar">
-                    <a class="become-btn" href="tornar-anunciante.php">Tornar-se anunciante</a>
+                    <?php
+
+                        include_once 'php-conexao-modelagem/conexao.php';
+                        $ip = new Conexao();
+                        $perfil = new Perfil();
+                        $loja = false;
+
+                        if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
+                            $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                            $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                        }else{
+                            $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                        }
+                        $ip->setendereco_ip($ip_maquina);
+                    
+                        $ips = $ip->listar();
+                    
+                        foreach($ips as $row){
+                            if($ip_maquina = $row['endereco_ip']){
+                                $codper = $row['cod_perfil'];
+                            }
+                        }
+
+                        $perfil->setcod_perfil($codper);
+
+                        $perfis = $perfil->consultar();
+
+                        foreach($perfis as $row){
+                            if($row['cnpj'] != NULL){
+                                $loja = true;
+                            }
+                        }
+
+                        if($loja == true){
+                            echo "<a class='become-btn' href='tela-anunciante.php'>Perfil da loja</a>";
+                        }else{
+                            echo "<a class='become-btn' href='tornar-anunciante.php'>Tornar-se anunciante</a>";
+                        }
+                    
+                    ?>
                 </div>
               </div>
             </form>
@@ -172,22 +212,23 @@
         if (isset($btnalterar)) {
         $senha_nova = isset($nova_senha) ? $nova_senha : "";
         $confirmar_senha = isset($confirmar_senha) ? $confirmar_senha : "";
+        $senhasicorr = true;
 
         if ($senha_nova == $confirmar_senha) {
-        $senha = $senha_nova;
-        } else {
-        echo "<br><br><h3>As senhas não coincidem.</h3>";
-        return;
-        }
+            $senha = $senha_nova;
+            $senhasicorr = false;
 
-        $perfil = new Perfil();
-        $perfil->setnome($nome);  
-        $perfil->setsobrenome($sobrenome); 
-        $perfil->setemail($email);
-        $perfil->setsenha($senha);
-        $perfil->setcod_perfil($codper);
-        echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
-        echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+            $perfil = new Perfil();
+            $perfil->setnome($nome);  
+            $perfil->setsobrenome($sobrenome); 
+            $perfil->setemail($email);
+            $perfil->setsenha($senha);
+            $perfil->setcod_perfil($codper);
+            echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
+            echo "<script language='JavaScript'>window.location.replace('./perfil-padrao.php');</script>";
+        } else {
+            $senhasicorr = true;
+        }
         }
         ?>
           <!--fim do php para preencher os campos e alterar-->
@@ -261,6 +302,14 @@
                 </div>
             </div>
         </div>
+
+        <?php
+        if(isset($senhasicorr)) {
+            if($senhasicorr = true){
+                echo " <div class="."depurar"."> <h3>As senhas não coincidem.</h3> </div>";
+            }
+        }
+        ?>
 
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>

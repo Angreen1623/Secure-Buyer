@@ -212,7 +212,7 @@
              extract($_POST, EXTR_OVERWRITE);
              if(isset($btnenviar))
               {
-                  include_once 'perfil.php';
+                  include_once 'php-conexao-modelagem/perfil.php';
                   $per=new Perfil();
                   $per->setemail($input_email);
                   $per->setsenha($senha);
@@ -222,8 +222,6 @@
 
                     if($row['email'] == $input_email && $row['senha'] == $senha){
 
-                        $per->setemail($email);
-                        $per->setsenha($senha);
                         $per->obterid();
 
                         $sqlresult = $per->obterid();

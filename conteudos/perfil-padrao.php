@@ -212,22 +212,23 @@
         if (isset($btnalterar)) {
         $senha_nova = isset($nova_senha) ? $nova_senha : "";
         $confirmar_senha = isset($confirmar_senha) ? $confirmar_senha : "";
+        $senhasicorr = true;
 
         if ($senha_nova == $confirmar_senha) {
-        $senha = $senha_nova;
-        } else {
-        echo "<br><br><h3>As senhas não coincidem.</h3>";
-        return;
-        }
+            $senha = $senha_nova;
+            $senhasicorr = false;
 
-        $perfil = new Perfil();
-        $perfil->setnome($nome);  
-        $perfil->setsobrenome($sobrenome); 
-        $perfil->setemail($email);
-        $perfil->setsenha($senha);
-        $perfil->setcod_perfil($codper);
-        echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
-        echo "<script language='JavaScript'>window.location.replace('./perfil-padrao.php');</script>";
+            $perfil = new Perfil();
+            $perfil->setnome($nome);  
+            $perfil->setsobrenome($sobrenome); 
+            $perfil->setemail($email);
+            $perfil->setsenha($senha);
+            $perfil->setcod_perfil($codper);
+            echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
+            echo "<script language='JavaScript'>window.location.replace('./perfil-padrao.php');</script>";
+        } else {
+            $senhasicorr = true;
+        }
         }
         ?>
           <!--fim do php para preencher os campos e alterar-->
@@ -301,6 +302,14 @@
                 </div>
             </div>
         </div>
+
+        <?php
+        if(isset($senhasicorr)) {
+            if($senhasicorr = true){
+                echo " <div class="."depurar"."> <h3>As senhas não coincidem.</h3> </div>";
+            }
+        }
+        ?>
 
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>

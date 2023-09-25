@@ -160,7 +160,47 @@
 
                 <div class="buttons">
                     <input name = "btnalterar" type="submit" value="Alterar">
-                    <a class="become-btn" href="tornar-anunciante.php">Tornar-se anunciante</a>
+                    <?php
+
+                        include_once 'php-conexao-modelagem/conexao.php';
+                        $ip = new Conexao();
+                        $perfil = new Perfil();
+                        $loja = false;
+
+                        if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
+                            $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                            $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                        }else{
+                            $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                        }
+                        $ip->setendereco_ip($ip_maquina);
+                    
+                        $ips = $ip->listar();
+                    
+                        foreach($ips as $row){
+                            if($ip_maquina = $row['endereco_ip']){
+                                $codper = $row['cod_perfil'];
+                            }
+                        }
+
+                        $perfil->setcod_perfil($codper);
+
+                        $perfis = $perfil->consultar();
+
+                        foreach($perfis as $row){
+                            if($row['cnpj'] != NULL){
+                                $loja = true;
+                            }
+                        }
+
+                        if($loja == true){
+                            echo "<a class='become-btn' href='tela-anunciante.php'>Perfil da loja</a>";
+                        }else{
+                            echo "<a class='become-btn' href='tornar-anunciante.php'>Tornar-se anunciante</a>";
+                        }
+                    
+                    ?>
                 </div>
               </div>
             </form>
@@ -187,7 +227,7 @@
         $perfil->setsenha($senha);
         $perfil->setcod_perfil($codper);
         echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
-        echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+        echo "<script language='JavaScript'>window.location.replace('./perfil-padrao.php');</script>";
         }
         ?>
           <!--fim do php para preencher os campos e alterar-->

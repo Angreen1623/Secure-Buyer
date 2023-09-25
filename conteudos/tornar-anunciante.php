@@ -104,7 +104,7 @@
 
         <div class="tornar-anunciante">
             <div class="image">
-                <img src="img/modelo20.png" alt="">
+             
             </div>
   
             <?php
@@ -172,7 +172,63 @@
         }
 
         ?>
+<!-- aqui se coleta a imagem -->
+<?php
+include("php-conexao-modelagem/Conectar.php");
+if(isset($_FILES) && count($_FILES) > 0 ){
 
+}
+
+
+//pegando arquivo
+if (isset($_FILES['arquivo'])) {
+    $arquivo = $_FILES['arquivo'];
+
+    if($arquivo['error'])
+    die("falha ao enviar");
+//tamanho do arquivo
+    if ($arquivo['size'] > 3000000)
+        die("Arquivo grande");
+
+        //pasta que vai salvar
+    $pasta = "arquivos/";
+    //nome do arquivo
+    $nomeDoArquivo = $arquivo['name'];
+    //uniqid() muda para um nome aleatorio
+    $novoNomeDoArquivo = uniqid();
+    // pathinfo = caminho do arquivo    strtolower deixa tudo em minusculo
+    $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
+
+    //tratamento da extensao
+    if($extensao != "jpg" && $extensao != 'png' && $extensao != "jpeg")
+    die("tipo de arquivo nao aceito");
+    
+    //atribuindo a extensao e o nome a varialvel path
+    $path =  $pasta. $novoNomeDoArquivo . "." . $extensao;
+
+    //movendo o arquivo 
+    $deu_certo = move_uploaded_file($arquivo['tmp_name'],$path);
+
+    if($deu_certo){
+    $mysqli->query("update perfil set imagem= '".$nomeDoArquivo."', caminho_img= '".$path."'") or die ($mysqli->error);
+    // mostrar arquivo echo("Arquivo enviado com sucesso: <a target=\"_blank\"  href=\"arquivos/$novoNomeDoArquivo.$extensao\">Clike aqui</a>");
+    }
+    else
+    echo("falha ao enviar");
+
+    //Mostrar dados do arquivo = var_dump($_FILES['arquivo']);
+}
+
+$sql_arquivos = $mysqli->query( "SELECT * FROM perfil ") or die ($mysqli->error);
+
+?>
+    <form action="" enctype="multipart/form-data" method="POST">
+        <label for="">Envio de imagem</label>
+        <br>
+        <input multiple type="file" name="arquivo" id="">
+        <br><br>
+        <input type="submit" value="Enviar" name="upload">
+    </form>
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>
             <div class="bag-sidebar">

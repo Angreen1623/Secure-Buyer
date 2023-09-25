@@ -13,6 +13,7 @@ class Perfil
    private $nome_loja;
    private $cnpj;
    private $imagem;
+   private $caminho_img;
    
 //parte 2 - os getters e setter
 
@@ -78,6 +79,14 @@ public function getimagem(){
 
 public function setimagem($imagem_perf){
     $this->imagem = $imagem_perf;
+}
+
+public function getcaminho_img(){
+  return $this->caminho_img;
+}
+
+public function setcaminho_img($caminhoimg){
+  $this->caminho_img = $caminhoimg;
 }
 
 //salvar
@@ -219,7 +228,7 @@ function alterar2()
       }
       else {
       // Se nenhuma senha foi fornecida, atualizar apenas nome, sobrenome e email
-      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ?, where cod_perfil = ?");
+      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ? where cod_perfil = ?");
       @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
       @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
       @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);

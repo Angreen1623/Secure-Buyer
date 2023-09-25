@@ -173,12 +173,27 @@
 <!--informações sobre anunciante-->
 <header id="event-description">
     
+<?php
+        include_once 'php-conexao-modelagem/perfil.php';
+        $perfil = new Perfil();
+        $perfil->setcod_perfil($codper);
+        $dadosPerfil = $perfil->alterar();
+        ?>
+        <form action="" method="POST">
+        <?php
+        foreach ($dadosPerfil as $mostrar_dados) {
+        
+        ?>
+
     <div class="p1"> 
         <img src="../conteudos/img/modelo12.png" alt="Bella Benite" class="imgmenor">
-        <p class="nomedaloja">Glamour Global - Isabella Grenzel</p>
+        <p class="nomedaloja"><?php echo $mostrar_dados[4]?></p>
         <p class="descricao">AVALIAÇÕES: 40 <br> PRODUTOS: 50 <br> ANUNCIANTE DESDE:  11/11/2023</p></div>
     <div>
 
+       <?php 
+          }
+         ?>
     <div class="products">
 
         <h1 class="products-title">TODOS OS PRODUTOS</h1>

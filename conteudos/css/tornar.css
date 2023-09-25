@@ -63,7 +63,7 @@
 }
 
 .tornar-anunciante .button .btn1,
-.tornar-anunciante .button .btn2
+.tornar-anunciante .button .btn2 input
 { 
     margin-top: 10px;
     font-size: 16px;
@@ -80,11 +80,17 @@
     cursor: pointer;
     
 }
+a{
+    text-decoration: none;
+    color: #fff;
+}
 .tornar-anunciante .button .btn2{
     display: flex;
     float: right;
 }
-.tornar-anunciante .form .button span{ 
+.tornar-anunciante .form .button input,
+.tornar-anunciante .form .button a
+{ 
     font-weight: lighter;
 }
 

@@ -219,13 +219,39 @@ function alterar2()
       }
       else {
       // Se nenhuma senha foi fornecida, atualizar apenas nome, sobrenome e email
-      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ? where cod_perfil = ?");
+      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ?, where cod_perfil = ?");
       @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
       @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
       @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);
       @$sql-> bindParam(4, $this->getcod_perfil(), PDO::PARAM_STR);
       }
 
+      if ($sql->execute() == 1)
+      {
+        return;
+      }  
+        
+      $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "Erro ao salvar o registro. " . $exc->getMessage();
+    }
+}
+
+function alterar3()
+{
+  try
+  {
+    $this->conn = new Conectar();
+     // para conversão do cadastro de loja
+    
+      $sql = $this->conn->prepare("update perfil set nome_loja = ?, cnpj = ? where cod_perfil = ?");
+      @$sql-> bindParam(1, $this->getnome_loja(), PDO::PARAM_STR);
+      @$sql-> bindParam(2, $this->getcnpj(), PDO::PARAM_STR);
+      @$sql-> bindParam(3, $this->getcod_perfil(), PDO::PARAM_STR);
+
+   
       if ($sql->execute() == 1)
       {
         return;

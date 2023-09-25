@@ -106,8 +106,16 @@
             <div class="image">
                 <img src="img/modelo20.png" alt="">
             </div>
+  
+            <?php
+             include_once 'php-conexao-modelagem/perfil.php';
+             $perfil = new Perfil();
+             $perfil->setcod_perfil($codper);
+             $dadosPerfil = $perfil->alterar();
+        ?>
 
             <div class="form-container">
+                <form action="" method="POST">
                 <div class="title">
                     <h1>Tornar-se anunciante</h1>
                 </div>
@@ -118,21 +126,21 @@
                             <div class="label">
                                 <p>Nome da loja</p>
                             </div>
-                            <input type="text" name="nome">
+                            <input type="text" name="nome_loja" required>
                         </div>
 
                         <div class="vertical-group">
                             <div class="label">
                                 <p>CNPJ</p>
                             </div>
-                            <input type="text" name="nome">
+                            <input type="text" name="cnpj" maxlength="18" class="cnpjmask" required>
                         </div>
                         <div class="button">
                             <div class="btn1">
-                                <span>Voltar</span>
+                            <a href="perfil-padrao.php">Voltar</a>
                             </div>
                             <div class="btn2">
-                                <span>Confirmar mudanças</span>
+                                <input name ="btnconfirmar" type="submit" value="Confirmar mudanças">
                             </div>
                         </div>
                     </div>
@@ -146,8 +154,24 @@
                         </div>
                     </div>
                 </div>
+                    </form>
             </div>
         </div>
+       
+       <?php
+        include_once 'php-conexao-modelagem/perfil.php';
+        extract($_POST, EXTR_OVERWRITE);
+        if (isset($btnconfirmar)) {
+
+        $perfil = new Perfil();
+        $perfil->setnome_loja($nome_loja);  
+        $perfil->setcnpj($cnpj); 
+        $perfil->setcod_perfil($codper);
+        echo "<br><br><h3>" . $perfil->alterar3() . "</h3>";
+        echo "<script language='JavaScript'>window.location.replace('tela-anunciante.php');</script>";
+        }
+
+        ?>
 
         <div class="bag">
             <span class="close-icon"><img src="../conteudos/img/close.png" alt="fechar"></span>
@@ -226,4 +250,5 @@
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>
+<script src="../conteudos/js/taunun.js"></script>
 </php>

@@ -219,7 +219,7 @@ function alterar2()
       }
       else {
       // Se nenhuma senha foi fornecida, atualizar apenas nome, sobrenome e email
-      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ?, where cod_perfil = ?");
+      $sql = $this->conn->prepare("update perfil set nome = ?, sobrenome = ?, email = ? where cod_perfil = ?");
       @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
       @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
       @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);

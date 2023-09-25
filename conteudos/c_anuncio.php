@@ -109,7 +109,7 @@
         <div class="content">
             <!-- o formulário -->
             <div class="form-text">
-                <form action="">
+                <form action="" method="POST">
                     <!-- inputs de texto e os titulos deles -->
                     <div class="form">
                         <!-- Grupo de título + input -->
@@ -151,7 +151,7 @@
                                     <!-- primeiro grupo, masculino -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="gender" name="masculino" value="male">
+                                        <input type="radio" id="masculino" name="gender" value="male">
                                         <!-- titulo -->
                                         <label for="male" class="label">MASCULINO</label>
                                     </div>
@@ -159,7 +159,7 @@
                                     <!-- primeiro grupo, feminino -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="gender" name="femenino" value="female">
+                                        <input type="radio" id="femenino" name="gender" value="female">
                                         <!-- titulo -->
                                         <label for="female" class="label">FEMININO</label>
                                     </div>
@@ -167,7 +167,7 @@
                                     <!-- primeiro grupo, unissex -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="gender" name="unissex" value="unissex">
+                                        <input type="radio" id="unissex"  name="gender" value="unissex">
                                         <!-- titulo -->
                                         <label for="unissex" class="label">UNISSEX</label>
                                     </div>
@@ -186,25 +186,25 @@
                                 <div class="radios">
                                     <!-- primeiro grupo, camisa -->
                                     <div class="radio-item">
-                                        <input type="radio" id="peca" name="camisa" value="camisa">
+                                        <input type="radio" id="camisa" name="peca" value="camisa">
                                         <label for="camisa" class="label">CAMISA</label><br>
                                     </div>
 
                                     <!-- segundo grupo, blusa -->
                                     <div class="radio-item">
-                                        <input type="radio" id="peca" name="blusa" value="blusa">
+                                        <input type="radio" id="blusa" name="peca" value="blusa">
                                         <label for="blusa" class="label">BLUSA</label><br>
                                     </div>
 
                                     <!-- terceiro grupo, calçado -->
                                     <div class="radio-item">
-                                        <input type="radio" id="peca" name="calcado" value="calçado">
+                                        <input type="radio" id="calcado" name="peca" value="calçado">
                                         <label for="calçado" class="label">CALÇADO</label><br>
                                     </div>
 
                                     <!-- quarto grupo, calça -->
                                     <div class="radio-item">
-                                        <input type="radio" id="peca" name="calca" value="calça">
+                                        <input type="radio" id="calca" name="peca" value="calça">
                                         <label for="calça" class="label">CALÇA</label><br>
                                     </div>
                                 </div>
@@ -220,7 +220,7 @@
                                 <div class="checkboxes">
                                     <!-- opção 12 -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="t12" value="t12" class="checkbox">
+                                        <input type="checkbox" id="t12" name="tamanhos[]" value="t12">
                                         <label for="t12" class="label">12</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -234,7 +234,7 @@
                                     </div>
                                     <!-- opção 14 -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="t14" name="type" value="t14">
+                                        <input type="checkbox" id="t14" name="tamanhos[]" value="t14">
                                         <label for="t14" class="label">14</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -248,7 +248,7 @@
                                     </div>
                                     <!-- opção 16 -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="t16" name="type" value="t16">
+                                        <input type="checkbox" id="t16" name="tamanhos[]" value="t16">
                                         <label for="t16" class="label">16</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -262,7 +262,7 @@
                                     </div>
                                     <!-- opção PP -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="tpp" name="type" value="tpp">
+                                        <input type="checkbox" id="tpp" name="tamanhos[]" value="tpp">
                                         <label for="tpp" class="label">PP</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -279,7 +279,7 @@
                                 <div class="checkboxes">
                                     <!-- opção P -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="tp" name="type" value="tp">
+                                        <input type="checkbox" id="tp" name="tamanhos[]" name="type" value="tp">
                                         <label for="tp" class="label">P</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -293,7 +293,7 @@
                                     </div>
                                     <!-- opção M -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="tm" name="type" value="tm">
+                                        <input type="checkbox" id="tm" name="tamanhos[]" name="type" value="tm">
                                         <label for="tm" class="label">M</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -307,7 +307,7 @@
                                     </div>
                                     <!-- opção G -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="tg" name="type" value="tg">
+                                        <input type="checkbox" id="tg" name="tamanhos[]" name="type" value="tg">
                                         <label for="tg" class="label">G</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -321,7 +321,7 @@
                                     </div>
                                     <!-- opção GG -->
                                     <div class="radio-item">
-                                        <input type="checkbox" id="tamanhos[]" name="tgg" name="type" value="tgg">
+                                        <input type="checkbox" id="tgg" name="tamanhos[]" name="type" value="tgg">
                                         <label for="tgg" class="label">GG</label>
                                         <!-- quantidades -->
                                         <div class="quantidade">
@@ -367,11 +367,9 @@
                     </div>
                     <div class="buttons">
                         <div class="btn">
-                            <span>Voltar</span>
+                            <a href="../index.php">Voltar</a>
                         </div>
-                        <div class="btn">
-                            <input type="button" value="Confirmar" name="btnconfirmar">
-                        </div>
+                        <input type="submit" value="Confirmar" name="btnconfirmar">
                     
                     </div>
                 </form>
@@ -385,11 +383,28 @@
                 include_once 'php-conexao-modelagem/produto.php';
                 $prod = new Produto();
 
-                $prod->setcod_perfil($cod_perfil);
+                if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
+                    $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                    $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                }else{
+                    $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                }
+                $ip->setendereco_ip($ip_maquina);
+            
+                $ips = $ip->listar();
+            
+                foreach($ips as $row){
+                    if($ip_maquina = $row['endereco_ip']){
+                        $codper = $row['cod_perfil'];
+                    }
+                }
+
+                $prod->setcod_perfil($codper);
                 $prod->settitulo_produto($nome);
                 $prod->setdescricao_produto($descricao);
                 $prod->settipo_peca($peca);
-                // $prod->setimagem_produto($);
+                $prod->setimagem_produto("");
                 $prod->setpreco_produto($preco);
                 $prod->setsexo($gender);
                 $prod->salvar();

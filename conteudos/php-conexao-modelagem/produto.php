@@ -13,7 +13,6 @@ class Produto
     private $imagem_produto;
     private $preco_produto;
     private $sexo;
-    private $cod_perfil;
     private $conn;
 
 // parte 2 - os gettes e setter
@@ -23,7 +22,7 @@ class Produto
    }
 
    public function setcod_perfil($cod_per) {
-    $this->cod_per = $codper;
+    $this->cod_perfil = $codper;
    }
 
    public function getcod_produto() {

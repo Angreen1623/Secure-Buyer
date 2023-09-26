@@ -103,11 +103,16 @@ a{
 
 .img-form .img{
     width: 150px;
+    height: 150px;
     display: flex;
+    cursor: pointer;
 }
 .img-form .img img{
     width: 100%;
 }
+input[type='file'] {
+    display: none
+  }
 
 .img-form .description{
     display: flex;

@@ -147,7 +147,8 @@
 
                     <div class="img-form">
                         <div class="img">
-                            <input multiple type="file" name="arquivo" id="" accept=".jpg, .png">
+                            <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
+                            <input multiple type="file" name="arquivo" id="imagem" accept=".jpg, .png">
                         </div>
                         <div class="description">
                             <p>Adicionar foto</p>

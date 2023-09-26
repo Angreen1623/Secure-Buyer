@@ -186,7 +186,9 @@
         ?>
 
     <div class="p1"> 
-        <img src="../conteudos/img/modelo12.png" alt="Bella Benite" class="imgmenor">
+        <div class="imgmenor">
+            <img src="<?php echo $mostrar_dados[6]?>" alt="Foto Perfil">
+        </div>
         <p class="nomedaloja"><?php echo $mostrar_dados[4]?></p>
         <p class="descricao">AVALIAÇÕES: 40 <br> PRODUTOS: 50 <br> ANUNCIANTE DESDE:  11/11/2023</p></div>
     <div>

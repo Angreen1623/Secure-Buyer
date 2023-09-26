@@ -255,10 +255,11 @@ function alterar3()
     $this->conn = new Conectar();
      // para conversão do cadastro de loja
     
-      $sql = $this->conn->prepare("update perfil set nome_loja = ?, cnpj = ? where cod_perfil = ?");
+      $sql = $this->conn->prepare("update perfil set nome_loja = ?, cnpj = ?, imagem = ? where cod_perfil = ?");
       @$sql-> bindParam(1, $this->getnome_loja(), PDO::PARAM_STR);
       @$sql-> bindParam(2, $this->getcnpj(), PDO::PARAM_STR);
-      @$sql-> bindParam(3, $this->getcod_perfil(), PDO::PARAM_STR);
+      @$sql-> bindParam(3, $this->getimagem(), PDO::PARAM_STR);
+      @$sql-> bindParam(4, $this->getcod_perfil(), PDO::PARAM_STR);
 
    
       if ($sql->execute() == 1)

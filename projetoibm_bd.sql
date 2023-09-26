@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2023 às 20:01
+-- Tempo de geração: 26-Set-2023 às 01:35
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -54,6 +54,7 @@ CREATE TABLE `perfil` (
   `nome_loja` varchar(50) DEFAULT NULL,
   `cnpj` varchar(18) DEFAULT NULL COMMENT 'xx.xxx.xxx/yyyy-zz',
   `imagem` varchar(500) DEFAULT NULL,
+  `caminho_img` varchar(100) DEFAULT NULL,
   `cod_perfil` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,8 +62,8 @@ CREATE TABLE `perfil` (
 -- Extraindo dados da tabela `perfil`
 --
 
-INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`) VALUES
-('Ednaldo', 'Pereira', 'ednaldo@gmail.com', 'banido123', NULL, NULL, NULL, 22);
+INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `caminho_img`, `cod_perfil`) VALUES
+('Ednaldo', 'Pereira', 'ednaldo@gmail.com', 'banido123', NULL, NULL, NULL, NULL, 22);
 
 -- --------------------------------------------------------
 

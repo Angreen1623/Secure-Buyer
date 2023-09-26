@@ -122,17 +122,16 @@
 
 .images .img{
     width: 23%;
-}
-
-.images .img .img-face{
-    background-image:url('../img/modelo15.png');
-    background-repeat:no-repeat;
-    background-position:left top;
-    background-size: 30%;
+    display: flex;
+    cursor: pointer;
 }
 
 .images img{
     width: 100%;
+}
+
+input[type='file'] {
+    display: none
 }
 
 .vertical-group-price{

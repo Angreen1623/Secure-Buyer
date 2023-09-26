@@ -18,10 +18,10 @@ class Produto
 // parte 2 - os gettes e setter
 
    public function getcod_perfil() {
-         return $this->cod_per;
+        return $this->cod_perfil;
    }
 
-   public function setcod_perfil($cod_per) {
+   public function setcod_perfil($codper) {
     $this->cod_perfil = $codper;
    }
 
@@ -95,7 +95,6 @@ function salvar()
         @$sql->bindParam(6, $this->getsexo(), PDO::PARAM_STR);
         @$sql->bindParam(7, $this->getcod_perfil(), PDO::PARAM_STR);
         if($sql->execute() == 1){
-            return "<font color='white'><center>Registro salvo com sucesso!</center></font>";
         }
         $this->conn = null;
     }

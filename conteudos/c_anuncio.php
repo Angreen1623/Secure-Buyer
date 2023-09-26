@@ -348,13 +348,16 @@
                         <!-- as imagens -->
                         <div class="images">
                             <div class="img">
-                                <img src="../conteudos/img/modelo15.png" alt="rosto">
+                                <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
+                                <input multiple type="file" name="arquivo[0]" id="imagem" accept=".jpg, .png" required>
                             </div>
                             <div class="img">
-                                <img src="../conteudos/img/modelo16.png" alt="corpo">
+                                <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
+                                <input multiple type="file" name="arquivo[1]" id="imagem" accept=".jpg, .png" requirer>
                             </div>
                             <div class="img">
-                                <img src="../conteudos/img/modelo18.png" alt="produto">
+                                <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
+                                <input multiple type="file" name="arquivo[2]" id="imagem" accept=".jpg, .png" required>
                             </div>
                         </div>
                         <!-- cabo imagem -->
@@ -383,62 +386,70 @@
                 include_once 'php-conexao-modelagem/produto.php';
                 $prod = new Produto();
 
-                if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
-                    $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
-                }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-                    $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
-                }else{
-                    $ip_maquina = $_SERVER['REMOTE_ADDR'];
-                }
-                $ip->setendereco_ip($ip_maquina);
-            
-                $ips = $ip->listar();
-            
-                foreach($ips as $row){
-                    if($ip_maquina = $row['endereco_ip']){
-                        $codper = $row['cod_perfil'];
-                    }
-                }
-
                 $prod->setcod_perfil($codper);
                 $prod->settitulo_produto($nome);
                 $prod->setdescricao_produto($descricao);
                 $prod->settipo_peca($peca);
-                $prod->setimagem_produto("");
+                $prod->setimagem_produto(0);
                 $prod->setpreco_produto($preco);
                 $prod->setsexo($gender);
                 $prod->salvar();
-                $prod_cod = $prod->obterid();
+                $produtos = $prod->obterid();
+
+                foreach($produtos as $row){
+                    $prod_cod = $row['cod_produto'];
+                }
 
                 include_once 'php-conexao-modelagem/tamanho.php';
                 $tam = new Tamanho();
 
                 $tam->setcod_produto($prod_cod);
                 foreach($tamanhos as $tamanho){
-                    if($tamanho = "t12"){
+                    if($tamanho == "t12"){
                         $tam->setsize(12);
                         $tam->setquant_tamanho($quantidade_12);
-                    }elseif($tamanho = "t14"){
+                        $tam->salvar();
+                    }elseif($tamanho == "t14"){
                         $tam->setsize(14);
                         $tam->setquant_tamanho($quantidade_14);
-                    }elseif($tamanho = "t16"){
+                        $tam->salvar();
+                    }elseif($tamanho == "t16"){
                         $tam->setsize(16);
                         $tam->setquant_tamanho($quantidade_16);
-                    }elseif($tamanho = "tpp"){
+                        $tam->salvar();
+                    }elseif($tamanho == "tpp"){
                         $tam->setsize("PP");
                         $tam->setquant_tamanho($quantidade_pp);
-                    }elseif($tamanho = "tp"){
+                        $tam->salvar();
+                    }elseif($tamanho == "tp"){
                         $tam->setsize("P");
                         $tam->setquant_tamanho($quantidade_p);
-                    }elseif($tamanho = "tm"){
-                        $tam->setsize("m");
+                        $tam->salvar();
+                    }elseif($tamanho == "tm"){
+                        $tam->setsize("M");
                         $tam->setquant_tamanho($quantidade_m);
-                    }elseif($tamanho = "tg"){
+                        $tam->salvar();
+                    }elseif($tamanho == "tg"){
                         $tam->setsize("G");
-                        $tam->setquant_tamanho($quantidade_G);
-                    }elseif($tamanho = "tgg"){
+                        $tam->setquant_tamanho($quantidade_g);
+                        $tam->salvar();
+                    }elseif($tamanho == "tgg"){
                         $tam->setsize("GG");
-                        $tam->setquant_tamanho($quantidade_GG);
+                        $tam->setquant_tamanho($quantidade_gg);
+                        $tam->salvar();
+                    }
+                }
+
+                include_once 'php-conexao-modelagem/imagem_produto.php';
+                $img = new Imagem();
+
+                $img->setcod_produto($prod_cod);
+                for($i=0; $i<=2; $i++){
+                    if(isset($_FILES["imagens[".$i."]"]) && !empty($_FILES["imagens[".$i."]"])){
+                        $imagem = "./img/user-img/".$_FILES["imagens[".$i."]"]["name"];
+                        move_uploaded_file($_FILES["imagens[".$i."]"]["tmp_name"], $imagem);
+                        $img->setimagem_produto($imagem);
+                        $img->salvar();
                     }
                 }
             }

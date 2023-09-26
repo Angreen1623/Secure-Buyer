@@ -224,10 +224,9 @@
             </div>
 
             <div class="products-item">
-                <a href="produto.php">
-                <img src="../conteudos/img/modelo4.png" alt="MODELO 4 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Camiseta em algodão com cristais</p>
-                <p class="preco1">R$ 150,00</p>
+                <a href="c_anuncio.php">
+                <img src="../conteudos/img/addprod.png" alt="Crie um anúncio" class="imgmodelo1"></a>
+                <p class="descmodelos1">Crie um novo anúncio</p>
             </div>
         </div>
 

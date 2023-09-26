@@ -174,9 +174,17 @@
 <header id="event-description">
     
 <?php
+include_once 'php-conexao-modelagem/produto.php';
+$prod = new Produto();
         include_once 'php-conexao-modelagem/perfil.php';
         $perfil = new Perfil();
         $perfil->setcod_perfil($codper);
+        $produtos = $prod->obterid();
+
+        foreach($produtos as $row){
+            $prod_cod = $row['cod_produto'];
+        }
+
         $dadosPerfil = $perfil->alterar();
         ?>
         <form action="" method="POST">
@@ -202,26 +210,29 @@
 
         <div class="products-container">
 
-            <div class="products-item">
-                <a href="produto.php">
-                <img src="../conteudos/img/modelo9.png" alt="MODELO 1 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Regata em viscose</p>
-                <p class="preco1">R$ 150,00</p>
-            </div>
 
-            <div class="products-item">
-                <a href="produto.php">
-                <img src="../conteudos/img/modelo10.png" alt="MODELO 2 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Cardigã em cashmere</p>
-                <p class="preco1">R$ 200,00</p>
-            </div>
+        <?php
+            include_once 'php-conexao-modelagem/imagem_produto.php';
+            $img = new Imagem();
 
-            <div class="products-item">
+            $prod->setcod_perfil($codper);
+            $produtos = $prod->consultar();
+
+            foreach($produtos as $row){
+                ?>
+
+                <div class="products-item">
                 <a href="produto.php">
-                <img src="../conteudos/img/modelo11.png" alt="MODELO 3 - GLAMOUR GLOBAL" class="imgmodelo1"></a>
-                <p class="descmodelos1">Sweater em intársia de cashmere</p>
-                <p class="preco1">R$ 210,00</p>
-            </div>
+                <img src="" alt="" class="imgmodelo1"></a>
+                <p class="descmodelos1"><?php $row['descricao_produto'] ?></p>
+                <p class="preco1">R$ <?php $row['preco_produto'] ?></p>
+                </div>
+
+                <?php
+
+            }
+
+        ?>
 
             <div class="products-item">
                 <a href="c_anuncio.php">

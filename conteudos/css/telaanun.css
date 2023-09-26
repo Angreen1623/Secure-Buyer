@@ -78,8 +78,10 @@
     }
 
 .products-container{
-  display: flex;
   justify-content: center;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4 ,1fr);
 }
 
 .products .products-title{
@@ -100,4 +102,11 @@
 #event-description{
   margin-right: 25px;
   margin-left: 25px;
+}
+
+@media (max-width:1360px){
+    .products-container{
+      grid-template-columns: repeat(2,1fr);
+    }
+
 }

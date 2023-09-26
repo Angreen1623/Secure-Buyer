@@ -43,7 +43,7 @@
             try{
 
                 $this->conn = new Conectar();
-                $sql = $this->conn->prepare("insert into tamanho (cod_produto, imagem) values (:codigo,:img)");
+                $sql = $this->conn->prepare("insert into imagem_produto (cod_produto, imagem_produto) values (:codigo,:img)");
                 @$sql-> bindParam(":codigo", $this->getcod_produto(), PDO::PARAM_INT);
                 @$sql-> bindParam(":img", $this->getimagem_produto(), PDO::PARAM_STR);
                 if($sql->execute() == 1){

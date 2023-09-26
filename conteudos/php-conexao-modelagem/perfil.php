@@ -81,14 +81,6 @@ public function setimagem($imagem_perf){
     $this->imagem = $imagem_perf;
 }
 
-public function getcaminho_img(){
-  return $this->caminho_img;
-}
-
-public function setcaminho_img($caminhoimg){
-  $this->caminho_img = $caminhoimg;
-}
-
 //salvar
 function salvar()
 {

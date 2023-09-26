@@ -182,7 +182,7 @@
         </div>
         <!--inicio do formulário "crie sua conta"-->
         <div class="formulariocriesuaconta">
-            <form name="formu" onsubmit="return criesuacon()" method="post">
+            <form name="formu" action=""     method="POST">
                 <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
                 <div>
                     <label title="Digite seu nome">Nome</label>

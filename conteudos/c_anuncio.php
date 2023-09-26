@@ -349,15 +349,15 @@
                         <div class="images">
                             <div class="img">
                                 <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo[0]" id="imagem" accept=".jpg, .png" required>
+                                <input multiple type="file" name="arquivo1" id="imagem" accept=".jpg, .png" required>
                             </div>
                             <div class="img">
                                 <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo[1]" id="imagem" accept=".jpg, .png" requirer>
+                                <input multiple type="file" name="arquivo2" id="imagem" accept=".jpg, .png" required>
                             </div>
                             <div class="img">
                                 <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo[2]" id="imagem" accept=".jpg, .png" required>
+                                <input multiple type="file" name="arquivo3 " id="imagem" accept=".jpg, .png" required>
                             </div>
                         </div>
                         <!-- cabo imagem -->
@@ -444,13 +444,12 @@
                 $img = new Imagem();
 
                 $img->setcod_produto($prod_cod);
-                for($i=0; $i<=2; $i++){
-                    if(isset($_FILES["imagens[".$i."]"]) && !empty($_FILES["imagens[".$i."]"])){
-                        $imagem = "./img/user-img/".$_FILES["imagens[".$i."]"]["name"];
-                        move_uploaded_file($_FILES["imagens[".$i."]"]["tmp_name"], $imagem);
-                        $img->setimagem_produto($imagem);
-                        $img->salvar();
-                    }
+                
+                if(isset($_FILES["imagens[".$i."]"]) && !empty($_FILES["imagens[".$i."]"])){
+                    $imagem = "./img/user-img/".$_FILES["imagens[".$i."]"]["name"];
+                    move_uploaded_file($_FILES["imagens[".$i."]"]["tmp_name"], $imagem);
+                    $img->setimagem_produto($imagem);
+                    $img->salvar();
                 }
             }
         ?>

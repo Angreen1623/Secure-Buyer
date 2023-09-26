@@ -102,11 +102,34 @@
             </div>
             <!-- fim da barra superior -->
 
+            <?php
+                include_once 'php-conexao-modelagem/perfil.php';
+                $perfil = new Perfil();
+                $perfil->setcod_perfil($codper);
+                $dadosPerfil = $perfil->alterar();
+                $perfis = $perfil->consultar();
+
+                $loja = false;
+                foreach($perfis as $row){
+                    if($row['cnpj'] != NULL){
+                        $loja = true;
+                    }
+                }
+
+                foreach ($dadosPerfil as $mostrar_dados) {
+                
+                ?>
+
         <div class="meuperfil">
             <div class="meuperfil-dados">
                 <div class="group">
-                    <div class="img">
-                        <img src="img/foto-perfil.png" alt="foto do perfil">
+                    <div class="img <?php if($loja == true){
+                        echo "open";
+                    } ?>">
+                        <img src="<?php echo $mostrar_dados[6]?>" alt="Foto Perfil">
+                <?php
+                }
+                ?>
                     </div>
                     <div class="text">
                         <div class="title">
@@ -122,8 +145,6 @@
 
 
         <?php
-        include_once 'php-conexao-modelagem/perfil.php';
-        $perfil = new Perfil();
         $perfil->setcod_perfil($codper);
         $dadosPerfil = $perfil->alterar();
         ?>
@@ -165,18 +186,6 @@
                         include_once 'php-conexao-modelagem/conexao.php';
                         $ip = new Conexao();
                         $perfil = new Perfil();
-                        $loja = false;
-
-                        if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
-                            $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
-                        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-                            $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
-                        }else{
-                            $ip_maquina = $_SERVER['REMOTE_ADDR'];
-                        }
-                        $ip->setendereco_ip($ip_maquina);
-                    
-                        $ips = $ip->listar();
                     
                         foreach($ips as $row){
                             if($ip_maquina = $row['endereco_ip']){
@@ -186,13 +195,7 @@
 
                         $perfil->setcod_perfil($codper);
 
-                        $perfis = $perfil->consultar();
-
-                        foreach($perfis as $row){
-                            if($row['cnpj'] != NULL){
-                                $loja = true;
-                            }
-                        }
+                        
 
                         if($loja == true){
                             echo "<a class='become-btn' href='tela-anunciante.php'>Perfil da loja</a>";

@@ -103,16 +103,13 @@
             <!-- fim da barra superior -->
 
         <div class="tornar-anunciante">
-            <div class="image">
-             
-            </div>
   
             <?php
-             include_once 'php-conexao-modelagem/perfil.php';
-             $perfil = new Perfil();
-             $perfil->setcod_perfil($codper);
-             $dadosPerfil = $perfil->alterar();
-        ?>
+                include_once 'php-conexao-modelagem/perfil.php';
+                $perfil = new Perfil();
+                $perfil->setcod_perfil($codper);
+                $dadosPerfil = $perfil->alterar();
+            ?>
 
             <div class="form-container">
             <form action="" enctype="multipart/form-data" method="POST">

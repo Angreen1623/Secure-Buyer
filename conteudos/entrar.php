@@ -176,43 +176,36 @@
     </div>
 
     <div class="content">
-        
-    <div class="box">
-
-    <div class="group">
-
-        <div class="title">
-            <h1>ENTRAR</h1>
-        </div>
-
-        <div class="formularioentrar">
-            <form name="formul" onsubmit="return validaform()" method="post">
-            <div>
-                <label title="Digite seu email">E-mail</label>
-                <input type="text" name="input_email" required>
+        <div class="box">
+            <div class="title">
+                <h1>ENTRAR</h1>
             </div>
-            <div>
-                <label title="Digite uma mensagem para nós.">Senha</label>
-                <input type="password" name="senha" required>
+            <div class="formularioentrar">
+                <form name="formul" onsubmit="return validaform()" method="post">
+                    <div class="form-item">
+                        <label title="Digite seu email">E-mail</label>
+                        <input type="text" name="input_email" required>
+                    </div>
+                    <div class="form-item">
+                        <label title="Digite uma mensagem para nós.">Senha</label>
+                        <input type="password" name="senha" required>
+                    </div>
+                    <div class="form-item">
+                        <span class="esquecisenha"><a href="#">Esqueci a senha</a></span>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" value="Enviar" name="btnenviar">
+                        <input type="button" value="Voltar">
+                    </div>
+                    <div class="form-item">
+                        <div class="cadastrar">
+                            <span class="naotemconta">Ainda não possui cadastro? </span>
+                            <span class="naotemconta"><a href="criar-conta.php"> Crie sua conta</a></span>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div>
-                <p class="p1">
-                    <span class="esquecisenha"><a href="#">Esqueci a senha</a></span>
-                </p>   
-                </div>       
-                <div class="buttons">
-                    <input type="submit" value="Enviar" name="btnenviar">
-                    <input type="button" value="Voltar">
-                </div>
-                <p class="p1">
-                    <span class="naotemconta">Ainda não possui cadastro? </span>
-                    <span class="naotemconta1"><a href="criar-conta.php"> Crie sua conta</a></span>
-                </p>            
-            </form>
         </div>
-
-    </div>
-    </div>
     </div>
 
       <?php

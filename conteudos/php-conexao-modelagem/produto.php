@@ -26,11 +26,11 @@ class Produto
    }
 
    public function getcod_produto() {
-          return $this->produto;
+          return $this->cod_produto;
    }
 
    public function setcod_produto ($cproduto) {
-    $this->cproduto= $cproduto;
+    $this->cod_produto = $cproduto;
    }
 
    public function gettitulo_produto() {
@@ -161,6 +161,22 @@ function salvar()
            echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
        }
    } 
+   function consultar2(){
+    try
+    {
+        $this->conn = new Conectar();
+        $sql = $this->conn->prepare("Select * from produto where cod_produto like ?"); // informei o ?
+        @$sql-> bindParam(1, $this->getcod_produto(), PDO::PARAM_STR);
+        $sql->execute();
+        return $sql->fetchAll();
+        $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
+    }
+} 
+
    function obterid(){
     try
     {

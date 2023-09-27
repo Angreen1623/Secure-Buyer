@@ -103,6 +103,18 @@
             <!-- fim da barra superior -->
 
         <div class="produto-info">
+            <?php
+                extract($_POST, EXTR_OVERWRITE);
+                include_once 'php-conexao-modelagem/produto.php';
+                $prod = new Produto();
+                include_once 'php-conexao-modelagem/imagem_produto.php';
+                $img = new Imagem();
+
+                $prod->setcod_produto($cod_produto);
+                $produtos = $prod->consultar2();
+
+                foreach($produtos as $row){
+            ?>
             <div class="images">
                 <div class="img-group">
 
@@ -110,19 +122,11 @@
                         <div class="image-option">
                             <img src="img/modelo18.png" alt="">
                         </div>
-                        <div class="image-option">
-                            <img src="img/modelo15.png" alt="">
-                        </div>
-                        <div class="image-option">
-                            <img src="img/modelo16.png" alt="">
-                        </div>
-                        <div class="image-option">
-                            <img src="img/modelo17.png" alt="">
-                        </div>
                     </div>
                 
                     <div class="prod-img">
-                        <img src="img/modelo19.png" alt="Modelo da roupa">
+                        <img src="<?php
+                        ?>" alt="Modelo da roupa">
                     </div>
                 </div> 
             </div>
@@ -130,23 +134,8 @@
             <div class="prod-info">
 
                 <div class="info-item">
-                    <h1 class="title">Camiseta em algodão com cristais</h1>
-                    <h1 class="price">R$115,00</h1>
-                </div>
-
-                <div class="info-item">
-                    <h2>Cor:</h2>
-                    <div class="info-colors">
-                        <div class="color-container">
-                            <div class="color-1"></div>
-                        </div>
-                        <div class="color-container">
-                            <div class="color-2"></div>
-                        </div>
-                        <div class="color-container">
-                            <div class="color-3"></div>
-                        </div>
-                    </div>
+                    <h1 class="title"><?php echo $row['titulo_produto'] ;?></h1>
+                    <h1 class="price">R$<?php echo $row['preco_produto'] ;?></h1>
                 </div>
 
                 <div class="info-item">
@@ -189,6 +178,7 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
 
         <div class="rating">

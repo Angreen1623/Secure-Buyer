@@ -174,8 +174,8 @@
 <header id="event-description">
     
 <?php
-include_once 'php-conexao-modelagem/produto.php';
-$prod = new Produto();
+        include_once 'php-conexao-modelagem/produto.php';
+        $prod = new Produto();
         include_once 'php-conexao-modelagem/perfil.php';
         $perfil = new Perfil();
         $perfil->setcod_perfil($codper);
@@ -187,7 +187,6 @@ $prod = new Produto();
 
         $dadosPerfil = $perfil->alterar();
         ?>
-        <form action="" method="POST">
         <?php
         foreach ($dadosPerfil as $mostrar_dados) {
         
@@ -215,17 +214,28 @@ $prod = new Produto();
             include_once 'php-conexao-modelagem/imagem_produto.php';
             $img = new Imagem();
 
-            $prod->setcod_perfil($codper);
+            $prod->setcod_perfil(1);
             $produtos = $prod->consultar();
 
             foreach($produtos as $row){
                 ?>
 
                 <div class="products-item">
-                <a href="produto.php">
-                <img src="" alt="" class="imgmodelo1"></a>
-                <p class="descmodelos1"><?php $row['descricao_produto'] ?></p>
-                <p class="preco1">R$ <?php $row['preco_produto'] ?></p>
+                <form action="produto.php" method="post">
+                <label for="imagem">
+                    <img src="<?php
+                    $img->setcod_produto($row['cod_produto']);
+                    $imagens = $img->consultar2();
+                    foreach($imagens as $row2){
+                        echo $row2['imagem_produto'];
+                    }
+                    ?>" alt="" class="imgmodelo1">
+                </label>
+                <input type="hidden" name="cod_produto" value="<?php $row['cod_produto'] ?>">
+                <input type="submit" id="imagem">
+                </form>
+                <p class="descmodelos1"><?php echo $row['titulo_produto']; ?></p>
+                <p class="preco1">R$ <?php echo $row['preco_produto']; ?></p>
                 </div>
 
                 <?php

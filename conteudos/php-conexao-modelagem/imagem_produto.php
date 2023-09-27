@@ -23,20 +23,20 @@
             $this->imagem_produto = $img;
         }
 
-        // function consultar(){
-        //     try{
+        function consultar2(){
+            try{
 
-        //         $this->conn = new Conectar();
-        //         $sql = $this->conn->prepare("select * from tamanho where cod_produto like ?");
-        //         @$sql-> bindParam(1, $this->getcod_produto(), PDO::PARAM_INT);
-        //         $sql->execute();
-        //         return $sql->fetchAll();
-        //         $this->conn = null;
+                $this->conn = new Conectar();
+                $sql = $this->conn->prepare("SELECT * FROM imagem_produto WHERE cod_produto like ? ORDER BY (cod_produto) ASC LIMIT 1");
+                @$sql-> bindParam(1, $this->getcod_produto(), PDO::PARAM_INT);
+                $sql->execute();
+                return $sql->fetchAll();
+                $this->conn = null;
 
-        //     }catch(PDOException $exc){
-        //         echo "Erro ao executar a consulta.".$exc->getMessage();
-        //     }
-        // }
+            }catch(PDOException $exc){
+                echo "Erro ao executar a consulta.".$exc->getMessage();
+            }
+        }
 
         
         function salvar(){

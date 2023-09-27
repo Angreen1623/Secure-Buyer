@@ -96,9 +96,18 @@
 }
 
 .products .products-item{
-  display: inline-grid;
+  display: flex;
   margin-right: 15px;
+  flex-direction: column;
+  align-items: center;
 }
+.products .products-item input{
+  display: none;
+}
+.products .products-item label{
+  cursor: pointer;
+}
+
 #event-description{
   margin-right: 25px;
   margin-left: 25px;

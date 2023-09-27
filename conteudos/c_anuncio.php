@@ -357,7 +357,7 @@
                             </div>
                             <div class="img">
                                 <label for='imagem3'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo3 " id="imagem3" accept=".jpg, .png" required>
+                                <input multiple type="file" name="arquivo3" id="imagem3" accept=".jpg, .png" required>
                             </div>
                         </div>
                         <!-- cabo imagem -->

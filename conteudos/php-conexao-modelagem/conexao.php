@@ -90,8 +90,7 @@ class Conexao
         try
         {
         $this-> conn = new Conectar();
-        $sql = $this->conn->prepare("delete from conexao where endereco_ip = ?"); //informe o ? (parametro)
-        @$sql-> bindParam(1, $this->getendereco_ip(), PDO::PARAM_STR);//essa linha define o parametro
+        $sql = $this->conn->prepare("delete from conexao where endereco_ip like '::1'"); //informe o ? (parametro)
         if($sql->execute() == 1)
         {
         }

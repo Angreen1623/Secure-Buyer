@@ -181,6 +181,7 @@
 
                 <div class="buttons">
                     <input name = "btnalterar" type="submit" value="Alterar">
+                    <br><br><input name = "btnlogout" type="submit" value="Deslogar">
                     <?php
 
                         include_once 'php-conexao-modelagem/conexao.php';
@@ -233,6 +234,16 @@
             $senhasicorr = true;
         }
         }
+        ?>
+       
+        <?php
+        include_once 'php-conexao-modelagem/conexao.php';
+        if (isset($btnlogout)){
+        extract($_POST, EXTR_OVERWRITE);
+        $sair = new Conexao();
+        echo "<br><br><h3>" . $sair->excluir() . "</h3>";
+        echo "<script language='JavaScript'>window.location.replace('./entrar.php');</script>";
+         }
         ?>
           <!--fim do php para preencher os campos e alterar-->
             

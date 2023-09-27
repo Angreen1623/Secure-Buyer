@@ -217,15 +217,21 @@
                   $per->setemail($input_email);
                   $per->setsenha($senha);
                   $perfis = $per->listar();
+                  $verificado;
                 
                   foreach($perfis as $row){
 
                     if($row['email'] == $input_email && $row['senha'] == $senha){
-
+                        $verificado = true;
                         $per->obterid();
-
                         $sqlresult = $per->obterid();
-                
+                    }else{
+                        $verificado = false;
+                    }
+                    
+                  }
+
+                  if(isset($sqlresult)){
                         if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
                             $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
                         }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
@@ -250,11 +256,8 @@
                             $ip->salvar();
                             echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
                         }
-
-                    }else{
-                        echo "<script language='JavaScript'>alert('Email ou senha incorretos');</script>";
-                    }
-                    
+                  }else{
+                    echo "<script language='JavaScript'>alert('Email ou senha incorretos');</script>";
                   }
               }
       ?>

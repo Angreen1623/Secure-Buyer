@@ -214,7 +214,7 @@
             include_once 'php-conexao-modelagem/imagem_produto.php';
             $img = new Imagem();
 
-            $prod->setcod_perfil(1);
+            $prod->setcod_perfil($codper);
             $produtos = $prod->consultar();
 
             foreach($produtos as $row){
@@ -235,7 +235,7 @@
                 <input type="submit" id="imagem">
                 </form>
                 <p class="descmodelos1"><?php echo $row['titulo_produto']; ?></p>
-                <p class="preco1">R$ <?php echo $row['preco_produto']; ?></p>
+                <p class="preco1">R$: <?php echo $row['preco_produto']; ?></p>
                 </div>
 
                 <?php

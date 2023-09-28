@@ -141,13 +141,47 @@ nav ul li a:hover:after{
 
 .banner{
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     width: 100%;
     overflow: hidden;
 }
 
+.banner .text{
+    width: 54%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner .boas-vindas{
+    margin-bottom: 20px;
+}
+
+.banner .button a{
+    background-color: black;
+    color: white;
+    width: 200px; 
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    border-radius: 36px;
+}
+
+.banner .boas-vindas h1{
+    color:black;
+    line-height: 50px;
+    font-weight: 500;
+    font-size: 50px;
+    font-family: 'lovelace',Arial, sans-serif;
+    text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
+}
+
+.banner .img{
+    display: flex;
+    width: 39%;
+}
 .banner .img img{
-    height: 100%;
     width: 100%;
 }
 

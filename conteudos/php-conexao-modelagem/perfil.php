@@ -94,7 +94,6 @@ function salvar()
       @$sql-> bindParam(4, $this->getsenha(), PDO::PARAM_STR);
       if($sql->execute() == 1)
       {
-        echo "<script type='text/javascript'>alert('Registro salvo com sucesso!');</script>";
       }
        $this->conn = null;
     }

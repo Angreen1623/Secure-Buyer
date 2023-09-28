@@ -197,7 +197,7 @@
             <img src="<?php echo $mostrar_dados[6]?>" alt="Foto Perfil">
         </div>
         <p class="nomedaloja"><?php echo $mostrar_dados[4]?></p>
-        <p class="descricao">AVALIAÇÕES: 40 <br> PRODUTOS: 50 <br> ANUNCIANTE DESDE:  11/11/2023</p></div>
+        <p class="descricao">AVALIAÇÕES: X <br> PRODUTOS: X <br> ANUNCIANTE DESDE:  XX/XX/XX</p></div>
     <div>
 
        <?php 
@@ -235,7 +235,7 @@
                 <input type="submit" id="imagem">
                 </form>
                 <p class="descmodelos1"><?php echo $row['titulo_produto']; ?></p>
-                <p class="preco1">R$: <?php echo $row['preco_produto']; ?></p>
+                <p class="preco1">R$ <?php echo $row['preco_produto']; ?></p>
                 </div>
 
                 <?php

@@ -10,7 +10,6 @@ class Produto
     private $titulo_produto;
     private $descricao_produto;
     private $tipo_peca;
-    private $imagem_produto;
     private $preco_produto;
     private $sexo;
     private $conn;
@@ -55,14 +54,6 @@ class Produto
 
     public function settipo_peca($tipopeca) {
     $this->tipopeca= $tipopeca;
-    }
-    
-   public function getimagem_produto() {
-    return $this->imagem_pro;
-   }
-
-    public function setimagem_produto($imgpro) {
-    $this->imagem_pro= $imgpro;
     }
     
    public function getpreco_produto() {
@@ -165,7 +156,7 @@ function salvar()
     try
     {
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("Select * from produto where cod_produto like ?"); // informei o ?
+        $sql = $this->conn->prepare("Select * from produto where cod_produto like ? order by cod_produto"); // informei o ?
         @$sql-> bindParam(1, $this->getcod_produto(), PDO::PARAM_STR);
         $sql->execute();
         return $sql->fetchAll();
@@ -181,13 +172,12 @@ function salvar()
     try
     {
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("Select * from produto where titulo_produto like ? and descricao_produto like ? and tipo_peca like ? and preco_produto like ? and sexo like ? and cod_perfil like ?"); // informei o ?
+        $sql = $this->conn->prepare("Select * from produto where titulo_produto like ? and descricao_produto like ? and tipo_peca like ? and sexo like ? and cod_perfil like ?"); // informei o ?
         @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
         @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
         @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);
-        @$sql->bindParam(4, $this->getpreco_produto(), PDO::PARAM_STR);
-        @$sql->bindParam(5, $this->getsexo(), PDO::PARAM_STR);
-        @$sql->bindParam(6, $this->getcod_perfil(), PDO::PARAM_STR);
+        @$sql->bindParam(4, $this->getsexo(), PDO::PARAM_STR);
+        @$sql->bindParam(5, $this->getcod_perfil(), PDO::PARAM_STR);
         $sql->execute();
         return $sql->fetchAll();
         $this->conn = null;

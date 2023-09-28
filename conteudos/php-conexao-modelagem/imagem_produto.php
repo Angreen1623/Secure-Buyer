@@ -47,11 +47,10 @@
                 @$sql-> bindParam(":codigo", $this->getcod_produto(), PDO::PARAM_INT);
                 @$sql-> bindParam(":img", $this->getimagem_produto(), PDO::PARAM_STR);
                 if($sql->execute() == 1){
-                    return "Registro salvo com sucesso!";
                 }
 
             }catch(PDOException $exc){
-                echo "Erro ao salvar o registro.".$exc->getMessage();
+                echo "<script language='JavaScript'>Erro ao salvar o registro.".$exc->getMessage()."</script>";
             }
         }
 

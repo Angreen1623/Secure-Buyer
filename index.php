@@ -103,6 +103,14 @@
             <!-- fim da barra superior -->
 
         <div class="banner">
+            <div class="text">
+                <div class="boas-vindas">
+                    <h1>Bem vindo à <br> Secure Buyer</h1>
+                </div>
+                <div class="button">
+                    <a href="conteudos/novidades.php">Começe a comprar</a>
+                </div>
+            </div>
             <div class="img">
                 <img src="conteudos/img/banner.png" alt="Bem Vindo">
             </div>

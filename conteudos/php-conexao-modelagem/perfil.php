@@ -13,7 +13,7 @@ class Perfil
    private $nome_loja;
    private $cnpj;
    private $imagem;
-   private $caminho_img;
+   private $conn;
    
 //parte 2 - os getters e setter
 

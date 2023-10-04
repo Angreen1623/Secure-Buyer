@@ -43,13 +43,13 @@
         justify-content: flex-end;
     }
   .descmodelos1{
-    display: inline-block;
-    vertical-align: top; 
+    display: inline-block; 
     line-height: 45px;
     font-weight: 20;
     text-align: center;
-    word-spacing: normal;
+    line-height: 22px;
     word-wrap: break-word;
+    margin-top: 10px;
   }
   .preco1 {
     display: inline-block;

@@ -120,7 +120,7 @@
                         <div class="label">
                             <p>Descrição</p>
                         </div>
-                        <input type="text" name="nome" class="descricao">
+                        <input type="text" name="desc" class="descricao">
                     </div>
                     <div class="vertical-group">
                         <div class="label">

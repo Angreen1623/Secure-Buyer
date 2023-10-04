@@ -112,47 +112,47 @@
             ?>
 
             <div class="form-container">
-            <form action="" enctype="multipart/form-data" method="POST">
-                <div class="title">
-                    <h1>Tornar-se anunciante</h1>
-                </div>
+                <form action="" enctype="multipart/form-data" method="POST">
+                    <div class="title">
+                        <h1>Tornar-se anunciante</h1>
+                    </div>
 
-                <div class="form">
-                    <div class="text-form">
-                        <div class="vertical-group">
-                            <div class="label">
-                                <p>Nome da loja</p>
+                    <div class="form">
+                        <div class="text-form">
+                            <div class="vertical-group">
+                                <div class="label">
+                                    <p>Nome da loja</p>
+                                </div>
+                                <input type="text" name="nome_loja" required>
                             </div>
-                            <input type="text" name="nome_loja" required>
+
+                            <div class="vertical-group">
+                                <div class="label">
+                                    <p>CNPJ</p>
+                                </div>
+                                <input type="text" name="cnpj" maxlength="18" class="cnpjmask" required>
+                            </div>
+                            <div class="button">
+                                <div class="btn1">
+                                <a href="perfil-padrao.php">Voltar</a>
+                                </div>
+                                <div class="btn2">
+                                    <input name ="btnconfirmar" type="submit" value="Confirmar mudanças">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="vertical-group">
-                            <div class="label">
-                                <p>CNPJ</p>
+                        <div class="img-form">
+                            <div class="img">
+                                <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
+                                <input multiple type="file" name="arquivo" id="imagem" accept=".jpg, .png">
                             </div>
-                            <input type="text" name="cnpj" maxlength="18" class="cnpjmask" required>
-                        </div>
-                        <div class="button">
-                            <div class="btn1">
-                            <a href="perfil-padrao.php">Voltar</a>
-                            </div>
-                            <div class="btn2">
-                                <input name ="btnconfirmar" type="submit" value="Confirmar mudanças">
+                            <div class="description">
+                                <p>Adicionar foto</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="img-form">
-                        <div class="img">
-                            <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                            <input multiple type="file" name="arquivo" id="imagem" accept=".jpg, .png">
-                        </div>
-                        <div class="description">
-                            <p>Adicionar foto</p>
-                        </div>
-                    </div>
-                </div>
-                    </form>
+                </form>
             </div>
         </div>
        

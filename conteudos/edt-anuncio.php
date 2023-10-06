@@ -29,40 +29,42 @@
                 </div>
 
                 <div class="form">
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Título</p>
+                    <form action="" method="POST">
+                        <div class="vertical-group">
+                            <div class="label">
+                                <p>Título</p>
+                            </div>
+                            <input type="text" name="nome">
                         </div>
-                        <input type="text" name="nome">
-                    </div>
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Descrição</p>
+                        <div class="vertical-group">
+                            <div class="label">
+                                <p>Descrição</p>
+                            </div>
+                            <input type="text" name="desc" class="descricao">
                         </div>
-                        <input type="text" name="desc" class="descricao">
-                    </div>
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Quantidade</p>
+                        <div class="vertical-group">
+                            <div class="label">
+                                <p>Quantidade</p>
+                            </div>
+                            <span class="btn-qnt">-</span>
+                            <span>1</span>
+                            <span class="btn-qnt">+</span>
                         </div>
-                        <span class="btn-qnt">-</span>
-                        <span>1</span>
-                        <span class="btn-qnt">+</span>
-                    </div>
-                    <div class="vertical-group">
-                        <div class="label">
-                            <p>Aplicar promoção</p>
+                        <div class="vertical-group">
+                            <div class="label">
+                                <p>Aplicar promoção</p>
+                            </div>
+                            <input type="text" name="promoção" placeholder="Valor do desconto">
                         </div>
-                        <input type="text" name="nome" placeholder="Valor do desconto">
-                    </div>
-                    <div class="button">
-                        <div class="btn">
-                            <span>Cancelar</span>
+                        <div class="button">
+                            <div class="btn">
+                                <span>Cancelar</span>
+                            </div>
+                            <div class="btn">
+                                <input type="submit" name="btnalterar" value="Confirmar mudanças">
+                            </div>
                         </div>
-                        <div class="btn">
-                            <span>Confirmar mudanças</span>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
                 <div class="image">
@@ -71,6 +73,23 @@
 
             </div>
         </div>
+
+        <?php
+
+            extract($_POST, EXTR_OVERWRITE);
+            if(isset($btnalterar)){
+
+            include_once './php-conexao-modelagem/produto.php';
+            $prod = new Produto();
+
+            $prod->setcod_perfil($codper);
+            $prod->setcod_produto(3); //TEMPORÁRIO ---------------------------------------------------------------------------------------
+            $prod->settitulo_produto($nome);
+            $prod->setdescricao_produto($desc);
+
+            }
+
+        ?>
     </div>
     
 </body>

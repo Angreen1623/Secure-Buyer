@@ -290,7 +290,7 @@
                     </div>
                     <div class="buttons">
                         <div class="btn">
-                            <a href="../index.php">Voltar</a>
+                            <a href="./index.php">Voltar</a>
                         </div>
                         <input type="submit" value="Confirmar" name="btnconfirmar">
                     

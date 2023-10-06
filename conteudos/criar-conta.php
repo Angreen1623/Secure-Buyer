@@ -99,11 +99,11 @@
                     foreach($ips as $row2){
                         if($ip_maquina = $row2['endereco_ip']){
                             $ip->alterar();
-                            echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                            echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
                         }
                     }
                     $ip->salvar();
-                    echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                    echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
                 }
             }
         }

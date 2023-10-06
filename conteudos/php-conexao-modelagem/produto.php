@@ -33,43 +33,43 @@ class Produto
    }
 
    public function gettitulo_produto() {
-    return $this->titulo_pro;
+    return $this->titulo_produto;
     }
 
    public function settitulo_produto ($titulopro) {
-   $this->titulo_pro= $titulopro;
+   $this->titulo_produto= $titulopro;
    }
 
    public function getdescricao_produto() {
-          return $this->desc_pro;
+          return $this->descricao_produto;
    }
 
    public function setdescricao_produto($desc_pro) {
-    $this->desc_pro= $desc_pro;
+    $this->descricao_produto= $desc_pro;
    }
 
    public function gettipo_peca() {
-    return $this->tipopeca;
+    return $this->tipo_peca;
    }
 
     public function settipo_peca($tipopeca) {
-    $this->tipopeca= $tipopeca;
+    $this->tipo_peca = $tipopeca;
     }
     
    public function getpreco_produto() {
-    return $this->preco_pro;
+    return $this->preco_produto;
    }
 
     public function setpreco_produto($prepro) {
-    $this->preco_pro= $prepro;
+    $this->preco_produto= $prepro;
     }
 
     public function getsexo() {
-        return $this->sex;
+        return $this->sexo;
        }
     
     public function setsexo($sex) {
-    $this->sex= $sex;
+    $this->sexo = $sex;
         }
     //parte 3 - métodos
 

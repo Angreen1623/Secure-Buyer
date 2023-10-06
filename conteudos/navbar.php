@@ -15,7 +15,7 @@
         <!-- div da logo -->
         <div class="logo">
             <!-- se vc clicar na logo volta para o index -->
-            <a href="../index.php">
+            <a href="./index.php">
                 <!-- foto da logo -->
                 <img src="../conteudos/img/logo-sb.png" alt="Icone">
             </a>

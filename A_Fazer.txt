@@ -1,0 +1,10 @@
+1. Footer;
+2. 3 Imagens funcionando no adicionar anuncio;
+3. Finalizar editar anuncio;
+4. Tratamento de erro;
+5. Responsividade;
+6. Linkagem com o produtos.php;
+7. Tela do ADM;
+8. Cards do anúncio;
+9. Mudar esse nome fudido;
+10. Sistema de avaliações;

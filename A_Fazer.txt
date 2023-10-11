@@ -8,3 +8,4 @@
 8. Cards do anúncio;
 9. Mudar esse nome fudido;
 10. Sistema de avaliações;
+11. botão de deslogar no perfil-padrao;

@@ -11,19 +11,19 @@ a{
 }
 
 .content{
-  margin-left: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .content .box{
-  width: 50%;
+  width: 53%;
   background-color: #E1D9CE;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: 15px 10px;
 }
 
 .content .title{

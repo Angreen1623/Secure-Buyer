@@ -1,6 +1,4 @@
 .novidades{
-    margin-left: 20px;
-    margin-right: 20px;
     position: relative;
     display: inline-block;
     width: 100%;
@@ -18,6 +16,7 @@
 }
 
 .produtos .subtitle h2{
+    margin-left: 20px;
     font-size: 40px;
     font-family: 'lovelace','arial','comic sans';
     margin-bottom: 30px;

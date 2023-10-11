@@ -60,6 +60,9 @@
                 </div>
             </form>
         </div>
+
+        <?php include 'footer.php'; ?>
+        
     <!--fim do formulario "crie sua conta"-->
     </div>
 

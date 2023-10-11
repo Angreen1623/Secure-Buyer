@@ -33,6 +33,9 @@
                 <img src="img/banner.png" alt="Bem Vindo">
             </div>
         </div>
+
+        <?php include 'footer.php'; ?>
+
     </div>
     
 </body>

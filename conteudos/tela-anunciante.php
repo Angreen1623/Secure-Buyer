@@ -105,6 +105,8 @@
         </div>
 
     </div>
+
+    <?php include 'footer.php'; ?>
 </header>
 
 <!--FINAL TELA ANUNCIANTE-->

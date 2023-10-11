@@ -75,6 +75,8 @@
                 </form>
             </div>
         </div>
+
+        <?php include 'footer.php'; ?>
        
        <?php
         include_once 'php-conexao-modelagem/perfil.php';

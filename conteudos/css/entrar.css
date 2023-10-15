@@ -96,3 +96,13 @@ form input, textarea
     cursor: pointer;
   }
 
+  .error-border {
+    border: 2px solid red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: block;  
+  }

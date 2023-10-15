@@ -67,7 +67,7 @@
         $perfil->setcod_perfil($codper);
         $dadosPerfil = $perfil->alterar();
         ?>
-        <form action="" method="POST">
+        <form name = "formul" onsubmit="return validaAlteracao()" method="POST">
         <?php
         foreach ($dadosPerfil as $mostrar_dados) {
         
@@ -97,6 +97,9 @@
                         <input type="hidden" value='<?php echo $pro_mostrar[4]?>' name="cod_perfil">
                     </div>
                 </div>
+
+                <div class="errorDiv" id="errorDiv" style="color: red; font-size: 0.9em;"></div>
+
 
                 <div class="buttons">
                     <input name = "btnalterar" type="submit" value="Alterar">
@@ -239,7 +242,7 @@
         <?php
         if(isset($senhasicorr)) {
             if($senhasicorr = true){
-                echo " <div class="."depurar"."> <h3>As senhas não coincidem.</h3> </div>";
+                echo "<script>document.getElementById('errorDiv').textContent = 'As senhas não coincidem.';</script>";
             }
         }
         ?>
@@ -251,4 +254,5 @@
 </body>
 <!--javascript-->
 <script src="../conteudos/js/script.js"></script>
+<script src="../conteudos/js/alterarperf.js"></script>
 </php>

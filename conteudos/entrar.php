@@ -31,12 +31,15 @@
                     <form name="formul" onsubmit="return validaform()" method="post">
                         <div class="form-item">
                             <label title="Digite seu email">E-mail</label>
-                            <input type="email" name="input_email" required>
+                            <input type="text" name="input_email" required>
                         </div>
                         <div class="form-item">
                             <label title="Digite uma mensagem para nós.">Senha</label>
                             <input type="password" name="senha" required>
                         </div>
+                        <!--mensagem de erro-->
+                        <div id="loginError" class="error-text"></div>
+
                         <div class="form-item">
                             <span class="esquecisenha"><a href="#">Esqueci a senha</a></span>
                         </div>
@@ -49,12 +52,12 @@
                                 <span class="naotemconta">Ainda não possui cadastro? </span>
                                 <span class="naotemconta"><a href="criar-conta.php"> Crie sua conta</a></span>
                             </div>
-                        </div>
+                        </div> 
                     </form>
                 </div>
             </div>
         </div>
-
+       
         <?php include 'footer.php'; ?>
         
     </div>
@@ -108,9 +111,13 @@
                             echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
                         }
                   }else{
-                    echo "<script language='JavaScript'>alert('Email ou senha incorretos');</script>";
-                  }
+                    echo "<script language='JavaScript'>
+                         document.getElementById('loginError').textContent = 'Email ou senha incorretos';
+                         document.formul.input_email.classList.add('error-border');
+                         document.formul.senha.classList.add('error-border');
+                        </script>";
               }
+            }
       ?>
 </body>
 <!--javascript-->

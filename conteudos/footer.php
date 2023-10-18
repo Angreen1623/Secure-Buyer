@@ -7,27 +7,21 @@
           <div class="footer-col">
               <h6>INÍCIO</h6>
              <ul>
-                <li> <a href="Home.html">HOME</a></li>
-                <li> <a href="conteudos/categoria.html">CATEGORIAS</a></li>
-                <li> <a href="conteudos/indicacoes.html">INDICAÇÕES</a></li>
+                <li> <a href="./index.php">Home</a></li>
              </ul>   
           </div>
            <div class="footer-col">
             <h6>AJUDA</h6>
               <ul>
-                 <li> <a href="conteudos/pds.html">SELEÇÃO</a></li>
-                 <li> <a href="conteudos/faleconosco.html">FALE CONOSCO</a></li>
-                 <li> <a href="conteudos/sobrenos.html">SOBRE NÓS</a></li>
+                 <li> <a href="conteudos/faleconosco.html">Fale conosco</a></li>
+                 <li> <a href="conteudos/sobrenos.html">Sobre nós</a></li>
               </ul>
             </div>
           <div class="footer-col">
                <h6>CATEGORIAS</h6>
              <ul>
-                 <li> <a href="conteudos/Cat_Casual.html">CASUAL</a></li>
-                 <li> <a href="conteudos/Cat_Esporte.html">ESPORTE</a></li>
-                 <li> <a href="conteudos/Cat_Grife.html">GRIFE</a></li>
-                 <li> <a href="conteudos/Cat_Jovem.html">JOVEM</a></li>
-                 <li> <a href="conteudos/Cat_Social.html">SOCIAL</a></li>
+                 <li> <a href="./novidades.php">Masculino</a></li>
+                 <li> <a href="./novidades.php">Feminino</a></li>
              </ul>
            </div>
           <div class="footer-sub">

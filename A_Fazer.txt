@@ -1,4 +1,4 @@
-1. Corrigir links no footer;
+1. Footer;                                              FEITO
 2. 3 Imagens funcionando no adicionar anuncio;
 3. Finalizar editar anuncio;
 4. Tratamento de erro;

@@ -102,12 +102,13 @@
                 <img src="../conteudos/img/addprod.png" alt="Crie um anúncio" class="imgmodelo1"></a>
                 <p class="descmodelos1">Crie um novo anúncio</p>
             </div>
-        </div>
+        </div>        
 
     </div>
-
-    <?php include 'footer.php'; ?>
+    
 </header>
+
+<?php include 'footer.php'; ?>
 
 <!--FINAL TELA ANUNCIANTE-->
 </body>

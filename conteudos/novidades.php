@@ -19,7 +19,13 @@
 
     <!-- Inicio da página -->
     <div class="wrapper">
-        <?php include 'navbar.php'; ?>
+        <?php include 'navbar.php'; 
+
+        include_once 'php-conexao-modelagem/produto.php';
+        $prod = new Produto();
+        include_once 'php-conexao-modelagem/imagem_produto.php';
+        $img = new Imagem();
+        ?>
 
         <div class="novidades">
             <div class="title">
@@ -32,63 +38,42 @@
                     </div>
 
                     <div class="produtos-container">
-                        <div class="produtos-item">
+                    <?php
+                            
 
-                            <div class="img"> 
-                                <a href="produto.php">
-                                    <img src="img/modelo1.png" alt="">
-                                </a>
-                            </div>
-                            <div class="name">
-                                <h3>Vestido em cashmere e seda</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 250,00</p>
-                            </div>
+                            $prod->setsexo("female");
+                            $produtos = $prod->filtro();
 
-                        </div>
-                        <div class="produtos-item">
+                            foreach($produtos as $row){
+                                ?>
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/modelo2.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Jaqueta em denim</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 350,00</p>
-                            </div>
+                                <div class="produtos-item">
 
-                        </div>
-                        <div class="produtos-item">
+                                    <div class="img">
+                                        <a href="produto.php">
+                                        <img src="<?php
+                                        $img->setcod_produto($row['cod_produto']);
+                                        $imagens = $img->consultar2();
+                                        foreach($imagens as $row2){
+                                            echo $row2['imagem_produto'];
+                                        }
+                                        ?>" alt="" class="imgmodelo1">
+                                        </a>
+                                    </div>
+                                    <div class="name">
+                                        <h3><?php echo $row['titulo_produto']; ?></h3>
+                                    </div>
+                                    <div class="preco">
+                                        <p>R$ <?php echo $row['preco_produto']; ?></p>
+                                    </div>
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/modelo3.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Blusa em denim decorado</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 115,00</p>
-                            </div>
+                                </div>
 
-                        </div>
-                        <div class="produtos-item">
+                                <?php
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/4.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Camiseta em algodão com cristais</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 250,00</p>
-                            </div>
+                            }
 
-                        </div>
+                        ?>
                     </div>
 
                     <div class="subtitle">
@@ -96,62 +81,42 @@
                     </div>
 
                     <div class="produtos-container">
-                        <div class="produtos-item">
+                    <?php
+                            
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/modelo5.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Blazer em lã angorá com abotoamento central</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 180,00</p>
-                            </div>
+                            $prod->setsexo("male");
+                            $produtos = $prod->filtro();
 
-                        </div>
-                        <div class="produtos-item">
+                            foreach($produtos as $row){
+                                ?>
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/modelo6.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Jaqueta com abotoamento central em Re-Nylon</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 200,00</p>
-                            </div>
+                                <div class="produtos-item">
 
-                        </div>
-                        <div class="produtos-item">
+                                    <div class="img">
+                                        <a href="produto.php">
+                                        <img src="<?php
+                                        $img->setcod_produto($row['cod_produto']);
+                                        $imagens = $img->consultar2();
+                                        foreach($imagens as $row2){
+                                            echo $row2['imagem_produto'];
+                                        }
+                                        ?>" alt="" class="imgmodelo1">
+                                        </a>
+                                    </div>
+                                    <div class="name">
+                                        <h3><?php echo $row['titulo_produto']; ?></h3>
+                                    </div>
+                                    <div class="preco">
+                                        <p>R$ <?php echo $row['preco_produto']; ?></p>
+                                    </div>
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/modelo7.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Casaco em popeline técnica com abot. central</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 115,00</p>
-                            </div>
+                                </div>
 
-                        </div>
-                        <div class="produtos-item">
+                                <?php
 
-                            <div class="img">
-                                <a href="produto.php">
-                                <img src="img/modelo8.png" alt=""></a>
-                            </div>
-                            <div class="name">
-                                <h3>Sobretudo em mescla de algodão</h3>
-                            </div>
-                            <div class="preco">
-                                <p>R$ 225,00</p>
-                            </div>
+                            }
 
-                        </div>
+                        ?>
                     </div>
                 </div>
                 

@@ -23,19 +23,22 @@
 }
 
 .produtos-container{
-    display: inline-flex;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 30px;
+    justify-items: center;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-bottom: 20px;
 }
 
 .produtos .produtos-item{
-    width: 100%;
+    width: 90%;
+    justify-content: center;
     display: grid;
 }
 
 .produtos .produtos-item .img{
-    width: 300px;
+    width: 100px;
     align-self: center;
     display: contents;
 }

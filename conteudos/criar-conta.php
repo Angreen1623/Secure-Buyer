@@ -26,39 +26,41 @@
     <!--INCIO "CRIE SUA CONTA"-->
     <!--titulo escrito "crie sua conta"-->
     <div class="content">
-        <div class="title">
-            <h1>CRIE SUA CONTA</h1>
-        </div>
-        <!--inicio do formulário "crie sua conta"-->
-        <div class="formulariocriesuaconta">
-            <form name="formu" action=""     method="POST">
-                <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
-                <div>
-                    <label title="Digite seu nome">Nome</label>
-                    <input type="text" name="nome" required>
-                    </div> 
+        <div class="box">
+            <div class="title">
+                <h1>CRIE SUA CONTA</h1>
+            </div>
+            <!--inicio do formulário "crie sua conta"-->
+            <div class="formulariocriesuaconta">
+                <form name="formu" action=""     method="POST">
+                    <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
                     <div>
-                    <label title="Digite seu sobrenome">Sobrenome</label>
-                    <input type="text" name="sobrenome" required>
-                </div>
-                <div>
-                    <!--nesta div o usuario ira digitar seu email-->
-                    <label title="Digite seu email">E-mail</label>
-                    <input type="text" name="email" required>
-                </div>
-                <div>
-                    <!--nesta div o usuario ira digitar sua senha e ira confirmar a senha digitada-->
-                    <label title="Digite sua senha">Senha</label>
-                    <input type="password" id="senha" name="senha" required><!--comando usado para senha aparecer com privacidade-->
-                </div>
-                <div>
-                    <label title="Confirme sua senha">Confirmar senha</label>
-                    <input type="password" id="senha" name="confirmarsenha" required><!--comando usado para a confirmação de senha aparecer com privacidade-->
-                </div>
-                <div>
-                    <input type="submit" value="Crie sua conta" name="btncadastro"><!--botao criado para a criação de conta do usuario-->
-                </div>
-            </form>
+                        <label title="Digite seu nome">Nome</label>
+                        <input type="text" name="nome" required>
+                        </div> 
+                        <div>
+                        <label title="Digite seu sobrenome">Sobrenome</label>
+                        <input type="text" name="sobrenome" required>
+                    </div>
+                    <div>
+                        <!--nesta div o usuario ira digitar seu email-->
+                        <label title="Digite seu email">E-mail</label>
+                        <input type="text" name="email" required>
+                    </div>
+                    <div>
+                        <!--nesta div o usuario ira digitar sua senha e ira confirmar a senha digitada-->
+                        <label title="Digite sua senha">Senha</label>
+                        <input type="password" id="senha" name="senha" required><!--comando usado para senha aparecer com privacidade-->
+                    </div>
+                    <div>
+                        <label title="Confirme sua senha">Confirmar senha</label>
+                        <input type="password" id="senha" name="confirmarsenha" required><!--comando usado para a confirmação de senha aparecer com privacidade-->
+                    </div>
+                    <div>
+                        <input type="submit" value="Crie sua conta" name="btncadastro"><!--botao criado para a criação de conta do usuario-->
+                    </div>
+                </form>
+            </div>
         </div>
 
         <?php include 'footer.php'; ?>

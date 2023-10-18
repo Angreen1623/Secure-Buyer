@@ -16,6 +16,16 @@
   align-items: center;
 }
 
+.content .box{
+  width: 55%;
+  background-color: #E1D9CE;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px 30px;
+}
+
 
 .title h1{
 color:black;
@@ -40,7 +50,7 @@ margin-bottom: 10px;
 /*--comandos dados para a exibição do formulario de acordo com o wf-*/
 .formulariocriesuaconta
 {
-  width: 60%;
+  width: 100%;
   font-family: 'Poppins',Arial, sans-serif;
   margin-bottom: 20px;
 }

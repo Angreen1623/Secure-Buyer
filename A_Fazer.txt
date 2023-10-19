@@ -1,5 +1,5 @@
-1. Footer;                                              FEITO
-2. 3 Imagens funcionando no adicionar anuncio;          FEITO
+1. Footer;                                                              FEITO
+2. 3 Imagens funcionando no adicionar anuncio;                          FEITO
 3. Finalizar editar anuncio;
 4. Tratamento de erro;
 5. Responsividade;
@@ -9,7 +9,7 @@
 9. Mudar esse nome fudido;
 10. Sistema de avaliações;
 11. Botão de deslogar no perfil-padrao;
-12. Terem nomes unicos;
-13. Tamanho obrigatório;
-14. Criptografar senhas;                                FEITO
+12. Terem nomes unicos;                                                 FEITO
+13. Tamanho das imagens obrigatório 150x150 para perfil por exemplo;
+14. Criptografar senhas;                                                FEITO
 15. sobre nos e fale conosco;

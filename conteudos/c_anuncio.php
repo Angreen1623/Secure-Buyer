@@ -267,18 +267,22 @@
 
                         <!-- as imagens -->
                         <div class="images">
+
                             <div class="img">
-                                <label for='imagem1'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo1" id="imagem1" accept=".jpg, .png" required>
+                                <label for='imagem1'> <img src="./img/nova-foto.png" class="img1" alt="Adicione uma imagem"></label>
+                                <input type="file" name="arquivo1" id="imagem1" accept=".jpg, .png, .jpeg" required>
                             </div>
-                            <!-- <div class="img">
-                                <label for='imagem2'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo2" id="imagem2" accept=".jpg, .png" required>
-                            </div>
+
                             <div class="img">
-                                <label for='imagem3'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo3" id="imagem3" accept=".jpg, .png" required>
-                            </div> -->
+                                <label for='imagem2'> <img src="./img/nova-foto.png" class="img2" alt="Adicione uma imagem"></label>
+                                <input type="file" name="arquivo2" id="imagem2" accept=".jpg, .png, .jpeg" required>
+                            </div>
+
+                            <div class="img">
+                                <label for='imagem3'> <img src="./img/nova-foto.png" class="img3" alt="Adicione uma imagem"></label>
+                                <input type="file" name="arquivo3" id="imagem3" accept=".jpg, .png, .jpeg" required>
+                            </div>
+
                         </div>
                         <!-- cabo imagem -->
                     </div>
@@ -367,18 +371,21 @@
                 $imagem1 = "./img/user-img/".$_FILES["arquivo1"]["name"];
                 move_uploaded_file($_FILES["arquivo1"]["tmp_name"], $imagem1);
                 $img->setimagem_produto($imagem1);
-                echo "<script language='JavaScript'>".$imagem1."</script>";
                 $img->salvar();
 
-            //     $imagem2 = "./img/user-img/".$_FILES["arquivo2"]["name"];
-            //     move_uploaded_file($_FILES["arquivo2"]["tmp_name"], $imagem2);
-            //     $img->setimagem_produto($imagem2);
-            //     $img->salvar();
+                $img->setcod_produto($prod_cod);
 
-            //    $imagem3 = "./img/user-img/".$_FILES["arquivo3"]["name"];
-            //     move_uploaded_file($_FILES["arquivo3"]["tmp_name"], $imagem3);
-            //     $img->setimagem_produto($imagem3);
-            //     $img->salvar();
+                $imagem2 = "./img/user-img/".$_FILES["arquivo2"]["name"];
+                move_uploaded_file($_FILES["arquivo2"]["tmp_name"], $imagem2);
+                $img->setimagem_produto($imagem2);
+                $img->salvar();
+
+                $img->setcod_produto($prod_cod);
+
+                $imagem3 = "./img/user-img/".$_FILES["arquivo3"]["name"];
+                move_uploaded_file($_FILES["arquivo3"]["tmp_name"], $imagem3);
+                $img->setimagem_produto($imagem3);
+                $img->salvar();
 
                 echo "<script language='JavaScript'>window.location.replace('tela-anunciante.php');</script>";
 

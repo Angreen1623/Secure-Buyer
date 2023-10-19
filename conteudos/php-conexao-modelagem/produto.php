@@ -12,6 +12,7 @@ class Produto
     private $tipo_peca;
     private $preco_produto;
     private $sexo;
+    private $link;
     private $conn;
 
 // parte 2 - os gettes e setter
@@ -69,21 +70,30 @@ class Produto
        }
     
     public function setsexo($sex) {
-    $this->sexo = $sex;
-        }
+        $this->sexo = $sex;
+    }
+
+     public function getlink() {
+         return $this->link;
+    }
+
+    public function setlink($linkagem) {
+     $this->link = $linkagem;
+    }
     //parte 3 - métodos
 
 function salvar()
 {
     try{
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?)");
+        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,?)");
         @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
         @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
         @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);
         @$sql->bindParam(4, $this->getpreco_produto(), PDO::PARAM_STR);
         @$sql->bindParam(5, $this->getsexo(), PDO::PARAM_STR);
-        @$sql->bindParam(6, $this->getcod_perfil(), PDO::PARAM_STR);
+        @$sql->bindParam(6, $this->getlink(), PDO::PARAM_STR);
+        @$sql->bindParam(7, $this->getcod_perfil(), PDO::PARAM_STR);
         if($sql->execute() == 1){
         }
         $this->conn = null;

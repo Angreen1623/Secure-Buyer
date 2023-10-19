@@ -309,6 +309,8 @@
             if(isset($btnconfirmar)){
                 include_once 'php-conexao-modelagem/produto.php';
                 $prod = new Produto();
+                include_once 'novo_produto.php';
+                $new = new novo_produto();
 
                 $prod->setcod_perfil($codper);
                 $prod->settitulo_produto($nome);
@@ -316,6 +318,8 @@
                 $prod->settipo_peca($peca);
                 $prod->setpreco_produto($preco);
                 $prod->setsexo($gender);
+                $prod->setlink($new->buying_page($codper, $nome, $descricao, $peca, $preco, $gender));
+
                 $prod->salvar();
                 $produtos = $prod->obterid();
 

@@ -65,7 +65,7 @@
                         <div class="img-form">
                             <div class="img">
                                 <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input multiple type="file" name="arquivo" id="imagem" accept=".jpeg, .jpg, .png">
+                                <input type="file" name="arquivo" id="imagem" accept=".jpeg, .jpg, .png">
                             </div>
                             <div class="description">
                                 <p>Adicionar foto</p>
@@ -84,7 +84,8 @@
         if (isset($btnconfirmar)) {
         
             if(isset($_FILES["arquivo"]) && !empty($_FILES["arquivo"])){
-                $imagem = "./img/user-img/".$_FILES["arquivo"]["name"];
+                $imagem = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
+
                 move_uploaded_file($_FILES["arquivo"]["tmp_name"], $imagem);
 
                 $perfil = new Perfil();

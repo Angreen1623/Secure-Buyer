@@ -368,21 +368,21 @@
 
                 $img->setcod_produto($prod_cod);
                 
-                $imagem1 = "./img/user-img/".$_FILES["arquivo1"]["name"];
+                $imagem1 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
                 move_uploaded_file($_FILES["arquivo1"]["tmp_name"], $imagem1);
                 $img->setimagem_produto($imagem1);
                 $img->salvar();
 
                 $img->setcod_produto($prod_cod);
 
-                $imagem2 = "./img/user-img/".$_FILES["arquivo2"]["name"];
+                $imagem2 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
                 move_uploaded_file($_FILES["arquivo2"]["tmp_name"], $imagem2);
                 $img->setimagem_produto($imagem2);
                 $img->salvar();
 
                 $img->setcod_produto($prod_cod);
 
-                $imagem3 = "./img/user-img/".$_FILES["arquivo3"]["name"];
+                $imagem3 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
                 move_uploaded_file($_FILES["arquivo3"]["tmp_name"], $imagem3);
                 $img->setimagem_produto($imagem3);
                 $img->salvar();

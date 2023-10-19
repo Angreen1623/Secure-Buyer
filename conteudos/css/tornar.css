@@ -98,14 +98,25 @@ a{
     align-items: center;
 }
 
-.img-form .img{
+.img-form label{
+    cursor: pointer;
+}
+
+.img-form .img label{
     width: 150px;
     height: 150px;
     display: flex;
     cursor: pointer;
 }
+
+.img-form .img{
+    width: 150px;
+    height: 150px;
+}
+
 .img-form .img img{
     width: 100%;
+    border-radius: 78px;
 }
 input[type='file'] {
     display: none

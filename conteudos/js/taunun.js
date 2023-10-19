@@ -12,3 +12,17 @@ input.addEventListener('keypress', () => {
             input.value += '-'}} 
 
 })
+
+const inputArquivo = document.querySelector(".img-form input");
+const imagem = document.querySelector(".img-form img");
+
+
+inputArquivo.onchange = function () { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
+
+  if (inputArquivo.files.length > 0) {  //Verifica se há um arquivo selecionado.
+    imagem.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
+  }
+
+};
+
+const userImage = imagem.src; // Armazena a imagem atual do usuário quando a página é carregada.

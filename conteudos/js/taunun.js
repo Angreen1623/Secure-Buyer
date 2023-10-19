@@ -16,7 +16,6 @@ input.addEventListener('keypress', () => {
 const inputArquivo = document.querySelector(".img-form input");
 const imagem = document.querySelector(".img-form img");
 
-
 inputArquivo.onchange = function () { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
 
   if (inputArquivo.files.length > 0) {  //Verifica se há um arquivo selecionado.

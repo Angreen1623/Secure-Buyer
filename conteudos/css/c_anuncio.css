@@ -97,6 +97,7 @@
 
 .form2 .radio-item .label{
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .form2 .radio-item input{
@@ -119,6 +120,9 @@
     justify-content: space-evenly;
     margin-bottom: 20px;
 }
+.images label{
+    cursor: pointer;
+}
 
 .images .img{
     width: 23%;
@@ -140,6 +144,7 @@ input[type='file'] {
 
 .buttons{
     display: inline-flex;
+    cursor: pointer;
 }
 
 .buttons .btn,

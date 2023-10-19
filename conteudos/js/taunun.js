@@ -24,5 +24,3 @@ inputArquivo.onchange = function () { //Função para atualizar a interface do u
   }
 
 };
-
-const userImage = imagem.src; // Armazena a imagem atual do usuário quando a página é carregada.

@@ -50,14 +50,14 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="produto.php">
-                                        <img src="<?php
-                                        $img->setcod_produto($row['cod_produto']);
-                                        $imagens = $img->consultar2();
-                                        foreach($imagens as $row2){
-                                            echo $row2['imagem_produto'];
-                                        }
-                                        ?>" alt="" class="imgmodelo1">
+                                        <a href="<?php echo $row['link'] ?>">
+                                            <img src="<?php
+                                            $img->setcod_produto($row['cod_produto']);
+                                            $imagens = $img->consultar2();
+                                            foreach($imagens as $row2){
+                                                echo $row2['imagem_produto'];
+                                            }
+                                            ?>" alt="" class="imgmodelo1">
                                         </a>
                                     </div>
                                     <div class="name">
@@ -93,7 +93,50 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="produto.php">
+                                        <a href="<?php echo $row['link'] ?>">
+                                        <img src="<?php
+                                        $img->setcod_produto($row['cod_produto']);
+                                        $imagens = $img->consultar2();
+                                        foreach($imagens as $row2){
+                                            echo $row2['imagem_produto'];
+                                        }
+                                        ?>" alt="" class="imgmodelo1">
+                                        </a>
+                                    </div>
+                                    <div class="name">
+                                        <h3><?php echo $row['titulo_produto']; ?></h3>
+                                    </div>
+                                    <div class="preco">
+                                        <p>R$ <?php echo $row['preco_produto']; ?></p>
+                                    </div>
+
+                                </div>
+
+                                <?php
+
+                            }
+
+                        ?>
+                    </div>
+
+                    <div class="subtitle">
+                        <h2>Unissex</h2>
+                    </div>
+
+                    <div class="produtos-container">
+                    <?php
+                            
+
+                            $prod->setsexo("unissex");
+                            $produtos = $prod->filtro();
+
+                            foreach($produtos as $row){
+                                ?>
+
+                                <div class="produtos-item">
+
+                                    <div class="img">
+                                        <a href="<?php echo $row['link'] ?>">
                                         <img src="<?php
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();

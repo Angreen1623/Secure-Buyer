@@ -69,13 +69,12 @@
                   include_once 'php-conexao-modelagem/perfil.php';
                   $per=new Perfil();
                   $per->setemail($input_email);
-                  $per->setsenha($senha);
                   $perfis = $per->listar();
                   $verificado;
                 
                   foreach($perfis as $row){
 
-                    if($row['email'] == $input_email && $row['senha'] == $senha){
+                    if($row['email'] == $input_email && password_verify($senha, $row['senha']) == true){
                         $verificado = true;
                         $per->obterid();
                         $sqlresult = $per->obterid();

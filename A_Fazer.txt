@@ -8,4 +8,8 @@
 8. Cards do anúncio;
 9. Mudar esse nome fudido;
 10. Sistema de avaliações;
-11. botão de deslogar no perfil-padrao;
+11. Botão de deslogar no perfil-padrao;
+12. Terem nomes unicos;
+13. Tamanho obrigatório;
+14. Criptografar senhas;                                FEITO
+15. sobre nos e fale conosco;

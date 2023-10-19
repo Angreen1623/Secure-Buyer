@@ -79,7 +79,7 @@ CREATE TABLE `perfil` (
   `nome` varchar(50) NOT NULL,
   `sobrenome` varchar(50) NOT NULL,
   `email` varchar(70) NOT NULL,
-  `senha` varchar(15) NOT NULL,
+  `senha` varchar(255) NOT NULL,
   `nome_loja` varchar(50) DEFAULT NULL,
   `cnpj` varchar(18) DEFAULT NULL COMMENT 'xx.xxx.xxx/yyyy-zz',
   `imagem` varchar(500) DEFAULT NULL,

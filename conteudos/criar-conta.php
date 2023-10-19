@@ -81,7 +81,7 @@
                 $per->setnome($nome);
                 $per->setsobrenome($sobrenome);
                 $per->setemail($email);
-                $per->setsenha($senha);
+                $per->setsenha(password_hash($senha, PASSWORD_DEFAULT));
                 $per->salvar();
 
                 $sqlresult = $per->obterid();

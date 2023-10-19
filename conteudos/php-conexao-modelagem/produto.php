@@ -178,6 +178,22 @@ function salvar()
     }
 } 
 
+   function filtro(){
+    try
+    {
+        $this->conn = new Conectar();
+        $sql = $this->conn->prepare("Select * from produto where sexo like ?"); // informei o ?
+        @$sql-> bindParam(1, $this->getsexo(), PDO::PARAM_STR);
+        $sql->execute();
+        return $sql->fetchAll();
+        $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
+    }
+} 
+
    function obterid(){
     try
     {

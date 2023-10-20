@@ -4,7 +4,7 @@ class novo_produto{
 
 function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
 
-    $link = uniqid("produto", false).".php";
+    $link = "./user-pages/".uniqid("produto", false).".php";
 
     $myfile = fopen($link, "w") or die("Unable to open file!");
 
@@ -15,28 +15,176 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Secure Buyer</title>
         <!--Logo-->
-        <link rel="apple-touch-icon" sizes="180x180" href="../conteudos/img/Icone/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../conteudos/img/Icone/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../conteudos/img/Icone/favicon-16x16.png">
-        <link rel="manifest" href="../conteudos/img/Icone/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="../img/Icone/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../img/Icone/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/Icone/favicon-16x16.png">
+        <link rel="manifest" href="../img/Icone/site.webmanifest">
         <!--css-->
-        <link rel="stylesheet" href="../conteudos/css/reset.css">
-        <link rel="stylesheet" href="../conteudos/css/style.css">
-        <link rel="stylesheet" href="../conteudos/css/produto.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/produto.css">
         
     </head>
     <body>
 
         <!-- Inicio da página -->
         <div class="wrapper">
-        <?php include "navbar.php"; ?>
-
+        <!-- Inicio da navbar -->
+        <header>
+        <!-- início navbar mais a cima -->
+        <div class="topbar">
+            <!-- div da lupa c/ seu texto-->
+            <div class="left">
+                <label>
+                    <!-- icone da lupa -->
+                    <img src="../conteudos/img/lupa.png" alt="">
+                    <!-- texto da lupa -->
+                    <input type="search" placeholder="Pesquisar">
+                </label>
+            </div>
+            <!-- fim da lupa -->
+            <!-- div da logo -->
+            <div class="logo">
+                <!-- se vc clicar na logo volta para o index -->
+                <a href="../index.php">
+                    <!-- foto da logo -->
+                    <img src="../conteudos/img/logo-sb.png" alt="Icone">
+                </a>
+            </div>
+            <!-- fim da logo -->
+            <!-- div dos conteúdos da direita, carrinho e login -->
+            <div class="right">
+                <!-- grupo do login -->
+                <div class="group">
+                    <!-- se clicar no link vai para criar conta -->
+                    <a class="singin-btn" href="<?php
+                        include_once "../php-conexao-modelagem/conexao.php";
+                        $ip = new Conexao();
+                        if(!empty($_SERVER["HTTP_CLIENTE_IP"])){
+                            $ip_maquina = $_SERVER["HTTP_CLIENTE_IP"];
+                        }elseif(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
+                            $ip_maquina = $_SERVER["HTTP_X_FORWARDED_FOR"];
+                        }else{
+                            $ip_maquina = $_SERVER["REMOTE_ADDR"];
+                        }
+                        $ip->setendereco_ip($ip_maquina);
+                
+                        $ips = $ip->listar();
+                
+                        foreach($ips as $row){
+                            if($ip_maquina = $row["endereco_ip"]){
+                                $codper = $row["cod_perfil"];
+                            }
+                        }
+                    
+                    if(isset($codper)){
+                        echo "../perfil-padrao.php";
+                    }else{ 
+                        echo "../entrar.php";
+                    }?>">
+                        <!-- foto do login -->
+                        <img src="../img/user.png" alt="Logar">
+                    </a>
+                </div>
+                <!-- fim do grupo do login -->
+                <!-- grupo do carrinho -->
+                <div class="group">
+                    <!-- se clicar no link abre o carrinho -->
+                    <a id="bag-btn" class="bag-btn" href="#">
+                        <!-- imagem da sacola -->
+                        <img src="../img/bag.png" alt="Sacola">
+                    </a>
+                </div>
+                <!-- fim do grupo -->
+            </div>
+            <!-- div do grupo -->
+        </div>
+        <!-- fim da barra superior -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Feminino</a></li>
+                <li><a href="#">Masculino</a></li>
+                <li>
+                    <a href="#">Ajuda</a>
+                    <ul class="submenu">
+                        <li><a href="#">Sobre nos</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="bag">
+        <span class="close-icon"><img src="../img/close.png" alt="fechar"></span>
+        <div class="bag-sidebar">
+            <div class="bag-title">
+                <h4>Meu carrinho</h4>
+            </div>
+            <div class="bag-body">
+                <div class="bag-item">
+                    <div class="img">
+                        <img src="../img/modelo15.png" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="bag-info">
+                            <h5>Jaqueta</h5>
+                            <h3>MIUMIU</h3>
+                        </div>
+                        <h5 class="bag-price">R$350,00</h5>
+                        <span>- 1 +</span>
+                        <div class="right">
+                            <img src="../img/del.png" alt="deletar">
+                        </div>
+                    </div>
+                </div>
+                <div class="bag-item">
+                    <div class="img">
+                        <img src="../img/modelo16.png" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="bag-info">
+                            <h5>Jaqueta</h5>
+                            <h3>RIACHUELO</h3>
+                        </div>
+                        <h5 class="bag-price">R$115,00</h5>
+                        <span>- 1 +</span>
+                        <div class="right">
+                            <img src="../img/del.png" alt="deletar">
+                        </div>
+                    </div>
+                </div>
+                <div class="bag-buy">
+                    <div class="group cupom">
+                        <img src="../img/cupom.png" alt="">
+                        <h3>Adicionar cupom de desconto</h3>
+                    </div>
+                    <div class="itens">
+                        <h4 class="left">Frete:</h4>
+                        <div class="group right">
+                            <img src="../img/frete.png" alt="">
+                            <h3 class="underline">Calcular</h3>
+                        </div>
+                    </div>
+                    <div class="itens">
+                        <h4 class="left">Total:</h4>
+                        <h3 class="right">R$465,00</h3>
+                    </div>
+                    <div class="bag-end">
+                        <span class="btn">Finalizar compra</span>
+                    </div>
+                    <span class="continue underline">Continuar comprando</span>
+                </div>
+            </div>
+        </div>
+    </div>
             <div class="produto-info">
                 <?php
                     extract($_POST, EXTR_OVERWRITE);
-                    include_once "php-conexao-modelagem/imagem_produto.php";
+                    include_once "../php-conexao-modelagem/imagem_produto.php";
                     $img = new Imagem();
-                    include_once "php-conexao-modelagem/produto.php";
+                    include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
 
                     $prod->setcod_perfil("'.$codper.'");
@@ -61,7 +209,7 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
 
                         <div class="prod-selectimg">
                             <div class="image-option">
-                                <img src="img/modelo18.png" alt="">
+                                <img src="../img/modelo18.png" alt="">
                             </div>
                         </div>
                     
@@ -147,7 +295,7 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                         <div class="rating-container">
                             <div class="rating-item">
                                 <div class="img-profile">
-                                    <img src="img/modelo13.png" alt="">
+                                    <img src="../img/modelo13.png" alt="">
                                 </div>
                                 <div class="group">
                                     <div class="name-profile">
@@ -168,7 +316,24 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
             </div>
 
             <div class="about">
-                <span class="close-about"><img src="../conteudos/img/close.png" alt="fechar"></span>
+
+            <?php
+                include_once "../php-conexao-modelagem/perfil.php";
+                $per = new Perfil();
+
+                $per->setcod_perfil('.$codper.');
+                $perfil = $per->consultar();
+                foreach ($perfil as $row2) {
+
+                    $img = $row2["imagem"];
+                    $nome = $row2["nome"];
+                    $lastnm = $row2["sobrenome"];
+                    $loja = $row2w["nome_loja"];
+
+                }
+            ?>
+
+                <span class="close-about"><img src="../img/close.png" alt="fechar"></span>
                 <div class="about-sidebar">
                     <div class="title">
                         <h4>Sobre a loja</h4>
@@ -177,12 +342,12 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
 
                         <div class="group">
                             <div class="img">
-                                <img src="img/modelo12.png" alt="">
+                                <img src="<?php echo ".".$img; ?>" alt="">
                             </div>
 
                             <div class="profile">
                                 <div class="name">
-                                    <h1>Glamour Global - Isabella Grenzel</h1>
+                                    <h1><?php echo $loja; ?> - <?php echo $nome." ".$lastnm; ?></h1>
                                 </div>
 
                                 <span class="btn">Visitar loja</span>
@@ -191,9 +356,9 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                         </div>
 
                         <div class="description">
-                            <span>Avaliações: 40</span>
-                            <span>Produtos: 50</span>
-                            <span>Anunciante desde: 11/11/2023</span>
+                            <span>Avaliações: XX</span>
+                            <span>Produtos: XX</span>
+                            <span>Anunciante desde: XX/XX/XXXX</span>
                         </div>
 
                     </div>
@@ -201,7 +366,7 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
             </div>
 
             <div class="detail">
-                <span class="close-detail"><img src="../conteudos/img/close.png" alt="fechar"></span>
+                <span class="close-detail"><img src="../img/close.png" alt="fechar"></span>
                 <div class="detail-sidebar">
                     <div class="title">
                         <h4>Detalhes do produto</h4>
@@ -209,23 +374,12 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                     <div class="detail-body">
                     <div class="description">
                         <p>
-                            Decorada com cristais brilhantes, esta camiseta tem <br>
-                            estilo moderno e design sóbrio. Feita em algodão, ela <br>
-                            tem mangas longas e modelagem solta. <br><br>
-                            •Código do produto: 001 <br>
-                            •Decorada com cristais <br>
-                            •Modelagem larga <br>
-                            •Gola redonda <br>
-                            •Mangas curtas <br>
-                            •Logotipo bordado <br>
-                            •Barra feita com agulha dupla <br>
-                            •O(a) modelo mede 50 cm e usa tamanho 38 <br>
-                            •altura: 49cm
+                            '.$desc.'
                         </p>
                     </div>
                     <div class="description">
-                        <div class="description-title"><h1>Materiais</h1></div> 
-                        <div class="description-material"><h2>Algodão</h2></div>
+                        <div class="description-title"><h1>XXX</h1></div> 
+                        <div class="description-material"><h2>XXXX</h2></div>
                     </div>
                     <div class="end-description">
                         <div class="description-title"><h1>Precisa de ajuda?</h1></div>
@@ -237,14 +391,46 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                 </div>
             </div>
 
-            <?php include "footer.php"; ?>
+            <footer>
+     <div class="container-footer">
+         <div class="row-footer">
+          <div class="footer-col">
+                <a href="Home.html"><img src="../img/logo-sb.png" ></a>
+          </div>
+          <div class="footer-col">
+              <h6>INÍCIO</h6>
+             <ul>
+                <li> <a href="../index.php">Home</a></li>
+             </ul>   
+          </div>
+           <div class="footer-col">
+            <h6>AJUDA</h6>
+              <ul>
+                 <li> <a href="../faleconosco.html">Fale conosco</a></li>
+                 <li> <a href="../sobrenos.html">Sobre nós</a></li>
+              </ul>
+            </div>
+          <div class="footer-col">
+               <h6>CATEGORIAS</h6>
+             <ul>
+                 <li> <a href="../novidades.php">Masculino</a></li>
+                 <li> <a href="../novidades.php">Feminino</a></li>
+             </ul>
+           </div>
+          <div class="footer-sub">
+            ESTÁ COM PROBLEMAS?<br>
+           <a href="../faleconosco.html"><button>Fale conosco</button></a>
+          </div>
+       </div>
+     </div>
+</footer> 
             
         </div>
         
     </body>
     <!--javascript-->
-    <script src="../conteudos/js/script.js"></script>
-    <script src="../conteudos/js/produto.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/produto.js"></script>
     </php>';
 
     fwrite($myfile, $txt);

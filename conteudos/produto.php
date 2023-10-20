@@ -29,7 +29,7 @@
                 include_once 'php-conexao-modelagem/imagem_produto.php';
                 $img = new Imagem();
 
-                $prod->setcod_produto($cod_produto);
+                $prod->setcod_produto(1);
                 $produtos = $prod->consultar2();
 
                 foreach($produtos as $row){

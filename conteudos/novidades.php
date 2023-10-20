@@ -50,7 +50,7 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="<?php echo $row['link'] ?>">
+                                        <a href="<?php echo $row['link_venda'] ?>">
                                             <img src="<?php
                                             $img->setcod_produto($row['cod_produto']);
                                             $imagens = $img->consultar2();
@@ -93,7 +93,7 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="<?php echo $row['link'] ?>">
+                                        <a href="<?php echo $row['link_venda'] ?>">
                                         <img src="<?php
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();
@@ -136,7 +136,7 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="<?php echo $row['link'] ?>">
+                                        <a href="<?php echo $row['link_venda'] ?>">
                                         <img src="<?php
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();

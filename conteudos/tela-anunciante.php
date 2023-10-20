@@ -74,21 +74,17 @@
                 ?>
 
                 <div class="products-item">
-                <form action="produto.php" method="post">
-                <label for="imagem">
-                    <img src="<?php
-                    $img->setcod_produto($row['cod_produto']);
-                    $imagens = $img->consultar2();
-                    foreach($imagens as $row2){
-                        echo $row2['imagem_produto'];
-                    }
-                    ?>" alt="" class="imgmodelo1">
-                </label>
-                <input type="hidden" name="cod_produto" value="<?php $row['cod_produto'] ?>">
-                <input type="submit" id="imagem">
-                </form>
-                <p class="descmodelos1"><?php echo $row['titulo_produto']; ?></p>
-                <p class="preco1">R$ <?php echo $row['preco_produto']; ?></p>
+                    <a href="<?php echo $row['link_edicao'] ?>">
+                        <img src="<?php
+                        $img->setcod_produto($row['cod_produto']);
+                        $imagens = $img->consultar2();
+                        foreach($imagens as $row2){
+                            echo $row2['imagem_produto'];
+                        }
+                        ?>" alt="" class="imgmodelo1">
+                    </a>
+                    <p class="descmodelos1"><?php echo $row['titulo_produto']; ?></p>
+                    <p class="preco1">R$ <?php echo $row['preco_produto']; ?></p>
                 </div>
 
                 <?php

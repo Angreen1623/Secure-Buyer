@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Set-2023 às 02:02
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 20/10/2023 às 23:57
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,12 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `projetoibm_bd`
 --
-create database `projetoibm_bd`;
-use `projetoibm_bd`;
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `conexao`
+-- Estrutura para tabela `conexao`
 --
 
 CREATE TABLE `conexao` (
@@ -34,7 +33,7 @@ CREATE TABLE `conexao` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `conexao`
+-- Despejando dados para a tabela `conexao`
 --
 
 INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
@@ -43,7 +42,7 @@ INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `imagem_produto`
+-- Estrutura para tabela `imagem_produto`
 --
 
 CREATE TABLE `imagem_produto` (
@@ -52,7 +51,7 @@ CREATE TABLE `imagem_produto` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `imagem_produto`
+-- Despejando dados para a tabela `imagem_produto`
 --
 
 INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
@@ -72,7 +71,7 @@ INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `perfil`
+-- Estrutura para tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -87,7 +86,7 @@ CREATE TABLE `perfil` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `perfil`
+-- Despejando dados para a tabela `perfil`
 --
 
 INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`) VALUES
@@ -97,7 +96,7 @@ INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Estrutura para tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -107,25 +106,27 @@ CREATE TABLE `produto` (
   `tipo_peca` varchar(10) NOT NULL,
   `preco_produto` float NOT NULL,
   `sexo` varchar(8) NOT NULL,
+  `link_venda` varchar(50) DEFAULT NULL,
+  `link_edicao` varchar(50) DEFAULT NULL,
   `cod_perfil` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `produto`
+-- Despejando dados para a tabela `produto`
 --
 
-INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `tipo_peca`, `preco_produto`, `sexo`, `cod_perfil`) VALUES
-(1, 'Roupa', 'aa', 'calçado', 333, 'female', 23),
-(2, 'Edsom', 'aa', 'calça', 444, 'female', 23),
-(3, 'Tevenaldo', 'aa', 'camisa', 1, 'male', 22),
-(4, 'Camisa', 'aa', 'calça', 100, 'male', 25),
-(5, 'Camisa', 'aa', 'calçado', 250, 'male', 25),
-(6, 'aa', 'aaaa', 'calça', 100, 'male', 26);
+INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `tipo_peca`, `preco_produto`, `sexo`, `link_venda`, `link_edicao`, `cod_perfil`) VALUES
+(1, 'Roupa', 'aa', 'calçado', 333, 'female', NULL, NULL, 23),
+(2, 'Edsom', 'aa', 'calça', 444, 'female', NULL, NULL, 23),
+(3, 'Tevenaldo', 'aa', 'camisa', 1, 'male', NULL, NULL, 22),
+(4, 'Camisa', 'aa', 'calça', 100, 'male', NULL, NULL, 25),
+(5, 'Camisa', 'aa', 'calçado', 250, 'male', NULL, NULL, 25),
+(6, 'aa', 'aaaa', 'calça', 100, 'male', NULL, NULL, 26);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tamanho`
+-- Estrutura para tabela `tamanho`
 --
 
 CREATE TABLE `tamanho` (
@@ -135,7 +136,7 @@ CREATE TABLE `tamanho` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tamanho`
+-- Despejando dados para a tabela `tamanho`
 --
 
 INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`) VALUES
@@ -157,19 +158,19 @@ INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`) VALUES
 --
 
 --
--- Índices para tabela `perfil`
+-- Índices de tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`cod_perfil`);
 
 --
--- Índices para tabela `produto`
+-- Índices de tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --

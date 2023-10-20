@@ -12,7 +12,8 @@ class Produto
     private $tipo_peca;
     private $preco_produto;
     private $sexo;
-    private $link;
+    private $link_venda;
+    private $link_edicao;
     private $conn;
 
 // parte 2 - os gettes e setter
@@ -73,12 +74,20 @@ class Produto
         $this->sexo = $sex;
     }
 
-     public function getlink() {
-         return $this->link;
+    public function getlink_venda() {
+         return $this->link_venda;
     }
 
-    public function setlink($linkagem) {
-     $this->link = $linkagem;
+    public function setlink_venda($linkagem) {
+     $this->link_venda = $linkagem;
+    }
+
+    public function getlink_edicao() {
+         return $this->link_edicao;
+    }
+
+    public function setlink_edicao($linkagem2) {
+     $this->link_edicao = $linkagem2;
     }
     //parte 3 - métodos
 
@@ -86,14 +95,15 @@ function salvar()
 {
     try{
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,?)");
+        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,?,?)");
         @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
         @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
         @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);
         @$sql->bindParam(4, $this->getpreco_produto(), PDO::PARAM_STR);
         @$sql->bindParam(5, $this->getsexo(), PDO::PARAM_STR);
-        @$sql->bindParam(6, $this->getlink(), PDO::PARAM_STR);
-        @$sql->bindParam(7, $this->getcod_perfil(), PDO::PARAM_STR);
+        @$sql->bindParam(6, $this->getlink_venda(), PDO::PARAM_STR);
+        @$sql->bindParam(7, $this->getlink_edicao(), PDO::PARAM_STR);
+        @$sql->bindParam(8, $this->getcod_perfil(), PDO::PARAM_STR);
         if($sql->execute() == 1){
         }
         $this->conn = null;
@@ -102,6 +112,28 @@ function salvar()
     {
         echo "<font color='white'><center>Erro ao salvar o Registro.</center></font>" . $exc->getMessage();
     }
+}
+
+function alterar()
+{
+  try
+  {
+    $sql = $this->conn->prepare("update perfil set titulo_produto = ?, descricao_produto = ? where cod_produto = :cod_produto");
+    @$sql-> bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
+    @$sql-> bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
+    @$sql-> bindParam(":cod_produto", $this->getcod_produto(), PDO::PARAM_STR);
+
+    if ($sql->execute() == 1)
+    {
+      return;
+    }  
+      
+    $this->conn = null;
+  }
+  catch(PDOException $exc)
+  {
+    echo "Erro ao alterar. " . $exc->getMessage();
+  }
 }
 
 /*

@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `projetoibm_bd`
 --
-
+CREATE DATABASE `projetoibm_bd`;
+USE `projetoibm_bd`;
 -- --------------------------------------------------------
 
 --

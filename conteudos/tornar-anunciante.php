@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +39,16 @@
 
                     <div class="form">
                         <div class="text-form">
+                            
+                            <div class="vertical-group">
+                                <div class="label">
+                                    <p>CNPJ</p>
+                                </div>
+                                <input type="text" name="cnpj" onblur="checkcnpj(this.value)" data-mask="00.000.000/0000-00" class="cnpjmask" required>
+                            </div>
+                            <div id="cnpj-error-message" style="color: red; display: none;">
+                             Digite um CNPJ válido.
+                            </div>
                             <div class="vertical-group">
                                 <div class="label">
                                     <p>Nome da loja</p>
@@ -46,12 +56,6 @@
                                 <input type="text" name="nome_loja" required>
                             </div>
 
-                            <div class="vertical-group">
-                                <div class="label">
-                                    <p>CNPJ</p>
-                                </div>
-                                <input type="text" name="cnpj" maxlength="18" class="cnpjmask" required>
-                            </div>
                             <div class="button">
                                 <div class="btn1">
                                 <a href="perfil-padrao.php">Voltar</a>
@@ -102,8 +106,12 @@
         ?>
     </div>
     
-</body>
+
 <!--javascript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script><!--link da api para a mascara-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
 <script src="../conteudos/js/script.js"></script>
 <script src="../conteudos/js/taunun.js"></script>
-</php>
+</body>
+</html>

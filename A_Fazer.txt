@@ -3,7 +3,7 @@
 3. Finalizar editar anuncio;                                            * DAQUI A POUCO
 4. Tratamento de erro;                                                  Terminar - EM ANDAMENTO **
 5. Responsividade;
-6. Linkagem com o produtos.php;                                         Terminar - EM ANDAMENTO **
+6. Linkagem com o produtos.php;                                         FEITO
 7. Tela do ADM;
 8. Cards do anúncio;                                                    ** Giovana
 9. Mudar esse nome fudido;                                              ************************

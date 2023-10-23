@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Secure Buyer</title>
         <!--Logo-->
-        <link rel="apple-touch-icon" sizes="180x180" href="../conteudos/img/Icone/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../conteudos/img/Icone/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../conteudos/img/Icone/favicon-16x16.png">
-        <link rel="manifest" href="../conteudos/img/Icone/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="../img/Icone/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../img/Icone/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/Icone/favicon-16x16.png">
+        <link rel="manifest" href="../img/Icone/site.webmanifest">
         <!--css-->
-        <link rel="stylesheet" href="../conteudos/css/reset.css">
-        <link rel="stylesheet" href="../conteudos/css/style.css">
-        <link rel="stylesheet" href="../conteudos/css/edt-anuncio.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/edt-anuncio.css">
         
     </head>
     <body>
@@ -27,7 +27,7 @@
         <div class="left">
             <label>
                 <!-- icone da lupa -->
-                <img src="../conteudos/img/lupa.png" alt="">
+                <img src="../img/lupa.png" alt="">
                 <!-- texto da lupa -->
                 <input type="search" placeholder="Pesquisar">
             </label>
@@ -38,7 +38,7 @@
             <!-- se vc clicar na logo volta para o index -->
             <a href="../index.php">
                 <!-- foto da logo -->
-                <img src="../conteudos/img/logo-sb.png" alt="Icone">
+                <img src="../img/logo-sb.png" alt="Icone">
             </a>
         </div>
         <!-- fim da logo -->
@@ -225,9 +225,8 @@
                                 <div class="btn">
                                     <span>Cancelar</span>
                                 </div>
-                                <div class="btn">
-                                    <input type="submit" name="btnalterar" value="Confirmar mudanças">
-                                </div>
+                                <input type="submit" name="btnalterar" value="Confirmar mudanças">
+                                
                             </div>
                         </form>
                     </div>
@@ -292,5 +291,5 @@
         
     </body>
     <!--javascript-->
-    <script src="../conteudos/js/script.js"></script>
+    <script src="../js/script.js"></script>
     </php>

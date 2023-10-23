@@ -29,7 +29,7 @@
     font-size: 18px;
 }
 
-.editar-anuncio .form input{ 
+.editar-anuncio .form input[type=text]{ 
     width: 50%;
     border-radius: 20px;
     padding: 8px;
@@ -46,6 +46,22 @@
     width: 100%;
 }
 .editar-anuncio .button .btn{ 
+    margin-right: 40px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: bold;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.editar-anuncio .button input[type=submit]{
     margin-right: 40px;
     margin-top: 10px;
     font-size: 16px;

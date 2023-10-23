@@ -303,6 +303,7 @@
                     $nome = $row2["nome"];
                     $lastnm = $row2["sobrenome"];
                     $loja = $row2["nome_loja"];
+                    $cnpj = $row2["cnpj"];
 
                 }
             ?>
@@ -333,6 +334,7 @@
                             <span>Avaliações: XX</span>
                             <span>Produtos: XX</span>
                             <span>Anunciante desde: XX/XX/XXXX</span>
+                            <span>CNPJ: <?php echo $cnpj; ?></span>
                         </div>
 
                     </div>

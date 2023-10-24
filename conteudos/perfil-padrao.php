@@ -148,7 +148,7 @@
             $perfil->setnome($nome);  
             $perfil->setsobrenome($sobrenome); 
             $perfil->setemail($email);
-            $perfil->setsenha($senha);
+            $perfil->setsenha(password_hash($senha, PASSWORD_DEFAULT));
             $perfil->setcod_perfil($codper);
             echo "<br><br><h3>" . $perfil->alterar2() . "</h3>";
             echo "<script language='JavaScript'>window.location.replace('./perfil-padrao.php');</script>";

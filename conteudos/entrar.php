@@ -71,13 +71,21 @@
                   $per->setemail($input_email);
                   $perfis = $per->listar();
                   $verificado;
-                
+                  $administrador;
+
                   foreach($perfis as $row){
 
                     if($row['email'] == $input_email && password_verify($senha, $row['senha']) == true){
                         $verificado = true;
                         $per->obterid();
                         $sqlresult = $per->obterid();
+                       
+                        if($row['adm'] == 1){   //verifica se é adm ou não se não leva para a pag normal se sim para a pag de adm :)///
+                        $administrador = true;  
+                        }else{
+                            $administrador=false;
+                        }
+
                     }else{
                         $verificado = false;
                     }
@@ -103,11 +111,17 @@
                             foreach($ips as $row2){
                                 if($ip_maquina = $row2['endereco_ip']){
                                     $ip->alterar();
-                                    echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
+                                if($administrador == true){
+                                      echo "<script language='JavaScript'>window.location.replace('adm-pages/admpage.php');</script>";
+                                }    
+                                else{ echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";}
                                 }
                             }
                             $ip->salvar();
-                            echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
+                            if($administrador == true){
+                                echo "<script language='JavaScript'>window.location.replace('adm-pages/admpage.php');</script>";
+                          }    
+                          else{ echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";}
                         }
                   }else{
                     echo "<script language='JavaScript'>

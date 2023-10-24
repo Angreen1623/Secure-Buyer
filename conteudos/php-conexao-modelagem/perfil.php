@@ -13,6 +13,7 @@ class Perfil
    private $nome_loja;
    private $cnpj;
    private $imagem;
+   private $adm;
    private $conn;
    
 //parte 2 - os getters e setter
@@ -81,13 +82,20 @@ public function setimagem($imagem_perf){
     $this->imagem = $imagem_perf;
 }
 
+public function getadm(){
+  return $this->adm;
+}
+
+public function setadm($adm){
+  $this->adm = $adm;
+}
 //salvar
 function salvar()
 {
     try
     {
       $this-> conn = new Conectar();
-      $sql = $this->conn->prepare("insert into perfil values (?,?,?,?,null,null,null,null)");
+      $sql = $this->conn->prepare("insert into perfil values (?,?,?,?,null,null,null,null,0)");
       @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
       @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
       @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);

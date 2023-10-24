@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+@font-face {
+  font-family:'lovelace';
+  src: url(font/lovelace.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+a{
+  color: black;
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content .box{
+  width: 53%;
+  background-color: #E1D9CE;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px 10px;
+}
+
+.content .title{
+  text-align: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.content .title h1{
+  color:black;
+  line-height: 50px;
+  font-weight: 500;
+  font-size: 50px;
+  font-family: 'lovelace',Arial, sans-serif;
+  text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
+}
+
+
+/*--comandos dados para o formulario em questões de tamanho/ usado para os outros em questoes de cor...-*/
+input, button, textarea
+{
+  outline: unset;
+  padding: 10px;
+  width: 600px;
+  border:none;
+  border-radius: 36px;
+  background-color: rgb(255, 255, 255);
+}
+
+.buttons {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+  }
+  input[type=button], 
+  input[type=button] {
+    background-color: black;
+    color: white;
+    height: 45px;
+    width: 150px;
+    margin-right: 30px;
+    cursor: pointer;
+  }

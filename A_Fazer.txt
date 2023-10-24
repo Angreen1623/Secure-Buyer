@@ -13,3 +13,4 @@
 13. Criptografar senhas;                                                FEITO
 14. sobre nos e fale conosco;                                           FACIL *
 15. Tela de pagamento;                                                  *** (mas deixa p depois dessa semana)
+16. no tratamento de erro, não poder voltar para a pag de criação de cadastro caso tiver uma conta recem cadastrada, e n deixar quem n possui loja usar  link para acessar essa pagina

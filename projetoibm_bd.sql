@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/10/2023 às 23:57
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 24-Out-2023 às 19:47
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,39 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `projetoibm_bd`
 --
-CREATE DATABASE `projetoibm_bd`;
-USE `projetoibm_bd`;
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `conexao`
+-- Estrutura da tabela `conexao`
 --
 
 CREATE TABLE `conexao` (
   `endereco_ip` varchar(15) NOT NULL,
   `cod_perfil` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `conexao`
+-- Extraindo dados da tabela `conexao`
 --
 
 INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
-('::1', 25);
+('::1', 28),
+('::1', 28);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `imagem_produto`
+-- Estrutura da tabela `cupom`
+--
+
+CREATE TABLE `cupom` (
+  `cod_cupom` int(11) NOT NULL,
+  `nome_cupom` varchar(20) NOT NULL,
+  `valorp_cupom` float NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `imagem_produto`
 --
 
 CREATE TABLE `imagem_produto` (
   `cod_produto` int(11) NOT NULL,
   `imagem_produto` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `imagem_produto`
+-- Extraindo dados da tabela `imagem_produto`
 --
 
 INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
@@ -72,7 +84,7 @@ INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `perfil`
+-- Estrutura da tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -83,21 +95,23 @@ CREATE TABLE `perfil` (
   `nome_loja` varchar(50) DEFAULT NULL,
   `cnpj` varchar(18) DEFAULT NULL COMMENT 'xx.xxx.xxx/yyyy-zz',
   `imagem` varchar(500) DEFAULT NULL,
-  `cod_perfil` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `cod_perfil` int(11) NOT NULL,
+  `adm` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `perfil`
+-- Extraindo dados da tabela `perfil`
 --
 
-INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`) VALUES
-('Ednaldo', 'Pereira', 'ednaldo@pereira.com', 'banido123', 'Loja do Ednaldo', '00.000.000/0000-01', './img/user-img/download1.jpg', 25),
-('Junjinaldo', 'Perito', 'junjinaldo@gmail.com', '1', 'Loja do Junjinaldo', '00.000.000/0000-02', './img/user-img/download.jpg', 26);
+INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`, `adm`) VALUES
+('Ednaldo', 'Pereira', 'ednaldo@pereira.com', 'banido123', 'Loja do Ednaldo', '00.000.000/0000-01', './img/user-img/download1.jpg', 25, 0),
+('Junjinaldo', 'Perito', 'junjinaldo@gmail.com', '1', 'Loja do Junjinaldo', '00.000.000/0000-02', './img/user-img/download.jpg', 26, 0),
+('André', 'Green', 'angreen@gmail.com', '$2y$10$Es6ak8TTTFUV5NpcqJlLx.Ke03.e4UaapWt9jV.UVduEAvr5Nk5cS', NULL, NULL, NULL, 28, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produto`
+-- Estrutura da tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -109,35 +123,36 @@ CREATE TABLE `produto` (
   `sexo` varchar(8) NOT NULL,
   `link_venda` varchar(50) DEFAULT NULL,
   `link_edicao` varchar(50) DEFAULT NULL,
-  `cod_perfil` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `cod_perfil` int(11) NOT NULL,
+  `valida` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `produto`
+-- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `tipo_peca`, `preco_produto`, `sexo`, `link_venda`, `link_edicao`, `cod_perfil`) VALUES
-(1, 'Roupa', 'aa', 'calçado', 333, 'female', NULL, NULL, 23),
-(2, 'Edsom', 'aa', 'calça', 444, 'female', NULL, NULL, 23),
-(3, 'Tevenaldo', 'aa', 'camisa', 1, 'male', NULL, NULL, 22),
-(4, 'Camisa', 'aa', 'calça', 100, 'male', NULL, NULL, 25),
-(5, 'Camisa', 'aa', 'calçado', 250, 'male', NULL, NULL, 25),
-(6, 'aa', 'aaaa', 'calça', 100, 'male', NULL, NULL, 26);
+INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `tipo_peca`, `preco_produto`, `sexo`, `link_venda`, `link_edicao`, `cod_perfil`, `valida`) VALUES
+(1, 'Roupa', 'aa', 'calçado', 333, 'female', NULL, NULL, 23, 0),
+(2, 'Edsom', 'aa', 'calça', 444, 'female', NULL, NULL, 23, 0),
+(3, 'Tevenaldo', 'aa', 'camisa', 1, 'male', NULL, NULL, 22, 0),
+(4, 'Camisa', 'aa', 'calça', 100, 'male', NULL, NULL, 25, 0),
+(5, 'Camisa', 'aa', 'calçado', 250, 'male', NULL, NULL, 25, 0),
+(6, 'aa', 'aaaa', 'calça', 100, 'male', NULL, NULL, 26, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tamanho`
+-- Estrutura da tabela `tamanho`
 --
 
 CREATE TABLE `tamanho` (
   `cod_produto` int(11) NOT NULL,
   `size` varchar(3) NOT NULL,
   `quant_tamanho` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tamanho`
+-- Extraindo dados da tabela `tamanho`
 --
 
 INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`) VALUES
@@ -159,26 +174,38 @@ INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`) VALUES
 --
 
 --
--- Índices de tabela `perfil`
+-- Índices para tabela `cupom`
+--
+ALTER TABLE `cupom`
+  ADD PRIMARY KEY (`cod_cupom`);
+
+--
+-- Índices para tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`cod_perfil`);
 
 --
--- Índices de tabela `produto`
+-- Índices para tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `cupom`
+--
+ALTER TABLE `cupom`
+  MODIFY `cod_cupom` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `produto`

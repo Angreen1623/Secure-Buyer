@@ -10,19 +10,6 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
 
     include_once "./php-conexao-modelagem/produto.php";
 
-    $prod = new Produto();
-    $prod->setcod_perfil($codper);
-    $prod->settitulo_produto($nome);
-    $prod->setdescricao_produto($desc);
-    $prod->settipo_peca($peca);
-    $prod->setpreco_produto($preco);
-    $prod->setsexo($gender);
-
-    $produtos = $prod->obterid();
-    foreach($produtos as $row){
-        $prod_cod = $row["cod_produto"];
-    }
-
     $txt = '<!DOCTYPE php>
     <php lang="pt-br">
     <head>
@@ -199,8 +186,22 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                     extract($_POST, EXTR_OVERWRITE);
                     include_once "../php-conexao-modelagem/imagem_produto.php";
                     $img = new Imagem();
+                    include_once "../php-conexao-modelagem/produto.php";
+                    $prod = new Produto();
+                    
+                    $prod->setcod_perfil("'.$codper.'");
+                    $prod->settitulo_produto("'.$nome.'");
+                    $prod->setdescricao_produto("'.$desc.'");
+                    $prod->settipo_peca("'.$peca.'");
+                    $prod->setsexo("'.$gender.'");
 
-                    $prod->setcod_produto('.$prod_cod.');
+                    $produtos = $prod->obterid();
+
+                    foreach($produtos as $row){
+                        $prod_cod = $row["cod_produto"];
+                    }
+
+                    $prod->setcod_produto($prod_cod);
                     $produtos = $prod->consultar2();
                 ?>
                 <div class="images">
@@ -465,21 +466,6 @@ function editing_page($codper, $nome, $desc, $peca, $preco, $gender){
 
     $myfile = fopen($link, "w") or die("Unable to open file!");
 
-    include_once "./php-conexao-modelagem/produto.php";
-
-    $prod = new Produto();
-    $prod->setcod_perfil($codper);
-    $prod->settitulo_produto($nome);
-    $prod->setdescricao_produto($desc);
-    $prod->settipo_peca($peca);
-    $prod->setpreco_produto($preco);
-    $prod->setsexo($gender);
-
-    $produtos = $prod->obterid();
-    foreach($produtos as $row){
-        $prod_cod = $row["cod_produto"];
-    }
-
     $txt = '<!DOCTYPE php>
     <php lang="pt-br">
     <head>
@@ -658,8 +644,20 @@ function editing_page($codper, $nome, $desc, $peca, $preco, $gender){
 
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
+                    $prod->setcod_perfil($codper);
+                    $prod->settitulo_produto($nome);
+                    $prod->setdescricao_produto($desc);
+                    $prod->settipo_peca($peca);
+                    $prod->setpreco_produto($preco);
+                    $prod->setsexo($gender);
 
-                    $prod->setcod_produto('.$prod_cod.');
+                    $produtos = $prod->obterid();
+
+                    foreach($produtos as $row){
+                        $prod_cod = $row["cod_produto"];
+                    }
+
+                    $prod->setcod_produto($prod_cod);
                     $produto = $prod->consultar2();
                     foreach ($produto as $row) {
 
@@ -726,11 +724,11 @@ function editing_page($codper, $nome, $desc, $peca, $preco, $gender){
                 extract($_POST, EXTR_OVERWRITE);
                 if(isset($btnalterar)){
                     
-                $prod->setcod_produto('.$prod_cod.');
-                $prod->settitulo_produto($nome);
-                $prod->setdescricao_produto($desc);
+                    $prod->setcod_produto($prod_cod);
+                    $prod->settitulo_produto($nome);
+                    $prod->setdescricao_produto($desc);
 
-                $prod->alterar();
+                    $prod->alterar();
     
                 }
     

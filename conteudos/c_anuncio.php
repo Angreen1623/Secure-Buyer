@@ -318,6 +318,7 @@
                 $prod->settipo_peca($peca);
                 $prod->setpreco_produto($preco);
                 $prod->setsexo($gender);
+                
                 $prod->setlink_venda($new->buying_page($codper, $nome, $descricao, $peca, $preco, $gender));
                 $prod->setlink_edicao($new->editing_page($codper, $nome, $descricao, $peca, $preco, $gender));
 

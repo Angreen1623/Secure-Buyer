@@ -10,3 +10,6 @@ close_btn.onclick = function(){
 };
 bag.classList.remove('open');
 
+function  clickedTam(){
+    document.write("");
+}

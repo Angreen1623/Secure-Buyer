@@ -282,29 +282,29 @@
                             <div class="sizes">
                                 <table>
                                     <tr>
-                                        <td class="<?php if($t12){ echo"selected"; }?>"> <label for="tam12" class="<?php if(!$t12){ echo"unselected"; }?>">  12  </label> </td>
+                                        <td class="<?php if($t12){ echo"selected"; }?>"> <label for="tam12" class="<?php if(!$t12){ echo"unselected"; }?>" onclick="clickedTam()">  12  </label> </td>
                                         <input type="radio" name="tamanho" id="tam12" value="tam12" style="display: none;">
 
-                                        <td class="<?php if($t14){ echo"selected"; }?>"> <label for="tam14" class="<?php if(!$t14){ echo"unselected"; }?>">  14  </label> </td>
+                                        <td class="<?php if($t14){ echo"selected"; }?>"> <label for="tam14" class="<?php if(!$t14){ echo"unselected"; }?>" onclick="clickedTam()">  14  </label> </td>
                                         <input type="radio" name="tamanho" id="tam14" value="tam14" style="display: none;">
 
-                                        <td class="<?php if($t16){ echo"selected"; }?>"> <label for="tam16" class="<?php if(!$t16){ echo"unselected"; }?>">  16  </label> </td>
+                                        <td class="<?php if($t16){ echo"selected"; }?>"> <label for="tam16" class="<?php if(!$t16){ echo"unselected"; }?>" onclick="clickedTam()">  16  </label> </td>
                                         <input type="radio" name="tamanho" id="tam16" value="tam16" style="display: none;">
 
-                                        <td class="<?php if($tpp){ echo"selected"; }?>"> <label for="tampp" class="<?php if(!$tpp){ echo"unselected"; }?>">  PP  </label> </td>
+                                        <td class="<?php if($tpp){ echo"selected"; }?>"> <label for="tampp" class="<?php if(!$tpp){ echo"unselected"; }?>" onclick="clickedTam()">  PP  </label> </td>
                                         <input type="radio" name="tamanho" id="tampp" value="tampp" style="display: none;">
                                     </tr>
                                     <tr>
-                                        <td class="<?php if($tp){ echo"selected"; }?>"> <label for="tamp" class="<?php if(!$tp){ echo"unselected"; }?>">  P  </label> </td>
+                                        <td class="<?php if($tp){ echo"selected"; }?>"> <label for="tamp" class="<?php if(!$tp){ echo"unselected"; }?>" onclick="clickedTam()">  P  </label> </td>
                                         <input type="radio" name="tamanho" id="tamp" value="tamp" style="display: none;">
 
-                                        <td class="<?php if($tmedio){ echo"selected"; }?>"> <label for="tamm" class="<?php if(!$tmedio){ echo"unselected"; }?>">  M  </label> </td>
+                                        <td class="<?php if($tmedio){ echo"selected"; }?>"> <label for="tamm" class="<?php if(!$tmedio){ echo"unselected"; }?>" onclick="clickedTam()">  M  </label> </td>
                                         <input type="radio" name="tamanho" id="tamm" value="tamm" style="display: none;">
 
-                                        <td class="<?php if($tg){ echo"selected"; }?>"> <label for="tamg" class="<?php if(!$tg){ echo"unselected"; }?>">  G  </label> </td>
+                                        <td class="<?php if($tg){ echo"selected"; }?>"> <label for="tamg" class="<?php if(!$tg){ echo"unselected"; }?>" onclick="clickedTam()">  G  </label> </td>
                                         <input type="radio" name="tamanho" id="tamg" value="tamg" style="display: none;">
 
-                                        <td class="<?php if($tgg){ echo"selected"; }?>"> <label for="tamgg" class="<?php if(!$tgg){ echo"unselected"; }?>">  GG  </label> </td>
+                                        <td class="<?php if($tgg){ echo"selected"; }?>"> <label for="tamgg" class="<?php if(!$tgg){ echo"unselected"; }?>" onclick="clickedTam()">  GG  </label> </td>
                                         <input type="radio" name="tamanho" id="tamgg" value="tamgg" style="display: none;">
                                     </tr>
                         </table>

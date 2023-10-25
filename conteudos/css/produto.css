@@ -6,11 +6,6 @@ label.unselected, input[type=submit]{
     font-weight: bolder;
 }
 
-label.bolinha{
-    border: #000 solid 1px;
-    border-radius: 10px ;
-}
-
 .images{
     display: inline-grid;
     width: 51%;

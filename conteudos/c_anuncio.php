@@ -73,7 +73,7 @@
                                         <!-- input -->
                                         <input type="radio" id="masculino" name="gender" value="male">
                                         <!-- titulo -->
-                                        <label for="male" class="label">MASCULINO</label>
+                                        <label for="masculino" class="label">MASCULINO</label>
                                     </div>
 
                                     <!-- primeiro grupo, feminino -->
@@ -81,7 +81,7 @@
                                         <!-- input -->
                                         <input type="radio" id="femenino" name="gender" value="female">
                                         <!-- titulo -->
-                                        <label for="female" class="label">FEMININO</label>
+                                        <label for="feminino" class="label">FEMININO</label>
                                     </div>
 
                                     <!-- primeiro grupo, unissex -->
@@ -119,13 +119,13 @@
                                     <!-- terceiro grupo, calçado -->
                                     <div class="radio-item">
                                         <input type="radio" id="calcado" name="peca" value="calçado">
-                                        <label for="calçado" class="label">CALÇADO</label><br>
+                                        <label for="calcado" class="label">CALÇADO</label><br>
                                     </div>
 
                                     <!-- quarto grupo, calça -->
                                     <div class="radio-item">
                                         <input type="radio" id="calca" name="peca" value="calça">
-                                        <label for="calça" class="label">CALÇA</label><br>
+                                        <label for="calca" class="label">CALÇA</label><br>
                                     </div>
                                 </div>
                             </div>

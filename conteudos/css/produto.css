@@ -1,3 +1,16 @@
+label{
+    cursor: default;
+}
+label.unselected, input[type=submit]{
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+label.bolinha{
+    border: #000 solid 1px;
+    border-radius: 10px ;
+}
+
 .images{
     display: inline-grid;
     width: 51%;
@@ -98,6 +111,9 @@
 .produto-info .sizes{
     height: auto;
     font-size: 18px;
+}
+.produto-info .sizes .table{
+
 }
 .produto-info .sizes td{
     padding-right: 20px;

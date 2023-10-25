@@ -95,7 +95,7 @@ function salvar()
 {
     try{
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,?,?)");
+        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,?,?,0)");
         @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
         @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
         @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);

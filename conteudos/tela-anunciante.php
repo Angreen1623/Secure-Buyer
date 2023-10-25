@@ -72,6 +72,7 @@
 
             foreach($produtos as $row){
                 ?>
+                
 
                 <div class="products-item">
                     <a href="<?php echo $row['link_edicao'] ?>">
@@ -79,7 +80,10 @@
                         $img->setcod_produto($row['cod_produto']);
                         $imagens = $img->consultar2();
                         foreach($imagens as $row2){
-                            echo $row2['imagem_produto'];
+                            $imagem = $row2['imagem_produto'];
+
+                            if(str_contains($imagem, 'vitrine'))
+                            echo $imagem;
                         }
                         ?>" alt="" class="imgmodelo1">
                     </a>

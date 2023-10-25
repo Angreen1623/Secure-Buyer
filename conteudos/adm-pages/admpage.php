@@ -23,9 +23,12 @@
                     <h1>Seja Bem Vindo</h1>
                 </div>
                         <div class="buttons">
-                            <input type="button" value="criar cupom" name="btncupom">
-                            <input type="button" value="validar produtos" name="btnverificar">
-                            <input type="button" value="verificar email" name="btnfaleconosco">
+
+
+                            <a href=""><input type="button" value="criar cupom" name="btncupom"></a>
+                            <a href="./admvalidation.php"><input type="button" value="validar produtos" name="btnverificar"><a>
+                            <a href="./admtalk.php"><input type="button" value="verificar email" name="btnfaleconosco"></a>
+                            
                         </div>
                         <div class="form-item">
                         </div> 

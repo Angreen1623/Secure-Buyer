@@ -186,6 +186,8 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                     extract($_POST, EXTR_OVERWRITE);
                     include_once "../php-conexao-modelagem/imagem_produto.php";
                     $img = new Imagem();
+                    include_once "../php-conexao-modelagem/tamanho.php";
+                    $tam = new Tamanho();
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
                     
@@ -200,22 +202,35 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                     foreach($produtos as $row){
                         $prod_cod = $row["cod_produto"];
                     }
-
-                    $prod->setcod_produto($prod_cod);
-                    $produtos = $prod->consultar2();
                 ?>
                 <div class="images">
                     <div class="img-group">
 
                         <div class="prod-selectimg">
+                            <?php $img->setcod_produto($prod_cod);
+                            $imagens = $img->consultar2();
+                            foreach($imagens as $row2){
+                            $imagem = $row2["imagem_produto"];?>
                             <div class="image-option">
-                                <img src="../img/modelo18.png" alt="">
+
+                                <?php if(!str_contains($imagem, "vitrine")){ ?>
+                                    <img src=".<?php echo $imagem; ?>" alt="">
+                                <?php } ?>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     
                         <div class="prod-img">
-                            <img src="<?php
-                            ?>" alt="Modelo da roupa">
+                            <img src=".<?php
+                        $imagens = $img->consultar2();
+                        foreach($imagens as $row2){
+                            $imagem = $row2["imagem_produto"];
+
+                            if(str_contains($imagem, "principal"))
+                            echo $imagem;
+                        }?>" alt="Modelo da roupa">
                         </div>
                     </div> 
                 </div>
@@ -227,45 +242,95 @@ function buying_page($codper, $nome, $desc, $peca, $preco, $gender){
                         <h1 class="price">R$'.$preco.'</h1>
                     </div>
 
-                    <div class="info-item">
-                        <h2>Selecionar Tamanho:</h2>
-                        <div class="sizes">
-                            <table>
-                            <tr>
-                                <td class="selected">12</td>
-                                <td>14</td>
-                                <td>16</td>
-                                <td>PP</td>
-                            </tr>
-                            <tr>
-                                <td>P</td>
-                                <td class="selected">M</td>
-                                <td class="selected">G</td>
-                                <td>GG</td>
-                            </tr>
-                            </table>
-                        </div>
-                    </div>
+                    <form action="" method="POST">
+                    
+                        <?php
+                            $tam->setcod_produto($prod_cod);
 
-                    <div class="info-item">
-                        <h2>Frete:</h2>
-                        <input type="text" name="cep" id="cep" placeholder="Calcular CEP">
-                    </div>
+                            $tamanhos = $tam->consultar();
 
-                    <div class="info-item">
-                        <h2>Quantidade:</h2>
-                        <span class="quantity">- 1 +</span>
-                    </div>
+                            $t12 = true;
+                            $t14 = true;
+                            $t16 = true;
+                            $tpp = true;
+                            $tp = true;
+                            $tmedio = true;
+                            $tg = true;
+                            $tgg = true;
 
-                    <div class="end-purchase">
-                        <span class="btn">Adicionar à carrinho</span>
-                        <div class="more">
-                            <span class="underline about-btn">Sobre a loja</span>
+                            foreach($tamanhos as $row){
+                                if($row["quant_tamanho"] > 0){
+                                    switch ($row["size"]) {
+                                        case "12":
+                                            $t12 = false;
+                                            break;
+                                        case "14":
+                                            $t14 = false;
+                                            break;
+                                        case "16":
+                                            $t16 = false;
+                                            break;
+                                        case "PP":
+                                            $tpp = false;
+                                            break;
+                                        case "P":
+                                            $tp = false;
+                                            break;
+                                        case "M":
+                                            $tmedio = false;
+                                            break;
+                                        case "G":
+                                            $tg = false;
+                                            break;
+                                        case "GG":
+                                            $tgg = false;
+                                            break;
+                                    }
+                                }
+                            }
+                        ?>
+
+                        <div class="info-item">
+                            <h2>Selecionar Tamanho:</h2>
+                            <div class="sizes">
+                                <table>
+                                <tr>
+                                    <td class="<?php if($t12) echo"selected"; ?>">12</td>
+                                    <td class="<?php if($t14) echo"selected"; ?>">14</td>
+                                    <td class="<?php if($t16) echo"selected"; ?>">16</td>
+                                    <td class="<?php if($tpp) echo"selected"; ?>">PP</td>
+                                </tr>
+                                <tr>
+                                    <td class="<?php if($tp) echo"selected"; ?>">P</td>
+                                    <td class="<?php if($tmedio) echo"selected"; ?>">M</td>
+                                    <td class="<?php if($tg) echo"selected"; ?>">G</td>
+                                    <td class="<?php if($tgg) echo"selected"; ?>">GG</td>
+                                </tr>
+                                </table>
+                            </div>
                         </div>
-                        <div class="more">
-                            <span class="underline detail-btn">Detalhes do produto</span>
+
+                        <div class="info-item">
+                            <h2>Frete:</h2>
+                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP">
                         </div>
-                    </div>
+
+                        <div class="info-item">
+                            <h2>Quantidade:</h2>
+                            <span class="quantity">- 1 +</span>
+                        </div>
+
+                        <div class="end-purchase">
+                            <input type="submit" value="Adicionar à carrinho" class="btn">
+                            <div class="more">
+                                <span class="underline about-btn">Sobre a loja</span>
+                            </div>
+                            <div class="more">
+                                <span class="underline detail-btn">Detalhes do produto</span>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
 

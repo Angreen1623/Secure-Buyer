@@ -283,6 +283,16 @@
                                 <input type="file" name="arquivo3" id="imagem3" accept=".jpg, .png, .jpeg" required>
                             </div>
 
+                            <div class="img">
+                                <label for='imagem4'> <img src="./img/nova-foto.png" class="img4" alt="Adicione uma imagem"></label>
+                                <input type="file" name="arquivo4" id="imagem4" accept=".jpg, .png, .jpeg" required>
+                            </div>
+
+                            <div class="img">
+                                <label for='imagem5'> <img src="./img/nova-foto.png" class="img5" alt="Adicione uma imagem"></label>
+                                <input type="file" name="arquivo5" id="imagem5" accept=".jpg, .png, .jpeg" required>
+                            </div>
+
                         </div>
                         <!-- cabo imagem -->
                     </div>
@@ -374,14 +384,14 @@
 
                 $img->setcod_produto($prod_cod);
                 
-                $imagem1 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
+                $imagem1 = "./img/user-img/". uniqid("vitrine") . $_FILES["fileImg"]["name"];
                 move_uploaded_file($_FILES["arquivo1"]["tmp_name"], $imagem1);
                 $img->setimagem_produto($imagem1);
                 $img->salvar();
 
                 $img->setcod_produto($prod_cod);
 
-                $imagem2 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
+                $imagem2 = "./img/user-img/". uniqid("principal") . $_FILES["fileImg"]["name"];
                 move_uploaded_file($_FILES["arquivo2"]["tmp_name"], $imagem2);
                 $img->setimagem_produto($imagem2);
                 $img->salvar();
@@ -391,6 +401,20 @@
                 $imagem3 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
                 move_uploaded_file($_FILES["arquivo3"]["tmp_name"], $imagem3);
                 $img->setimagem_produto($imagem3);
+                $img->salvar();
+
+                $img->setcod_produto($prod_cod);
+
+                $imagem4 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
+                move_uploaded_file($_FILES["arquivo4"]["tmp_name"], $imagem4);
+                $img->setimagem_produto($imagem4);
+                $img->salvar();
+
+                $img->setcod_produto($prod_cod);
+
+                $imagem5 = "./img/user-img/". uniqid() . $_FILES["fileImg"]["name"];
+                move_uploaded_file($_FILES["arquivo5"]["tmp_name"], $imagem5);
+                $img->setimagem_produto($imagem5);
                 $img->salvar();
 
                 echo "<script language='JavaScript'>window.location.replace('tela-anunciante.php');</script>";

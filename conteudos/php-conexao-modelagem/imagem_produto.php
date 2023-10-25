@@ -27,7 +27,7 @@
             try{
 
                 $this->conn = new Conectar();
-                $sql = $this->conn->prepare("SELECT * FROM imagem_produto WHERE cod_produto like ? ORDER BY (cod_produto) ASC LIMIT 1");
+                $sql = $this->conn->prepare("SELECT * FROM imagem_produto WHERE cod_produto like ? ORDER BY (cod_produto)");
                 @$sql-> bindParam(1, $this->getcod_produto(), PDO::PARAM_INT);
                 $sql->execute();
                 return $sql->fetchAll();

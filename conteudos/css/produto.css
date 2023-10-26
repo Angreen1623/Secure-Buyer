@@ -1,8 +1,13 @@
 label{
-    cursor: default;
+    cursor: text;
 }
-label.unselected, input[type=submit]{
+label.selectable, input[type=submit]{
     cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+label.clicked{
     font-weight: bolder;
 }
 

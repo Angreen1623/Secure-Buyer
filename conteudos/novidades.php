@@ -101,6 +101,9 @@
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();
                                         foreach($imagens as $row2){
+                                            $imagem = $row2['imagem_produto'];
+
+                                            if(str_contains($imagem, 'vitrine'))
                                             echo $row2['imagem_produto'];
                                         }
                                         ?>" alt="" class="imgmodelo1">
@@ -144,6 +147,9 @@
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();
                                         foreach($imagens as $row2){
+                                            $imagem = $row2['imagem_produto'];
+
+                                            if(str_contains($imagem, 'vitrine'))
                                             echo $row2['imagem_produto'];
                                         }
                                         ?>" alt="" class="imgmodelo1">

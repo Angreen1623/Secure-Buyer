@@ -184,7 +184,7 @@
                     $produtos = $prod->consultar2();
 
                     foreach($produtos as $row){
-                        $codper = $row["cod_perfil"];
+                        $codper_anun = $row["cod_perfil"];
                         $nome = $row["titulo_produto"];
                         $desc = $row["descricao_produto"];
                         $preco = number_format($row["preco_produto"],2,",",".");
@@ -229,7 +229,7 @@
                         <h1 class="price">R$ <?php echo $preco; ?></h1>
                     </div>
 
-                    <form action="" method="POST">
+                    <form action="" method="POST" onsubmit="return form_submit(event)">
                     
                         <?php
                             $tam->setcod_produto(4);
@@ -313,14 +313,17 @@
 
                         <div class="info-item">
                             <h2>Frete:</h2>
-                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP">
+                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP" maxlength="9" onblur="ver_cep(this.value)" onkeypress="return cep_mask(window.event.keyCode)" required>
+                            <div class="error_message">
+                                <p>Digite um cep válido</p>
+                            </div>
                         </div>
 
                         <div class="info-item quantidade">
                             <h2>Quantidade:</h2>
                             <span class="subtitle btn-qnt menos">-</span>
                             <!-- número que aumenta e diminui -->
-                            <input type="text" name="quantidade" id="qnt" value="1" maxlength="7" onkeypress="return verTamanho(window.event.keyCode)">
+                            <input type="text" name="quantidade" id="qnt" value="1" maxlength="7" onkeypress="return verTamanho(window.event.keyCode)" required>
                             <!-- botão de menos -->
                             <span class="subtitle btn-qnt mais">+</span>
                         </div>
@@ -391,7 +394,7 @@
                 include_once "../php-conexao-modelagem/perfil.php";
                 $per = new Perfil();
 
-                $per->setcod_perfil($codper);
+                $per->setcod_perfil($codper_anun);
                 $perfil = $per->consultar();
                 foreach ($perfil as $row2) {
 
@@ -496,6 +499,26 @@
         </div>
         </div>
     </footer> 
+    <?php
+
+        extract($_POST, EXTR_OVERWRITE);
+        if(isset($add_cart)){
+
+            include_once "../php-conexao-modelagem/carrinho.php";
+            $cart = new Carrinho();
+
+            $cart->setcod_produto(4);
+            $cart->setcod_perfil($codper);
+            $cart->setcep_carrinho($cep);
+            $cart->setqnt_pro($quantidade);
+            $cart->settamanho_pro($tamanho);
+            $cart->salvar();
+
+            echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+
+        }
+
+    ?>
             
         </div>
         

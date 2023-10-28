@@ -199,7 +199,7 @@ function buying_page($prod_cod){
                         $codper = $row["cod_perfil"];
                         $nome = $row["titulo_produto"];
                         $desc = $row["descricao_produto"];
-                        $preco = $row["preco_produto"];
+                        $preco = number_format($row["preco_produto"],2,",",".");
                     }
                 ?>
                 <div class="images">
@@ -212,7 +212,7 @@ function buying_page($prod_cod){
                             $imagem = $row2["imagem_produto"];?>
                             <div class="image-option">
 
-                                <?php if(!str_contains($imagem, "vitrine")){ ?>
+                                <?php if(!str_contains($imagem, "principal")){ ?>
                                     <img src=".<?php echo $imagem; ?>" alt="">
                                 <?php } ?>
                             </div>

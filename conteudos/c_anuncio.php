@@ -50,7 +50,7 @@
                                 <label class="subtitle">Descrição</label><br>
                             </div>
                             <!-- input -->
-                            <input type="text" class="desc" name="descricao">
+                            <textarea rows = "6" cols = "60" name = "descricao" maxlength="2000" required></textarea>
                         </div>
                         <!-- fim do grupo -->
                     </div>

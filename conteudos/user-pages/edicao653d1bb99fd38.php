@@ -177,7 +177,7 @@
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
                     
-                    $prod->setcod_produto("");
+                    $prod->setcod_produto("2");
 
                     $produtos = $prod->consultar2();
 
@@ -244,7 +244,7 @@
                 extract($_POST, EXTR_OVERWRITE);
                 if(isset($btnalterar)){
                     
-                    $prod->setcod_produto();
+                    $prod->setcod_produto(2);
                     $prod->settitulo_produto($nome);
                     $prod->setdescricao_produto($desc);
 
@@ -287,6 +287,27 @@
               </div>
             </div>
        </footer> 
+
+       <?php
+    
+        extract($_POST, EXTR_OVERWRITE);
+        if(isset($add_cart)){
+
+            include_once "../php-conexao-modelagem/carrinho.php";
+            $cart = new Carrinho();
+
+            $cart->setcod_produto(2);
+            $cart->setcod_perfil($codper);
+            $cart->setcep_carrinho($cep);
+            $cart->setqnt_pro($quantidade);
+            $cart->settamanho_pro($tamanho);
+            $cart->salvar();
+
+            echo "<script language=`JavaScript`>window.location.replace(`../index.php`);</script>";
+
+        }
+
+    ?>
         
         </div>
         

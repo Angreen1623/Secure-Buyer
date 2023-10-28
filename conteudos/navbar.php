@@ -177,7 +177,7 @@
                 </div>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right">R$ <?php echo $total; ?></h3>
+                    <h3 class="right"> <?php if(isset($total)){ number_format($total,2,",","."); }else{ echo "Nenhum produto no carrinho";} ?></h3>
                 </div>
                 <div class="bag-end">
                     <span class="btn">Finalizar compra</span>

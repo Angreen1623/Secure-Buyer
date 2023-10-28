@@ -35,16 +35,22 @@
             </div>
             <div class="produtos">
                 <div class="produtos-vetor">
+                    <?php
+                            
+                    $existe;
+                    $prod->setsexo("female");
+                    $produtos = $prod->filtro();
+                    foreach($produtos as $row){
+                        $existe = true;
+                    } 
+                    
+                    if(isset($existe) && $existe){ ?>
                     <div class="subtitle">
                         <h2>Feminino</h2>
                     </div>
 
                     <div class="produtos-container">
                     <?php
-                            
-
-                            $prod->setsexo("female");
-                            $produtos = $prod->filtro();
 
                             foreach($produtos as $row){
                                 ?>
@@ -61,23 +67,25 @@
                                                 echo $link_res;
                                             } 
                                             ?>">
-                                            <img src="<?php
-                                            $img->setcod_produto($row['cod_produto']);
-                                            $imagens = $img->consultar2();
-                                            foreach($imagens as $row2){
-                                                $imagem = $row2['imagem_produto'];
+                                            <div class="vitrine">
+                                                <img src="<?php
+                                                $img->setcod_produto($row['cod_produto']);
+                                                $imagens = $img->consultar2();
+                                                foreach($imagens as $row2){
+                                                    $imagem = $row2['imagem_produto'];
 
-                                                if(str_contains($imagem, 'vitrine'))
-                                                echo $imagem;
-                                            }
-                                            ?>" alt="" class="imgmodelo1">
+                                                    if(str_contains($imagem, 'vitrine'))
+                                                    echo $imagem;
+                                                }
+                                                ?>" alt="" class="imgmodelo1">
+                                            </div>
                                         </a>
                                     </div>
                                     <div class="name">
                                         <h3><?php echo $row['titulo_produto']; ?></h3>
                                     </div>
                                     <div class="preco">
-                                        <p>R$ <?php echo $row['preco_produto']; ?></p>
+                                        <p>R$ <?php echo number_format($row['preco_produto'],2,",","."); ?></p>
                                     </div>
 
                                 </div>
@@ -88,6 +96,18 @@
 
                         ?>
                     </div>
+                    <?php } ?>
+
+                    <?php
+                            
+                    $existe1;
+                    $prod->setsexo("male");
+                    $produtos = $prod->filtro();
+                    foreach($produtos as $row){
+                        $existe1 = true;
+                    } 
+                    
+                    if(isset($existe1) && $existe1){ ?>
 
                     <div class="subtitle">
                         <h2>Masculino</h2>
@@ -95,11 +115,6 @@
 
                     <div class="produtos-container">
                     <?php
-                            
-
-                            $prod->setsexo("male");
-                            $produtos = $prod->filtro();
-
                             foreach($produtos as $row){
                                 ?>
 
@@ -107,31 +122,31 @@
 
                                     <div class="img">
                                         <a href="<?php  
-                                                $link->setcod_produto($row['cod_produto']);
-                                                $links = $link->consultar();
-
-                                                foreach($links as $row2){
-                                                    $link_res = $row2['link_compra'];
-                                                    echo $link_res;
-                                                } 
-                                                ?>">
-                                        <img src="<?php
-                                        $img->setcod_produto($row['cod_produto']);
-                                        $imagens = $img->consultar2();
-                                        foreach($imagens as $row2){
-                                            $imagem = $row2['imagem_produto'];
-
-                                            if(str_contains($imagem, 'vitrine'))
-                                            echo $row2['imagem_produto'];
-                                        }
-                                        ?>" alt="" class="imgmodelo1">
+                                            $link->setcod_produto($row['cod_produto']);
+                                            $links = $link->consultar();
+                                            foreach($links as $row2){
+                                                $link_res = $row2['link_compra'];
+                                                echo $link_res;
+                                            } 
+                                            ?>">
+                                            <div class="vitrine">
+                                            <img src="<?php
+                                                $img->setcod_produto($row['cod_produto']);
+                                                $imagens = $img->consultar2();
+                                                foreach($imagens as $row2){
+                                                    $imagem = $row2['imagem_produto'];
+                                                    if(str_contains($imagem, 'vitrine'))
+                                                    echo $imagem;
+                                                }
+                                            ?>" alt="" class="imgmodelo1">
+                                            </div>
                                         </a>
                                     </div>
                                     <div class="name">
                                         <h3><?php echo $row['titulo_produto']; ?></h3>
                                     </div>
                                     <div class="preco">
-                                        <p>R$ <?php echo $row['preco_produto']; ?></p>
+                                        <p>R$ <?php echo number_format($row['preco_produto'],2,",","."); ?></p>
                                     </div>
 
                                 </div>
@@ -142,6 +157,18 @@
 
                         ?>
                     </div>
+                    <?php } ?>
+
+                    <?php
+                            
+                    $existe2;
+                    $prod->setsexo("unissex");
+                    $produtos = $prod->filtro();
+                    foreach($produtos as $row){
+                        $existe2 = true;
+                    }
+                    
+                    if(isset($existe2) && $existe2){ ?>
 
                     <div class="subtitle">
                         <h2>Unissex</h2>
@@ -161,31 +188,31 @@
 
                                     <div class="img">
                                         <a href="<?php  
-                                                $link->setcod_produto($row['cod_produto']);
-                                                $links = $link->consultar();
+                                            $link->setcod_produto($row['cod_produto']);
+                                            $links = $link->consultar();
+                                            foreach($links as $row2){
+                                                $link_res = $row2['link_compra'];
+                                                echo $link_res;
+                                            } 
+                                            ?>">
 
-                                                foreach($links as $row2){
-                                                    $link_res = $row2['link_compra'];
-                                                    echo $link_res;
-                                                } 
-                                                ?>">
-                                        <img src="<?php
-                                        $img->setcod_produto($row['cod_produto']);
-                                        $imagens = $img->consultar2();
-                                        foreach($imagens as $row2){
-                                            $imagem = $row2['imagem_produto'];
+                                            <img src="<?php
+                                            $img->setcod_produto($row['cod_produto']);
+                                            $imagens = $img->consultar2();
+                                            foreach($imagens as $row2){
+                                                $imagem = $row2['imagem_produto'];
+                                                if(str_contains($imagem, 'vitrine'))
+                                                echo $imagem;
+                                            }
+                                            ?>" alt="" class="imgmodelo1">
 
-                                            if(str_contains($imagem, 'vitrine'))
-                                            echo $row2['imagem_produto'];
-                                        }
-                                        ?>" alt="" class="imgmodelo1">
                                         </a>
                                     </div>
                                     <div class="name">
                                         <h3><?php echo $row['titulo_produto']; ?></h3>
                                     </div>
                                     <div class="preco">
-                                        <p>R$ <?php echo $row['preco_produto']; ?></p>
+                                        <p>R$ <?php echo number_format($row['preco_produto'],2,",","."); ?></p>
                                     </div>
 
                                 </div>
@@ -196,6 +223,7 @@
 
                         ?>
                     </div>
+                    <?php } ?>
                 </div>
                 
             </div>

@@ -179,7 +179,7 @@
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
                     
-                    $prod->setcod_produto("");
+                    $prod->setcod_produto("4");
 
                     $produtos = $prod->consultar2();
 
@@ -187,20 +187,20 @@
                         $codper = $row["cod_perfil"];
                         $nome = $row["titulo_produto"];
                         $desc = $row["descricao_produto"];
-                        $preco = $row["preco_produto"];
+                        $preco = number_format($row["preco_produto"],2,",",".");
                     }
                 ?>
                 <div class="images">
                     <div class="img-group">
 
                         <div class="prod-selectimg">
-                            <?php $img->setcod_produto();
+                            <?php $img->setcod_produto(4);
                             $imagens = $img->consultar2();
                             foreach($imagens as $row2){
                             $imagem = $row2["imagem_produto"];?>
                             <div class="image-option">
 
-                                <?php if(!str_contains($imagem, "vitrine")){ ?>
+                                <?php if(!str_contains($imagem, "principal")){ ?>
                                     <img src=".<?php echo $imagem; ?>" alt="">
                                 <?php } ?>
                             </div>
@@ -232,7 +232,7 @@
                     <form action="" method="POST">
                     
                         <?php
-                            $tam->setcod_produto($prod_cod);
+                            $tam->setcod_produto(4);
 
                             $tamanhos = $tam->consultar();
 
@@ -283,23 +283,29 @@
                             <table>
                                 <tr>
                                     <td class="<?php if($t12){ echo"selected"; }?>"> <label for="tam12" class="btn12 <?php if(!$t12){ echo"selectable"; }?>" onclick="clickedTam(`btn12`)">  12  </label> </td>
-                                    <input type="radio" name="tamanho" id="tam12" value="tam12" style="display: none;" <?php if(!$t12){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tam12" value="12" style="display: none;" <?php if($t12){ echo"disabled"; }?>>
+                                    
                                     <td class="<?php if($t14){ echo"selected"; }?>"> <label for="tam14" class="btn14 <?php if(!$t14){ echo"selectable"; }?>" onclick="clickedTam(`btn14`)">  14  </label> </td>
-                                    <input type="radio" name="tamanho" id="tam14" value="tam14" style="display: none;" <?php if(!$t14){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tam14" value="14" style="display: none;" <?php if($t14){ echo"disabled"; }?>>
+                                    
                                     <td class="<?php if($t16){ echo"selected"; }?>"> <label for="tam16" class="btn16 <?php if(!$t16){ echo"selectable"; }?>" onclick="clickedTam(`btn16`)">  16  </label> </td>
-                                    <input type="radio" name="tamanho" id="tam16" value="tam16" style="display: none;" <?php if(!$t16){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tam16" value="16" style="display: none;" <?php if($t16){ echo"disabled"; }?>>
+                                    
                                     <td class="<?php if($tpp){ echo"selected"; }?>"> <label for="tampp" class="btnpp <?php if(!$tpp){ echo"selectable"; }?>" onclick="clickedTam(`btnpp`)">  PP  </label> </td>
-                                    <input type="radio" name="tamanho" id="tampp" value="tampp" style="display: none;" <?php if(!$tpp){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tampp" value="PP" style="display: none;" <?php if($tpp){ echo"disabled"; }?>>
                                 </tr>
                                 <tr>
                                     <td class="<?php if($tp){ echo"selected"; }?>"> <label for="tamp" class="btnp <?php if(!$tp){ echo"selectable"; }?>" onclick="clickedTam(`btnp`)">  P  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamp" value="tamp" style="display: none;" <?php if(!$tp){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tamp" value="P" style="display: none;" <?php if($tp){ echo"disabled"; }?>>
+                                    
                                     <td class="<?php if($tmedio){ echo"selected"; }?>"> <label for="tamm" class="btnm <?php if(!$tmedio){ echo"selectable"; }?>" onclick="clickedTam(`btnm`)">  M  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamm" value="tamm" style="display: none;" <?php if(!$tmedio){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tamm" value="M" style="display: none;" <?php if($tmedio){ echo"disabled"; }?>>
+                                    
                                     <td class="<?php if($tg){ echo"selected"; }?>"> <label for="tamg" class="btng <?php if(!$tg){ echo"selectable"; }?>" onclick="clickedTam(`btng`)">  G  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamg" value="tamg" style="display: none;" <?php if(!$tg){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tamg" value="G" style="display: none;" <?php if($tg){ echo"disabled"; }?>>
+                                    
                                     <td class="<?php if($tgg){ echo"selected"; }?>"> <label for="tamgg" class="btngg <?php if(!$tgg){ echo"selectable"; }?>" onclick="clickedTam(`btngg`)">  GG  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamgg" value="tamgg" style="display: none;" <?php if(!$tgg){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tamgg" value="GG" style="display: none;" <?php if($tgg){ echo"disabled"; }?>>
                                 </tr>
                             </table>
                             </div>
@@ -320,7 +326,7 @@
                         </div>
 
                         <div class="end-purchase">
-                            <input type="submit" value="Adicionar à carrinho" class="btn" name="add_cart">
+                            <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart">
                             <div class="more">
                                 <span class="underline about-btn">Sobre a loja</span>
                             </div>

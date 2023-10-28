@@ -72,11 +72,19 @@
       height: 100%;
       border-radius: 100px;
   }
-    .imgmodelo1 {
-      width: 300px;
-      height: 420px;
-    }
 
+  .vitrine{
+    width: 300px;
+    height: 420px;
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+  }
+
+  .vitrine .imgmodelo1 {
+    height: 100%;
+  }
 .products-container{
   justify-content: center;
   position: relative;

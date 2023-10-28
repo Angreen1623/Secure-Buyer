@@ -179,7 +179,7 @@
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
                     
-                    $prod->setcod_produto("7");
+                    $prod->setcod_produto("1");
 
                     $produtos = $prod->consultar2();
 
@@ -187,20 +187,20 @@
                         $codper = $row["cod_perfil"];
                         $nome = $row["titulo_produto"];
                         $desc = $row["descricao_produto"];
-                        $preco = $row["preco_produto"];
+                        $preco = number_format($row['preco_produto'],2,",",".");
                     }
                 ?>
                 <div class="images">
                     <div class="img-group">
 
                         <div class="prod-selectimg">
-                            <?php $img->setcod_produto(7);
+                            <?php $img->setcod_produto(1);
                             $imagens = $img->consultar2();
                             foreach($imagens as $row2){
                             $imagem = $row2["imagem_produto"];?>
                             <div class="image-option">
 
-                                <?php if(!str_contains($imagem, "vitrine")){ ?>
+                                <?php if(!str_contains($imagem, "principal")){ ?>
                                     <img src=".<?php echo $imagem; ?>" alt="">
                                 <?php } ?>
                             </div>
@@ -232,7 +232,7 @@
                     <form action="" method="POST">
                     
                         <?php
-                            $tam->setcod_produto(7);
+                            $tam->setcod_produto(1);
 
                             $tamanhos = $tam->consultar();
 
@@ -496,27 +496,6 @@
         </div>
         </div>
     </footer> 
-
-    <?php
-    
-        extract($_POST, EXTR_OVERWRITE);
-        if(isset($add_cart)){
-
-            include_once "../php-conexao-modelagem/carrinho.php";
-            $cart = new Carrinho();
-
-            $cart->setcod_produto(7);
-            $cart->setcod_perfil($codper);
-            $cart->setcep_carrinho($cep);
-            $cart->setqnt_pro($quantidade);
-            $cart->settamanho_pro($tamanho);
-            $cart->salvar();
-
-            echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
-
-        }
-
-    ?>
             
         </div>
         

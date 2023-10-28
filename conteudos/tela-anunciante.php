@@ -81,20 +81,21 @@
                                 echo $link_res;
                             } 
                             ?>">
+                        <div class="vitrine">
+                            <img src="<?php
+                            $img->setcod_produto($row['cod_produto']);
+                            $imagens = $img->consultar2();
+                            foreach($imagens as $row2){
+                                $imagem = $row2['imagem_produto'];
 
-                        <img src="<?php
-                        $img->setcod_produto($row['cod_produto']);
-                        $imagens = $img->consultar2();
-                        foreach($imagens as $row2){
-                            $imagem = $row2['imagem_produto'];
-
-                            if(str_contains($imagem, 'vitrine'))
-                            echo $imagem;
-                        }
-                        ?>" alt="" class="imgmodelo1">
+                                if(str_contains($imagem, 'vitrine'))
+                                echo $imagem;
+                            }
+                            ?>" alt="" class="imgmodelo1">
+                        </div>
                     </a>
                     <p class="descmodelos1"><?php echo $row['titulo_produto']; ?></p>
-                    <p class="preco1">R$ <?php echo $row['preco_produto']; ?></p>
+                    <p class="preco1">R$ <?php echo number_format($row['preco_produto'],2,",",".") ?></p>
                 </div>
 
                 <?php
@@ -105,7 +106,9 @@
 
             <div class="products-item">
                 <a href="c_anuncio.php">
-                <img src="../conteudos/img/addprod.png" alt="Crie um anúncio" class="imgmodelo1"></a>
+                <div class="vitrine">
+                    <img src="../conteudos/img/addprod.png" alt="Crie um anúncio" class="imgmodelo1"></a>
+                </div>
                 <p class="descmodelos1">Crie um novo anúncio</p>
             </div>
         </div>        

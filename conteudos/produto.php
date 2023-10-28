@@ -54,7 +54,7 @@
 
                 <div class="info-item">
                     <h1 class="title"><?php echo $row['titulo_produto'] ;?></h1>
-                    <h1 class="price">R$<?php echo $row['preco_produto'] ;?></h1>
+                    <h1 class="price">R$<?php echo number_format($row['preco_produto'],2,",",".") ;?></h1>
                 </div>
 
                 <div class="info-item">

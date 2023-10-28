@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/10/2023 às 03:21
+-- Tempo de geração: 28/10/2023 às 17:33
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -52,13 +52,6 @@ CREATE TABLE `carrinho` (
   `tamanho_pro` varchar(2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `carrinho`
---
-
-INSERT INTO `carrinho` (`cod_carrinho`, `cod_produto`, `cod_perfil`, `cep_carrinho`, `qnt_pro`, `tamanho_pro`) VALUES
-(1, 7, 29, '77060-038', 1, '12');
-
 -- --------------------------------------------------------
 
 --
@@ -75,7 +68,7 @@ CREATE TABLE `conexao` (
 --
 
 INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
-('::1', 29);
+('::1', 2);
 
 -- --------------------------------------------------------
 
@@ -120,23 +113,26 @@ CREATE TABLE `imagem_produto` (
 --
 
 INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
-(1, './img/user-img/864223e4-cea0-4c63-9e3e-527120927df2.jpg'),
-(1, './img/user-img/104776d5-1755-4e09-92d5-37df874b6b56.jpg'),
-(2, './img/user-img/104776d5-1755-4e09-92d5-37df874b6b56.jpg'),
-(2, './img/user-img/864223e4-cea0-4c63-9e3e-527120927df2.jpg'),
-(3, './img/user-img/photo_5051328496323898037_y.jpg'),
-(3, './img/user-img/104776d5-1755-4e09-92d5-37df874b6b56.jpg'),
-(4, './img/user-img/download1.jpg'),
-(4, './img/user-img/download.jpg'),
-(5, './img/user-img/download1.jpg'),
-(5, './img/user-img/download1.jpg'),
-(6, './img/user-img/download.jpg'),
-(6, './img/user-img/download.jpg'),
-(7, './img/user-img/vitrine653c4599274f8'),
-(7, './img/user-img/principal653c4599295c7'),
-(7, './img/user-img/653c45992a16a'),
-(7, './img/user-img/653c45992acff'),
-(7, './img/user-img/653c45992b6ed');
+(1, './img/user-img/vitrine653d15e78056f'),
+(1, './img/user-img/principal653d15e78214c'),
+(1, './img/user-img/653d15e783368'),
+(1, './img/user-img/653d15e783f33'),
+(1, './img/user-img/653d15e787ea9'),
+(2, './img/user-img/vitrine653d1bb999f1f'),
+(2, './img/user-img/principal653d1bb99abec'),
+(2, './img/user-img/653d1bb99b7f5'),
+(2, './img/user-img/653d1bb99c3ce'),
+(2, './img/user-img/653d1bb99e528'),
+(3, './img/user-img/vitrine653d28967a6e8'),
+(3, './img/user-img/principal653d28967b819'),
+(3, './img/user-img/653d289684c22'),
+(3, './img/user-img/653d28968587b'),
+(3, './img/user-img/653d289686515'),
+(4, './img/user-img/vitrine653d2906781d4'),
+(4, './img/user-img/principal653d290679368'),
+(4, './img/user-img/653d29067ab6b'),
+(4, './img/user-img/653d29067c4e3'),
+(4, './img/user-img/653d29067f611');
 
 -- --------------------------------------------------------
 
@@ -155,7 +151,10 @@ CREATE TABLE `links_produto` (
 --
 
 INSERT INTO `links_produto` (`cod_produto`, `link_edicao`, `link_compra`) VALUES
-(7, './user-pages/edicao653c45992d77a.php', './user-pages/produto653c45992db2e.php');
+(1, './user-pages/edicao653d15e78bda7.php', './user-pages/produto653d15e78ce37.php'),
+(2, './user-pages/edicao653d1bb99fd38.php', './user-pages/produto653d1bb9a030c.php'),
+(3, './user-pages/edicao653d2896df228.php', './user-pages/produto653d2896df5f9.php'),
+(4, './user-pages/edicao653d2906809c6.php', './user-pages/produto653d290680cad.php');
 
 -- --------------------------------------------------------
 
@@ -193,10 +192,8 @@ CREATE TABLE `perfil` (
 --
 
 INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`, `adm`) VALUES
-('Ednaldo', 'Pereira', 'ednaldo@pereira.com', 'banido123', 'Loja do Ednaldo', '00.000.000/0000-01', './img/user-img/download1.jpg', 25, 0),
-('Junjinaldo', 'Perito', 'junjinaldo@gmail.com', '1', 'Loja do Junjinaldo', '00.000.000/0000-02', './img/user-img/download.jpg', 26, 0),
-('André', 'Green', 'angreen@gmail.com', '$2y$10$Es6ak8TTTFUV5NpcqJlLx.Ke03.e4UaapWt9jV.UVduEAvr5Nk5cS', NULL, NULL, NULL, 28, 1),
-('dfdd', 'dsfsdfsdfsdf', 'dfsdfsdfsd@.com', '$2y$10$VJhOvzkq86KXu8.MqOzSy.48wGVG1/TPBtT/yXFqY2aymF4WQgHhy', 'Glamour', '14.067.875/0001-15', './img/user-img/653c437993f06', 29, 0);
+('Secure', 'Buyer', 'securebuyer@marketplace.com', '$2y$10$Pzt7fH40d9vEp.dGMTqSP.V.y3z3oPPXr4Pyk1YpIyrbEnKFriFYe', NULL, NULL, NULL, 1, 1),
+('Raimundo', 'Daniel Baptista', 'danielbr@gmail.com', '$2y$10$r8xq9v7i7vRqkJQ5ihdZh.GfHZgquXLXw9PXn/5j.dQkQRDHvPybK', 'Glamour', '14.067.875/0001-15', './img/user-img/653d143bce1c7', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -207,9 +204,9 @@ INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`
 CREATE TABLE `produto` (
   `cod_produto` int(11) NOT NULL,
   `titulo_produto` varchar(100) NOT NULL,
-  `descricao_produto` varchar(500) NOT NULL,
+  `descricao_produto` text NOT NULL,
   `tipo_peca` varchar(10) NOT NULL,
-  `preco_produto` float NOT NULL,
+  `preco_produto` float(7,2) NOT NULL,
   `sexo` varchar(8) NOT NULL,
   `cod_perfil` int(11) NOT NULL,
   `valida` int(11) NOT NULL
@@ -220,13 +217,10 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `tipo_peca`, `preco_produto`, `sexo`, `cod_perfil`, `valida`) VALUES
-(1, 'Roupa', 'aa', 'calçado', 333, 'female', 23, 0),
-(2, 'Edsom', 'aa', 'calça', 444, 'female', 23, 0),
-(3, 'Tevenaldo', 'aa', 'camisa', 1, 'male', 22, 0),
-(4, 'Camisa', 'aa', 'calça', 100, 'male', 25, 0),
-(5, 'Camisa', 'aa', 'calçado', 250, 'male', 25, 0),
-(6, 'aa', 'aaaa', 'calça', 100, 'male', 26, 0),
-(7, 'Camiseta em algodão com cristais', 'Decorada com cristais brilhantes, esta camiseta tem estilo moderno e design sóbrio. Feita em algodão, ela tem mangas longas e modelagem solta.', 'camisa', 117, 'female', 29, 0);
+(1, 'Camiseta em algodão com cristais', 'Decorada com cristais brilhantes, esta camiseta tem estilo moderno e design sóbrio. Feita em algodão, ela tem mangas longas e modelagem solta.', 'camisa', 115.00, 'female', 2, 0),
+(2, 'Jaqueta em denim', 'Elemento icônico do desfile Primavera/Verão 2023, o decote redondo permeia a narrativa da coleção Prada onde a redução se traduz em simplicidade e cada detalhe irrelevante é removido em diferentes peças como casacos, jaquetas e blazers. Um acabamento usado dá à peça um toque retrô dos anos 50, enquanto a etiqueta com logotipo dos arquivos destaca-se na parte posterior.\r\n* Tratamento usado\r\n* Sem forro\r\n* Modelagem clássica\r\n* Gola redonda\r\n* Mangas longas\r\n* Punhos abotoados\r\n* Abotoamento na parte da frente\r\n* Pesponto contrastante\r\n* Bolsos aplicados com aba e botão\r\n* Comprimento do centro da parte posterior: 64 cm; tamanho: M\r\n* Barra ajustável com botões\r\n* Logotipo triangular em metal esmaltado\r\n* Etiqueta com logotipo na parte posterior\r\n* O(a) modelo mede 1,77m e usa tamanho 38 \r\n* Altura: 64cm', 'blusa', 250.00, 'male', 2, 0),
+(3, 'Blusão em cashmere com capuz', 'Detalhes do produto\r\nUma atitude esportiva é combinada com o toque macio e aconchegante deste blusão com capuz feito em cashmere, um tecido luxuoso e refinado de alta qualidade. O fechamento com zíper e a barra elástica remetem aos uniformes esportivos. A Prada recria o tricô tradicional de forma inovadora, com referências ao mundo athleisure.\r\n\r\n* Código do produto: 003\r\n* Modelagem solta\r\n* Com capuz\r\n* Mangas retas\r\n* Fechamento com zíper\r\n* Bolsos embutidos\r\n* Punhos elásticos\r\n* Costura abaixo do ombro\r\n* Barra com elástico\r\n* Cordão elástico\r\n* Sem forro\r\n*Logotipo triangular em tecido na parte da frente\r\nO(a) modelo mede 1,77m e usa tamanho 38 \r\n* Altura: 76cm', 'blusa', 250.00, 'male', 2, 0),
+(4, 'Jaqueta com abotoamento central em Re-Nylon', 'Detalhes do produto\r\nA silhueta clássica da moda masculina é reinventada de forma inovadora e sustentável nesta jaqueta feita em Re-Nylon, o tecido regenerado obtido a partir de materiais plásticos reciclados e purificados coletados do oceano. O conceito híbrido permeia a narrativa Prada e é traduzido em designs inovadores com uma mistura interessante e incomum de materiais, formas e funções.\r\n\r\n* Código do produto: 004\r\n* Modelagem reta\r\n* Forrada\r\n* Lapela clássica\r\n* Mangas longas\r\n* Fenda na parte posterior\r\n* Abotoamento\r\n* Logotipo triangular em metal esmaltado\r\n* Fenda com botão nas mangas\r\n* Bolsos com aba\r\n* Bolso interno com botão\r\n* Outro bolso interno no lado esquerdo da parte da frente\r\n* Mini nécessaire triangular com logotipo estampado na parte posterior\r\n* O(a) modelo mede 180 cm e usa tamanho 38\r\n* Altura: 75cm', 'blusa', 300.00, 'female', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -245,23 +239,23 @@ CREATE TABLE `tamanho` (
 --
 
 INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`) VALUES
-(1, 'PP', 1),
-(1, 'P', 1),
-(2, '12', 1),
-(2, 'GG', 1),
-(3, '14', 1),
-(3, 'GG', 1),
-(4, '12', 1),
-(4, 'GG', 1),
-(5, '14', 1),
-(5, 'P', 1),
-(6, '12', 1),
-(6, 'GG', 1),
-(7, '12', 1),
-(7, '16', 1),
-(7, 'P', 1),
-(7, 'M', 1),
-(7, 'GG', 1);
+(1, '12', 20),
+(1, '16', 20),
+(1, 'P', 20),
+(1, 'M', 20),
+(2, '12', 9),
+(2, 'PP', 10),
+(2, 'G', 20),
+(2, 'GG', 3),
+(3, 'P', 20),
+(3, 'M', 4),
+(3, 'G', 29),
+(3, 'GG', 90),
+(4, '12', 4),
+(4, '14', 9),
+(4, 'P', 8),
+(4, 'G', 4),
+(4, 'GG', 3);
 
 --
 -- Índices para tabelas despejadas
@@ -299,7 +293,7 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `carrinho`
 --
 ALTER TABLE `carrinho`
-  MODIFY `cod_carrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_carrinho` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `cupom`
@@ -311,13 +305,13 @@ ALTER TABLE `cupom`
 -- AUTO_INCREMENT de tabela `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `cod_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

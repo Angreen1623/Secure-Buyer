@@ -179,29 +179,28 @@
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
                     
-                    $prod->setcod_perfil("1");
-                    $prod->settitulo_produto("sdasdfdsaf");
-                    $prod->setdescricao_produto("dsafdsafadsfsadfsdfsdfsd");
-                    $prod->settipo_peca("camisa");
-                    $prod->setsexo("female");
+                    $prod->setcod_produto("2");
 
-                    $produtos = $prod->obterid();
+                    $produtos = $prod->consultar2();
 
                     foreach($produtos as $row){
-                        $prod_cod = $row["cod_produto"];
+                        $codper = $row["cod_perfil"];
+                        $nome = $row["titulo_produto"];
+                        $desc = $row["descricao_produto"];
+                        $preco = number_format($row['preco_produto'],2,",",".");
                     }
                 ?>
                 <div class="images">
                     <div class="img-group">
 
                         <div class="prod-selectimg">
-                            <?php $img->setcod_produto($prod_cod);
+                            <?php $img->setcod_produto(2);
                             $imagens = $img->consultar2();
                             foreach($imagens as $row2){
                             $imagem = $row2["imagem_produto"];?>
                             <div class="image-option">
 
-                                <?php if(!str_contains($imagem, "vitrine")){ ?>
+                                <?php if(!str_contains($imagem, "principal")){ ?>
                                     <img src=".<?php echo $imagem; ?>" alt="">
                                 <?php } ?>
                             </div>
@@ -226,14 +225,15 @@
                 <div class="prod-info">
 
                     <div class="info-item">
-                        <h1 class="title">sdasdfdsaf</h1>
-                        <h1 class="price">R$127,00</h1>
+                        <h1 class="title"><?php echo $nome; ?></h1>
+                        <h1 class="price">R$ <?php echo $preco; ?></h1>
                     </div>
 
                     <form action="" method="POST">
                     
                         <?php
-                            $tam->setcod_produto($prod_cod);
+                            $tam->setcod_produto(2);
+
                             $tamanhos = $tam->consultar();
 
                             $t12 = true;
@@ -280,34 +280,34 @@
                         <div class="info-item">
                             <h2>Selecionar Tamanho:</h2>
                             <div class="sizes">
-                                <table>
-                                    <tr>
-                                        <td class="<?php if($t12){ echo"selected"; }?>"> <label for="tam12" class="btn12 <?php if(!$t12){ echo"selectable"; }?>" onclick="clickedTam(`btn12`)">  12  </label> </td>
-                                        <input type="radio" name="tamanho" id="tam12" value="tam12" style="display: none;" <?php if(!$t12){ echo"disabled"; }?>>
-
-                                        <td class="<?php if($t14){ echo"selected"; }?>"> <label for="tam14" class="btn14 <?php if(!$t14){ echo"selectable"; }?>" onclick="clickedTam(`btn14`)">  14  </label> </td>
-                                        <input type="radio" name="tamanho" id="tam14" value="tam14" style="display: none;" <?php if(!$t14){ echo"disabled"; }?>>
-
-                                        <td class="<?php if($t16){ echo"selected"; }?>"> <label for="tam16" class="btn16 <?php if(!$t16){ echo"selectable"; }?>" onclick="clickedTam(`btn16`)">  16  </label> </td>
-                                        <input type="radio" name="tamanho" id="tam16" value="tam16" style="display: none;" <?php if(!$t16){ echo"disabled"; }?>>
-
-                                        <td class="<?php if($tpp){ echo"selected"; }?>"> <label for="tampp" class="btnpp <?php if(!$tpp){ echo"selectable"; }?>" onclick="clickedTam(`btnpp`)">  PP  </label> </td>
-                                        <input type="radio" name="tamanho" id="tampp" value="tampp" style="display: none;" <?php if(!$tpp){ echo"disabled"; }?>>
-                                    </tr>
-                                    <tr>
-                                        <td class="<?php if($tp){ echo"selected"; }?>"> <label for="tamp" class="btnp <?php if(!$tp){ echo"selectable"; }?>" onclick="clickedTam(`btnp`)">  P  </label> </td>
-                                        <input type="radio" name="tamanho" id="tamp" value="tamp" style="display: none;" <?php if(!$tp){ echo"disabled"; }?>>
-
-                                        <td class="<?php if($tmedio){ echo"selected"; }?>"> <label for="tamm" class="btnm <?php if(!$tmedio){ echo"selectable"; }?>" onclick="clickedTam(`btnm`)">  M  </label> </td>
-                                        <input type="radio" name="tamanho" id="tamm" value="tamm" style="display: none;" <?php if(!$tmedio){ echo"disabled"; }?>>
-
-                                        <td class="<?php if($tg){ echo"selected"; }?>"> <label for="tamg" class="btng <?php if(!$tg){ echo"selectable"; }?>" onclick="clickedTam(`btng`)">  G  </label> </td>
-                                        <input type="radio" name="tamanho" id="tamg" value="tamg" style="display: none;" <?php if(!$tg){ echo"disabled"; }?>>
-
-                                        <td class="<?php if($tgg){ echo"selected"; }?>"> <label for="tamgg" class="btngg <?php if(!$tgg){ echo"selectable"; }?>" onclick="clickedTam(`btngg`)">  GG  </label> </td>
-                                        <input type="radio" name="tamanho" id="tamgg" value="tamgg" style="display: none;" <?php if(!$tgg){ echo"disabled"; }?>>
-                                    </tr>
-                        </table>
+                            <table>
+                                <tr>
+                                    <td class="<?php if($t12){ echo"selected"; }?>"> <label for="tam12" class="btn12 <?php if(!$t12){ echo"selectable"; }?>" onclick="clickedTam(`btn12`)">  12  </label> </td>
+                                    <input type="radio" name="tamanho" id="tam12" value="12" style="display: none;" <?php if($t12){ echo"disabled"; }?>>
+                                    
+                                    <td class="<?php if($t14){ echo"selected"; }?>"> <label for="tam14" class="btn14 <?php if(!$t14){ echo"selectable"; }?>" onclick="clickedTam(`btn14`)">  14  </label> </td>
+                                    <input type="radio" name="tamanho" id="tam14" value="14" style="display: none;" <?php if($t14){ echo"disabled"; }?>>
+                                    
+                                    <td class="<?php if($t16){ echo"selected"; }?>"> <label for="tam16" class="btn16 <?php if(!$t16){ echo"selectable"; }?>" onclick="clickedTam(`btn16`)">  16  </label> </td>
+                                    <input type="radio" name="tamanho" id="tam16" value="16" style="display: none;" <?php if($t16){ echo"disabled"; }?>>
+                                    
+                                    <td class="<?php if($tpp){ echo"selected"; }?>"> <label for="tampp" class="btnpp <?php if(!$tpp){ echo"selectable"; }?>" onclick="clickedTam(`btnpp`)">  PP  </label> </td>
+                                    <input type="radio" name="tamanho" id="tampp" value="PP" style="display: none;" <?php if($tpp){ echo"disabled"; }?>>
+                                </tr>
+                                <tr>
+                                    <td class="<?php if($tp){ echo"selected"; }?>"> <label for="tamp" class="btnp <?php if(!$tp){ echo"selectable"; }?>" onclick="clickedTam(`btnp`)">  P  </label> </td>
+                                    <input type="radio" name="tamanho" id="tamp" value="P" style="display: none;" <?php if($tp){ echo"disabled"; }?>>
+                                    
+                                    <td class="<?php if($tmedio){ echo"selected"; }?>"> <label for="tamm" class="btnm <?php if(!$tmedio){ echo"selectable"; }?>" onclick="clickedTam(`btnm`)">  M  </label> </td>
+                                    <input type="radio" name="tamanho" id="tamm" value="M" style="display: none;" <?php if($tmedio){ echo"disabled"; }?>>
+                                    
+                                    <td class="<?php if($tg){ echo"selected"; }?>"> <label for="tamg" class="btng <?php if(!$tg){ echo"selectable"; }?>" onclick="clickedTam(`btng`)">  G  </label> </td>
+                                    <input type="radio" name="tamanho" id="tamg" value="G" style="display: none;" <?php if($tg){ echo"disabled"; }?>>
+                                    
+                                    <td class="<?php if($tgg){ echo"selected"; }?>"> <label for="tamgg" class="btngg <?php if(!$tgg){ echo"selectable"; }?>" onclick="clickedTam(`btngg`)">  GG  </label> </td>
+                                    <input type="radio" name="tamanho" id="tamgg" value="GG" style="display: none;" <?php if($tgg){ echo"disabled"; }?>>
+                                </tr>
+                            </table>
                             </div>
                         </div>
 
@@ -316,19 +316,17 @@
                             <input type="text" name="cep" id="cep" placeholder="Calcular CEP">
                         </div>
 
-                        <div class="info-item">
-                            
+                        <div class="info-item quantidade">
                             <h2>Quantidade:</h2>
-                            <span class="subtitle btn menos">-</span>
+                            <span class="subtitle btn-qnt menos">-</span>
                             <!-- número que aumenta e diminui -->
-                            <input type="number" name="quantidade_14" id="qnt" value="1" onchange="verTamanho()">
+                            <input type="text" name="quantidade" id="qnt" value="1" maxlength="7" onkeypress="return verTamanho(window.event.keyCode)">
                             <!-- botão de menos -->
-                            <span class="subtitle btn mais">+</span>
-
+                            <span class="subtitle btn-qnt mais">+</span>
                         </div>
 
                         <div class="end-purchase">
-                            <input type="submit" value="Adicionar à carrinho" class="btn">
+                            <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart">
                             <div class="more">
                                 <span class="underline about-btn">Sobre a loja</span>
                             </div>
@@ -393,7 +391,7 @@
                 include_once "../php-conexao-modelagem/perfil.php";
                 $per = new Perfil();
 
-                $per->setcod_perfil(1);
+                $per->setcod_perfil($codper);
                 $perfil = $per->consultar();
                 foreach ($perfil as $row2) {
 
@@ -448,7 +446,7 @@
                     <div class="detail-body">
                     <div class="description">
                         <p>
-                            dsafdsafadsfsadfsdfsdfsd
+                            <?php echo $desc; ?>
                         </p>
                     </div>
                     <div class="description">
@@ -498,17 +496,6 @@
         </div>
         </div>
     </footer> 
-
-    <?php
-    
-        extract($_POST, EXTR_OVERWRITE);
-        if(isset($add_cart)){
-
-
-
-        }
-
-    ?>
             
         </div>
         

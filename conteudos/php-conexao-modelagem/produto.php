@@ -196,7 +196,7 @@ function alterar()
     try
     {
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("Select * from produto where cod_produto like ? order by cod_produto"); // informei o ?
+        $sql = $this->conn->prepare("select * from produto where cod_produto like ? order by cod_produto"); // informei o ?
         @$sql-> bindParam(1, $this->getcod_produto(), PDO::PARAM_STR);
         $sql->execute();
         return $sql->fetchAll();

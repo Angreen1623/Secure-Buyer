@@ -11,6 +11,12 @@ label.clicked{
     font-weight: bolder;
 }
 
+.error_message{
+    display: none;
+    color: red;
+    font-size: 70%;
+}
+
 .images{
     display: inline-grid;
     width: 51%;

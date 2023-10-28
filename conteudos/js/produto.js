@@ -5,6 +5,8 @@ var detail = document.querySelector('.detail')
 var close_btn1 = document.querySelector('.close-about');
 var close_btn2 = document.querySelector('.close-detail');
 
+var error = true;
+
 about_btn.onclick = function(){
     // Se detalhes não estiver aberto:
     if(!detail.classList.contains('open')){
@@ -75,4 +77,48 @@ function verTamanho(tecla){
         return true;
     }else
     return false;
+}
+
+function cep_mask(tecla){
+    var cep_val = document.querySelector('#cep').value;
+    if(tecla >=48 && tecla<=57){
+        if(eval(cep_val.length) == 5){
+            document.querySelector('#cep').value = document.querySelector('#cep').value + '-';
+        }
+        return true;
+    }else
+    return false;
+}
+
+function ver_cep(cep){
+
+    if(cep != ""){
+
+        let url = 'http://viacep.com.br/ws/' + cep.replace('-', '') + '/json';
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status = 200){
+                    if(JSON.parse(xhr.responseText).erro != true){
+                        console.log(JSON.parse(xhr.responseText));
+                        error = false;
+                        document.querySelector(".error_message").classList.remove('open');
+                        
+                    }else{
+                        error = true;
+                        document.querySelector(".error_message").classList.add('open');
+                    }
+                }
+            }
+        }
+        xhr.send();
+    }
+
+}
+
+function form_submit(e){
+    if(error){
+        e.preventDefault();
+    }
 }

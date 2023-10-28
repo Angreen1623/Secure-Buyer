@@ -229,7 +229,7 @@
                         <h1 class="price">R$ <?php echo $preco; ?></h1>
                     </div>
 
-                    <form action="" method="POST">
+                    <form action="" method="POST" onsubmit="return form_submit(event)">
                     
                         <?php
                             $tam->setcod_produto(3);
@@ -313,14 +313,17 @@
 
                         <div class="info-item">
                             <h2>Frete:</h2>
-                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP">
+                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP" maxlength="9" onblur="ver_cep(this.value)" onkeypress="return cep_mask(window.event.keyCode)" required>
+                            <div class="error_message">
+                                <p>Digite um cep válido</p>
+                            </div>
                         </div>
 
                         <div class="info-item quantidade">
                             <h2>Quantidade:</h2>
                             <span class="subtitle btn-qnt menos">-</span>
                             <!-- número que aumenta e diminui -->
-                            <input type="text" name="quantidade" id="qnt" value="1" maxlength="7" onkeypress="return verTamanho(window.event.keyCode)">
+                            <input type="text" name="quantidade" id="qnt" value="1" maxlength="7" onkeypress="return verTamanho(window.event.keyCode)" required>
                             <!-- botão de menos -->
                             <span class="subtitle btn-qnt mais">+</span>
                         </div>

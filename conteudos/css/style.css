@@ -246,6 +246,8 @@ nav ul li a:hover:after{
     float: left;
     padding: 10px 20px;
     background-color: #E1D9CE;
+    white-space: nowrap; 
+    overflow: hidden; 
 }
 .bag-sidebar .bag-item .bag-info h5{
     font-size: 22px;

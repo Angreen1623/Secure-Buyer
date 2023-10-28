@@ -29,14 +29,11 @@
 <?php
         include_once 'php-conexao-modelagem/produto.php';
         $prod = new Produto();
+        include_once 'php-conexao-modelagem/link.php';
+        $link = new Link();
         include_once 'php-conexao-modelagem/perfil.php';
         $perfil = new Perfil();
         $perfil->setcod_perfil($codper);
-        $produtos = $prod->obterid();
-
-        foreach($produtos as $row){
-            $prod_cod = $row['cod_produto'];
-        }
 
         $dadosPerfil = $perfil->alterar();
         ?>
@@ -75,7 +72,16 @@
                 
 
                 <div class="products-item">
-                    <a href="<?php echo $row['link_edicao'] ?>">
+                        <a href="<?php  
+                            $link->setcod_produto($row['cod_produto']);
+                            $links = $link->consultar();
+
+                            foreach($links as $row2){
+                                $link_res = $row2['link_edicao'];
+                                echo $link_res;
+                            } 
+                            ?>">
+
                         <img src="<?php
                         $img->setcod_produto($row['cod_produto']);
                         $imagens = $img->consultar2();

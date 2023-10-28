@@ -79,7 +79,7 @@
                                     <!-- primeiro grupo, feminino -->
                                     <div class="radio-item">
                                         <!-- input -->
-                                        <input type="radio" id="femenino" name="gender" value="female">
+                                        <input type="radio" id="feminino" name="gender" value="female">
                                         <!-- titulo -->
                                         <label for="feminino" class="label">FEMININO</label>
                                     </div>
@@ -319,18 +319,13 @@
             if(isset($btnconfirmar)){
                 include_once 'php-conexao-modelagem/produto.php';
                 $prod = new Produto();
-                include_once 'novo_produto.php';
-                $new = new novo_produto();
-
+                
                 $prod->setcod_perfil($codper);
                 $prod->settitulo_produto($nome);
                 $prod->setdescricao_produto($descricao);
                 $prod->settipo_peca($peca);
                 $prod->setpreco_produto($preco);
                 $prod->setsexo($gender);
-                
-                $prod->setlink_venda($new->buying_page($codper, $nome, $descricao, $peca, $preco, $gender));
-                $prod->setlink_edicao($new->editing_page($codper, $nome, $descricao, $peca, $preco, $gender));
 
                 $prod->salvar();
                 $produtos = $prod->obterid();
@@ -416,6 +411,16 @@
                 move_uploaded_file($_FILES["arquivo5"]["tmp_name"], $imagem5);
                 $img->setimagem_produto($imagem5);
                 $img->salvar();
+
+                include_once 'php-conexao-modelagem/link.php';
+                $link = new Link();
+                include_once 'novo_produto.php';
+                $new = new novo_produto();
+
+                $link->setcod_produto($prod_cod);
+                $link->setlink_edicao($new->editing_page($prod_cod));
+                $link->setlink_compra($new->buying_page($prod_cod));
+                $link->salvar();
 
                 echo "<script language='JavaScript'>window.location.replace('tela-anunciante.php');</script>";
 

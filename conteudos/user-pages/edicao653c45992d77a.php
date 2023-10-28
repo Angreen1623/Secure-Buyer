@@ -176,14 +176,14 @@
 
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
+                    
+                    $prod->setcod_produto("7");
 
-                    $prod->setcod_produto(8);
-                    $produto = $prod->consultar2();
-                    foreach ($produto as $row) {
+                    $produtos = $prod->consultar2();
 
+                    foreach($produtos as $row){
                         $titulo = $row["titulo_produto"];
                         $descricao = $row["descricao_produto"];
-    
                     }
                 
                 ?>
@@ -225,8 +225,9 @@
                                 <div class="btn">
                                     <span>Cancelar</span>
                                 </div>
-                                <input type="submit" name="btnalterar" value="Confirmar mudanças">
-                                
+                                <div class="btn">
+                                    <input type="submit" name="btnalterar" value="Confirmar mudanças">
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -243,11 +244,11 @@
                 extract($_POST, EXTR_OVERWRITE);
                 if(isset($btnalterar)){
                     
-                $prod->setcod_produto(8);
-                $prod->settitulo_produto($nome);
-                $prod->setdescricao_produto($desc);
+                    $prod->setcod_produto(7);
+                    $prod->settitulo_produto($nome);
+                    $prod->setdescricao_produto($desc);
 
-                $prod->alterar();
+                    $prod->alterar();
     
                 }
     

@@ -95,15 +95,13 @@ function salvar()
 {
     try{
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,?,?,0)");
+        $sql = $this->conn->prepare("insert into produto values (null,?,?,?,?,?,?,0)");
         @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
         @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
         @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);
         @$sql->bindParam(4, $this->getpreco_produto(), PDO::PARAM_STR);
         @$sql->bindParam(5, $this->getsexo(), PDO::PARAM_STR);
-        @$sql->bindParam(6, $this->getlink_venda(), PDO::PARAM_STR);
-        @$sql->bindParam(7, $this->getlink_edicao(), PDO::PARAM_STR);
-        @$sql->bindParam(8, $this->getcod_perfil(), PDO::PARAM_STR);
+        @$sql->bindParam(6, $this->getcod_perfil(), PDO::PARAM_STR);
         if($sql->execute() == 1){
         }
         $this->conn = null;

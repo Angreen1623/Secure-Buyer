@@ -69,7 +69,7 @@
                         <div class="img-form">
                             <div class="img">
                                 <label for='imagem'> <img src="./img/nova-foto.png" alt="Adicione uma imagem"></label>
-                                <input type="file" name="arquivo" id="imagem" accept=".jpeg, .jpg, .png">
+                                <input type="file" name="arquivo" id="imagem" accept=".jpeg, .jpg, .png" onchange="return tamanho_imagem()">
                             </div>
                             <div class="description">
                                 <p>Adicionar foto</p>

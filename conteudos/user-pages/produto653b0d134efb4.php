@@ -1,16 +1,4 @@
-<?php
-
-class novo_produto{
-
-function buying_page($prod_cod){
-
-    $link = "./user-pages/".uniqid("produto", false).".php";
-
-    $myfile = fopen($link, "w") or die("Unable to open file!");
-
-    include_once "./php-conexao-modelagem/produto.php";
-
-    $txt = '<!DOCTYPE php>
+<!DOCTYPE php>
     <php lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -191,22 +179,23 @@ function buying_page($prod_cod){
                     include_once "../php-conexao-modelagem/produto.php";
                     $prod = new Produto();
                     
-                    $prod->setcod_produto("'.$prod_cod.'");
+                    $prod->setcod_perfil("28");
+                    $prod->settitulo_produto("dasfsdgasgnhngfd");
+                    $prod->setdescricao_produto("dfh,jhgsfdhsfadsghjsgadsgfsg");
+                    $prod->settipo_peca("camisa");
+                    $prod->setsexo("female");
 
-                    $produtos = $prod->consultar2();
+                    $produtos = $prod->obterid();
 
                     foreach($produtos as $row){
-                        $codper = $row["cod_perfil"];
-                        $nome = $row["titulo_produto"];
-                        $desc = $row["descricao_produto"];
-                        $preco = $row["preco_produto"];
+                        $prod_cod = $row["cod_produto"];
                     }
                 ?>
                 <div class="images">
                     <div class="img-group">
 
                         <div class="prod-selectimg">
-                            <?php $img->setcod_produto('.$prod_cod.');
+                            <?php $img->setcod_produto($prod_cod);
                             $imagens = $img->consultar2();
                             foreach($imagens as $row2){
                             $imagem = $row2["imagem_produto"];?>
@@ -237,14 +226,14 @@ function buying_page($prod_cod){
                 <div class="prod-info">
 
                     <div class="info-item">
-                        <h1 class="title"><?php echo $nome; ?></h1>
-                        <h1 class="price">R$ <?php echo $preco; ?></h1>
+                        <h1 class="title">dasfsdgasgnhngfd</h1>
+                        <h1 class="price">R$432,00</h1>
                     </div>
 
                     <form action="" method="POST">
                     
                         <?php
-                            $tam->setcod_produto('.$prod_cod.');
+                            $tam->setcod_produto($prod_cod);
 
                             $tamanhos = $tam->consultar();
 
@@ -295,29 +284,23 @@ function buying_page($prod_cod){
                             <table>
                                 <tr>
                                     <td class="<?php if($t12){ echo"selected"; }?>"> <label for="tam12" class="btn12 <?php if(!$t12){ echo"selectable"; }?>" onclick="clickedTam(`btn12`)">  12  </label> </td>
-                                    <input type="radio" name="tamanho" id="tam12" value="12" style="display: none;" <?php if($t12){ echo"disabled"; }?>>
-                                    
+                                    <input type="radio" name="tamanho" id="tam12" value="tam12" style="display: none;" <?php if(!$t12){ echo"disabled"; }?>>
                                     <td class="<?php if($t14){ echo"selected"; }?>"> <label for="tam14" class="btn14 <?php if(!$t14){ echo"selectable"; }?>" onclick="clickedTam(`btn14`)">  14  </label> </td>
-                                    <input type="radio" name="tamanho" id="tam14" value="14" style="display: none;" <?php if($t14){ echo"disabled"; }?>>
-                                    
+                                    <input type="radio" name="tamanho" id="tam14" value="tam14" style="display: none;" <?php if(!$t14){ echo"disabled"; }?>>
                                     <td class="<?php if($t16){ echo"selected"; }?>"> <label for="tam16" class="btn16 <?php if(!$t16){ echo"selectable"; }?>" onclick="clickedTam(`btn16`)">  16  </label> </td>
-                                    <input type="radio" name="tamanho" id="tam16" value="16" style="display: none;" <?php if($t16){ echo"disabled"; }?>>
-                                    
+                                    <input type="radio" name="tamanho" id="tam16" value="tam16" style="display: none;" <?php if(!$t16){ echo"disabled"; }?>>
                                     <td class="<?php if($tpp){ echo"selected"; }?>"> <label for="tampp" class="btnpp <?php if(!$tpp){ echo"selectable"; }?>" onclick="clickedTam(`btnpp`)">  PP  </label> </td>
-                                    <input type="radio" name="tamanho" id="tampp" value="PP" style="display: none;" <?php if($tpp){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tampp" value="tampp" style="display: none;" <?php if(!$tpp){ echo"disabled"; }?>>
                                 </tr>
                                 <tr>
                                     <td class="<?php if($tp){ echo"selected"; }?>"> <label for="tamp" class="btnp <?php if(!$tp){ echo"selectable"; }?>" onclick="clickedTam(`btnp`)">  P  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamp" value="P" style="display: none;" <?php if($tp){ echo"disabled"; }?>>
-                                    
+                                    <input type="radio" name="tamanho" id="tamp" value="tamp" style="display: none;" <?php if(!$tp){ echo"disabled"; }?>>
                                     <td class="<?php if($tmedio){ echo"selected"; }?>"> <label for="tamm" class="btnm <?php if(!$tmedio){ echo"selectable"; }?>" onclick="clickedTam(`btnm`)">  M  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamm" value="M" style="display: none;" <?php if($tmedio){ echo"disabled"; }?>>
-                                    
+                                    <input type="radio" name="tamanho" id="tamm" value="tamm" style="display: none;" <?php if(!$tmedio){ echo"disabled"; }?>>
                                     <td class="<?php if($tg){ echo"selected"; }?>"> <label for="tamg" class="btng <?php if(!$tg){ echo"selectable"; }?>" onclick="clickedTam(`btng`)">  G  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamg" value="G" style="display: none;" <?php if($tg){ echo"disabled"; }?>>
-                                    
+                                    <input type="radio" name="tamanho" id="tamg" value="tamg" style="display: none;" <?php if(!$tg){ echo"disabled"; }?>>
                                     <td class="<?php if($tgg){ echo"selected"; }?>"> <label for="tamgg" class="btngg <?php if(!$tgg){ echo"selectable"; }?>" onclick="clickedTam(`btngg`)">  GG  </label> </td>
-                                    <input type="radio" name="tamanho" id="tamgg" value="GG" style="display: none;" <?php if($tgg){ echo"disabled"; }?>>
+                                    <input type="radio" name="tamanho" id="tamgg" value="tamgg" style="display: none;" <?php if(!$tgg){ echo"disabled"; }?>>
                                 </tr>
                             </table>
                             </div>
@@ -338,7 +321,7 @@ function buying_page($prod_cod){
                         </div>
 
                         <div class="end-purchase">
-                            <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart">
+                            <input type="submit" value="Adicionar à carrinho" class="btn" name="add_cart">
                             <div class="more">
                                 <span class="underline about-btn">Sobre a loja</span>
                             </div>
@@ -403,7 +386,7 @@ function buying_page($prod_cod){
                 include_once "../php-conexao-modelagem/perfil.php";
                 $per = new Perfil();
 
-                $per->setcod_perfil($codper);
+                $per->setcod_perfil(28);
                 $perfil = $per->consultar();
                 foreach ($perfil as $row2) {
 
@@ -458,7 +441,7 @@ function buying_page($prod_cod){
                     <div class="detail-body">
                     <div class="description">
                         <p>
-                            <?php echo $desc; ?>
+                            dfh,jhgsfdhsfadsghjsgadsgfsg
                         </p>
                     </div>
                     <div class="description">
@@ -508,6 +491,17 @@ function buying_page($prod_cod){
         </div>
         </div>
     </footer> 
+
+    <?php
+    
+        extract($_POST, EXTR_OVERWRITE);
+        if(isset($add_cart)){
+
+
+
+        }
+
+    ?>
             
         </div>
         
@@ -515,365 +509,4 @@ function buying_page($prod_cod){
     <!--javascript-->
     <script src="../js/script.js"></script>
     <script src="../js/produto.js"></script>
-    </php>';
-
-    fwrite($myfile, $txt);
-
-    fclose($myfile);
-
-    return $link;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function editing_page($prod_cod){
-
-    $link = "./user-pages/".uniqid("edicao", false).".php";
-
-    $myfile = fopen($link, "w") or die("Unable to open file!");
-
-    $txt = '<!DOCTYPE php>
-    <php lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Secure Buyer</title>
-        <!--Logo-->
-        <link rel="apple-touch-icon" sizes="180x180" href="../img/Icone/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../img/Icone/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../img/Icone/favicon-16x16.png">
-        <link rel="manifest" href="../img/Icone/site.webmanifest">
-        <!--css-->
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/edt-anuncio.css">
-        
-    </head>
-    <body>
-    
-    <!-- Inicio da página -->
-    <div class="wrapper">
-    <!-- Inicio da navbar -->
-    <header>
-    <!-- início navbar mais a cima -->
-    <div class="topbar">
-        <!-- div da lupa c/ seu texto-->
-        <div class="left">
-            <label>
-                <!-- icone da lupa -->
-                <img src="../img/lupa.png" alt="">
-                <!-- texto da lupa -->
-                <input type="search" placeholder="Pesquisar">
-            </label>
-        </div>
-        <!-- fim da lupa -->
-        <!-- div da logo -->
-        <div class="logo">
-            <!-- se vc clicar na logo volta para o index -->
-            <a href="../index.php">
-                <!-- foto da logo -->
-                <img src="../img/logo-sb.png" alt="Icone">
-            </a>
-        </div>
-        <!-- fim da logo -->
-        <!-- div dos conteúdos da direita, carrinho e login -->
-        <div class="right">
-            <!-- grupo do login -->
-            <div class="group">
-                <!-- se clicar no link vai para criar conta -->
-                <a class="singin-btn" href="<?php
-                    include_once "../php-conexao-modelagem/conexao.php";
-                    $ip = new Conexao();
-                    if(!empty($_SERVER["HTTP_CLIENTE_IP"])){
-                        $ip_maquina = $_SERVER["HTTP_CLIENTE_IP"];
-                    }elseif(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
-                        $ip_maquina = $_SERVER["HTTP_X_FORWARDED_FOR"];
-                    }else{
-                        $ip_maquina = $_SERVER["REMOTE_ADDR"];
-                    }
-                    $ip->setendereco_ip($ip_maquina);
-            
-                    $ips = $ip->listar();
-            
-                    foreach($ips as $row){
-                        if($ip_maquina = $row["endereco_ip"]){
-                            $codper = $row["cod_perfil"];
-                        }
-                    }
-                
-                if(isset($codper)){
-                    echo "../perfil-padrao.php";
-                }else{ 
-                    echo "../entrar.php";
-                }?>">
-                    <!-- foto do login -->
-                    <img src="../img/user.png" alt="Logar">
-                </a>
-            </div>
-            <!-- fim do grupo do login -->
-            <!-- grupo do carrinho -->
-            <div class="group">
-                <!-- se clicar no link abre o carrinho -->
-                <a id="bag-btn" class="bag-btn" href="#">
-                    <!-- imagem da sacola -->
-                    <img src="../img/bag.png" alt="Sacola">
-                </a>
-            </div>
-            <!-- fim do grupo -->
-        </div>
-        <!-- div do grupo -->
-    </div>
-    <!-- fim da barra superior -->
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">Feminino</a></li>
-            <li><a href="#">Masculino</a></li>
-            <li>
-                <a href="#">Ajuda</a>
-                <ul class="submenu">
-                    <li><a href="#">Sobre nos</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-<div class="bag">
-    <span class="close-icon"><img src="../img/close.png" alt="fechar"></span>
-    <div class="bag-sidebar">
-        <div class="bag-title">
-            <h4>Meu carrinho</h4>
-        </div>
-        <div class="bag-body">
-            <div class="bag-item">
-                <div class="img">
-                    <img src="../img/modelo15.png" alt="">
-                </div>
-                <div class="text">
-                    <div class="bag-info">
-                        <h5>Jaqueta</h5>
-                        <h3>MIUMIU</h3>
-                    </div>
-                    <h5 class="bag-price">R$350,00</h5>
-                    <span>- 1 +</span>
-                    <div class="right">
-                        <img src="../img/del.png" alt="deletar">
-                    </div>
-                </div>
-            </div>
-            <div class="bag-item">
-                <div class="img">
-                    <img src="../img/modelo16.png" alt="">
-                </div>
-                <div class="text">
-                    <div class="bag-info">
-                        <h5>Jaqueta</h5>
-                        <h3>RIACHUELO</h3>
-                    </div>
-                    <h5 class="bag-price">R$115,00</h5>
-                    <span>- 1 +</span>
-                    <div class="right">
-                        <img src="../img/del.png" alt="deletar">
-                    </div>
-                </div>
-            </div>
-            <div class="bag-buy">
-                <div class="group cupom">
-                    <img src="../img/cupom.png" alt="">
-                    <h3>Adicionar cupom de desconto</h3>
-                </div>
-                <div class="itens">
-                    <h4 class="left">Frete:</h4>
-                    <div class="group right">
-                        <img src="../img/frete.png" alt="">
-                        <h3 class="underline">Calcular</h3>
-                    </div>
-                </div>
-                <div class="itens">
-                    <h4 class="left">Total:</h4>
-                    <h3 class="right">R$465,00</h3>
-                </div>
-                <div class="bag-end">
-                    <span class="btn">Finalizar compra</span>
-                </div>
-                <span class="continue underline">Continuar comprando</span>
-            </div>
-        </div>
-    </div>
-</div>
-    
-            <div class="editar-anuncio">
-
-                <?php 
-
-                    include_once "../php-conexao-modelagem/produto.php";
-                    $prod = new Produto();
-                    
-                    $prod->setcod_produto("'.$prod_cod.'");
-
-                    $produtos = $prod->consultar2();
-
-                    foreach($produtos as $row){
-                        $titulo = $row["titulo_produto"];
-                        $descricao = $row["descricao_produto"];
-                    }
-                
-                ?>
-    
-                <div class="form-container">
-                    <div class="title">
-                        <h1>Editar Anúncio</h1>
-                    </div>
-    
-                    <div class="form">
-                        <form action="" method="POST">
-                            <div class="vertical-group">
-                                <div class="label">
-                                    <p>Título</p>
-                                </div>
-                                <input type="text" name="nome" value="<?php echo $titulo; ?>">
-                            </div>
-                            <div class="vertical-group">
-                                <div class="label">
-                                    <p>Descrição</p>
-                                </div>
-                                <input type="text" name="desc" class="descricao" value="<?php echo $descricao; ?>">
-                            </div>
-                            <div class="vertical-group">
-                                <div class="label">
-                                    <p>Quantidade</p>
-                                </div>
-                                <span class="btn-qnt">-</span>
-                                <span>1</span>
-                                <span class="btn-qnt">+</span>
-                            </div>
-                            <div class="vertical-group">
-                                <div class="label">
-                                    <p>Aplicar promoção</p>
-                                </div>
-                                <input type="text" name="promoção" placeholder="Valor do desconto">
-                            </div>
-                            <div class="button">
-                                <div class="btn">
-                                    <span>Cancelar</span>
-                                </div>
-                                <div class="btn">
-                                    <input type="submit" name="btnalterar" value="Confirmar mudanças">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-    
-                    <div class="image">
-                        <img src="../img/modelo21.png" alt="">
-                    </div>
-    
-                </div>
-            </div>
-    
-            <?php
-    
-                extract($_POST, EXTR_OVERWRITE);
-                if(isset($btnalterar)){
-                    
-                    $prod->setcod_produto('.$prod_cod.');
-                    $prod->settitulo_produto($nome);
-                    $prod->setdescricao_produto($desc);
-
-                    $prod->alterar();
-    
-                }
-    
-            ?>
-    
-            <footer>
-            <div class="container-footer">
-                <div class="row-footer">
-                 <div class="footer-col">
-                       <a href="Home.html"><img src="../img/logo-sb.png" ></a>
-                 </div>
-                 <div class="footer-col">
-                     <h6>INÍCIO</h6>
-                    <ul>
-                       <li> <a href="../index.php">Home</a></li>
-                    </ul>   
-                 </div>
-                  <div class="footer-col">
-                   <h6>AJUDA</h6>
-                     <ul>
-                        <li> <a href="../faleconosco.html">Fale conosco</a></li>
-                        <li> <a href="../sobrenos.html">Sobre nós</a></li>
-                     </ul>
-                   </div>
-                 <div class="footer-col">
-                      <h6>CATEGORIAS</h6>
-                    <ul>
-                        <li> <a href="../novidades.php">Masculino</a></li>
-                        <li> <a href="../novidades.php">Feminino</a></li>
-                    </ul>
-                  </div>
-                 <div class="footer-sub">
-                   ESTÁ COM PROBLEMAS?<br>
-                  <a href="../faleconosco.html"><button>Fale conosco</button></a>
-                 </div>
-              </div>
-            </div>
-       </footer> 
-
-       <?php
-    
-        extract($_POST, EXTR_OVERWRITE);
-        if(isset($add_cart)){
-
-            include_once "../php-conexao-modelagem/carrinho.php";
-            $cart = new Carrinho();
-
-            $cart->setcod_produto('.$prod_cod.');
-            $cart->setcod_perfil($codper);
-            $cart->setcep_carrinho($cep);
-            $cart->setqnt_pro($quantidade);
-            $cart->settamanho_pro($tamanho);
-            $cart->salvar();
-
-            echo "<script language=`JavaScript`>window.location.replace(`../index.php`);</script>";
-
-        }
-
-    ?>
-        
-        </div>
-        
-    </body>
-    <!--javascript-->
-    <script src="../js/script.js"></script>
-    </php>';
-
-    fwrite($myfile, $txt);
-
-    fclose($myfile);
-
-    return $link;
-
-}
-
-}
-
-?>
+    </php>

@@ -92,38 +92,77 @@
             <h4>Meu carrinho</h4>
         </div>
         <div class="bag-body">
-            <div class="bag-item">
-                <div class="img">
-                    <img src="../conteudos/img/modelo15.png" alt="">
-                </div>
-                <div class="text">
-                    <div class="bag-info">
-                        <h5>Jaqueta</h5>
-                        <h3>MIUMIU</h3>
-                    </div>
-                    <h5 class="bag-price">R$350,00</h5>
-                    <span>- 1 +</span>
-                    <div class="right">
-                        <img src="../conteudos/img/del.png" alt="deletar">
-                    </div>
-                </div>
-            </div>
-            <div class="bag-item">
-                <div class="img">
-                    <img src="../conteudos/img/modelo16.png" alt="">
-                </div>
-                <div class="text">
-                    <div class="bag-info">
-                        <h5>Jaqueta</h5>
-                        <h3>RIACHUELO</h3>
-                    </div>
-                    <h5 class="bag-price">R$115,00</h5>
-                    <span>- 1 +</span>
-                    <div class="right">
-                        <img src="../conteudos/img/del.png" alt="deletar">
-                    </div>
-                </div>
-            </div>
+
+            <?php 
+                include_once "./php-conexao-modelagem/carrinho.php";
+                $cart = new Carrinho();
+                include_once "./php-conexao-modelagem/produto.php";
+                $prod = new Produto();
+                include_once "./php-conexao-modelagem/imagem_produto.php";
+                $img = new Imagem();
+                include_once "./php-conexao-modelagem/perfil.php";
+                $per = new Perfil();
+                if(isset($codper)){
+
+                $total = 0;
+
+                $cart->setcod_perfil($codper);
+                $carrinhos = $cart->consultar();
+
+                foreach($carrinhos as $row){
+                    $prod->setcod_produto($row["cod_produto"]);
+                    $produtos = $prod->consultar2();
+
+                    foreach($produtos as $row2){
+
+                        $preco = $row2["preco_produto"];
+                        
+            ?>
+
+                        <div class="bag-item">
+                            <div class="img">
+                                <img src="<?php 
+                                $img->setcod_produto($row["cod_produto"]);
+                                $imagens = $img->consultar2();
+
+                                foreach($imagens as $row3){
+
+                                    $imagem = $row3["imagem_produto"];
+
+                                    if(str_contains($imagem, "principal"))
+                                    echo $imagem; }
+                                ?>" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="bag-info">
+                                    <h5><?php  echo $row2["titulo_produto"];?></h5>
+                                    <h3>
+                                        <?php 
+                                    $per->setcod_perfil($row2["cod_perfil"]);
+                                    $perfiis = $per->consultar();
+
+                                    foreach($perfiis as $row3){
+                                        echo $row3["nome_loja"];
+                                    }
+                                    ?></h3>
+                                </div>
+                                <h5 class="bag-price">R$ <?php  echo $preco;?></h5>
+                                <span>Quantidade: <?php  echo $row["qnt_pro"];?></span>
+                                <div class="right">
+                                    <img src="../conteudos/img/del.png" alt="deletar">
+                                </div>
+                            </div>
+                        </div>
+
+            <?php
+                        }
+
+                        $total = $total + ($preco * $row["qnt_pro"]);
+
+                    }
+                }
+            ?>
+
             <div class="bag-buy">
                 <div class="group cupom">
                     <img src="../conteudos/img/cupom.png" alt="">
@@ -138,7 +177,7 @@
                 </div>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right">R$465,00</h3>
+                    <h3 class="right">R$ <?php echo $total; ?></h3>
                 </div>
                 <div class="bag-end">
                     <span class="btn">Finalizar compra</span>

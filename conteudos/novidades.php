@@ -23,6 +23,8 @@
 
         include_once 'php-conexao-modelagem/produto.php';
         $prod = new Produto();
+        include_once 'php-conexao-modelagem/link.php';
+        $link = new Link();
         include_once 'php-conexao-modelagem/imagem_produto.php';
         $img = new Imagem();
         ?>
@@ -50,7 +52,15 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="<?php echo $row['link_venda'] ?>">
+                                    <a href="<?php  
+                                            $link->setcod_produto($row['cod_produto']);
+                                            $links = $link->consultar();
+
+                                            foreach($links as $row2){
+                                                $link_res = $row2['link_compra'];
+                                                echo $link_res;
+                                            } 
+                                            ?>">
                                             <img src="<?php
                                             $img->setcod_produto($row['cod_produto']);
                                             $imagens = $img->consultar2();
@@ -96,7 +106,15 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="<?php echo $row['link_venda'] ?>">
+                                        <a href="<?php  
+                                                $link->setcod_produto($row['cod_produto']);
+                                                $links = $link->consultar();
+
+                                                foreach($links as $row2){
+                                                    $link_res = $row2['link_compra'];
+                                                    echo $link_res;
+                                                } 
+                                                ?>">
                                         <img src="<?php
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();
@@ -142,7 +160,15 @@
                                 <div class="produtos-item">
 
                                     <div class="img">
-                                        <a href="<?php echo $row['link_venda'] ?>">
+                                        <a href="<?php  
+                                                $link->setcod_produto($row['cod_produto']);
+                                                $links = $link->consultar();
+
+                                                foreach($links as $row2){
+                                                    $link_res = $row2['link_compra'];
+                                                    echo $link_res;
+                                                } 
+                                                ?>">
                                         <img src="<?php
                                         $img->setcod_produto($row['cod_produto']);
                                         $imagens = $img->consultar2();

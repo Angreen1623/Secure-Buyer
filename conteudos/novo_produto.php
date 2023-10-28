@@ -196,7 +196,7 @@ function buying_page($prod_cod){
                     $produtos = $prod->consultar2();
 
                     foreach($produtos as $row){
-                        $codper = $row["cod_perfil"];
+                        $codper_anun = $row["cod_perfil"];
                         $nome = $row["titulo_produto"];
                         $desc = $row["descricao_produto"];
                         $preco = number_format($row["preco_produto"],2,",",".");
@@ -406,7 +406,7 @@ function buying_page($prod_cod){
                 include_once "../php-conexao-modelagem/perfil.php";
                 $per = new Perfil();
 
-                $per->setcod_perfil($codper);
+                $per->setcod_perfil($codper_anun);
                 $perfil = $per->consultar();
                 foreach ($perfil as $row2) {
 
@@ -511,6 +511,27 @@ function buying_page($prod_cod){
         </div>
         </div>
     </footer> 
+
+    <?php
+
+        extract($_POST, EXTR_OVERWRITE);
+        if(isset($add_cart)){
+
+            include_once "../php-conexao-modelagem/carrinho.php";
+            $cart = new Carrinho();
+
+            $cart->setcod_produto('.$prod_cod.');
+            $cart->setcod_perfil($codper);
+            $cart->setcep_carrinho($cep);
+            $cart->setqnt_pro($quantidade);
+            $cart->settamanho_pro($tamanho);
+            $cart->salvar();
+
+            echo "<script language=`JavaScript`>window.location.replace(`../index.php`);</script>";
+
+        }
+
+    ?>
             
         </div>
         

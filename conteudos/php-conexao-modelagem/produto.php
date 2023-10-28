@@ -116,10 +116,13 @@ function alterar()
 {
   try
   {
-    $sql = $this->conn->prepare("update perfil set titulo_produto = ?, descricao_produto = ? where cod_produto = :cod_produto");
-    @$sql-> bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
-    @$sql-> bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
-    @$sql-> bindParam(":cod_produto", $this->getcod_produto(), PDO::PARAM_STR);
+    $sql = $this->conn->prepare("update produto set titulo_produto = ?, descricao_produto = ?, tipo_peca = ?, preco_produto = ?, sexo = ? where cod_produto = ?");
+    @$sql->bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
+    @$sql->bindParam(2, $this->getdescricao_produto(), PDO::PARAM_STR);
+    @$sql->bindParam(3, $this->gettipo_peca(), PDO::PARAM_STR);
+    @$sql->bindParam(4, $this->getpreco_produto(), PDO::PARAM_STR);
+    @$sql->bindParam(5, $this->getsexo(), PDO::PARAM_STR);
+    @$sql->bindParam(6, $this->getcod_produto(), PDO::PARAM_STR);
 
     if ($sql->execute() == 1)
     {

@@ -53,25 +53,6 @@
                 echo "<script language='JavaScript'>Erro ao salvar o registro.".$exc->getMessage()."</script>";
             }
         }
-
-        // function alterar(){
-        //     try{
-
-        //         $this->conn = new Conectar();
-        //         $sql = $this->conn->prepare("update tamanho set size = :size, quant_tamanho = :qt_tamanho where cod_produto = :codigo");
-        //         @$sql-> bindParam(":size", $this->getsize(), PDO::PARAM_STR);
-        //         @$sql-> bindParam(":qt_tamanho", $this->getquant_tamanho(), PDO::PARAM_INT);
-        //         @$sql-> bindParam(":codigo", $this->getcod_produto(), PDO::PARAM_INT);
-        //         if($sql->execute() == 1){
-        //             return "Registro alterado com sucesso!";
-        //         }
-        //         $this->conn = null;
-
-        //     }catch(PDOException $exc){
-        //         echo "Erro ao alterar o registro.".$exc->getMessage();
-        //     }
-        // }
-
     }
 
 ?>

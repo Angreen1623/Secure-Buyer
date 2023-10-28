@@ -1,6 +1,6 @@
 1. Footer;                                                              FEITO
 2. 3 Imagens funcionando no adicionar anuncio;                          FEITO
-3. Finalizar editar anuncio;                                            * DAQUI A POUCO
+3. Finalizar editar anuncio;                                            FEITO
 4. Tratamento de erro;                                                  Terminar - EM ANDAMENTO **
 5. Responsividade;
 6. Linkagem com o produtos.php;                                         FEITO

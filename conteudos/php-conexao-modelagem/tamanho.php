@@ -3,10 +3,19 @@
     include_once 'Conectar.php';
 
     class Tamanho{
+        private $cod_tamanho;
         private $cod_produto;
         private $size;
         private $quant_tamanho;
         private $conn;
+
+        public function getcod_tamanho(){
+            return $this->cod_tamanho;
+        }
+
+        public function setcod_tamanho($codt){
+            $this->cod_tamanho = $codt;
+        }
 
         public function getcod_produto(){
             return $this->cod_produto;
@@ -69,10 +78,10 @@
             try{
 
                 $this->conn = new Conectar();
-                $sql = $this->conn->prepare("update tamanho set size = :size, quant_tamanho = :qt_tamanho where cod_produto = :codigo");
+                $sql = $this->conn->prepare("update tamanho set size = :size, quant_tamanho = :qt_tamanho where cod_tamanho = :codigo");
                 @$sql-> bindParam(":size", $this->getsize(), PDO::PARAM_STR);
                 @$sql-> bindParam(":qt_tamanho", $this->getquant_tamanho(), PDO::PARAM_INT);
-                @$sql-> bindParam(":codigo", $this->getcod_produto(), PDO::PARAM_INT);
+                @$sql-> bindParam(":codigo", $this->getcod_tamanho(), PDO::PARAM_INT);
                 if($sql->execute() == 1){
                     return "Registro alterado com sucesso!";
                 }

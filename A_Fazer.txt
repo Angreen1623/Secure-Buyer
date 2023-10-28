@@ -9,7 +9,6 @@
 9. Mudar esse nome fudido;                                              ************************
 10. Sistema de avaliações;
 11. Imagens terem nomes unicos;                                         FEITO
-12. Tamanho das imagens obrigatório 150x150 para perfil por exemplo;
 13. Criptografar senhas;                                                FEITO
 14. sobre nos e fale conosco;                                           FACIL *
 15. Tela de pagamento;                                                  *** (mas deixa p depois dessa semana)

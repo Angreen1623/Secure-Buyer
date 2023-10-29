@@ -118,3 +118,14 @@ form label
 {
   margin-left: 10px;
 }
+
+.error-border {
+  border: 2px solid red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+  font-weight: bold;
+}

@@ -1,31 +1,41 @@
-function criesuacon() {
-    var dados = document.formu;
+function validar() {
+    var formDados = document.formu;
 
-    // Validação do campo de nome
-    var nome = dados.nome.value.trim();
-    if (nome === "") {
-        alert("O campo Nome é obrigatório.");
-        dados.nome.focus();
+    // Obter valores relevantes
+    var email = formDados.email.value;
+    var senha = formDados.senha.value;
+    var confsenha = formDados.confirmarsenha.value;
+
+    //criar variaveis para cada campo e posteriormente associa-los a mesnagem de erro
+    var campoemail = formDados.email;
+    var camposenha = formDados.senha;
+    var campoConfirmaSenha = formDados.confirmarsenha;
+    var errorDiv = document.getElementById('errorDiv');
+
+  
+    // Limpar estilos de erro anteriores e mensagens
+    campoemail.classList.remove("error-border");
+    camposenha.classList.remove("error-border");
+    campoConfirmaSenha.classList.remove("error-border");
+    errorDiv.textContent = "";
+
+    //validar o  email
+    if (email === "" || email.indexOf(".com") === -1 || email.indexOf("@") === -1) {
+        campoemail.classList.add("error-border");
+        errorDiv.textContent = "Por favor, preencha o campo de e-mail corretamente, ele é obrigatório!";
+        campoemail.focus();
         return false;
     }
 
-    // Validação do campo de sobrenome
-    var sobrenome = dados.sobrenome.value.trim();
-    if (sobrenome === "") {
-        alert("O campo Sobrenome é obrigatório.");
-        dados.sobrenome.focus();
+    // Verificar se as senhas coincidem, caso a senha tenha sido preenchida
+    if (senha !== "" && senha !== confsenha) {
+        camposenha.classList.add("error-border");
+        campoConfirmaSenha.classList.add("error-border");
+        errorDiv.textContent = "As senhas não coincidem.";
+        camposenha.focus();
         return false;
     }
 
-    // Validação do campo de e-mail
-    var email = dados.email.value;
-    if (email === "" || email.indexOf("@") === -1 || email.indexOf(".com") === -1) {
-        alert("Por favor, preencha o campo de e-mail corretamente, ele é obrigatório!");
-        dados.email.focus();
-        return false;
-    }
-    
-    // Se todas as validações passaram, você pode enviar o formulário
-    alert("Cadastro realizado com sucesso!");
     return true;
+    
 }

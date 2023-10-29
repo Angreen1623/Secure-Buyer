@@ -1,4 +1,4 @@
-<!DOCTYPE php>
+<!DOCTYPE html>
 <php lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/criesuacon.css">
-
 </head>
 <body>
 
@@ -32,15 +31,15 @@
             </div>
             <!--inicio do formulário "crie sua conta"-->
             <div class="formulariocriesuaconta">
-                <form name="formu" action=""     method="POST">
+                <form name="formu" onsubmit="return validar()"   method="POST">
                     <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
                     <div>
                         <label title="Digite seu nome">Nome</label>
-                        <input type="text" name="nome" required>
+                        <input type="text" name="nome" required  onkeypress="return blockletras(window.event.keyCode)">
                         </div> 
                         <div>
                         <label title="Digite seu sobrenome">Sobrenome</label>
-                        <input type="text" name="sobrenome" required>
+                        <input type="text" name="sobrenome" required  onkeypress="return blockletras(window.event.keyCode)">
                     </div>
                     <div>
                         <!--nesta div o usuario ira digitar seu email-->
@@ -54,8 +53,9 @@
                     </div>
                     <div>
                         <label title="Confirme sua senha">Confirmar senha</label>
-                        <input type="password" id="senha" name="confirmarsenha" required><!--comando usado para a confirmação de senha aparecer com privacidade-->
+                        <input type="password" id="confsenha" name="confirmarsenha" required><!--comando usado para a confirmação de senha aparecer com privacidade-->
                     </div>
+                    <div class="errorDiv" id="errorDiv" style="color: red; font-size: 0.9em;"></div><!-- div do erro-->
                     <div>
                         <input type="submit" value="Crie sua conta" name="btncadastro"><!--botao criado para a criação de conta do usuario-->
                     </div>
@@ -73,11 +73,6 @@
         if(isset($btncadastro)){
             include_once 'php-conexao-modelagem/perfil.php';
             $per = new Perfil();
-
-            if($senha != $confirmarsenha) {
-                echo "As senhas devem ser iguais";
-            }else{
-                
                 $per->setnome($nome);
                 $per->setsobrenome($sobrenome);
                 $per->setemail($email);
@@ -111,7 +106,6 @@
                     echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
                 }
             }
-        }
     ?>
 
 
@@ -120,5 +114,5 @@
 </body>
 <!--javascript-->
 <script src="js/script.js"></script>
-<script src="conteudos/js/criesuacon.js"></script>
-</php>
+<script src="../conteudos/js/criesuacon.js"></script>
+</html>

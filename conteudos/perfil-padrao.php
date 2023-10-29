@@ -41,7 +41,7 @@
                 foreach ($dadosPerfil as $mostrar_dados) {
                 
                 ?>
-
+                
         <div class="meuperfil">
             <div class="meuperfil-dados">
                 <div class="group">
@@ -171,8 +171,7 @@
          }
         ?>
           <!--fim do php para preencher os campos e alterar-->
-            
-
+          
             <div class="pedidos">
                 <div class="pedidos-box">
                     <div class="group">

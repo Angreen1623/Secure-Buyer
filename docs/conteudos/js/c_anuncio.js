@@ -71,9 +71,20 @@ inputArquivo5.onchange = function () { //Função para atualizar a interface do 
 
 };
 
-function preco_mask(tecla){
-  if(tecla >=48 && tecla<=57){
-      return true;
-  }else
-  return false;
+function blockletras(keypress)
+{//bloqueia letras
+
+    if (keypress>=48 && keypress<=57 || keypress==44)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function substituir() {
+  var campo = document.getElementById("valor");
+  campo.value = campo.value.replace(",", ".");
 }

@@ -13,6 +13,21 @@
     <link rel="stylesheet" href="../conteudos/css/reset.css">
     <link rel="stylesheet" href="../conteudos/css/style.css">
     <link rel="stylesheet" href="../conteudos/css/edt-anuncio.css">
+
+    <script language = "javascript">
+    function blockletras(keypress)
+    {
+
+    if (keypress>=48 && keypress<=57 || keypress==44)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    }
+    </script>
     
 </head>
 <body>
@@ -54,7 +69,7 @@
                             <div class="label">
                                 <p>Aplicar promoção</p>
                             </div>
-                            <input type="text" name="promoção" placeholder="Valor do desconto">
+                            <input type="text" name="promoção" placeholder="Porcentagem do valor do desconto" onkeypress="return blockletras(window.event.keyCode)">
                         </div>
                         <div class="button">
                             <div class="btn">

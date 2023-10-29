@@ -1,2 +1,2 @@
 # Secure-Buyer
-Visit ./conteudos/index.php
+Visit https://github.dev/Angreen1623/Secure-Buyer/conteudos/index.php

@@ -114,11 +114,34 @@
         <div class="content">
             <?php 
 
+                include_once '../php-conexao-modelagem/perfil.php';
+                    $perfil = new Perfil();
+                    
+                    if(!isset($codper)){
+                        echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                    }
+                    
+                    $perfil->setcod_perfil($codper);
+                    $perfis = $perfil->consultar();
+                    foreach($perfis as $row){
+                        if($row['cnpj'] == NULL){
+                            echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                        }
+                    }
+
                 include_once "../php-conexao-modelagem/produto.php";
                 $prod = new Produto();
 
                 $prod->setcod_produto(1);          //mudar no novo_produto
                 $produtos = $prod->consultar2();
+
+                foreach($produtos as $row){
+                    $codper_anun = $row["cod_perfil"];
+                }
+
+                if($codper != $codper_anun){
+                    echo "<script language='JavaScript'>window.location.replace('../index.php');</script>";
+                }
 
                 foreach($produtos as $row){
             ?>

@@ -24,6 +24,9 @@
             <?php
                 include_once 'php-conexao-modelagem/perfil.php';
                 $perfil = new Perfil();
+                if(!isset($codper)){
+                    echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
+                }
                 $perfil->setcod_perfil($codper);
                 $dadosPerfil = $perfil->alterar();
                 $perfis = $perfil->consultar();

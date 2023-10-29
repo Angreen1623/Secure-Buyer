@@ -20,7 +20,22 @@
     <!-- Inicio da página -->
     <div class="wrapper">        
 
-        <?php include 'navbar.php'; ?>
+        <?php include 'navbar.php'; 
+        
+        include_once 'php-conexao-modelagem/perfil.php';
+        $perfil = new Perfil();
+        
+        if(!isset($codper)){
+            echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
+        }
+        
+        $perfil->setcod_perfil($codper);
+        $perfis = $perfil->consultar();
+        foreach($perfis as $row){
+            if($row['cnpj'] == NULL){
+                echo "<script language='JavaScript'>window.location.replace('./index.php');</script>";
+            }
+        } ?>
 
         <!-- titulo da pagina -->
         <h1 class="title">CRIAR ANÚNCIO </h1>

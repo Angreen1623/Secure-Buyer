@@ -70,3 +70,10 @@ inputArquivo5.onchange = function () { //Função para atualizar a interface do 
   }
 
 };
+
+function preco_mask(tecla){
+  if(tecla >=48 && tecla<=57){
+      return true;
+  }else
+  return false;
+}

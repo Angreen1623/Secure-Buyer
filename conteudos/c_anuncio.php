@@ -315,7 +315,7 @@
                         <div class="text">
                             <label class="subtitle">Preço</label><br>
                         </div>
-                        <input type="text" name="preco">
+                        <input type="text" name="preco" id="preco" onkeypress="return preco_mask(window.event.keyCode)">
                     </div>
                     <div class="buttons">
                         <div class="btn">

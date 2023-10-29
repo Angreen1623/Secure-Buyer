@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/criesuacon.css">
-
 </head>
 <body>
 
@@ -36,11 +35,11 @@
                     <!--nesta div o usuario ira digitar seu nome e seu sobrenome-->
                     <div>
                         <label title="Digite seu nome">Nome</label>
-                        <input type="text" name="nome" required>
+                        <input type="text" name="nome" required  onkeypress="return blockletras(window.event.keyCode)">
                         </div> 
                         <div>
                         <label title="Digite seu sobrenome">Sobrenome</label>
-                        <input type="text" name="sobrenome" required>
+                        <input type="text" name="sobrenome" required  onkeypress="return blockletras(window.event.keyCode)">
                     </div>
                     <div>
                         <!--nesta div o usuario ira digitar seu email-->

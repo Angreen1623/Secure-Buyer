@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/10/2023 às 17:33
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 30-Out-2023 às 18:25
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,7 +27,7 @@ USE `projetoibm_bd`;
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `avaliacoes`
+-- Estrutura da tabela `avaliacoes`
 --
 
 CREATE TABLE `avaliacoes` (
@@ -35,12 +35,12 @@ CREATE TABLE `avaliacoes` (
   `cod_perfil` int(11) NOT NULL,
   `texto_ava` text NOT NULL,
   `estrela_ava` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `carrinho`
+-- Estrutura da tabela `carrinho`
 --
 
 CREATE TABLE `carrinho` (
@@ -50,21 +50,21 @@ CREATE TABLE `carrinho` (
   `cep_carrinho` varchar(9) NOT NULL,
   `qnt_pro` int(11) NOT NULL,
   `tamanho_pro` varchar(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `conexao`
+-- Estrutura da tabela `conexao`
 --
 
 CREATE TABLE `conexao` (
   `endereco_ip` varchar(15) NOT NULL,
   `cod_perfil` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `conexao`
+-- Extraindo dados da tabela `conexao`
 --
 
 INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `conexao` (`endereco_ip`, `cod_perfil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cupom`
+-- Estrutura da tabela `cupom`
 --
 
 CREATE TABLE `cupom` (
@@ -82,12 +82,12 @@ CREATE TABLE `cupom` (
   `valorp_cupom` float NOT NULL,
   `datac_cupom` date DEFAULT NULL,
   `dataex_cupom` date DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `fale_conosco`
+-- Estrutura da tabela `fale_conosco`
 --
 
 CREATE TABLE `fale_conosco` (
@@ -95,21 +95,21 @@ CREATE TABLE `fale_conosco` (
   `email_cli` varchar(70) NOT NULL,
   `titulo` text NOT NULL,
   `reclamacao` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `imagem_produto`
+-- Estrutura da tabela `imagem_produto`
 --
 
 CREATE TABLE `imagem_produto` (
   `cod_produto` int(11) NOT NULL,
   `imagem_produto` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `imagem_produto`
+-- Extraindo dados da tabela `imagem_produto`
 --
 
 INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
@@ -137,17 +137,17 @@ INSERT INTO `imagem_produto` (`cod_produto`, `imagem_produto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `links_produto`
+-- Estrutura da tabela `links_produto`
 --
 
 CREATE TABLE `links_produto` (
   `cod_produto` int(11) NOT NULL,
   `link_edicao` varchar(50) NOT NULL,
   `link_compra` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `links_produto`
+-- Extraindo dados da tabela `links_produto`
 --
 
 INSERT INTO `links_produto` (`cod_produto`, `link_edicao`, `link_compra`) VALUES
@@ -159,7 +159,7 @@ INSERT INTO `links_produto` (`cod_produto`, `link_edicao`, `link_compra`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pedidos_realizados`
+-- Estrutura da tabela `pedidos_realizados`
 --
 
 CREATE TABLE `pedidos_realizados` (
@@ -167,12 +167,12 @@ CREATE TABLE `pedidos_realizados` (
   `preco_final` float DEFAULT NULL,
   `forma_pagamento` varchar(6) DEFAULT NULL,
   `data_compra` date DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `perfil`
+-- Estrutura da tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -185,10 +185,10 @@ CREATE TABLE `perfil` (
   `imagem` varchar(500) DEFAULT NULL,
   `cod_perfil` int(11) NOT NULL,
   `adm` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `perfil`
+-- Extraindo dados da tabela `perfil`
 --
 
 INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`, `imagem`, `cod_perfil`, `adm`) VALUES
@@ -198,7 +198,7 @@ INSERT INTO `perfil` (`nome`, `sobrenome`, `email`, `senha`, `nome_loja`, `cnpj`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produto`
+-- Estrutura da tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -210,14 +210,14 @@ CREATE TABLE `produto` (
   `sexo` varchar(8) NOT NULL,
   `cod_perfil` int(11) NOT NULL,
   `valida` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `produto`
+-- Extraindo dados da tabela `produto`
 --
 
 INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `tipo_peca`, `preco_produto`, `sexo`, `cod_perfil`, `valida`) VALUES
-(1, 'Camiseta em algodão com cristais', 'Decorada com cristais brilhantes, esta camiseta tem estilo moderno e design sóbrio. Feita em algodão, ela tem mangas longas e modelagem solta.', 'camisa', 115.00, 'female', 2, 0),
+(1, 'Camiseta em algodão com cristais', 'Decorada com cristais brilhantes, esta camiseta tem estilo moderno e design sóbrio. Feita em algodão, ela tem mangas longas e modelagem so', 'camisa', 115.00, 'female', 2, 0),
 (2, 'Jaqueta em denim', 'Elemento icônico do desfile Primavera/Verão 2023, o decote redondo permeia a narrativa da coleção Prada onde a redução se traduz em simplicidade e cada detalhe irrelevante é removido em diferentes peças como casacos, jaquetas e blazers. Um acabamento usado dá à peça um toque retrô dos anos 50, enquanto a etiqueta com logotipo dos arquivos destaca-se na parte posterior.\r\n* Tratamento usado\r\n* Sem forro\r\n* Modelagem clássica\r\n* Gola redonda\r\n* Mangas longas\r\n* Punhos abotoados\r\n* Abotoamento na parte da frente\r\n* Pesponto contrastante\r\n* Bolsos aplicados com aba e botão\r\n* Comprimento do centro da parte posterior: 64 cm; tamanho: M\r\n* Barra ajustável com botões\r\n* Logotipo triangular em metal esmaltado\r\n* Etiqueta com logotipo na parte posterior\r\n* O(a) modelo mede 1,77m e usa tamanho 38 \r\n* Altura: 64cm', 'blusa', 250.00, 'male', 2, 0),
 (3, 'Blusão em cashmere com capuz', 'Detalhes do produto\r\nUma atitude esportiva é combinada com o toque macio e aconchegante deste blusão com capuz feito em cashmere, um tecido luxuoso e refinado de alta qualidade. O fechamento com zíper e a barra elástica remetem aos uniformes esportivos. A Prada recria o tricô tradicional de forma inovadora, com referências ao mundo athleisure.\r\n\r\n* Código do produto: 003\r\n* Modelagem solta\r\n* Com capuz\r\n* Mangas retas\r\n* Fechamento com zíper\r\n* Bolsos embutidos\r\n* Punhos elásticos\r\n* Costura abaixo do ombro\r\n* Barra com elástico\r\n* Cordão elástico\r\n* Sem forro\r\n*Logotipo triangular em tecido na parte da frente\r\nO(a) modelo mede 1,77m e usa tamanho 38 \r\n* Altura: 76cm', 'blusa', 250.00, 'male', 2, 0),
 (4, 'Jaqueta com abotoamento central em Re-Nylon', 'Detalhes do produto\r\nA silhueta clássica da moda masculina é reinventada de forma inovadora e sustentável nesta jaqueta feita em Re-Nylon, o tecido regenerado obtido a partir de materiais plásticos reciclados e purificados coletados do oceano. O conceito híbrido permeia a narrativa Prada e é traduzido em designs inovadores com uma mistura interessante e incomum de materiais, formas e funções.\r\n\r\n* Código do produto: 004\r\n* Modelagem reta\r\n* Forrada\r\n* Lapela clássica\r\n* Mangas longas\r\n* Fenda na parte posterior\r\n* Abotoamento\r\n* Logotipo triangular em metal esmaltado\r\n* Fenda com botão nas mangas\r\n* Bolsos com aba\r\n* Bolso interno com botão\r\n* Outro bolso interno no lado esquerdo da parte da frente\r\n* Mini nécessaire triangular com logotipo estampado na parte posterior\r\n* O(a) modelo mede 180 cm e usa tamanho 38\r\n* Altura: 75cm', 'blusa', 300.00, 'female', 2, 0);
@@ -225,68 +225,75 @@ INSERT INTO `produto` (`cod_produto`, `titulo_produto`, `descricao_produto`, `ti
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tamanho`
+-- Estrutura da tabela `tamanho`
 --
 
 CREATE TABLE `tamanho` (
   `cod_produto` int(11) NOT NULL,
   `size` varchar(3) NOT NULL,
-  `quant_tamanho` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `quant_tamanho` int(11) NOT NULL,
+  `cod_tamanho` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `tamanho`
+-- Extraindo dados da tabela `tamanho`
 --
 
-INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`) VALUES
-(1, '12', 20),
-(1, '16', 20),
-(1, 'P', 20),
-(1, 'M', 20),
-(2, '12', 9),
-(2, 'PP', 10),
-(2, 'G', 20),
-(2, 'GG', 3),
-(3, 'P', 20),
-(3, 'M', 4),
-(3, 'G', 29),
-(3, 'GG', 90),
-(4, '12', 4),
-(4, '14', 9),
-(4, 'P', 8),
-(4, 'G', 4),
-(4, 'GG', 3);
+INSERT INTO `tamanho` (`cod_produto`, `size`, `quant_tamanho`, `cod_tamanho`) VALUES
+(1, '12', 20, 1),
+(1, '16', 20, 2),
+(1, 'P', 20, 3),
+(1, 'M', 20, 4),
+(2, '12', 9, 5),
+(2, 'PP', 10, 6),
+(2, 'G', 20, 7),
+(2, 'GG', 3, 8),
+(3, 'P', 20, 9),
+(3, 'M', 4, 10),
+(3, 'G', 29, 11),
+(3, 'GG', 90, 12),
+(4, '12', 4, 13),
+(4, '14', 9, 14),
+(4, 'P', 8, 15),
+(4, 'G', 4, 16),
+(4, 'GG', 3, 17);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `carrinho`
+-- Índices para tabela `carrinho`
 --
 ALTER TABLE `carrinho`
   ADD PRIMARY KEY (`cod_carrinho`);
 
 --
--- Índices de tabela `cupom`
+-- Índices para tabela `cupom`
 --
 ALTER TABLE `cupom`
   ADD PRIMARY KEY (`cod_cupom`);
 
 --
--- Índices de tabela `perfil`
+-- Índices para tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`cod_perfil`);
 
 --
--- Índices de tabela `produto`
+-- Índices para tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- Índices para tabela `tamanho`
+--
+ALTER TABLE `tamanho`
+  ADD PRIMARY KEY (`cod_tamanho`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -312,6 +319,12 @@ ALTER TABLE `perfil`
 --
 ALTER TABLE `produto`
   MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `tamanho`
+--
+ALTER TABLE `tamanho`
+  MODIFY `cod_tamanho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

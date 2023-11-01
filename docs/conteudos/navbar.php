@@ -187,3 +187,5 @@
         </div>
     </div>
 </div>
+
+<?php include_once 'finalizar_anuncio.php'; ?>

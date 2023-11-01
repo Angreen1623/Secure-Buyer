@@ -68,14 +68,14 @@
               {
                   include_once 'php-conexao-modelagem/perfil.php';
                   $per=new Perfil();
-                  $per->setemail($input_email);
+                  $per->setemail(strtolower($input_email));
                   $perfis = $per->listar();
                   $verificado;
                   $administrador;
 
                   foreach($perfis as $row){
 
-                    if($row['email'] == $input_email && password_verify($senha, $row['senha']) == true){
+                    if(strtolower($row['email']) == $input_email && password_verify($senha, $row['senha']) == true){
                         $verificado = true;
                         $per->obterid();
                         $sqlresult = $per->obterid();

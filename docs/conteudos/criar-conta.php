@@ -75,7 +75,7 @@
             $per = new Perfil();
                 $per->setnome($nome);
                 $per->setsobrenome($sobrenome);
-                $per->setemail($email);
+                $per->setemail(strtolower($email));
                 $per->setsenha(password_hash($senha, PASSWORD_DEFAULT));
                 $per->salvar();
 

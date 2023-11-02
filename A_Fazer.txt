@@ -5,7 +5,7 @@
 5. Responsividade;
 6. Linkagem com o produtos.php;                                         FEITO
 7. Tela do ADM;
-8. Cards do anúncio;                                                    ** Giovana
+8. Cards do anúncio;                                                    FEITO
 9. Mudar esse nome fudido;                                              ************************
 10. Sistema de avaliações;
 11. Imagens terem nomes unicos;                                         FEITO

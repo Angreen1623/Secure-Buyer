@@ -1,15 +1,17 @@
 1. Footer;                                                              FEITO
 2. 3 Imagens funcionando no adicionar anuncio;                          FEITO
 3. Finalizar editar anuncio;                                            FEITO
-4. Tratamento de erro;                                                  Terminar - EM ANDAMENTO **
+4. Tratamento de erro;                                                  (IGOR) Terminar - EM ANDAMENTO **
 5. Responsividade;
 6. Linkagem com o produtos.php;                                         FEITO
-7. Tela do ADM;
+7. Tela do ADM;                                                         (BRUNO)
 8. Cards do anúncio;                                                    FEITO
 9. Mudar esse nome fudido;                                              ************************
 10. Sistema de avaliações;
 11. Imagens terem nomes unicos;                                         FEITO
 13. Criptografar senhas;                                                FEITO
-14. sobre nos e fale conosco;                                           FACIL *
-15. Tela de pagamento;                                                  *** (mas deixa p depois dessa semana)
-16. no tratamento de erro, não poder voltar para a pag de criação de cadastro caso tiver uma conta recem cadastrada, e n deixar quem n possui loja usar  link para acessar essa pagina
+14. sobre nos e fale conosco;                                           (ANDREI) FACIL *
+15. Tela de pagamento;                                                  (ANDRE)*** (mas deixa p depois dessa semana)
+16. no tratamento de erro, não poder voltar para a pag de criação de cadastro caso tiver uma conta recem cadastrada, e n deixar quem n possui loja usar  link para acessar essa pagina                                                     FEITO
+
+ultima atualização: 01/11/23

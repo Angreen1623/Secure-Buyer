@@ -44,7 +44,7 @@
         <div class="content">
             <!-- o formulário -->
             <div class="form-text">
-                <form action="" enctype="multipart/form-data" method="POST">
+                <form onsubmit="substituir(); formatar();" enctype="multipart/form-data" method="POST">
                     <!-- inputs de texto e os titulos deles -->
                     <div class="form">
                         <!-- Grupo de título + input -->
@@ -54,7 +54,7 @@
                                 <label class="subtitle">Título</label><br>
                             </div>
                             <!-- input -->
-                            <input type="text" name="nome">
+                            <input type="text" name="nome" required>
                         </div>
                         <!-- fim do grupo -->
 
@@ -315,7 +315,7 @@
                         <div class="text">
                             <label class="subtitle">Preço</label><br>
                         </div>
-                        <input type="text" name="preco" id="preco" onkeypress="return blockletras(window.event.keyCode)">
+                        <input type="text" name="preco" placeholder="R$0,00" id="valor" onkeypress="return blockletras(window.event.keyCode)" oninput="formatar(this)" required>
                     </div>
                     <div class="buttons">
                         <div class="btn">

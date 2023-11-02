@@ -73,8 +73,10 @@ inputArquivo5.onchange = function () { //Função para atualizar a interface do 
 
 function blockletras(keypress)
 {//bloqueia letras
+  
+ 
 
-    if (keypress>=48 && keypress<=57 || keypress==44)
+    if (keypress>=48 && keypress<=57 || keypress==44 && !event.target.value.includes(',')/*impede a inserção de mais de uma virgula*/)
     {
         return true;
     }
@@ -84,7 +86,23 @@ function blockletras(keypress)
     }
 }
 
-function substituir() {
+
+function formatar(input) {
+  input.value = input.value.replace(/[^0-9,]/g, '');//sem isso ele adiciona um R$ a cada input
+  // Divide o valor em duas partes, antes e depois da vírgula
+  const partes = input.value.split(',');
+  // deixa apenas os primeiros dois dígitos após a vírgula
+  if (partes.length > 1) {
+    partes[1] = partes[1].slice(0, 2);
+  }
+  // Recriando o valor com no máximo 2 dígitos após a vírgula
+  input.value = "R$" + partes.join(',');
+}
+
+
+function substituir() {//função para replicar a virgula pelo ponto e o r$ por nada no banco de dados
   var campo = document.getElementById("valor");
   campo.value = campo.value.replace(",", ".");
+  campo.value = campo.value.replace("R$", "");
+
 }

@@ -105,12 +105,12 @@
   font-size: 24px;
 }
 
-.products .products-item{
-  display: flex;
-  margin-right: 15px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.products .products-item {
+    display: flex;
+    margin-right: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 .products .products-item input{
   display: none;

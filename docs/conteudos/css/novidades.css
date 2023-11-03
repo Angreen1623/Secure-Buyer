@@ -54,11 +54,15 @@
 .produtos .produtos-item .name{
     text-align: center;
     margin-top: 18px;
+    display: flex;
+    justify-content: center;
 }
 .produtos .produtos-item .name h3{
     font-weight: lighter;
     font-size: 16px;
     text-wrap: wrap;
+    width: 309px;
+    text-align: center;
 }
 
 .produtos .produtos-item .preco{

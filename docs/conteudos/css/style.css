@@ -326,7 +326,7 @@ nav ul li a:hover:after{
 .bag-buy .right{
     float: left;
     display: flex;
-    justicontent: flex-end;
+    justify-content: flex-end;
 }
 
 .bag-buy .bag-end{

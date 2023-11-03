@@ -170,3 +170,15 @@ input[type='file'] {
     text-decoration: none;
     color: #fff;
 }
+
+@media (max-width:1020px){
+    .form2 {
+        display: flex;
+        margin-bottom: 10px;
+        align-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}

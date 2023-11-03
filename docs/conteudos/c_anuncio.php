@@ -317,11 +317,12 @@
                         </div>
                         <input type="text" name="preco" placeholder="R$0,00" id="valor" onkeypress="return blockletras(window.event.keyCode)" oninput="formatar(this)" required>
                     </div>
+                    <div class="errorDiv" id="errorDiv" style="color: red; font-size: 0.9em;"></div><!-- div do erro-->
                     <div class="buttons">
                         <div class="btn">
                             <a href="./index.php">Voltar</a>
                         </div>
-                        <input type="submit" value="Confirmar" name="btnconfirmar">
+                        <input type="submit" onclick="checarimg();checartam();checarsex();checartipo();" value="Confirmar" name="btnconfirmar">
                     
                     </div>
                 </form>

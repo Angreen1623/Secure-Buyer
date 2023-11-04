@@ -44,7 +44,7 @@
         <div class="content">
             <!-- o formulário -->
             <div class="form-text">
-                <form onsubmit="substituir(); formatar();" enctype="multipart/form-data" method="POST">
+                <form onsubmit="substituir(); formatar();" enctype="multipart/form-data" id="form-anuncio" method="POST">
                     <!-- inputs de texto e os titulos deles -->
                     <div class="form">
                         <!-- Grupo de título + input -->

@@ -46,6 +46,7 @@ let checkbox6 = document.getElementById('tm');
 let checkbox7 = document.getElementById('tg');
 let checkbox8 = document.getElementById('tgg');
 
+
 var errorDiv = document.getElementById('errorDiv');
 
 inputArquivo1.onchange = function () { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
@@ -88,29 +89,32 @@ function checarimg()
 {
   if(inputArquivo1.files.length == 0 || inputArquivo2.files.length == 0 || inputArquivo3.files.length == 0|| inputArquivo4.files.length == 0|| inputArquivo5.files.length == 0)
   {
-    
+    errorDiv.textContent = "Por favor, preencha todos os campos solicitados.";
+    return false;
   }
   return true
 }
 
 function checartam()
 {
+  document.getElementById("form-anuncio").addEventListener("submit", function(event) {
   if(!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) 
   {
     errorDiv.textContent = "Por favor, preencha todos os campos solicitados.";
-    return false;
+    event.preventDefault();
   }
-  return true;
+});
 }
 
 function checarsex()
 {
+  document.getElementById("form-anuncio").addEventListener("submit", function(event) {
   if(!document.getElementById("masculino").checked && !document.getElementById("feminino").checked && !document.getElementById("unissex").checked)
   {
     errorDiv.textContent = "Por favor, preencha todos os campos solicitados.";
-    return false;
+    event.preventDefault();
   }
-  return true;
+});
 }
 
 function checartipo()

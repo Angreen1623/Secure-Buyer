@@ -20,7 +20,7 @@ function validaAlteracao() {
     // Validar o e-mail
     if (email === "" || email.indexOf(".com") === -1 || email.indexOf("@") === -1) {
         emailField.classList.add("error-border");
-        errorDiv.textContent = "Por favor, preencha o campo de e-mail corretamente, ele é obrigatório!";
+        errorDiv.textContent = "Por favor, preencha o campo de e-mail corretamente caso queira mudá-lo!!";
         emailField.focus();
         return false;
     }
@@ -35,4 +35,17 @@ function validaAlteracao() {
     }
 
     return true;
+
+}
+function blockletras(keypress)
+{//bloqueia numeros
+
+    if ((keypress >= 65 && keypress <= 90) || (keypress >= 97 && keypress <= 122) || (keypress == 32))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

@@ -78,11 +78,11 @@
                 <div class="dados">
                     <div class="dados-item">
                         <h3>Nome</h3>
-                        <input type="text" value='<?php echo $mostrar_dados[0]?>' name="nome" required>
+                        <input type="text" value='<?php echo $mostrar_dados[0]?>' name="nome" onkeypress="return blockletras(window.event.keyCode)" required>
                     </div>
                     <div class="dados-item">
                         <h3>Sobrenome</h3>
-                        <input type="text" value='<?php echo $mostrar_dados[1]?>'  name="sobrenome" required>
+                        <input type="text" value='<?php echo $mostrar_dados[1]?>'  name="sobrenome" onkeypress="return blockletras(window.event.keyCode)" required>
                     </div>
                     <div class="dados-item">
                         <h3>Email</h3>

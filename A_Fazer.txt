@@ -7,7 +7,7 @@
 7. Tela do ADM;                                                         (BRUNO)
 8. Cards do anúncio;                                                    FEITO
 9. Mudar esse nome fudido;                                              ************************
-10. Sistema de avaliações;
+10. Sistema de avaliações;                                              (IGOR) Fazer o que for possível
 11. Imagens terem nomes unicos;                                         FEITO
 13. Criptografar senhas;                                                FEITO
 14. sobre nos e fale conosco;                                           (ANDREI) FACIL *

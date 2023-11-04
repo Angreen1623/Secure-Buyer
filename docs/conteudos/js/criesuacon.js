@@ -40,9 +40,9 @@ function validar() {
     
 }
     function blockletras(keypress)
-    {//bloqueia letras
+    {//bloqueia numeros
 
-        if ((keypress >= 65 && keypress <= 90) || (keypress >= 97 && keypress <= 122))
+        if ((keypress >= 65 && keypress <= 90) || (keypress >= 97 && keypress <= 122) || (keypress == 32))
         {
             return true;
         }

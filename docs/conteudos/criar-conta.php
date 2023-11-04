@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/criesuacon.css">
 </head>
-<body>
+<body class="body">
 
     <!-- Inicio da página -->
     <div class="wrapper">

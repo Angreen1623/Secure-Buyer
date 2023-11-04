@@ -26,3 +26,11 @@ function clickedTam(tamanho){
     class_tam.classList.add('clicked');
 
 }
+
+function openPag(){
+    fim_pag = document.querySelector(".fim-pag");
+    document.querySelector(".body").style.overflow = 'hidden';
+    bag.classList.remove('open');
+
+    fim_pag.classList.add('flex-open');
+}

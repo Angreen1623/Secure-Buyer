@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../conteudos/css/c_anuncio.css">
     
 </head>
-<body>
+<body class="body">
 
     <!-- Inicio da página -->
     <div class="wrapper">        

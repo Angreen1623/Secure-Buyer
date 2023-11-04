@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../conteudos/css/style.css">
     <link rel="stylesheet" href="../conteudos/css/telaanun.css">
 </head>
-<body>
+<body class="body">
     <!--incio navbar-->
     <!-- Inicio da página -->
     <div class="wrapper">

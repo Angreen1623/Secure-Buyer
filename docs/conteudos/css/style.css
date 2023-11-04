@@ -201,6 +201,10 @@ nav ul li a:hover:after{
     display: block!important;
 }
 
+.flex-open{
+    display: flex!important;
+}
+
 .bag-sidebar{
     position: relative;
     top: 0;
@@ -456,13 +460,19 @@ background-color: #000000;
 }
 
 .fim-pag{
-    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    display: none;
     justify-content: center;
     align-items: center;
     padding: 25px;
-    min-height: 100vh;
     background-color: #00000040;
     padding-bottom: 70px;
+    z-index: 103;
 }
 
 .fim-pag form{

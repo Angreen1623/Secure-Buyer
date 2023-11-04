@@ -27,7 +27,7 @@ function buying_page($prod_cod){
         <link rel="stylesheet" href="../css/produto.css">
         
     </head>
-    <body>
+    <body class="body">
 
         <!-- Inicio da página -->
         <div class="wrapper">
@@ -589,7 +589,7 @@ function editing_page($prod_cod){
         <link rel="stylesheet" href="../css/c_anuncio.css">
         
     </head>
-    <body>
+    <body class="body">
     
         <!-- Inicio da página -->
         <div class="wrapper">        

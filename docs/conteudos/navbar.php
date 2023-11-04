@@ -102,6 +102,8 @@
                 $img = new Imagem();
                 include_once "./php-conexao-modelagem/perfil.php";
                 $per = new Perfil();
+                include_once "./php-conexao-modelagem/pedidos_realizados.php";
+                $realizados = new Pedidos_realizados();
                 if(isset($codper)){
 
                 $total = 0;
@@ -177,10 +179,14 @@
                 </div>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right"> <?php if(isset($total)){ echo number_format($total,2,",","."); }else{ echo "Nenhum produto no carrinho";} ?></h3>
+                    <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>
                 </div>
                 <div class="bag-end">
-                    <span class="btn">Finalizar compra</span>
+                    <?php if($total != 0){?>
+                    <button class="btn" onclick="openPag()">Finalizar compra</button>
+                    <?php }else{?>
+                    <button class="btn" onclick="">Começe a comprar</button>
+                    <?php }?>
                 </div>
                 <span class="continue underline">Continuar comprando</span>
             </div>
@@ -188,4 +194,4 @@
     </div>
 </div>
 
-<?php include_once 'finalizar_anuncio.php'; ?>
+<?php include_once 'finalizar_compra.php'; ?>

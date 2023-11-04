@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/admpage.css">
 
 </head>
-<body>
+<body class="body">
 
         <div class="content">
             <div class="box">

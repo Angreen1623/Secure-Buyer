@@ -1,18 +1,29 @@
-<link rel="stylesheet" href="../conteudos/css/reset.css">
-    <link rel="stylesheet" href="../conteudos/css/style.css">
-
 <div class="fim-pag">
+    <?php
+        include_once 'php-conexao-modelagem/perfil.php';
+        $perfil = new Perfil();
+        if(isset($codper)){
+            $perfil->setcod_perfil($codper);
+            $dadosPerfil = $perfil->alterar();
+
+            foreach ($dadosPerfil as $row) {
+                $nome_completo = $row["nome"]." ".$row["sobrenome"];
+                $email = $row["email"];
+            }
+        }
+        
+    ?>
     <form action="">
         <div class="row">
             <div class="col">
                 <div class="title">Dados pessoais</div>
                 <div class="inputBox">
                     <span>Nome completo:</span>
-                    <input type="text">
+                    <input type="text" value="<?php if(isset($nome_completo)){ echo $nome_completo; }?>">
                 </div>
                 <div class="inputBox">
                     <span>Email:</span>
-                    <input type="text">
+                    <input type="text" value="<?php if(isset($email)){ echo $email; }?>">
                 </div>
                 <div class="inputBox">
                     <span>Endereço:</span>

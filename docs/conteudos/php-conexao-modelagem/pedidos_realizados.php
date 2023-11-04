@@ -3,7 +3,7 @@
 include_once 'Conectar.php';
 
 // parte 1 - atributos
-class Link
+class Pedidos_realizados
 {
     private $cod_carrinho;
     private $preco_final;

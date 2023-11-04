@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="../css/edt-anuncio.css">
         
     </head>
-    <body>
+    <body class="body">
     
     <!-- Inicio da página -->
     <div class="wrapper">

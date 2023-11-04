@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../conteudos/css/tornar.css">
     
 </head>
-<body>
+<body class="body">
 
     <!-- Inicio da página -->
     <div class="wrapper">

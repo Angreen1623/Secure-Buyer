@@ -24,8 +24,8 @@ function buying_page($prod_cod){
         <!--css-->
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../css/produto.css">
-        
     </head>
     <body class="body">
 
@@ -347,6 +347,61 @@ function buying_page($prod_cod){
                             </div>
                             <div class="more">
                                 <span class="underline detail-btn">Detalhes do produto</span>
+                                <?php
+                                if(isset($codper)){
+                                    echo "<br><br><h1>Avalie este produto</h1>
+
+                                <form method=\"POST\" action=\"\">
+                                    <div class=\"estrelas\">
+                                        <input type=\"radio\" name=\"estrela\" id=\"vazio\" checked>
+
+                                        <label for=\"estrela1\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
+                                        <input type=\"radio\" name=\"estrela\" id=\"estrela1\" id=\"vazio\" value=\"1\">
+
+                                        <label for=\"estrela2\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
+                                        <input type=\"radio\" name=\"estrela\" id=\"estrela2\" id=\"vazio\" value=\"2\">
+
+                                        <label for=\"estrela3\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
+                                        <input type=\"radio\" name=\"estrela\" id=\"estrela3\" id=\"vazio\" value=\"3\">
+
+                                        <label for=\"estrela4\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
+                                        <input type=\"radio\" name=\"estrela\" id=\"estrela4\" id=\"vazio\" value=\"4\">
+
+                                        <label for=\"estrela5\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
+                                        <input type=\"radio\" name=\"estrela\" id=\"estrela5\" id=\"vazio\" value=\"5\"><br><br>
+
+                                        <div class=\"div-campo\">
+                                        <div class=\"text-campo\">
+                                        <label class=\"subtitle\">Comente o que achou dese produto:</label><br>
+                                        </div>
+                                        <textarea style=\"border: 1px solid #ccc; border-radius: 20px; padding: 10px; width: 100%; max-width: 100%; resize: none;\" rows = \"6\" cols = \"60\" name = \"descricao\" maxlength=\"2000\" required></textarea>
+                                        </div>
+
+                                        <input name = \"btnenviar\" type=\"submit\" value=\"Enviar\"><br><br>
+                                    </div>
+                                </form>";
+                                }
+                                ?>
+
+                                <?php
+
+                                extract($_POST, EXTR_OVERWRITE);
+                                if(isset($btnenviar)){
+                        
+                                    include_once "../php-conexao-modelagem/avaliacoes.php";
+                                    $aval = new Avaliacao();
+                        
+                                    $aval->setcod_produto(' . $prod_cod . ');
+                                    $aval->setcod_perfil($codper);
+                                    $aval->settexto_ava($descricao);
+                                    $aval->setestrela_ava($estrela);
+                                    $aval->salvar();
+                        
+                                    echo "<script language=`JavaScript`>window.location.replace(\'../index.php\');</script>";
+                        
+                                }
+
+                                ?>
                             </div>
                         </div>
 

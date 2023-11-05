@@ -2,7 +2,7 @@
 
     include_once 'Conectar.php';
 
-    class Tamanho{
+    class Avaliacao{
         private $cod_produto;
         private $cod_perfil;
         private $texto_ava;

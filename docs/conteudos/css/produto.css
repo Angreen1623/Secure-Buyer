@@ -471,3 +471,25 @@ label.clicked{
 .rating .rating-item .group{
     margin-left: 12px;
 }
+
+a{
+  text-decoration: none;
+}
+:root{
+    --amarelo: #fc0;
+    --cinza: #ccc;
+}
+
+.estrelas input[type=radio]{
+    display:none;
+}
+
+.estrelas label i.opcao.fa:before{
+    content: '\f005';
+    color: var(--amarelo);
+}
+
+.estrelas input[type=radio]:checked~label i.fa:before{
+    color: var(--cinza);
+}
+

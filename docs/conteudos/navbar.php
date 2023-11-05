@@ -27,8 +27,12 @@
             <div class="group">
                 <!-- se clicar no link vai para criar conta -->
                 <a class="singin-btn" href="<?php
+
+                    $adm = false;
                     include_once 'php-conexao-modelagem/conexao.php';
                     $ip = new Conexao();
+                    include_once 'php-conexao-modelagem/perfil.php';
+                    $per = new Perfil();
                     if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
                         $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
                     }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
@@ -41,15 +45,26 @@
                     $ips = $ip->listar();
             
                     foreach($ips as $row){
-                        if($ip_maquina = $row['endereco_ip']){
+                        if($ip_maquina == $row['endereco_ip']){
                             $codper = $row['cod_perfil'];
+                        }
+                    }
+
+                    $per->setcod_perfil($codper);
+                    $perfiis = $per->consultar();
+
+                    foreach($perfiis as $row){
+                        if($row['adm'] == 1){
+                            $adm = true;
                         }
                     }
                 
                 if(isset($codper)){
                     echo 'perfil-padrao.php';
-                }else{ 
+                }elseif(!isset($codper)){ 
                     echo 'entrar.php';
+                }elseif($adm == true){
+                    echo './adm-pages/admpage.php';
                 }?>">
                     <!-- foto do login -->
                     <img src="../conteudos/img/user.png" alt="Logar">

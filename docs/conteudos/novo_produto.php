@@ -241,7 +241,7 @@ function buying_page($prod_cod){
                         <h1 class="price">R$ <?php echo $preco; ?></h1>
                     </div>
 
-                    <form action="" method="POST" onsubmit="return form_submit(event)">
+                    <form action="" method="POST" onsubmit="return form_submit(event)" name="main">
                     
                         <?php
                             $tam->setcod_produto('.$prod_cod.');
@@ -325,7 +325,7 @@ function buying_page($prod_cod){
 
                         <div class="info-item">
                             <h2>Frete:</h2>
-                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP" maxlength="9" onkeypress="return cep_mask(window.event.keyCode)" required>
+                            <input type="text" name="cep" id="cep" placeholder="Calcular CEP" maxlength="9" onblur="ver_cep(this.value)" onkeypress="return cep_mask(window.event.keyCode)" required>
                             <div class="error_message">
                                 <p>Digite um cep válido</p>
                             </div>
@@ -341,17 +341,23 @@ function buying_page($prod_cod){
                         </div>
 
                         <div class="end-purchase">
-                            <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart">
+                            <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart" form="main">
                             <div class="more">
                                 <span class="underline about-btn">Sobre a loja</span>
                             </div>
                             <div class="more">
                                 <span class="underline detail-btn">Detalhes do produto</span>
+                            </div>
+                            </div>
+
+                    </form>
+
+                            <div class="more">
                                 <?php
                                 if(isset($codper)){
                                     echo "<br><br><h1>Avalie este produto</h1>
 
-                                <form method=\"POST\" action=\"\">
+                                <form method=\"POST\" action=\"\" name=\"aval\" id=\"aval\">
                                     <div class=\"estrelas\">
                                         <input type=\"radio\" name=\"estrela\" id=\"vazio\" checked>
 
@@ -377,7 +383,7 @@ function buying_page($prod_cod){
                                         <textarea style=\"border: 1px solid #ccc; border-radius: 20px; padding: 10px; width: 100%; max-width: 100%; resize: none;\" rows = \"6\" cols = \"60\" name = \"descricao\" maxlength=\"2000\" required></textarea>
                                         </div>
 
-                                        <input name = \"btnenviar\" type=\"submit\" value=\"Enviar\"><br><br>
+                                        <input type=\"submit\" name=\"btnenviar\" value=\"Enviar\" form=\"aval\" class=\"btn\">
                                     </div>
                                 </form>";
                                 }
@@ -391,21 +397,19 @@ function buying_page($prod_cod){
                                     include_once "../php-conexao-modelagem/avaliacoes.php";
                                     $aval = new Avaliacao();
                         
-                                    $aval->setcod_produto(' . $prod_cod . ');
+                                    $aval->setcod_produto('.$prod_cod.');
                                     $aval->setcod_perfil($codper);
                                     $aval->settexto_ava($descricao);
                                     $aval->setestrela_ava($estrela);
                                     $aval->salvar();
                         
-                                    echo "<script language=`JavaScript`>window.location.replace(\'../index.php\');</script>";
+                                    echo "<script language=`JavaScript`>window.location.replace(\"../index.php\");</script>";
                         
                                 }
 
                                 ?>
                             </div>
-                        </div>
-
-                    </form>
+                        
                 </div>
             </div>
 
@@ -761,7 +765,7 @@ function editing_page($prod_cod){
                 include_once "../php-conexao-modelagem/produto.php";
                 $prod = new Produto();
 
-                $prod->setcod_produto('.$prod_cod.');          //mudar no novo_produto
+                $prod->setcod_produto('.$prod_cod.');
                 $produtos = $prod->consultar2();
 
                 foreach($produtos as $row){
@@ -1270,7 +1274,7 @@ function editing_page($prod_cod){
                         }
                     }
     
-                    echo "<script language=`JavaScript`>window.location.replace(`.  '.$link.'`);</script>";
+                    echo "<script language=`JavaScript`>window.location.replace(`.'.$link.'`);</script>";
     
                 }
             ?>

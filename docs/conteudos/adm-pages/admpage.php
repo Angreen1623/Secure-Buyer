@@ -25,7 +25,7 @@
                         <div class="buttons">
 
 
-                            <a href=""><input type="button" value="criar cupom" name="btncupom"></a>
+                            <a href="./admcupom.php"><input type="button" value="criar cupom" name="btncupom"></a>
                             <a href="./admvalidation.php"><input type="button" value="validar produtos" name="btnverificar"><a>
                             <a href="./admtalk.php"><input type="button" value="verificar email" name="btnfaleconosco"></a>
                             

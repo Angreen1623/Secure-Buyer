@@ -27,8 +27,12 @@
             <div class="group">
                 <!-- se clicar no link vai para criar conta -->
                 <a class="singin-btn" href="<?php
+
+                    $adm = false;
                     include_once 'php-conexao-modelagem/conexao.php';
                     $ip = new Conexao();
+                    include_once 'php-conexao-modelagem/perfil.php';
+                    $per = new Perfil();
                     if(!empty($_SERVER['HTTP_CLIENTE_IP'])){
                         $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
                     }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
@@ -41,15 +45,26 @@
                     $ips = $ip->listar();
             
                     foreach($ips as $row){
-                        if($ip_maquina = $row['endereco_ip']){
+                        if($ip_maquina == $row['endereco_ip']){
                             $codper = $row['cod_perfil'];
+                        }
+                    }
+
+                    $per->setcod_perfil($codper);
+                    $perfiis = $per->consultar();
+
+                    foreach($perfiis as $row){
+                        if($row['adm'] == 1){
+                            $adm = true;
                         }
                     }
                 
                 if(isset($codper)){
                     echo 'perfil-padrao.php';
-                }else{ 
+                }elseif(!isset($codper)){ 
                     echo 'entrar.php';
+                }elseif($adm == true){
+                    echo './adm-pages/admpage.php';
                 }?>">
                     <!-- foto do login -->
                     <img src="../conteudos/img/user.png" alt="Logar">
@@ -103,15 +118,34 @@
                 include_once "./php-conexao-modelagem/perfil.php";
                 $per = new Perfil();
                 include_once "./php-conexao-modelagem/pedidos_realizados.php";
-                $realizados = new Pedidos_realizados();
+                $ped_rea = new Pedidos_realizados();
                 if(isset($codper)){
 
                 $total = 0;
+                $pedido_realizado = false;
 
                 $cart->setcod_perfil($codper);
                 $carrinhos = $cart->consultar();
 
                 foreach($carrinhos as $row){
+
+                    $ped_rea->setcod_carrinho($row['cod_carrinho']);
+                    $pedidos_realizados = $ped_rea->consultar();
+
+                    foreach($pedidos_realizados as $row2){
+
+                        $cod_realizado = $row2['cod_carrinho'];
+
+                        if($cod_realizado == $row['cod_carrinho']){
+                            $pedido_realizado = true;
+                        }else{
+                            $pedido_realizado = false;
+                        }
+
+                    }
+
+                    if($pedido_realizado == false){
+
                     $prod->setcod_produto($row["cod_produto"]);
                     $produtos = $prod->consultar2();
 
@@ -158,9 +192,8 @@
 
             <?php
                         }
-
                         $total = $total + ($preco * $row["qnt_pro"]);
-
+                    }
                     }
                 }
             ?>
@@ -171,13 +204,6 @@
                     <h3>Adicionar cupom de desconto</h3>
                 </div>
                 <div class="itens">
-                    <h4 class="left">Frete:</h4>
-                    <div class="group right">
-                        <img src="../conteudos/img/frete.png" alt="">
-                        <h3 class="underline">Calcular</h3>
-                    </div>
-                </div>
-                <div class="itens">
                     <h4 class="left">Total:</h4>
                     <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>
                 </div>
@@ -185,7 +211,7 @@
                     <?php if($total != 0){?>
                     <button class="btn" onclick="openPag()">Finalizar compra</button>
                     <?php }else{?>
-                    <button class="btn" onclick="">Começe a comprar</button>
+                    <button class="btn" onclick="window.location.replace('./index.php')">Começe a comprar</button>
                     <?php }?>
                 </div>
                 <span class="continue underline">Continuar comprando</span>

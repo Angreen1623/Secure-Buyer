@@ -13,17 +13,17 @@
         }
         
     ?>
-    <form action="">
+    <form action="./script/finalizar.php" method="POST">
         <div class="row">
             <div class="col">
                 <div class="title">Dados pessoais</div>
-                <div class="inputBox">
+                <div class="inputBox readonly">
                     <span>Nome completo:</span>
-                    <input type="text" value="<?php if(isset($nome_completo)){ echo $nome_completo; }?>">
+                    <input type="text" value="<?php if(isset($nome_completo)){ echo $nome_completo; }?>" readonly>
                 </div>
-                <div class="inputBox">
+                <div class="inputBox readonly">
                     <span>Email:</span>
-                    <input type="text" value="<?php if(isset($email)){ echo $email; }?>">
+                    <input type="text" value="<?php if(isset($email)){ echo $email; }?>" readonly>
                 </div>
                 <div class="inputBox">
                     <span>Endereço:</span>
@@ -48,19 +48,25 @@
                 <div class="title">Pagamento</div>
                 <div class="inputBox">
                     <span>Forma de pagamento :</span>
+
+                    <input type="radio" name="forma_pag" id="visa" value="visa" style="display: none;">
+                    <input type="radio" name="forma_pag" id="masterc" value="masterc" style="display: none;">
+                    <input type="radio" name="forma_pag" id="pix" value="pix" style="display: none;">
+                    <input type="radio" name="forma_pag" id="boleto" value="boleto" style="display: none;">
+
                     <div class="flex">
-                        <div class="image">
+                        <label class="image" for="visa">
                             <img src="./img/visa.png" alt="">
-                        </div>
-                        <div class="image">
+                        </label>
+                        <label class="image" for="masterc">
                             <img src="./img/mastercard.png" alt="">
-                        </div>
-                        <div class="image">
+                        </label>
+                        <label class="image" for="pix">
                             <img src="./img/pix.jpg" alt="">
-                        </div>
-                        <div class="image">
+                        </label>
+                        <label class="image" for="boleto">
                             <img src="./img/boleto.png" alt="">
-                        </div>
+                        </label>
                     </div>
                 </div>
                 <div class="inputBox">
@@ -80,9 +86,11 @@
                     <span>CVV:</span>
                     <input type="text">
                 </div>
-                </div>                
+                </div>
+                <input type="hidden" name="total" value="<?php echo $total;?>">
+                <input type="hidden" name="codper" value="<?php echo $codper;?>">
             </div>
         </div>
-        <input type="submit" name="enviar" class="submit-btn" value="Finalizar Compra">
+        <input type="submit" name="btnenviar" class="submit-btn" value="Finalizar Compra">
     </form>
 </div>

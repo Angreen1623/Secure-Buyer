@@ -17,64 +17,119 @@
 
 </head>
 
-<body id="container__body">
+<body>
 
 
   <main class="principal">
     <div class="titulo">
-      <h1 class="mainTitle">Cadastrar Orçamento</h1>
+      <h1 class="mainTitle">Validação de produtos</h1>
     </div>
+    <form action="" method="post">
 
     <div class="card-container">
-    <?php/*
+      <?php 
 
-      $sql = "SELECT * FROM pedido_orcamento";
-      $stmt = $pdo->prepare($sql);
-      $stmt->execute();
-      $quantidadeTupla = $stmt->rowCount();
-      $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $n = 0;
+    
+        include_once "../php-conexao-modelagem/produto.php";
+        $prod = new Produto();
+        include_once "../php-conexao-modelagem/imagem_produto.php";
+        $img = new Imagem();
 
-      if ($quantidadeTupla > 0) {
-        foreach ($pedidos as $pedido) {*/
+        $produtos = $prod->listar();
+        foreach($produtos as $row){
+          $n++;
+
+          $cod_prod[$n] = $row["cod_produto"];
+
       ?>
 
-
-            <form action="script.php" method="post">
-              <div class="card">
-                <div class="card-info">
-                  <p class="text-title"><?/*= strtoupper($pedido['personalizacao']) */?></p>
-                  <p class="text-body">Placa: <?/*= strtoupper($pedido['placaCarro']) */?></p>
-                  <p class="text-body">Data: <?/*= $dataFormatada */?></p>
-                  <p class="text-body">Horário: <?/*= strtoupper($pedido['horario']) */?></p>
-                </div>
-                <div class="card-footer">
-                  <div class="caixa__input">
-                      <input type="number" required name="preco" id="preco" autocomplete="off">
-                    <label for="preco">Preço</label>
-                    <select class="input__data-horario" name="dataOrcamento" id="dataOrcamento">
-                      <option value="<?= $pedido['data'] ?>" selected> <?= $dataFormatada ?> </option>
-                    </select>
-                    <select class="input__data-horario" name="horarioOrcamento" id="horarioOrcamento">
-                      <option value="<?= $pedido['horario'] ?>" selected><?= $pedido['horario'] ?></option>
-                    </select>
-                  </div>
-                  <div class="card__linha__botoes">
-                    <div class="card-button card-button-first">
-                      <button class="botao_orcamento" name="btn-pedido-orcamento" id="btn-pedido-orcamento" value=" " type="submit"><i class="bx bx-x"></i></button>
+            
+        <div class="card">
+          <div class="images">
+            <div class="img-group">
+                <div class="prod-selectimg">
+                    <?php $img->setcod_produto($row["cod_produto"]);
+                    $imagens = $img->consultar2();
+                    foreach($imagens as $row2){
+                    $imagem = $row2['imagem_produto'];?>
+                    <div class="image-option">
+                        <?php if(!str_contains($imagem, "principal")){ ?>
+                            <img src=".<?php echo $imagem; ?>" alt="">
+                        <?php } ?>
                     </div>
-                    <div class="card-button card-button-second">
-                      <button class="botao_orcamento" name="btn-pedido-orcamento" id="btn-pedido-orcamento" value="confirmado" type="submit"><i class="bx bx-check"></i></button>
-                    </div>
-                  </div>
+                    <?php
+                    }
+                    ?>
                 </div>
-              </div>
-            </form>
+            
+                <div class="prod-img">
+                    <img src=".<?php
+                $imagens = $img->consultar2();
+                foreach($imagens as $row2){
+                    $imagem = $row2["imagem_produto"];
+                    if(str_contains($imagem, "principal"))
+                    echo $imagem;
+                }?>" alt="Modelo da roupa">
+                </div>
+            </div> 
+          </div>
+          <div class="prod_info">
+            <div class="title">
+              <h1><?php echo $row["titulo_produto"]; ?></h1>
+            </div>
+            <div class="description">
+              <textarea rows="6" cols = "35" name="descricao" maxlength="2000" readonly><?php echo $row["descricao_produto"]; ?></textarea>
+            </div>
+            <div class="price">
+              <h1><?php echo number_format($row['preco_produto'],2,",",".") ; ?></h1>
+            </div>
+            <div class="gender">
+              <h1><?php echo $row["sexo"]; ?></h1>
+            </div>
+            <div class="peca">
+            <h1><?php echo $row["tipo_peca"]; ?></h1>
+            </div>
+          </div>
+          <div class="buttons_accept">
+            <div class="btn">
+              <input type="submit" name="accept[<?php echo $n; ?>]" value="Aceitar">
+            </div>
+            <div class="btn">
+              <input type="submit" name="block[<?php echo $n; ?>]" value="Bloquear">
+            </div>
+          </div>
+        </div>
+            
       <?php
-       /*   }
         }
-          */
+
+        extract($_POST, EXTR_OVERWRITE);
+        for($i = 1; $i <= 3; $i++){
+          if(isset($accept[$i])){
+
+            $prod->setcod_produto($cod_prod[$i]);
+            $prod->setvalida(1);
+
+            $prod->validacao();
+
+          }
+        }
+
+        for($i = 1; $i <= 3; $i++){
+          if(isset($block[$i])){
+
+            $prod->setcod_produto($cod_prod[$i]);
+
+            $prod->exclusao();
+
+          }
+        }
+
       ?>
     </div>
+    </form>
+
 
   </main>
 </body>

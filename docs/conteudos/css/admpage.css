@@ -42,7 +42,7 @@ a{
 
 
 /*--comandos dados para o formulario em questões de tamanho/ usado para os outros em questoes de cor...-*/
-input, button, textarea
+input
 {
   outline: unset;
   padding: 10px;
@@ -59,12 +59,66 @@ input, button, textarea
     flex-direction: row-reverse;
     margin-bottom: 20px;
   }
-  input[type=button], 
-  input[type=button] {
+  input[type=button],
+  input[type=submit]
+  {
     background-color: black;
     color: white;
     height: 45px;
     width: 150px;
     margin-right: 30px;
     cursor: pointer;
+  }
+
+  /* adm validation */
+  
+  .card-container{
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+  
+  }
+  
+  .card{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card .images{
+    display: inline-grid;
+    width: 20%;
+  }
+  
+  .img-group{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .prod-selectimg{
+    width: 50px;
+    display: grid;
+  }
+  
+  .image-option{
+    width: 93%;
+  }
+  .image-option img{
+    width: 100%;
+  }
+  
+  .prod-img{
+    width: 210px;
+    margin-left: 0;
+  }
+  .prod-img img{
+    width: 100%;
+  }
+  
+  .card .prod-info{
+    display: inline-grid;
+    width: 20%;
+  }
+  
+  .card .desciption textarea{
+    background-color: transparent;
   }

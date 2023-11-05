@@ -3,7 +3,7 @@
 include_once 'Conectar.php';
 
 // parte 1 - atributos
-class Produto
+class Cupom
 {
     private $cod_cupom;
     private $nome_cupom;
@@ -51,52 +51,18 @@ class Produto
    }
 
     public function setdataex_cupom() {
-    $this->dataex_cupom = strtotime($this->getdatac_cupom()+"+ 7 day");
+    $this->dataex_cupom = date("Y-m-d", strtotime($this->getdatac_cupom()."+ 7 day"));
     }
-    
-   public function getpreco_produto() {
-    return $this->preco_produto;
-   }
-
-    public function setpreco_produto($prepro) {
-    $this->preco_produto= $prepro;
-    }
-
-    public function getsexo() {
-        return $this->sexo;
-       }
-    
-    public function setsexo($sex) {
-        $this->sexo = $sex;
-    }
-
-    public function getlink_venda() {
-         return $this->link_venda;
-    }
-
-    public function setlink_venda($linkagem) {
-     $this->link_venda = $linkagem;
-    }
-
-    public function getlink_edicao() {
-         return $this->link_edicao;
-    }
-
-    public function setlink_edicao($linkagem2) {
-     $this->link_edicao = $linkagem2;
-    }
-    //parte 3 - métodos
 
 function salvar()
 {
     try{
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("insert into cupom values (?,?,?,?,?,?)");
-        @$sql->bindParam(1, $this->getvalorp_cupom(), PDO::PARAM_STR);
-        @$sql->bindParam(2, $this->getdatac_cupom(), PDO::PARAM_STR);
-        @$sql->bindParam(3, $this->getdataex_cupom(), PDO::PARAM_STR);
-        @$sql->bindParam(4, $this->getpreco_produto(), PDO::PARAM_STR);
-        @$sql->bindParam(6, $this->getcod_cupom(), PDO::PARAM_STR);
+        $sql = $this->conn->prepare("insert into cupom values (null,?,?,?,?)");
+        @$sql->bindParam(1, $this->getnome_cupom(), PDO::PARAM_STR);
+        @$sql->bindParam(2, $this->getvalorp_cupom(), PDO::PARAM_STR);
+        @$sql->bindParam(3, $this->getdatac_cupom(), PDO::PARAM_STR);
+        @$sql->bindParam(4, $this->getdataex_cupom(), PDO::PARAM_STR);
         if($sql->execute() == 1){
         }
         $this->conn = null;

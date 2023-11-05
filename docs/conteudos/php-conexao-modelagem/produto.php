@@ -14,6 +14,7 @@ class Produto
     private $sexo;
     private $link_venda;
     private $link_edicao;
+    private $valida;
     private $conn;
 
 // parte 2 - os gettes e setter
@@ -89,6 +90,14 @@ class Produto
     public function setlink_edicao($linkagem2) {
      $this->link_edicao = $linkagem2;
     }
+
+    public function getvalida() {
+         return $this->valida;
+    }
+
+    public function setvalida($val) {
+     $this->valida = $val;
+    }
     //parte 3 - métodos
 
 function salvar()
@@ -137,13 +146,32 @@ function alterar()
   }
 }
 
-/*
-   function listar()
+function validacao()
+{
+  try
+  {
+    $sql = $this->conn->prepare("update produto set valida = ? where cod_produto = ?");
+    @$sql->bindParam(1, $this->getvalida(), PDO::PARAM_STR);
+    @$sql->bindParam(2, $this->getcod_produto(), PDO::PARAM_STR);
+
+    if ($sql->execute() == 1)
+    {
+    }  
+      
+    $this->conn = null;
+  }
+  catch(PDOException $exc)
+  {
+    echo "Erro ao alterar. " . $exc->getMessage();
+  }
+}
+
+function listar()
    {
        try
        {
            $this-> conn = new Conectar();
-           $sql = $this->conn->query("select * from livro order by cod_produto");
+           $sql = $this->conn->query("select * from produto where valida like 0 order by cod_produto limit 3");
            $sql->execute();
            return $sql->fetchAll();
            $this->conn = null;
@@ -159,11 +187,10 @@ function alterar()
         try
         {
            $this->conn = new Conectar ();
-           $sql = $this->conn->prepare ("delete from livro where Cod_livro = ?"); // informei o ? (parametro)
-           @$sql-> bindParam(1, $this->getCod_Livro(), PDO:: PARAM_STR); // inclui sata linha para definix o parametro 
+           $sql = $this->conn->prepare ("delete from produto where cod_produto = ?"); // informei o ? (parametro)
+           @$sql-> bindParam(1, $this->getcod_produto(), PDO:: PARAM_STR); // inclui sata linha para definix o parametro 
            if ($sql->execute() == 1)
            {
-            return "<font color='white'><center>Excluido com sucesso!</center></font>";
            }
            else
            {
@@ -176,8 +203,7 @@ function alterar()
        {
        echo "<font color='white'><center> Erro ao excluir. </center></font>" . $exc->getMessage();
        }
-    } 
-   */
+    }
 
     function consultar(){
        try

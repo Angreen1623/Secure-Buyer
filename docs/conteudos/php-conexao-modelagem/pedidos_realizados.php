@@ -41,8 +41,8 @@ class Pedidos_realizados
         return $this->data_compra;
    }
 
-   public function setdata_compra($reclama) {
-    $this->data_compra = $reclama;
+   public function setdata_compra() {
+    $this->data_compra = date("Y-m-d");
    }
     //parte 3 - métodos
 
@@ -52,8 +52,8 @@ function salvar()
         $this->conn = new Conectar();
         $sql = $this->conn->prepare("insert into pedidos_realizados values (?,?,?,?)");
         @$sql->bindParam(1, $this->getcod_carrinho(), PDO::PARAM_STR);
-        @$sql->bindParam(2, $this->getforma_pagamento(), PDO::PARAM_STR);
-        @$sql->bindParam(3, $this->getpreco_final(), PDO::PARAM_STR);
+        @$sql->bindParam(2, $this->getpreco_final(), PDO::PARAM_STR);
+        @$sql->bindParam(3, $this->getforma_pagamento(), PDO::PARAM_STR);
         @$sql->bindParam(4, $this->getdata_compra(), PDO::PARAM_STR);
         if($sql->execute() == 1){
         }

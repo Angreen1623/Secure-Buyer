@@ -358,6 +358,7 @@ nav ul li a:hover:after{
     font-weight: bold;
     letter-spacing: 2px;
     border-radius: 50px;
+    cursor: pointer;
 }
 .close-icon{
     position: absolute;

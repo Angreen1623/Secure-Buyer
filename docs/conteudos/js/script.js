@@ -34,3 +34,10 @@ function openPag(){
 
     fim_pag.classList.add('flex-open');
 }
+
+function closePag(){
+    fim_pag = document.querySelector(".fim-pag");
+    document.querySelector(".body").style.overflow = 'auto';
+
+    fim_pag.classList.remove('flex-open');
+}

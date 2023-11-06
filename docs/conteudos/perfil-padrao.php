@@ -188,7 +188,102 @@
                         </div>
                     </div>
 
+                    <?php
+
+                    include_once "./php-conexao-modelagem/pedidos_realizados.php";
+                    $ped = new Pedidos_realizados();
+                    include_once "./php-conexao-modelagem/carrinho.php";
+                    $cart = new Carrinho();
+
+                    include_once "./php-conexao-modelagem/imagem_produto.php";
+                    $img = new Imagem();
+                    include_once "./php-conexao-modelagem/produto.php";
+                    $prod = new Produto();
+
+                    include_once "./php-conexao-modelagem/perfil.php";
+                    $per = new Perfil();
+
+                    $cart->setcod_perfil($codper);
+                    
+                    foreach($cart->consultar() as $row){
+
+                        $ped->setcod_carrinho($row['cod_carrinho']);
+
+                        foreach($ped->consultar() as $row2){
+
+                            $cod_realizado = $row2['cod_carrinho'];
+    
+                            if($cod_realizado == $row['cod_carrinho']){
+                                $pedido_realizado = true;
+                            }else{
+                                $pedido_realizado = false;
+                            }
+    
+                        }
+
+                        if($pedido_realizado == true){
+
+                            $prod->setcod_produto($row['cod_produto']);
+
+                            foreach($prod->consultar2() as $row2){
+
+                                $nome = $row2["titulo_produto"];
+                                $preco = $row2["preco_produto"];
+                                $codper_anun = $row["cod_perfil"];
+
+                            }
+
+                            $per->setcod_perfil($codper_anun);
+                            foreach ($per->consultar() as $row2) {
+
+                                $loja = $row2["nome_loja"];
+
+                            }
+                            
+                            $qnt = $row["qnt_pro"];
+                    
+                    ?>
+
                     <div class="pedidos-item">
+                        <div class="group-images">
+                            <div class="image">
+                                <?php $img->setcod_produto($row['cod_produto']);
+                                foreach($img->consultar2() as $row2){
+                                $imagem = $row2["imagem_produto"];?>
+                                <div class="image-option">
+
+                                    <?php if(str_contains($imagem, "principal")){ ?>
+                                        <img src="<?php echo $imagem; ?>" alt="">
+                                    <?php } ?>
+                                </div>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="description">
+                                <div class="name">
+                                    <div class="title">
+                                        <h2><?php echo $nome." x".$qnt; ?></h2>
+                                    </div>
+                                    <div class="loja">
+                                        <h3><?php echo $loja; ?></h3>
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <p>R$ <?php  echo number_format($preco,2,",",".");?></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn">
+                            <span>Cancelar compra</span>
+                        </div>
+                    </div>
+
+
+                    <?php }} ?>
+                    
+                    <!-- <div class="pedidos-item">
                         <div class="group-images">
                             <div class="image">
                                 <img src="img/modelo2.png" alt="Jaqueta em denim">
@@ -236,7 +331,7 @@
                         <div class="btn">
                             <a href="">Reembolsar</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

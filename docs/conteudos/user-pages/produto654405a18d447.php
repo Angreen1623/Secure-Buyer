@@ -196,7 +196,7 @@
                         <div class="prod-selectimg">
                             <?php $img->setcod_produto(5);
                             $imagens = $img->consultar2();
-                            foreach($imagens as $row2){
+                            foreach($img->consultar2() as $row2){
                             $imagem = $row2["imagem_produto"];?>
                             <div class="image-option">
 

@@ -3,7 +3,7 @@
 include_once 'Conectar.php';
 
 // parte 1 - atributos
-class Link
+class Fale
 {
     private $cod_fale;
     private $email_cli;
@@ -50,7 +50,7 @@ function salvar()
 {
     try{
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("insert into fale_conosco values (null,?,?,?)");
+        $sql = $this->conn->prepare("insert into fale_conosco values (null,?,?,?,0)");
         @$sql->bindParam(1, $this->gettitulo(), PDO::PARAM_STR);
         @$sql->bindParam(2, $this->getemail_cli(), PDO::PARAM_STR);
         @$sql->bindParam(3, $this->getreclamacao(), PDO::PARAM_STR);

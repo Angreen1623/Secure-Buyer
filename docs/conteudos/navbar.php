@@ -216,7 +216,7 @@
                     <button class="btn" onclick="window.location.replace('./novidades.php')">Começe a comprar</button>
                     <?php }?>
                 </div>
-                <a href="novidades.php"> <span class="continue underline">Continuar comprando</span></a>
+                <a href="novidades.php" style="color:#000;"> <span class="continue underline">Continuar comprando</span></a>
             </div>
         </div>
     </div>

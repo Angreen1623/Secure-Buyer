@@ -2,7 +2,7 @@
 2. 3 Imagens funcionando no adicionar anuncio;                          FEITO
 3. Finalizar editar anuncio;                                            FEITO
 4. Tratamento de erro;                                                  FEITO
-5. Responsividade;
+5. Responsividade;                                                      tem 4 dias :)
 6. Linkagem com o produtos.php;                                         FEITO
 7. Tela do ADM;                                                         (Andreeis)
 8. Cards do anúncio;                                                    FEITO
@@ -15,5 +15,6 @@
 16. no tratamento de erro, não poder voltar para a pag de criação de 
 cadastro caso tiver uma conta recem cadastrada, e n deixar quem n 
 possui loja usar  link para acessar essa pagina                         FEITO
+
 
 ultima atualização: 05/11/23

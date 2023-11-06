@@ -87,8 +87,9 @@
     </div>
     <nav>
         <ul>
-            <li><a href="#">Feminino</a></li>
-            <li><a href="#">Masculino</a></li>
+            <li><a href="feminino.php">Feminino</a></li>
+            <li><a href="masculino.php">Masculino</a></li>
+            <li><a href="unissex.php">Unissex</a></li>
             <li>
                 <a href="#">Ajuda</a>
                 <ul class="submenu">
@@ -201,7 +202,7 @@
             <div class="bag-buy">
                 <div class="group cupom">
                     <img src="../conteudos/img/cupom.png" alt="">
-                    <h3>Adicionar cupom de desconto</h3>
+                    <input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
                 </div>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
@@ -214,7 +215,7 @@
                     <button class="btn" onclick="window.location.replace('./index.php')">Começe a comprar</button>
                     <?php }?>
                 </div>
-                <span class="continue underline">Continuar comprando</span>
+                <a href="novidades.php"> <span class="continue underline">Continuar comprando</span></a>
             </div>
         </div>
     </div>

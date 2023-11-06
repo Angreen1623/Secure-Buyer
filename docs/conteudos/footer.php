@@ -13,7 +13,7 @@
            <div class="footer-col">
             <h6>AJUDA</h6>
               <ul>
-                 <li> <a href="conteudos/faleconosco.html">Fale conosco</a></li>
+                 <li> <a href="conteudos/fale_conosco.php">Fale conosco</a></li>
                  <li> <a href="conteudos/sobrenos.html">Sobre nós</a></li>
               </ul>
             </div>
@@ -26,7 +26,7 @@
            </div>
           <div class="footer-sub">
             ESTÁ COM PROBLEMAS?<br>
-           <a href="conteudos/faleconosco.html"><button>Fale conosco</button></a>
+           <a href="conteudos/fale_conosco.php"><button>Fale conosco</button></a>
           </div>
        </div>
      </div>

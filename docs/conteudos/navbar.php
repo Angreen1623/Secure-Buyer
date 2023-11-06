@@ -93,7 +93,7 @@
                 <a href="#">Ajuda</a>
                 <ul class="submenu">
                     <li><a href="#">Sobre nos</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="./fale_conosco.php">Fale Conosco</a></li>
                 </ul>
             </li>
         </ul>

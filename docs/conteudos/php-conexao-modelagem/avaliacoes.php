@@ -63,8 +63,8 @@
                 $this->conn = new Conectar();
                 $sql = $this->conn->prepare("insert into avaliacoes (cod_produto, cod_perfil, texto_ava, estrela_ava) values (:codigo,:cod_perfil,:texto, :estrelas)");
                 @$sql-> bindParam(":codigo", $this->getcod_produto(), PDO::PARAM_INT);
-                @$sql-> bindParam(":cod_perfil", $this->getcod_perfil(), PDO::PARAM_STR);
-                @$sql-> bindParam(":texto", $this->gettexto_ava(), PDO::PARAM_INT);
+                @$sql-> bindParam(":cod_perfil", $this->getcod_perfil(), PDO::PARAM_INT);
+                @$sql-> bindParam(":texto", $this->gettexto_ava(), PDO::PARAM_STR);
                 @$sql-> bindParam(":estrelas", $this->getestrela_ava(), PDO::PARAM_INT);
                 if($sql->execute() == 1){
                     return "Registro salvo com sucesso!";

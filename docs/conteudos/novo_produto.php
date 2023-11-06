@@ -378,7 +378,7 @@ function buying_page($prod_cod){
 
                                         <div class=\"div-campo\">
                                         <div class=\"text-campo\">
-                                        <label class=\"subtitle\">Comente o que achou dese produto:</label><br>
+                                        <label class=\"subtitle\">Comente o que achou deste produto:</label><br>
                                         </div>
                                         <textarea style=\"border: 1px solid #ccc; border-radius: 20px; padding: 10px; width: 100%; max-width: 100%; resize: none;\" rows = \"6\" cols = \"60\" name = \"descricao\" maxlength=\"2000\" required></textarea>
                                         </div>

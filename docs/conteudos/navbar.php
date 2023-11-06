@@ -205,6 +205,7 @@
                     <img src="../conteudos/img/cupom.png" alt="">
                     <input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
                 </div>
+                <?php ?>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
                     <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>

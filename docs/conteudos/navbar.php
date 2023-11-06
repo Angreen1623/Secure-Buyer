@@ -187,11 +187,21 @@
                                 <h5 class="bag-price">R$ <?php  echo number_format($preco,2,",",".");?></h5>
                                 <span>Quantidade: <?php  echo $row["qnt_pro"];?></span>
                                 <div class="right">
-                                    <img src="../conteudos/img/del.png" alt="deletar">
+                                    <form action="" method="POST">
+                                    <label for="btnexc"><img src="../conteudos/img/del.png" alt="deletar"></label>
+                                    <input type="submit" name="btnexc" id="btnexc">
+                                    </form>
                                 </div>
                             </div>
                         </div>
 
+                        <?php
+
+      function btnexc(){
+        $cart->setcod_carrinho($row['cod_carrinho']);
+          $cart->excluir();
+      }
+      ?>
             <?php
                         }
                         $total = $total + ($preco * $row["qnt_pro"]);

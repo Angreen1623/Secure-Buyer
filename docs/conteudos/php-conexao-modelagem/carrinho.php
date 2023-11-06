@@ -95,5 +95,19 @@ function consultar(){
     }
 } 
 
+function excluir(){
+    try
+        {
+           $this->conn = new Conectar ();
+           $sql = $this->conn->prepare ("delete from carrinho where cod_carrinho = ?"); // informei o ? (parametro)
+           @$sql-> bindParam(1, $this->getcod_carrinho(), PDO:: PARAM_STR); // inclui sata linha para definix o parametro 
+           $sql->execute() == 1;
+           $this->conn = null;
+       }
+       catch (PDOException $exc)
+       {
+       echo "<font color='white'><center> Erro ao excluir. </center></font>" . $exc->getMessage();
+       }
+}
 } //encerramento da classe produto 
 ?>

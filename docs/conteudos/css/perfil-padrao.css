@@ -106,13 +106,16 @@
 .pedidos .pedidos-box .group-images{
     display: inline-flex;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .pedidos .pedidos-box .image{
-    width: 125px;
+    width: 121px;
+    height: 121px;
 }
 .pedidos .pedidos-box img{
     width: 100%;
+    height: 100%;
 }
 
 .pedidos .pedidos-box .pedidos-item{
@@ -131,6 +134,12 @@
 .pedidos .pedidos-box .title h2{
     font-weight: bolder;
     font-size: 18px;
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
 }
 .pedidos .pedidos-box .loja h3{
     font-weight: lighter;

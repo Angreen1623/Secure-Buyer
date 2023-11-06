@@ -120,9 +120,10 @@
                 $per = new Perfil();
                 include_once "./php-conexao-modelagem/pedidos_realizados.php";
                 $ped_rea = new Pedidos_realizados();
-                if(isset($codper)){
 
                 $total = 0;
+                if(isset($codper)){
+                
                 $pedido_realizado = false;
 
                 $cart->setcod_perfil($codper);
@@ -212,7 +213,7 @@
                     <?php if($total != 0){?>
                     <button class="btn" onclick="openPag()">Finalizar compra</button>
                     <?php }else{?>
-                    <button class="btn" onclick="window.location.replace('./index.php')">Começe a comprar</button>
+                    <button class="btn" onclick="window.location.replace('./novidades.php')">Começe a comprar</button>
                     <?php }?>
                 </div>
                 <a href="novidades.php"> <span class="continue underline">Continuar comprando</span></a>

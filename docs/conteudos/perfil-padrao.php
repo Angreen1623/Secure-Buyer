@@ -203,6 +203,8 @@
                     include_once "./php-conexao-modelagem/perfil.php";
                     $per = new Perfil();
 
+                    $pedido_realizado = false;
+
                     $cart->setcod_perfil($codper);
                     
                     foreach($cart->consultar() as $row){
@@ -215,13 +217,13 @@
     
                             if($cod_realizado == $row['cod_carrinho']){
                                 $pedido_realizado = true;
-                            }else{
-                                $pedido_realizado = false;
                             }
     
                         }
 
                         if($pedido_realizado == true){
+
+                            $pedido_realizado = false;
 
                             $prod->setcod_produto($row['cod_produto']);
 

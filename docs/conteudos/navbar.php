@@ -128,26 +128,30 @@
 
                 $cart->setcod_perfil($codper);
                 $carrinhos = $cart->consultar();
+                $n = 0;
+                $i = 0;
+                $j = 0;
+                $pedidos[] = "";
 
                 foreach($carrinhos as $row){
+                    $i++;
 
                     $ped_rea->setcod_carrinho($row['cod_carrinho']);
                     $pedidos_realizados = $ped_rea->consultar();
 
                     foreach($pedidos_realizados as $row2){
+                        $n++;
 
-                        $cod_realizado = $row2['cod_carrinho'];
-
-                        if($cod_realizado == $row['cod_carrinho']){
-                            $pedido_realizado = true;
-                        }else{
-                            $pedido_realizado = false;
+                        if($row2['cod_carrinho'] == $row['cod_carrinho']){
+                            $pedidos[$n] = $row2['cod_carrinho'];
                         }
 
                     }
 
-                    if($pedido_realizado == false){
+                    if(!isset($pedidos[$i])){
+                    $j++;
 
+                    $carrinho_atual[$j] = intval($row['cod_carrinho']);
                     $prod->setcod_produto($row["cod_produto"]);
                     $produtos = $prod->consultar2();
 
@@ -173,7 +177,7 @@
                             </div>
                             <div class="text">
                                 <div class="bag-info">
-                                    <h5><?php  echo $row2["titulo_produto"];?></h5>
+                                    <h5><?php  echo $row2["titulo_produto"]; ?></h5>
                                     <h3>
                                         <?php 
                                     $per->setcod_perfil($row2["cod_perfil"]);
@@ -187,21 +191,15 @@
                                 <h5 class="bag-price">R$ <?php  echo number_format($preco,2,",",".");?></h5>
                                 <span>Quantidade: <?php  echo $row["qnt_pro"];?></span>
                                 <div class="right">
-                                    <form action="" method="POST">
-                                    <label for="btnexc"><img src="../conteudos/img/del.png" alt="deletar"></label>
-                                    <input type="submit" name="btnexc" id="btnexc">
+                                    <form action="./script/bag.php" method="POST">
+                                        <input type="hidden" name="num_item" value="<?php echo $j; ?>">
+                                        <input type="hidden" name="carrinho_atual" value="<?php echo $carrinho_atual; ?>">
+                                        <label for="btnexc"><img src="../conteudos/img/del.png" alt="deletar"></label>
+                                        <input type="submit" name="btnexc" id="btnexc" style="display: none;">
                                     </form>
                                 </div>
                             </div>
                         </div>
-
-                        <?php
-
-      function btnexc(){
-        $cart->setcod_carrinho($row['cod_carrinho']);
-          $cart->excluir();
-      }
-      ?>
             <?php
                         }
                         $total = $total + ($preco * $row["qnt_pro"]);

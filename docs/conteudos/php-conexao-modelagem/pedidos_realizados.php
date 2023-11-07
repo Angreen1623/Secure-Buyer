@@ -70,7 +70,7 @@ function consultar(){
     {
         $this->conn = new Conectar();
         $sql = $this->conn->prepare("Select * from pedidos_realizados where cod_carrinho like ? order by cod_carrinho"); // informei o ?
-        @$sql-> bindParam(1, $this->getcod_carrinho(), PDO::PARAM_STR); 
+        @$sql-> bindParam(1, $this->getcod_carrinho(), PDO::PARAM_STR);
         $sql->execute();
         return $sql->fetchAll();
         $this->conn = null;

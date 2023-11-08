@@ -158,7 +158,7 @@
     border-bottom: 1px solid #000;
 }
 
-.pedidos .pedidos-box .btn{
+.pedidos .pedidos-box .btn input{
     float: right;
     font-size: 16px;
     font-weight: lighter;
@@ -173,20 +173,6 @@
     font-weight: bold;
     border-radius: 50px;
     margin-right: 10%;
-    cursor: pointer;
-}
-.pedidos .pedidos-box input{
-    font-size: 16px;
-    font-weight: lighter;
-    letter-spacing: 2px;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    padding: 6px;
-    font-weight: bold;
-    border-radius: 50px;
     cursor: pointer;
 }
 

@@ -55,6 +55,23 @@
             echo "Erro ao executar a consulta." . $exc->getMessage();
         }
     }
+
+        function consultar2(){
+        try {
+            
+            $this->conn = new Conectar();
+            $sql = $this->conn->prepare("select cod_perfil from avaliacoes where cod_perfil = :cod_perfil");
+            @$sql->bindParam(':cod_perfil', $this->getcod_perfil(), PDO::PARAM_INT);
+            @$sql->execute();
+            $result = $sql->fetchAll();
+            $this->conn = null;
+            return $result;
+        } catch (PDOException $exc) {
+            echo "Erro ao executar a consulta." . $exc->getMessage();
+        }
+    }
+
+
         function salvar(){
             try{
 

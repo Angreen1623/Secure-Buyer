@@ -436,28 +436,48 @@ function buying_page($prod_cod){
                             </div>
                         </div>
 
+                        <?php
+                        include_once "../php-conexao-modelagem/avaliacoes.php";
+                        $avali = new Avaliacao();
+                        $avali->setcod_produto('.$prod_cod.');
+                        $avaliacoes=$avali->consultar();
+                        ?>
+
                         <div class="rating-container">
-                            <div class="rating-item">
-                                <div class="img-profile">
-                                    <img src="../img/modelo13.png" alt="">
-                                </div>
-                                <div class="group">
-                                    <div class="name-profile">
-                                        <h1>Natalia Carangueijo da Silva</h1>
-                                    </div>
-                                    <div class="rating-stars">★★★★★</div>
-                                    <div class="rating-commit">
-                                        <p>Esta camiseta é simplesmente deslumbrante! Com cristais brilhantes,
-                                            estilo moderno e design sóbrio, é confortável e elegante. As mangas
-                                            longas e a modelagem solta a torna versátil. Cinco estrelas para
-                                            uma peça única.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php
+                        foreach($avaliacoes as $a_mostrar)
+                        {
+                        $estrela = $a_mostrar[\'estrela_ava\']; 
+                        echo "<div class=\"rating-item\">";
+                        echo  "<div class=\"group\">";
+                        echo "<div class=\"name-profile\">";
+                        $cod_perfil_avaliacao = $a_mostrar[\'cod_perfil\'];
+                        include_once "../php-conexao-modelagem/perfil.php";
+                        $nome = new Perfil();
+                        $nome->setcod_perfil($cod_perfil_avaliacao);
+                        $exibir = $nome->consultarnome();
+                        echo "<h1>" . $exibir . "</h1>";
+                        echo "</div>";
+                        for ($i = 1; $i<=5; $i++)
+                        {
+                            if ($i <= $estrela)
+                            {
+                                echo "<i class=\"estrela-preenchida fa-solid fa-star\"></i>";
+                            } else{
+                                echo "<i class=\"estrela-vazia fa-solid fa-star\"></i>";
+                            }
+                        }
+                        echo "<div class=\"rating-commit\">";
+                        echo "<p>" . $a_mostrar[\'texto_ava\'] . "</p>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        }
+                        ?>
                 </div>
             </div>
+        </div>
 
             <div class="about">
 

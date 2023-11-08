@@ -42,21 +42,19 @@
         }
 
         function consultar(){
-            try{
-
-                $this->conn = new Conectar();
-                $sql = $this->conn->prepare("select * from avaliacoes where cod_produto like :cod_produto and cod_perfil = :cod_perfil");
-                @$sql-> bindParam(":cod_produto", $this->getcod_produto(), PDO::PARAM_INT);
-                $sql->execute();
-                return $sql->fetchAll();
-                $this->conn = null;
-
-            }catch(PDOException $exc){
-                echo "Erro ao executar a consulta.".$exc->getMessage();
-            }
+        try {
+            
+            $this->conn = new Conectar();
+            $sql = $this->conn->prepare("select texto_ava, estrela_ava, cod_perfil from avaliacoes where cod_produto = :cod_produto");
+            @$sql->bindParam(':cod_produto', $this->getcod_produto(), PDO::PARAM_INT);
+            @$sql->execute();
+            $result = $sql->fetchAll();
+            $this->conn = null;
+            return $result;
+        } catch (PDOException $exc) {
+            echo "Erro ao executar a consulta." . $exc->getMessage();
         }
-
-        
+    }
         function salvar(){
             try{
 
@@ -94,5 +92,6 @@
         }
 
     }
+
 
 ?>

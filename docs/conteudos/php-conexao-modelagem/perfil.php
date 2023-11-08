@@ -273,5 +273,26 @@ function alterar3()
     }
 }
 
+function consultarnome()
+{
+    try
+    {
+      $this-> conn = new Conectar();
+      $sql = $this->conn->prepare("select nome from perfil where cod_perfil like ?"); //informe o ? (parametro)
+      @$sql-> bindParam(1, $this->getcod_perfil(), PDO::PARAM_STR);//essa linha define o parametro
+      $sql->execute();
+      $result = $sql->fetch();
+      $this->conn = null;
+      return $result['nome'];  
+      
+    }
+    catch(PDOException $exc)
+    {
+      echo "Erro ao executar consulta " . $exc->getMessage();
+    }
+    
+
+}
+
 }//encerramento da classe produto
 ?>

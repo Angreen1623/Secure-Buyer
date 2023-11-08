@@ -192,8 +192,7 @@
                                 <span>Quantidade: <?php  echo $row["qnt_pro"];?></span>
                                 <div class="right">
                                     <form action="./script/bag.php" method="POST">
-                                        <input type="hidden" name="num_item" value="<?php echo $j; ?>">
-                                        <input type="hidden" name="carrinho_atual" value="<?php echo $carrinho_atual; ?>">
+                                        <input type="hidden" name="num_item" value="<?php echo $carrinho_atual[$j]; ?>">
                                         <label for="btnexc"><img src="../conteudos/img/del.png" alt="deletar"></label>
                                         <input type="submit" name="btnexc" id="btnexc" style="display: none;">
                                     </form>

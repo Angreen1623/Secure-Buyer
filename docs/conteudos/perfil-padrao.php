@@ -205,6 +205,8 @@
 
                     $pedido_realizado = false;
 
+                    $n = 0;
+
                     $cart->setcod_perfil($codper);
                     
                     foreach($cart->consultar() as $row){
@@ -214,31 +216,31 @@
                         foreach($ped->consultar() as $row2){
 
                             $cod_realizado = $row2['cod_carrinho'];
+                            
+                            $data = $row2["data_compra"];
     
                             if($cod_realizado == $row['cod_carrinho']){
-                                $pedido_realizado = true;
-                            }
-    
-                        }
 
-                        if($pedido_realizado == true){
+                                $n++;
 
-                            $pedido_realizado = false;
+                                $pedido[$n] = intval($row['cod_carrinho']);
+
+                                $pedido_realizado = false;
 
                             $prod->setcod_produto($row['cod_produto']);
 
-                            foreach($prod->consultar2() as $row2){
+                            foreach($prod->consultar2() as $row3){
 
-                                $nome = $row2["titulo_produto"];
-                                $preco = $row2["preco_produto"];
+                                $nome = $row3["titulo_produto"];
+                                $preco = $row3["preco_produto"];
                                 $codper_anun = $row["cod_perfil"];
 
                             }
 
                             $per->setcod_perfil($codper_anun);
-                            foreach ($per->consultar() as $row2) {
+                            foreach ($per->consultar() as $row3) {
 
-                                $loja = $row2["nome_loja"];
+                                $loja = $row3["nome_loja"];
 
                             }
                             
@@ -278,12 +280,25 @@
                         </div>
 
                         <div class="btn">
-                            <span>Cancelar compra</span>
+                            <form action="./script/apagar_item.php" method="post">
+                                <input type="hidden" name="pedido" value="<?php echo $pedido[$n]; ?>">
+
+                                <?php if($data == date("Y-m-d")){?>
+                                    <input type="submit" name="cancelar" value="Cancelar compra">
+                                <?php }else{ ?>
+                                    <input type="submit" name="reembolsar" value="Pedir reembolso">
+                                <?php } ?>
+                            </form>
                         </div>
                     </div>
 
 
-                    <?php }} ?>
+                    <?php }
+                            }
+    
+                        }
+                        
+                        ?>
                     
                     <!-- <div class="pedidos-item">
                         <div class="group-images">

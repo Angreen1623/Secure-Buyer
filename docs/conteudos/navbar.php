@@ -233,7 +233,7 @@
                 <?php ?>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>
+                    <h3 class="right"> R$ <?php echo number_format($total,2,",","."); ?></h3>
                 </div>
                 <div class="bag-end">
                     <?php if($total != 0){?>

@@ -515,6 +515,7 @@ background-color: #000000;
     padding: 20px;
     width: 700px;
     background-color: #ffffff;
+    border-radius: 20px;
 }
 
 .fim-pag form .row{
@@ -582,6 +583,14 @@ background-color: #000000;
 
 /*---Janela Modal---*/
 
+.pix{
+    display: none;
+}
+
+.boleto{
+    display: none;
+}
+
 .modal-background{
     position: fixed;
     left: 0;
@@ -602,12 +611,37 @@ background-color: #000000;
     padding: 20px;
     width: 700px;
     background-color: #ffffff;
+    border-radius: 20px;
 }
 
 .janela-modal .title{
     border-bottom: #000 solid 1px;
     text-align: center;
 }
+.janela-modal .title h1{
+    font-size: 28px;
+    font-family: 'lovelace',Arial, sans-serif;
+}
+
+.janela-modal .content{
+    min-height: 100px;
+}
+
+.janela-modal .btn{
+    display: flex;
+    justify-content: flex-end;
+}
+.janela-modal .btn button{
+    width: fit-content;
+    padding: 12px;
+    font-size: 17px;
+    background-color: #000;
+    color: #ffffff;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
 
 /*---responsividade---*/
 @media (max-width:800px){

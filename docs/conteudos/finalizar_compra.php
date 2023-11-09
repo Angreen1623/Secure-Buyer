@@ -61,10 +61,10 @@
                         <label class="image" for="masterc">
                             <img src="./img/mastercard.png" alt="">
                         </label>
-                        <label class="image" for="pix">
+                        <label class="image" for="pix" onclick="openModal(2)">
                             <img src="./img/pix.jpg" alt="">
                         </label>
-                        <label class="image" for="boleto">
+                        <label class="image" for="boleto" onclick="openModal(1)">
                             <img src="./img/boleto.png" alt="">
                         </label>
                     </div>
@@ -91,6 +91,35 @@
                 <input type="hidden" name="codper" value="<?php echo $codper;?>">
             </div>
         </div>
-        <input type="submit" name="btnenviar" class="submit-btn" value="Finalizar Compra">
+        <div class="pix">
+            <div class="modal-background">
+                <div class="janela-modal">
+                    <div class="title">
+                        <h1>Pix</h1>
+                    </div>
+                    <div class="content">
+                    </div>
+                    <div class="btn">
+                        <label for="btnenviar"> <button onclick="closeModal()">Confirmar</button></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="boleto">
+            <div class="modal-background">
+                <div class="janela-modal">
+                    <div class="title">
+                        <h1>Boleto</h1>
+                    </div>
+                    <div class="content">
+                    </div>
+                    <div class="btn">
+                        <label for="btnenviar"><button onclick="closeModal()">Confirmar</button></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" name="btnenviar" id="btnenviar" class="submit-btn" value="Finalizar Compra">
     </form>
 </div>

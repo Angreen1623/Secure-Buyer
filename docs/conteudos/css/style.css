@@ -6,6 +6,10 @@ body{
     text-decoration: underline;
 }
 
+button{
+    cursor: pointer;
+}
+
 .topbar{
     display: inline-block;
     width: 100%;

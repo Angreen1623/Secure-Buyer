@@ -56,16 +56,16 @@
 
                     <div class="flex">
                         <label class="image" for="visa">
-                            <img src="./img/visa.png" alt="">
+                            <img src="../img/visa.png" alt="">
                         </label>
                         <label class="image" for="masterc">
-                            <img src="./img/mastercard.png" alt="">
+                            <img src="../img/mastercard.png" alt="">
                         </label>
                         <label class="image" for="pix">
-                            <img src="./img/pix.jpg" alt="">
+                            <img src="../img/pix.jpg" alt="">
                         </label>
                         <label class="image" for="boleto">
-                            <img src="./img/boleto.png" alt="">
+                            <img src="../img/boleto.png" alt="">
                         </label>
                     </div>
                 </div>

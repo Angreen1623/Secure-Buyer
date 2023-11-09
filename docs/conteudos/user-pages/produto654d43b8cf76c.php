@@ -258,6 +258,9 @@
         </div>
     </div>
 </div>
+
+<?php include_once 'finalizar_compra.php'; ?>
+
             <div class="produto-info">
                 <?php
                     extract($_POST, EXTR_OVERWRITE);
@@ -420,7 +423,7 @@
                         <div class="end-purchase">
                             <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart" form="main">
                             <div class="more">
-                                <span class="underline about-btn">Sobre a loja</span>
+                                <span class="underline about-btn"></span>
                             </div>
                             <div class="more">
                                 <span class="underline detail-btn">Detalhes do produto</span>

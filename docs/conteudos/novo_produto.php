@@ -591,36 +591,6 @@ function buying_page($prod_cod){
 
                 }
             ?>
-
-                <span class="close-about"><img src="../img/close.png" alt="fechar"></span>
-                <div class="about-sidebar">
-                    <div class="title">
-                        <h4>Sobre a loja</h4>
-                    </div>
-                    <div class="about-body">
-
-                        <div class="group">
-                            <div class="img">
-                                <img src="<?php echo ".".$img; ?>" alt="">
-                            </div>
-
-                            <div class="profile">
-                                <div class="name">
-                                    <h1><?php echo $loja; ?> - <?php echo $nome." ".$lastnm; ?></h1>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="description">
-                            <span>Avaliações: XX</span>
-                            <span>Produtos: XX</span>
-                            <span>Anunciante desde: XX/XX/XXXX</span>
-                            <span>CNPJ: <?php echo $cnpj; ?></span>
-                        </div>
-
-                    </div>
-                </div>
             </div>
 
             <div class="detail">

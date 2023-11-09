@@ -203,6 +203,22 @@
                         </div>
             <?php
                         }
+                
+                        extract($_POST, EXTR_OVERWRITE);
+                        if(isset($btnadicionar))
+                         {
+                             include_once './php-conexao-modelagem/cupom.php';
+                             $pro=new Cupom();
+                             $pro -> setnome_cupom($cupom.'%');
+                             $pro_bd = $pro->consultar();
+                             foreach($pro_bd as $pro_mostrar)
+                             {
+                             ?>                                                  
+                             $pro_mostrar["valorp_cupom"];
+                           <?php              
+                        }
+                    }   
+            
                         $total = $total + ($preco * $row["qnt_pro"]);
                     }
                     }
@@ -212,12 +228,14 @@
             <div class="bag-buy">
                 <div class="group cupom">
                     <img src="../conteudos/img/cupom.png" alt="">
-                    <input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
+                    <form name="cupom"  method = "POST" action = ""><input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
+                    <button class="btnadicionar" name="btnadicionar">adicionar</button></form>
+                  
                 </div>
                 <?php ?>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>
+                    <h3 class="right"> R$ <?php echo number_format($total,2,",","."); ?></h3>
                 </div>
                 <div class="bag-end">
                     <?php if($total != 0){?>

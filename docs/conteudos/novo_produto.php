@@ -360,7 +360,9 @@ function buying_page($prod_cod){
                                 include_once "../php-conexao-modelagem/pedidos_realizados.php";
                                 $ped = new Pedidos_realizados();
 
-                                $cart->setcod_perfil($codper);
+                                if(isset($codper)){
+
+                                    $cart->setcod_perfil($codper);
 
                                 foreach($cart->consultar() as $row){
 
@@ -374,7 +376,7 @@ function buying_page($prod_cod){
 
                                 }
 
-                                if(isset($codper) && isset($produto_comprado)){
+                                if(isset($produto_comprado)){
                                     echo "<br><br><h1>Avalie este produto</h1>";
 
                                     include_once "../php-conexao-modelagem/avaliacoes.php";
@@ -427,7 +429,7 @@ function buying_page($prod_cod){
                                     $aval->setestrela_ava($estrela);
                                     $aval->salvar();
                         
-                                    echo "<script language=`JavaScript`>window.location.replace(\"../index.php\");</script>";   
+                                    echo "<script language=\'JavaScript\'>window.location.replace(\'../index.php\');</script>";   
                                 }
                                 ?>
                             </div>
@@ -608,7 +610,7 @@ function buying_page($prod_cod){
             $cart->settamanho_pro($tamanho);
             $cart->salvar();
 
-            echo "<script language=`JavaScript`>window.location.replace(`../index.php`);</script>";
+            echo "<script language=\'JavaScript\'>window.location.replace(\'../index.php\');</script>";
 
         }
 

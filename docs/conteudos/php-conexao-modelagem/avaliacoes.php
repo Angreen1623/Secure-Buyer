@@ -45,7 +45,7 @@
         try {
             
             $this->conn = new Conectar();
-            $sql = $this->conn->prepare("select texto_ava, estrela_ava, cod_perfil from avaliacoes where cod_produto = :cod_produto");
+            $sql = $this->conn->prepare("select texto_ava, estrela_ava, cod_perfil from avaliacoes where cod_produto like :cod_produto");
             @$sql->bindParam(':cod_produto', $this->getcod_produto(), PDO::PARAM_INT);
             @$sql->execute();
             $result = $sql->fetchAll();
@@ -60,8 +60,9 @@
         try {
             
             $this->conn = new Conectar();
-            $sql = $this->conn->prepare("select cod_perfil from avaliacoes where cod_perfil = :cod_perfil");
+            $sql = $this->conn->prepare("select * from avaliacoes where cod_perfil like :cod_perfil and cod_produto like :cod_produto");
             @$sql->bindParam(':cod_perfil', $this->getcod_perfil(), PDO::PARAM_INT);
+            @$sql->bindParam(':cod_produto', $this->getcod_produto(), PDO::PARAM_INT);
             @$sql->execute();
             $result = $sql->fetchAll();
             $this->conn = null;

@@ -237,7 +237,7 @@ function buying_page($prod_cod){
                 </div>
                 <?php
                         extract($_POST, EXTR_OVERWRITE);
-                        if(isset($btnaddactionz))
+                        if(isset($btnaddaction))
                          {
                              include_once \'../php-conexao-modelagem/cupom.php\';
                              $pro=new Cupom();

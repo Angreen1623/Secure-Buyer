@@ -563,6 +563,35 @@ background-color: #000000;
     border-radius: 50px;
 }
 
+/*---Janela Modal---*/
+
+.modal-background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: #00000040;
+    padding-bottom: 70px;
+    z-index: 110;
+}
+
+.janela-modal{
+    padding: 20px;
+    width: 700px;
+    background-color: #ffffff;
+}
+
+.janela-modal .title{
+    border-bottom: #000 solid 1px;
+    text-align: center;
+}
+
 /*---responsividade---*/
 @media (max-width:800px){
   .footer-col{

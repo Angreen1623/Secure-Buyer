@@ -203,24 +203,9 @@
                         </div>
             <?php
                         }
-                
-                        extract($_POST, EXTR_OVERWRITE);
-                        if(isset($btnadicionar))
-                         {
-                             include_once './php-conexao-modelagem/cupom.php';
-                             $pro=new Cupom();
-                             $pro -> setnome_cupom($cupom.'%');
-                             $pro_bd = $pro->consultar();
-                             foreach($pro_bd as $pro_mostrar)
-                             {
-                             ?>                                                  
-                             $pro_mostrar["valorp_cupom"];
-                           <?php              
+
+                           $total = $total + ($preco * $row["qnt_pro"]);
                         }
-                    }   
-            
-                        $total = $total + ($preco * $row["qnt_pro"]);
-                    }
                     }
                 }
             ?>
@@ -232,10 +217,28 @@
                     <button class="btnadicionar" name="btnadicionar">adicionar</button></form>
                   
                 </div>
-                <?php ?>
+                <?php
+                        extract($_POST, EXTR_OVERWRITE);
+                        if(isset($btnadicionar))
+                         {
+                             include_once './php-conexao-modelagem/cupom.php';
+                             $pro=new Cupom();
+                             $pro -> setnome_cupom($cupom);
+                             $pro_bd = $pro->consultar();
+                             foreach($pro_bd as $pro_mostrar){
+                              $valor = floatval($pro_mostrar["valorp_cupom"]);
+                            }
+
+                            if($total>0 || !empty($valor)){
+                                $desconto=$total*$valor;
+                                $total=$total-$desconto;
+                              }
+                        }
+                        
+                      ?>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right"> R$ <?php echo number_format($total,2,",","."); ?></h3>
+                    <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>
                 </div>
                 <div class="bag-end">
                     <?php if($total != 0){?>

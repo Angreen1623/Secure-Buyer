@@ -38,10 +38,12 @@ function buying_page($prod_cod){
             <!-- div da lupa c/ seu texto-->
             <div class="left">
                 <label>
-                    <!-- icone da lupa -->
-                    <img src="../img/lupa.png" alt="">
-                    <!-- texto da lupa -->
-                    <input type="search" placeholder="Pesquisar">
+                    <form action="../pesquisar.php" method="post">
+                        <!-- icone da lupa -->
+                        <button><img src="../img/lupa.png" alt=""></button>
+                        <!-- texto da lupa -->
+                        <input type="search" placeholder="Pesquisar">
+                    </form>
                 </label>
             </div>
             <!-- fim da lupa -->
@@ -79,11 +81,15 @@ function buying_page($prod_cod){
                             }
                         }
                     
-                    if(isset($codper)){
-                        echo "../perfil-padrao.php";
-                    }else{ 
-                        echo "../entrar.php";
-                    }?>">
+                        if (isset($codper)) {
+                            if ($adm == true) {
+                                echo \'./adm-pages/admpage.php\';
+                            }else{
+                            echo \'perfil-padrao.php\';
+                            }
+                        } elseif (!isset($codper)) {
+                            echo \'entrar.php\';
+                        }?>">
                         <!-- foto do login -->
                         <img src="../img/user.png" alt="Logar">
                     </a>

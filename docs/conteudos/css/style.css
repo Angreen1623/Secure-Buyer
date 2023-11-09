@@ -371,11 +371,16 @@ nav ul li a:hover:after{
     background-color: #000;
     color: #fff;
     font-size: 12px;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     font-weight: bold;
     letter-spacing: 2px;
     border-radius: 50px;
     cursor: pointer;
+}
+
+#butaodesconto{
+    display: flex;
 }
 
 .close-icon{
@@ -400,6 +405,18 @@ nav ul li a:hover:after{
     display: block;
 }
 
+.close-about img{
+    width: 60%;
+
+    margin: auto;
+    display: block;
+}
+.close-detail img{
+    width: 60%;
+
+    margin: auto;
+    display: block;
+}
 footer{
     flex-shrink: 0;
     background-color: #F8FAF5;

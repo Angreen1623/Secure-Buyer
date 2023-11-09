@@ -94,7 +94,8 @@ CREATE TABLE `fale_conosco` (
   `cod_fale` int(11) NOT NULL,
   `email_cli` varchar(70) NOT NULL,
   `titulo` text NOT NULL,
-  `reclamacao` text NOT NULL
+  `reclamacao` text NOT NULL,
+  `respondido` tinyint(1)	 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

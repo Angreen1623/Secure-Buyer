@@ -310,7 +310,8 @@ nav ul li a:hover:after{
 }
 
 .bag-buy img{
-    width: 25px;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -361,6 +362,22 @@ nav ul li a:hover:after{
     border-radius: 50px;
     cursor: pointer;
 }
+
+.bag-buy .btnadicionar{
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
 .close-icon{
     position: absolute;
     right: 36.3rem;
@@ -544,6 +561,35 @@ background-color: #000000;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 50px;
+}
+
+/*---Janela Modal---*/
+
+.modal-background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: #00000040;
+    padding-bottom: 70px;
+    z-index: 110;
+}
+
+.janela-modal{
+    padding: 20px;
+    width: 700px;
+    background-color: #ffffff;
+}
+
+.janela-modal .title{
+    border-bottom: #000 solid 1px;
+    text-align: center;
 }
 
 /*---responsividade---*/

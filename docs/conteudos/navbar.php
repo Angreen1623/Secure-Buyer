@@ -5,10 +5,12 @@
         <!-- div da lupa c/ seu texto-->
         <div class="left">
             <label>
-                <!-- icone da lupa -->
-                <img src="../conteudos/img/lupa.png" alt="">
-                <!-- texto da lupa -->
-                <input type="search" placeholder="Pesquisar">
+                <form action="./pesquisar.php" method="post">
+                    <!-- icone da lupa -->
+                    <img src="../conteudos/img/lupa.png" alt="">
+                    <!-- texto da lupa -->
+                    <input type="text" name="pesquisa" placeholder="Pesquisar">
+                </form>
             </label>
         </div>
         <!-- fim da lupa -->
@@ -53,8 +55,8 @@
                     $per->setcod_perfil($codper);
                     $perfiis = $per->consultar();
 
-                    foreach($perfiis as $row){
-                        if($row['adm'] == 1){
+                    foreach($perfiis as $row2){
+                        if($row2['adm'] == 1){
                             $adm = true;
                         }
                     }
@@ -201,8 +203,9 @@
                         </div>
             <?php
                         }
-                        $total = $total + ($preco * $row["qnt_pro"]);
-                    }
+
+                           $total = $total + ($preco * $row["qnt_pro"]);
+                        }
                     }
                 }
             ?>
@@ -210,12 +213,32 @@
             <div class="bag-buy">
                 <div class="group cupom">
                     <img src="../conteudos/img/cupom.png" alt="">
-                    <input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
+                    <form name="cupom"  method = "POST" action = ""><input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
+                    <button class="btnadicionar" name="btnadicionar">adicionar</button></form>
+                  
                 </div>
-                <?php ?>
+                <?php
+                        extract($_POST, EXTR_OVERWRITE);
+                        if(isset($btnadicionar))
+                         {
+                             include_once './php-conexao-modelagem/cupom.php';
+                             $pro=new Cupom();
+                             $pro -> setnome_cupom($cupom);
+                             $pro_bd = $pro->consultar();
+                             foreach($pro_bd as $pro_mostrar){
+                              $valor = floatval($pro_mostrar["valorp_cupom"]);
+                            }
+
+                            if($total>0 || !empty($valor)){
+                                $desconto=$total*$valor;
+                                $total=$total-$desconto;
+                              }
+                        }
+                        
+                      ?>
                 <div class="itens">
                     <h4 class="left">Total:</h4>
-                    <h3 class="right"> R$ <?php echo number_format($total,2,",","."); ?></h3>
+                    <h3 class="right"> <?php echo number_format($total,2,",","."); ?></h3>
                 </div>
                 <div class="bag-end">
                     <?php if($total != 0){?>

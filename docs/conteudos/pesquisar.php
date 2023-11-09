@@ -35,7 +35,7 @@ extract($_POST, EXTR_OVERWRITE);
 
                     <div class="novidades">
                         <div class="title">
-                            <h1>Feminino</h1>
+                            <h1>Pesquisar</h1>
                         </div>
                         <div class="produtos">
                             <div class="produtos-vetor">
@@ -43,7 +43,8 @@ extract($_POST, EXTR_OVERWRITE);
                                         
                                 $existe;
                                 $prod->settitulo_produto($pesquisa."%");
-                                foreach($prod->pesquisar() as $row){
+                                $produtos = $prod->pesquisa();
+                                foreach($produtos as $row){
                                     $existe = true;
                                 } 
                                 

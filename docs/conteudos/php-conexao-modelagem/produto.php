@@ -253,6 +253,22 @@ function listar()
     }
 } 
 
+   function pesquisa(){
+    try
+    {
+        $this->conn = new Conectar();
+        $sql = $this->conn->prepare("Select * from produto where titulo_produto like ?"); // informei o ?
+        @$sql-> bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
+        $sql->execute();
+        return $sql->fetchAll();
+        $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
+    }
+} 
+
    function obterid(){
     try
     {

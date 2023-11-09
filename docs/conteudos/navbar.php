@@ -5,10 +5,12 @@
         <!-- div da lupa c/ seu texto-->
         <div class="left">
             <label>
-                <!-- icone da lupa -->
-                <img src="../conteudos/img/lupa.png" alt="">
-                <!-- texto da lupa -->
-                <input type="search" placeholder="Pesquisar">
+                <form action="./pesquisar.php" method="post">
+                    <!-- icone da lupa -->
+                    <img src="../conteudos/img/lupa.png" alt="">
+                    <!-- texto da lupa -->
+                    <input type="text" name="pesquisa" placeholder="Pesquisar">
+                </form>
             </label>
         </div>
         <!-- fim da lupa -->
@@ -53,8 +55,8 @@
                     $per->setcod_perfil($codper);
                     $perfiis = $per->consultar();
 
-                    foreach($perfiis as $row){
-                        if($row['adm'] == 1){
+                    foreach($perfiis as $row2){
+                        if($row2['adm'] == 1){
                             $adm = true;
                         }
                     }

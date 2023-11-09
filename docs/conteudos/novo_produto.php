@@ -435,70 +435,50 @@ function buying_page($prod_cod){
                 </div>
             </div>
 
-            <div class="rating">
-                <div class="rating-box">
-                    <div class="rating-title">
-                        <h1>Avaliações do produto</h1>
-                    </div>
-
-                    <div class="filter">
-                        <div class="filter-item">
-                            <div class="media">
-                                <h4 class="underline">Media de avaliações</h4>
-                                <h3>5 de 5 estrelas</h3>
-                            </div>
-                        
-                            <div class="buttons">
-                                <div class="btn">Tudo</div>
-                                <div class="btn">1 estrela</div>
-                                <div class="btn">2 estrelas</div>
-                                <div class="btn">3 estrelas</div>
-                                <div class="btn">4 estrelas</div>
-                                <div class="btn">5 estrelas</div>
-                            </div>
-                        </div>
-
-                        <?php
-                        include_once "../php-conexao-modelagem/avaliacoes.php";
-                        $avali = new Avaliacao();
-                        $avali->setcod_produto('.$prod_cod.');
-                        $avaliacoes=$avali->consultar();
-                        ?>
-
-                        <div class="rating-container">
-                        <?php
-                        foreach($avaliacoes as $a_mostrar)
-                        {
-                        $estrela = $a_mostrar[\'estrela_ava\']; 
-                        echo "<div class=\"rating-item\">";
-                        echo  "<div class=\"group\">";
-                        echo "<div class=\"name-profile\">";
-                        $cod_perfil_avaliacao = $a_mostrar[\'cod_perfil\'];
-                        include_once "../php-conexao-modelagem/perfil.php";
-                        $nome = new Perfil();
-                        $nome->setcod_perfil($cod_perfil_avaliacao);
-                        $exibir = $nome->consultarnome();
-                        echo "<h1>" . $exibir . "</h1>";
-                        echo "</div>";
-                        for ($i = 1; $i<=5; $i++)
-                        {
-                            if ($i <= $estrela)
-                            {
-                                echo "<i class=\"estrela-preenchida fa-solid fa-star\"></i>";
-                            } else{
-                                echo "<i class=\"estrela-vazia fa-solid fa-star\"></i>";
-                            }
-                        }
-                        echo "<div class=\"rating-commit\">";
-                        echo "<p>" . $a_mostrar[\'texto_ava\'] . "</p>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-                        }
-                        ?>
-                </div>
+            <div class="rating-box" >
+            <div class="rating-title">
+                <h1>Avaliações do produto</h1>
             </div>
+                <?php
+                include_once "../php-conexao-modelagem/avaliacoes.php";
+                $avali = new Avaliacao();
+                $avali->setcod_produto(' . $prod_cod . ');
+                $avaliacoes=$avali->consultar();
+                ?>
+
+            
+                <?php
+                foreach($avaliacoes as $a_mostrar)
+                {
+                echo "<div class=\"rating-item\">";
+                echo  "<div class=\"group\">";
+                echo "<div class=\"name-profile\">";
+               
+                
+                $cod_perfil_avaliacao = $a_mostrar[\'cod_perfil\'];
+                include_once "../php-conexao-modelagem/perfil.php";
+                $nome = new Perfil();
+                $nome->setcod_perfil($cod_perfil_avaliacao);
+                $exibir = $nome->consultarnome();
+                echo "<h1>" . $exibir . "</h1>";
+                $estrela = $a_mostrar[\'estrela_ava\']; 
+                for ($i = 1; $i<=5; $i++)
+                {
+                    if ($i <= $estrela)
+                    {
+                        echo "<i class=\"estrela-preenchida fa-solid fa-star\"></i>";
+                    } else{
+                        echo "<i class=\"estrela-vazia fa-solid fa-star\"></i>";
+                    }
+                }
+                echo "<div class=\"rating-commit\">";
+                echo "<p>" . $a_mostrar[\'texto_ava\'] . "</p>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>"; 
+                echo "</div>";
+                }
+                ?>
         </div>
 
             <div class="about">

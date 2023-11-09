@@ -374,12 +374,6 @@ label.clicked{
     border-radius: 50%;
     background-color: #000;
 }
-.close-about img, .close-detail img{
-    width: 60%;
-
-    margin: auto;
-    display: block;
-}
 .rating{
     margin-top: 20px;
     justify-content: center;
@@ -390,7 +384,10 @@ label.clicked{
     border-radius: 20px;
     padding: 20px 35px;
     margin: 0 20px;
+    max-height: 240px;
+    overflow: auto; 
 }
+
 
 .rating .rating-title{
     font-size: 26px;
@@ -452,10 +449,13 @@ label.clicked{
     margin-top: 25px;
 }
 
-.rating .rating-item{
+.rating-item{
     margin-bottom: 20px;
-    display: inline-flex;
+    border-top: 1px solid #bbbaba; /* Adicione uma borda superior com uma cor de sua escolha */
+    padding-top: 10px; /* Adicione um espaço entre as avaliações */
+    display: block; /* Força a exibição vertical */
 }
+
 .rating .rating-item:last-of-type{
     margin-bottom: 0;
 }

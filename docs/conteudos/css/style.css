@@ -310,7 +310,8 @@ nav ul li a:hover:after{
 }
 
 .bag-buy img{
-    width: 25px;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -361,6 +362,22 @@ nav ul li a:hover:after{
     border-radius: 50px;
     cursor: pointer;
 }
+
+.bag-buy .btnadicionar{
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
 .close-icon{
     position: absolute;
     right: 36.3rem;

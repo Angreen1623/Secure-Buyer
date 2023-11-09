@@ -93,7 +93,22 @@ function consultar(){
     {
         echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
     }
-} 
+}
+function consultar2(){
+    try
+    {
+        $this->conn = new Conectar();
+        $sql = $this->conn->prepare("Select * from carrinho where cod_carrinho like ?"); // informei o ?
+        @$sql-> bindParam(1, $this->getcod_carrinho(), PDO::PARAM_STR); 
+        $sql->execute();
+        return $sql->fetchAll();
+        $this->conn = null;
+    }
+    catch(PDOException $exc)
+    {
+        echo "<font color='white'><center>Erro ao consultar. </center></font>" . $exc->getMessage();
+    }
+}
 
 function excluir(){
     try

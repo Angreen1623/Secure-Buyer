@@ -354,43 +354,67 @@ function buying_page($prod_cod){
 
                             <div class="more">
                                 <?php
-                                if(isset($codper)){
-                                    echo "<br><br><h1>Avalie este produto</h1>
+                                include_once "../php-conexao-modelagem/carrinho.php";    
+                                $cart = new Carrinho();
 
-                                <form method=\"POST\" action=\"\" name=\"aval\" id=\"aval\">
-                                    <div class=\"estrelas\">
-                                        <input type=\"radio\" name=\"estrela\" id=\"vazio\" checked>
+                                include_once "../php-conexao-modelagem/pedidos_realizados.php";
+                                $ped = new Pedidos_realizados();
 
-                                        <label for=\"estrela1\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
-                                        <input type=\"radio\" name=\"estrela\" id=\"estrela1\" id=\"vazio\" value=\"1\">
+                                $cart->setcod_perfil($codper);
 
-                                        <label for=\"estrela2\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
-                                        <input type=\"radio\" name=\"estrela\" id=\"estrela2\" id=\"vazio\" value=\"2\">
+                                foreach($cart->consultar() as $row){
 
-                                        <label for=\"estrela3\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
-                                        <input type=\"radio\" name=\"estrela\" id=\"estrela3\" id=\"vazio\" value=\"3\">
+                                    $ped->setcod_carrinho($row["cod_carrinho"]);
 
-                                        <label for=\"estrela4\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
-                                        <input type=\"radio\" name=\"estrela\" id=\"estrela4\" id=\"vazio\" value=\"4\">
+                                    foreach($ped->consultar() as $row2){
 
-                                        <label for=\"estrela5\"><i class=\"opcao fa\" style=\"cursor: pointer;\"></i></label>
-                                        <input type=\"radio\" name=\"estrela\" id=\"estrela5\" id=\"vazio\" value=\"5\"><br><br>
+                                        $produto_comprado = 1;
 
-                                        <div class=\"div-campo\">
-                                        <div class=\"text-campo\">
-                                        <label class=\"subtitle\">Comente o que achou deste produto:</label><br>
-                                        </div>
-                                        <textarea style=\"border: 1px solid #ccc; border-radius: 20px; padding: 10px; width: 100%; max-width: 100%; resize: none;\" rows = \"6\" cols = \"60\" name = \"descricao\" maxlength=\"2000\" required></textarea>
-                                        </div>
+                                    }
 
-                                        <input type=\"submit\" name=\"btnenviar\" value=\"Enviar\" form=\"aval\" class=\"btn\">
-                                    </div>
-                                </form>";
                                 }
-                                ?>
+
+                                if(isset($codper) && isset($produto_comprado)){
+                                    echo "<br><br><h1>Avalie este produto</h1>";
+
+                                    include_once "../php-conexao-modelagem/avaliacoes.php";
+                                    $avali = new Avaliacao();
+
+                                    $avali->setcod_perfil($codper);
+                                    $avaliacoes = $avali->consultar2();
+
+                                if (empty($avaliacoes)) {  
+                                    echo \'<form method="POST" action="" name="aval" id="aval">\';
+                                    echo \'<div class="estrelas">\';
+                                    echo \'<input type="radio" name="estrela" id="vazio" checked>\';
+                                    echo \'<label for="estrela1"><i class="opcao fa" style="cursor: pointer;"></i></label>\';
+                                    echo \'<input type="radio" name="estrela" id="estrela1" value="1">\';
+                                    echo \'<label for="estrela2"><i class="opcao fa" style="cursor: pointer;"></i></label>\';
+                                    echo \'<input type="radio" name="estrela" id="estrela2" value="2">\';
+                                    echo \'<label for="estrela3"><i class="opcao fa" style="cursor: pointer;"></i></label>\';
+                                    echo \'<input type="radio" name="estrela" id="estrela3" value="3">\';
+                                    echo \'<label for="estrela4"><i class="opcao fa" style="cursor: pointer;"></i></label>\';
+                                    echo \'<input type="radio" name="estrela" id="estrela4" value="4">\';
+                                    echo \'<label for="estrela5"><i class="opcao fa" style="cursor: pointer;"></i></label>\';
+                                    echo \'<input type="radio" name="estrela" id="estrela5" value="5">\';
+                            
+                                    echo \'<div class="div-campo">\';
+                                    echo \'<div class="text-campo">\';
+                                    echo \'<label class="subtitle">Comente o que achou deste produto:</label><br>\';
+                                    echo \'</div>\';
+                                    echo \'<textarea style="border: 1px solid #ccc; border-radius: 20px; padding: 10px; width: 100%; max-width: 100%; resize: none;" rows="6" cols="60" name="descricao" maxlength="2000" required></textarea>\';
+                                    echo \'</div>\';
+                            
+                                    echo \'<input type="submit" name="btnenviar" value="Enviar" form="aval" class="btn">\';
+                                    echo \'</div>\';
+                                    echo \'</form>\';
+                                } else {
+                                    echo "Você já avaliou este produto.";
+                                }
+                            }
+                            ?>
 
                                 <?php
-
                                 extract($_POST, EXTR_OVERWRITE);
                                 if(isset($btnenviar)){
                         
@@ -403,10 +427,8 @@ function buying_page($prod_cod){
                                     $aval->setestrela_ava($estrela);
                                     $aval->salvar();
                         
-                                    echo "<script language=`JavaScript`>window.location.replace(\"../index.php\");</script>";
-                        
+                                    echo "<script language=`JavaScript`>window.location.replace(\"../index.php\");</script>";   
                                 }
-
                                 ?>
                             </div>
                         

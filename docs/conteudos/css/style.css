@@ -625,6 +625,17 @@ background-color: #000000;
 
 .janela-modal .content{
     min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.janela-modal .content .imagem{
+    width: 35%;
+}
+.janela-modal .content .imagem img{
+    width: 100%;
+    height: 100%;
 }
 
 .janela-modal .btn{

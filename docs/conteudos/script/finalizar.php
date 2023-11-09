@@ -33,5 +33,5 @@
         }
     }
 
-    header("Location: ../index.php");
+    header("Location: ../acompanhar_pedido.php");
 ?>

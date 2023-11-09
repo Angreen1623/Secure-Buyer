@@ -98,6 +98,11 @@
                         <h1>Pix</h1>
                     </div>
                     <div class="content">
+                        <div class="imagem">
+                                <img src="./img/qrpix.png" alt="">
+                        </div>
+                        <p>00020101021126520041br.gov.bcb.pix0136brg.com.securebuyer520400005303986
+                            5802BR5923João Silva Alves6008São Paulo62070503***6304A3E9</p>
                     </div>
                     <div class="btn">
                         <label for="btnenviar"> <button onclick="closeModal()">Confirmar</button></label>
@@ -113,6 +118,10 @@
                         <h1>Boleto</h1>
                     </div>
                     <div class="content">
+                        <div class="imagem">
+                            <img src="./img/qrboleto.png" alt="">
+                        </div>
+                        <p>34191.79008 22503.530017 90000.000202 0 19051352750 0</p>
                     </div>
                     <div class="btn">
                         <label for="btnenviar"><button onclick="closeModal()">Confirmar</button></label>

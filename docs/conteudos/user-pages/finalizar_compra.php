@@ -1,6 +1,6 @@
 <div class="fim-pag">
     <?php
-        include_once './php-conexao-modelagem/perfil.php';
+        include_once '../php-conexao-modelagem/perfil.php';
         $perfil = new Perfil();
         if(isset($codper)){
             $perfil->setcod_perfil($codper);

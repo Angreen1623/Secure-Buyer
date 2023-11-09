@@ -413,7 +413,7 @@ function buying_page($prod_cod){
                                 } else {
                                     echo "Você já avaliou este produto.";
                                 }
-                            }
+                            }}
                             ?>
 
                                 <?php

@@ -41,3 +41,29 @@ function closePag(){
 
     fim_pag.classList.remove('flex-open');
 }
+
+function openModal($modal){
+
+    //pix = 2  boleto = 1
+
+    if($modal == 1){
+
+        boleto = document.querySelector(".boleto");
+        boleto.classList.add('open');
+
+    }else{
+
+        pix = document.querySelector(".pix");
+        pix.classList.add('open');
+
+    }
+    
+}
+function closeModal(){
+    
+    pix = document.querySelector(".pix");
+    boleto = document.querySelector(".boleto");
+    pix.classList.remove('open');
+    boleto.classList.remove('open');
+
+}

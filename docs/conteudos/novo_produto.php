@@ -432,7 +432,7 @@ function buying_page($prod_cod){
                         <div class="end-purchase">
                             <input type="submit" value="Adicionar ao carrinho" class="btn" name="add_cart" form="main">
                             <div class="more">
-                                <span class="underline about-btn">Sobre a loja</span>
+                                <span class="underline about-btn"></span>
                             </div>
                             <div class="more">
                                 <span class="underline detail-btn">Detalhes do produto</span>

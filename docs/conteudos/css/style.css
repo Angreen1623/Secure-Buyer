@@ -98,7 +98,6 @@ nav ul li a{
 
 .submenu{
     position: absolute;
-    min-width: 250px;
     background-color: #fff;
     box-shadow: 0 5px 12px #ebebeb;
     margin-top: 0;

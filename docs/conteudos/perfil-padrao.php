@@ -215,15 +215,12 @@
 
                         foreach($ped->consultar() as $row2){
 
-                            $cod_realizado = $row2['cod_carrinho'];
                             
                             $data = $row2["data_compra"];
-    
-                            if($cod_realizado == $row['cod_carrinho']){
 
                                 $n++;
 
-                                $pedido[$n] = intval($row['cod_carrinho']);
+                                $pedido[$n] = intval($row2['cod_carrinho']);
 
                                 $pedido_realizado = false;
 
@@ -293,62 +290,12 @@
                     </div>
 
 
-                    <?php }
+                    <?php
                             }
     
                         }
                         
                         ?>
-                    
-                    <!-- <div class="pedidos-item">
-                        <div class="group-images">
-                            <div class="image">
-                                <img src="img/modelo2.png" alt="Jaqueta em denim">
-                            </div>
-                            <div class="description">
-                                <div class="name">
-                                    <div class="title">
-                                        <h2>Jaqueta em denim</h2>
-                                    </div>
-                                    <div class="loja">
-                                        <h3>MIUMIU</h3>
-                                    </div>
-                                </div>
-                                <div class="price">
-                                    <p>R$ 350,00</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="btn">
-                            <span>Cancelar compra</span>
-                        </div>
-                    </div>
-
-                    <div class="pedidos-item">
-                        <div class="group-images">
-                            <div class="image">
-                                <img src="img/modelo3.png" alt="Blusa em denim decorado">
-                            </div>
-                            <div class="description">
-                                <div class="name">
-                                    <div class="title">
-                                        <h2>Blusa em denim decorado</h2>
-                                    </div>
-                                    <div class="loja">
-                                        <h3>RIACHUELO</h3>
-                                    </div>
-                                </div>
-                                <div class="price">
-                                    <p>R$ 115,00</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="btn">
-                            <a href="">Reembolsar</a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>

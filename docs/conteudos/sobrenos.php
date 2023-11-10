@@ -31,10 +31,10 @@
 
             <h2>Como surgimos?</h2>
             
-                <p>Nós surgimos com o pensamento e objetivo de ajudar pequenas lojas que não possuem os meios nem as ferramentas de divulgação a par com os dias de hoje! 
-                Então, o que nos torna diferente da Amazon? Foi o que você pensou certo? Bom, além de divulgarmos, somente lojas de roupas imagine uma situação onde 
-                você precisa de uma peça em específico para terminar um conjunto espetacular, quer ele seja para uma reunião formal, um casamento, uma festa ou até 
-                mesmo um evento de cosplay. Mas tenha em mente que sempre estamos visando a segurança de sua compra!</p>
+                <p>Nós surgimos com o pensamento e objetivo de ajudar pequenas lojas que não possuem os meios nem as ferramentas de divulgação a par com os dias de hoje 
+                através do nosso site! Então, o que nos torna diferente da Amazon ou Mercado livre ? Foi o que você pensou certo? Bom, além de divulgarmos, somente lojas 
+                de roupas imagine uma situação onde você precisa de uma peça em específico para terminar um conjunto espetacular, quer ele seja para uma reunião formal, 
+                um casamento, uma festa ou até mesmo um evento de cosplay. Mas tenha em mente que sempre estamos visando a segurança de sua compra!</p>
 
             </div>
 

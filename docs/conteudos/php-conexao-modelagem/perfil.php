@@ -221,7 +221,7 @@ function alterar2()
       @$sql-> bindParam(1, $this->getnome(), PDO::PARAM_STR);
       @$sql-> bindParam(2, $this->getsobrenome(), PDO::PARAM_STR);
       @$sql-> bindParam(3, $this->getemail(), PDO::PARAM_STR);
-      @$sql-> bindParam(4, $this->getsenha(), PDO::PARAM_STR);
+      @$sql-> bindParam(4, password_hash($this->getsenha(), PASSWORD_DEFAULT), PDO::PARAM_STR);
       @$sql-> bindParam(5, $this->getcod_perfil(), PDO::PARAM_STR);
       }
       else {

@@ -386,6 +386,7 @@ label.clicked{
     margin: 0 20px;
     max-height: 240px;
     overflow: auto; 
+    margin-top: 25px;
 }
 
 
@@ -497,5 +498,18 @@ a{
     color: var(--amarelo);
 }
 
+@media (max-width:800px){
+    .produto-info{
+        display: inline-grid;
+        width: 100%;
+        justify-items: center;
+     }
+    .images {
+        display: inline-grid;
+        width: 70%;
+    }
+    
 
+}
 
+/*   width: 70%;

@@ -22,8 +22,7 @@
                 <h1>Acompanhe seu pedido</h1>
             </div>
             <div class="content">
-                <p>00020101021126520041br.gov.bcb.pix0136brg.com.securebuyer520400005303986
-                    5802BR5923João Silva Alves6008São Paulo62070503***6304A3E9</p>
+                <p>Codigo de rastreio do produto:   NF4258783110BR</p>
             </div>
             <div class="btn">
                 <form action="" method="post">

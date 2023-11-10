@@ -10,9 +10,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/Icone/favicon-16x16.png">
     <link rel="manifest" href="img/Icone/site.webmanifest">
     <!--css-->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/admtalk.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admtalk.css">
     
 </head>
 
@@ -76,6 +76,16 @@
         ?>
         
         </form>
+        <form action="" method="post">
+      <input type="submit" value="Voltar" name="btnvoltar">
+    </form>
+
+    <?php
+      extract($_POST, EXTR_OVERWRITE);
+      if(isset($btnvoltar)){
+        echo "<script language='JavaScript'>window.location.replace('./admpage.php');</script>";
+      }
+    ?>
     
     </div>
     

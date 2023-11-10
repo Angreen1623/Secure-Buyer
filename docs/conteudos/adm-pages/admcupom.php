@@ -20,53 +20,63 @@
 <body>
 
 
-  <main class="principal">
-    <div class="titulo">
-      <h1 class="mainTitle">Cupons</h1>
-    </div>
-    <form action="" method="post">
+  <main class="principal1">
+    <div class="cupom">
+      <div class="titulo">
+        <h1 class="mainTitle">Criar cupom</h1>
+      </div>
+      <form action="" method="post">
 
-    <div class="form-container">
+      <div class="form-container">
+              
+          <div class="form">
+
+              <div class="nome">
+                  <h2>Nome do cupom:</h2>
+                  <input type="text" name="nome_c">
+              </div>
+              <div class="valor">
+                  <h2>Valor do cupom:</h2>
+                  <input type="text" placeholder="10%" name="perc_c">
+              </div>
+
+              <input type="submit" name="criar" value="Criar cupom">
+
+          </div>
+
+
+        <?php
+
+          extract($_POST, EXTR_OVERWRITE);
+          if(isset($criar)){
+            include_once "../php-conexao-modelagem/cupom.php";
+            $cupom = new Cupom;
+
+            $valor_c = intval(str_replace("%", "", $perc_c))/100;
+
+            $cupom->setnome_cupom($nome_c);
+            $cupom->setvalorp_cupom($valor_c);
+            $cupom->setdatac_cupom();
+            $cupom->setdataex_cupom();
+
+            $cupom->salvar();
             
-        <div class="form">
+          }
 
-            <div class="nome">
-                <h1>Nome do cupom:</h1>
-                <input type="text" name="nome_c">
-            </div>
-            <div class="valor">
-                <h1>valor do cupom:</h1>
-                <input type="text" placeholder="10%" name="perc_c">
-            </div>
-
-            <input type="submit" name="criar" value="Criar cupom">
-
-        </div>
-
-
-      <?php
-
-        extract($_POST, EXTR_OVERWRITE);
-        if(isset($criar)){
-          include_once "../php-conexao-modelagem/cupom.php";
-          $cupom = new Cupom;
-
-          $valor_c = intval(str_replace("%", "", $perc_c))/100;
-
-          $cupom->setnome_cupom($nome_c);
-          $cupom->setvalorp_cupom($valor_c);
-          $cupom->setdatac_cupom();
-          $cupom->setdataex_cupom();
-
-          $cupom->salvar();
-          
-        }
-
-      ?>
-    </div>
+        ?>
+      </div>
+      </form>
+      <form action="" method="post">
+      <input type="submit" value="Voltar" name="btnvoltar">
     </form>
 
-
+    <?php
+      extract($_POST, EXTR_OVERWRITE);
+      if(isset($btnvoltar)){
+        echo "<script language='JavaScript'>window.location.replace('./admpage.php');</script>";
+      }
+    ?>
+    </div>
   </main>
 </body>
 

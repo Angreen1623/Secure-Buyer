@@ -16,7 +16,7 @@
     <form action="./script/finalizar.php" method="POST">
         <div class="row">
             <div class="col">
-                <div class="title">Dados pessoais</div>
+                <div class="title">Endereço de cobrança</div>
                 <div class="inputBox readonly">
                     <span>Nome completo:</span>
                     <input type="text" value="<?php if(isset($nome_completo)){ echo $nome_completo; }?>" readonly>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="inputBox">
                         <span>Cep:</span>
-                        <input type="text">
+                        <input type="text" data-mask="00000-000" class="cnpjmask">
                     </div>
                 </div>
             </div>
@@ -75,16 +75,16 @@
                 </div>
                 <div class="inputBox">
                     <span>Número do Cartão:</span>
-                    <input type="text">
+                    <input type="text" data-mask="0000 0000 0000 0000" class="cnpjmask">
                 </div>
                 <div class="inputBox">
                     <span>Data de expiração:</span>
-                    <input type="text" placeholder="mm/aa">
+                    <input type="text" placeholder="mm/aa" data-mask="00/00" class="cnpjmask">
                 </div>
                 <div class="flex">
                 <div class="inputBox">
                     <span>CVV:</span>
-                    <input type="text">
+                    <input type="text" data-mask="000" class="cnpjmask">
                 </div>
                 </div>
                 <input type="hidden" name="total" value="<?php echo $total;?>">
@@ -132,3 +132,5 @@
         <input type="submit" name="btnenviar" id="btnenviar" class="submit-btn" value="Finalizar Compra">
     </form>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script><!--link da api para a mascara-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>

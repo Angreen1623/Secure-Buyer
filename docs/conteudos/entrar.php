@@ -28,7 +28,7 @@
                     <h1>ENTRAR</h1>
                 </div>
                 <div class="formularioentrar">
-                    <form name="formul" onsubmit="return validaform()" method="post">
+                    <form name="formul" onsubmit="return validaform()" method="post" style="width: 100%;">
                         <div class="form-item">
                             <label title="Digite seu email">E-mail</label>
                             <input type="text" name="input_email" required>
@@ -63,6 +63,10 @@
     </div>
 
       <?php
+      if(password_verify("r", '$2y$10$nfCMOOhhXxWZhgX0uxD/9ux3wdfN1BvivOPI1AOWWicY9J1/AjjF6')){
+            echo "igual";
+      }
+
              extract($_POST, EXTR_OVERWRITE);
              if(isset($btnenviar))
               {

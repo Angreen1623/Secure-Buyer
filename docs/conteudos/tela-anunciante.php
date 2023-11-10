@@ -46,6 +46,12 @@
             }
         }
 
+        $qnt_prod = 0;
+
+        $prod->setcod_perfil($codper);
+        foreach($prod->consultar() as $row){
+            $qnt_prod++;
+        }
 
         $dadosPerfil = $perfil->alterar();
         ?>
@@ -59,7 +65,7 @@
             <img src="<?php echo $mostrar_dados[6]?>" alt="Foto Perfil">
         </div>
         <p class="nomedaloja"><?php echo $mostrar_dados[4]?></p>
-        <p class="descricao">AVALIAÇÕES: X <br> PRODUTOS: X <br> ANUNCIANTE DESDE:  XX/XX/XX</p></div>
+        <p class="descricao"> PRODUTOS: <?php echo $qnt_prod; ?> <br> ANUNCIANTE DESDE:  10/11/23</p></div>
     <div>
 
        <?php 

@@ -17,15 +17,16 @@
 </head>
 
 <body class="body">
+    
     <div class="wrapper">
 
         <?php include 'navbar.php'; ?>
 
         <div class="fale-conosco">
         
-            <main>
+            <main class="texto">
                 <aside>
-                    <br><h1>CONTATO</h1>
+                    <h1>CONTATO</h1>
                     <p>Olá, teve problemas com uma loja que indicamos? Entre em contato conosco para que possamos melhorar o nosso atendimento.</p>
                 </aside>
             </main>
@@ -44,7 +45,7 @@
                     </div>
                     <div>
                         <label title="Digite sua mensagem para nós.">Mensagem</label>
-                        <textarea rows="5" name="mensagem"></textarea>
+                        <textarea rows="5" name="mensagem" style="resize:none;"></textarea>
                     </div>
                     <div>
                         <input name="btnenviar" type="submit" value="Enviar">

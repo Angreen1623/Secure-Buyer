@@ -12,8 +12,10 @@ a{
 
 .content{
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .content .box{
@@ -46,7 +48,7 @@ input
 {
   outline: unset;
   padding: 10px;
-  width: 600px;
+  width: 100%;
   border:none;
   border-radius: 36px;
   background-color: rgb(255, 255, 255);
@@ -54,7 +56,7 @@ input
 
 .buttons {
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: stretch;
     flex-direction: row-reverse;
     margin-bottom: 20px;
@@ -122,3 +124,48 @@ input
   .card .desciption textarea{
     background-color: transparent;
   }
+
+
+/* validar */
+
+.principal form{
+  margin-bottom: 20px;
+}
+
+
+/* Cupom */
+
+.principal1 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.principal1 .cupom{
+  width: 53%;
+  background-color: #E1D9CE;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+}
+
+.principal1 .cupom h1{
+  color:black;
+  line-height: 50px;
+  font-weight: 500;
+  font-size: 50px;
+  font-family: 'lovelace',Arial, sans-serif;
+  text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
+  text-align: center;
+}
+
+.principal1 .cupom h2{
+  font-size: 20px;
+}
+
+.principal1 form{
+  margin-bottom: 20px;
+}

@@ -2,7 +2,6 @@
     position: relative;
     display: inline-block;
     width: 100%;
-    min-height: 480px;
 }
 
 .novidades .title{
@@ -64,6 +63,7 @@
     text-wrap: wrap;
     width: 309px;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .produtos .produtos-item .preco{
@@ -77,6 +77,12 @@
 @media (max-width:1360px){
     .produtos-container{
       grid-template-columns: repeat(2,1fr);
+    }
+
+}
+@media (max-width:800px){
+    .produtos-container{
+      grid-template-columns: repeat(1,1fr);
     }
 
 }

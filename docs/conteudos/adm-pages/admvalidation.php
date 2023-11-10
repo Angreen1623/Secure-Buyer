@@ -24,10 +24,7 @@
     <div class="titulo">
       <h1 class="mainTitle">Validação de produtos</h1>
     </div>
-    <form action="" method="post">
-
-    <div class="card-container">
-      <?php 
+    <?php 
 
         $n = 0;
     
@@ -37,6 +34,12 @@
         $img = new Imagem();
 
         $produtos = $prod->listar();
+        if(!empty($produtos)){ ?>
+        
+    <form action="" method="post">
+
+    <div class="card-container">
+      <?php
         foreach($produtos as $row){
           $n++;
 
@@ -112,6 +115,7 @@
             $prod->setvalida(1);
 
             $prod->validacao();
+            echo "<script language='JavaScript'>window.location.replace('./admpage.php');</script>";
 
           }
         }
@@ -122,7 +126,7 @@
             $prod->setcod_produto($cod_prod[$i]);
 
             $prod->exclusao();
-
+            echo "<script language='JavaScript'>window.location.replace('./admpage.php');</script>";
           }
         }
 
@@ -130,6 +134,20 @@
     </div>
     </form>
 
+    <?php
+      }
+    ?>
+
+    <form action="" method="post">
+      <input type="submit" value="Voltar" name="btnvoltar">
+    </form>
+
+    <?php
+      extract($_POST, EXTR_OVERWRITE);
+      if(isset($btnvoltar)){
+        echo "<script language='JavaScript'>window.location.replace('./admpage.php');</script>";
+      }
+    ?>
 
   </main>
 </body>

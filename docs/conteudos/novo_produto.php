@@ -111,7 +111,7 @@ function buying_page($prod_cod){
                 <li>
                     <a href="#">Ajuda</a>
                     <ul class="submenu">
-                        <li><a href="../sobrenos.html">Sobre nos</a></li>
+                        <li><a href="../sobrenos.php">sobre nós</a></li>
                         <li><a href="../fale_conosco">Fale Conosco</a></li>
                     </ul>
                 </li>
@@ -270,6 +270,8 @@ function buying_page($prod_cod){
         </div>
     </div>
 </div>
+<?php include_once \'finalizar_compra.php\'; ?>
+
             <div class="produto-info">
                 <?php
                     extract($_POST, EXTR_OVERWRITE);
@@ -614,9 +616,7 @@ function buying_page($prod_cod){
                         </div>
 
                         <div class="description">
-                            <span>Avaliações: XX</span>
-                            <span>Produtos: XX</span>
-                            <span>Anunciante desde: XX/XX/XXXX</span>
+                            <span>Anunciante desde: 10/11/23</span>
                             <span>CNPJ: <?php echo $cnpj; ?></span>
                         </div>
 
@@ -842,7 +842,7 @@ function editing_page($prod_cod){
                     <li>
                         <a href="#">Ajuda</a>
                         <ul class="submenu">
-                            <li><a href="#">Sobre nos</a></li>
+                            <li><a href="../sobrenos.php">Sobre nós</a></li>
                             <li><a href="#">Fale Conosco</a></li>
                         </ul>
                     </li>
@@ -1405,7 +1405,7 @@ function editing_page($prod_cod){
                         <h6>AJUDA</h6>
                         <ul>
                             <li> <a href="../fale_conosco.php">Fale conosco</a></li>
-                            <li> <a href="../sobrenos.html">Sobre nós</a></li>
+                            <li> <a href="../sobrenos.php">Sobre nós</a></li>
                         </ul>
                         </div>
                     <div class="footer-col">

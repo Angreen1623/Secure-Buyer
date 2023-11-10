@@ -14,7 +14,7 @@
     position: fixed;
     flex-direction: column;
     justify-content: space-evenly;
-}
+} 
 
 .wrapper .box{
     width: 100%;
@@ -23,6 +23,7 @@
     border-radius: 20px;
     padding: 15px 10px;
     font-family: 'lovelace',Arial, sans-serif;
+    margin-top: 30px;
 }
 
 .wrapper .adm-talk{
@@ -35,7 +36,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: stretch;
-    justify-content: center;
 }
 .wrapper .title{
   color:black;
@@ -77,4 +77,5 @@
     width: 150px;
     margin-right: 30px;
     cursor: pointer;
+    margin-top: 20px;
   }

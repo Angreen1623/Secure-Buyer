@@ -25,17 +25,31 @@
                         <div class="buttons">
 
 
-                            <a href="./admcupom.php"><input type="button" value="criar cupom" name="btncupom"></a>
-                            <a href="./admvalidation.php"><input type="button" value="validar produtos" name="btnverificar"><a>
-                            <a href="./admtalk.php"><input type="button" value="verificar email" name="btnfaleconosco"></a>
+                            <a href="./admcupom.php"><input type="button" value="Criar cupom" name="btncupom"></a>
+                            <a href="./admvalidation.php"><input type="button" value="Validar produtos" name="btnverificar"><a>
+                            <a href="./admtalk.php"><input type="button" value="Verificar email" name="btnfaleconosco"></a>
                             
                         </div>
-                        <div class="form-item">
-                        </div> 
+                        <div class="buttons">
+                            <form action="" method="post">
+                                <input type="submit" value="Deslogar" name="btndeslogar">
+                            </form>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
+
+        <?php
+            extract($_POST, EXTR_OVERWRITE);
+            if(isset($btndeslogar)){
+                include_once '../php-conexao-modelagem/conexao.php';
+                $sair = new Conexao();
+
+                $sair->excluir();
+                echo "<script language='JavaScript'>window.location.replace('../entrar.php');</script>";
+            }
+        ?>
        
         
     </div>

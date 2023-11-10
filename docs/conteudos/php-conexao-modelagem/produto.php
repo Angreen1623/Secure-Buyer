@@ -209,7 +209,7 @@ function listar()
        try
        {
            $this->conn = new Conectar();
-           $sql = $this->conn->prepare("Select * from produto where cod_perfil like ?"); // informei o ?
+           $sql = $this->conn->prepare("Select * from produto where cod_perfil like ? and valida like 1"); // informei o ?
            @$sql-> bindParam(1, $this->getcod_perfil(), PDO::PARAM_STR); // inclui esta linha linha para definir o parametro
            // @$sql-> bindParam(1, $this->getNome(). "%" ,PDO::PARAM_STR);
            $sql->execute();
@@ -241,7 +241,7 @@ function listar()
     try
     {
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("Select * from produto where sexo like ?"); // informei o ?
+        $sql = $this->conn->prepare("Select * from produto where sexo like ?  and valida like 1"); // informei o ?
         @$sql-> bindParam(1, $this->getsexo(), PDO::PARAM_STR);
         $sql->execute();
         return $sql->fetchAll();
@@ -257,7 +257,7 @@ function listar()
     try
     {
         $this->conn = new Conectar();
-        $sql = $this->conn->prepare("Select * from produto where titulo_produto like ?"); // informei o ?
+        $sql = $this->conn->prepare("Select * from produto where titulo_produto like ?  and valida like 1"); // informei o ?
         @$sql-> bindParam(1, $this->gettitulo_produto(), PDO::PARAM_STR);
         $sql->execute();
         return $sql->fetchAll();

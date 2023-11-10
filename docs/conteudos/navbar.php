@@ -48,14 +48,16 @@
                                     $codper = $row['cod_perfil'];
                                 }
                             }
-                            $per->setcod_perfil($codper);
+                            
+                            if (isset($codper)) {
+                                $per->setcod_perfil($codper);
                             $perfiis = $per->consultar();
                             foreach ($perfiis as $row2) {
                                 if ($row2['adm'] == 1) {
                                     $adm = true;
                                 }
                             }
-                            if (isset($codper)) {
+                            
                                 if ($adm == true) {
                                     echo './adm-pages/admpage.php';
                                 }else{
@@ -91,7 +93,7 @@
                 <li>
                     <a href="#">Ajuda</a>
                     <ul class="submenu">
-                        <li><a href="#">Sobre nos</a></li>
+                        <li><a href="./sobrenos.php">Sobre nós</a></li>
                         <li><a href="fale_conosco.php">Fale Conosco</a></li>
                     </ul>
                 </li>
@@ -210,7 +212,7 @@
                     <div class="group cupom">
                         <img src="../conteudos/img/cupom.png" alt="">
                         <form name="cupom" method="POST" action="" id="butaodesconto">
-                            <input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom de desconto" maxlength="50" style="min-width: 345px;" required>
+                            <input type="text" name="cupom" id="cupom" placeholder="Adicionar cupom" maxlength="50" required="">
                             <button class="btnadicionar" name="btnaddaction">adicionar</button>
                         </form>
 

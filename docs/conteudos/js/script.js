@@ -3,12 +3,12 @@ var bag = document.querySelector('.bag');
 var close_btn = document.querySelector('.close-icon');
 
 bag_btn.onclick = function(){
-    bag.classList.toggle('open');
+    bag.classList.toggle('flex-open');
 };
 close_btn.onclick = function(){
-    bag.classList.remove('open');
+    bag.classList.remove('flex-open');
 };
-bag.classList.remove('open');
+bag.classList.remove('flex-open');
 
 function clickedTam(tamanho){
 
@@ -30,7 +30,7 @@ function clickedTam(tamanho){
 function openPag(){
     fim_pag = document.querySelector(".fim-pag");
     document.querySelector(".body").style.overflow = 'hidden';
-    bag.classList.remove('open');
+    bag.classList.remove('flex-open');
 
     fim_pag.classList.add('flex-open');
 }

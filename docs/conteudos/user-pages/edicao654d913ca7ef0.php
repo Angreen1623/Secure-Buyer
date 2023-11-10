@@ -99,7 +99,7 @@
                     <li>
                         <a href="#">Ajuda</a>
                         <ul class="submenu">
-                            <li><a href="#">Sobre nos</a></li>
+                            <li><a href="../sobrenos.php">Sobre nós</a></li>
                             <li><a href="#">Fale Conosco</a></li>
                         </ul>
                     </li>
@@ -662,7 +662,7 @@
                         <h6>AJUDA</h6>
                         <ul>
                             <li> <a href="../fale_conosco.php">Fale conosco</a></li>
-                            <li> <a href="../sobrenos.html">Sobre nós</a></li>
+                            <li> <a href="../sobrenos.php">Sobre nós</a></li>
                         </ul>
                         </div>
                     <div class="footer-col">

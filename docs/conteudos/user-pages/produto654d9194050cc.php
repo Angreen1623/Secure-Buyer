@@ -99,7 +99,7 @@
                 <li>
                     <a href="#">Ajuda</a>
                     <ul class="submenu">
-                        <li><a href="../sobrenos.html">Sobre nos</a></li>
+                        <li><a href="../sobrenos.php">sobre nós</a></li>
                         <li><a href="../fale_conosco">Fale Conosco</a></li>
                     </ul>
                 </li>
@@ -258,6 +258,8 @@
         </div>
     </div>
 </div>
+<?php include_once 'finalizar_compra.php'; ?>
+
             <div class="produto-info">
                 <?php
                     extract($_POST, EXTR_OVERWRITE);
@@ -602,9 +604,7 @@
                         </div>
 
                         <div class="description">
-                            <span>Avaliações: XX</span>
-                            <span>Produtos: XX</span>
-                            <span>Anunciante desde: XX/XX/XXXX</span>
+                            <span>Anunciante desde: 10/11/23</span>
                             <span>CNPJ: <?php echo $cnpj; ?></span>
                         </div>
 

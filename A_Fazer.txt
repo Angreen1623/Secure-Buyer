@@ -10,7 +10,7 @@
 10. Sistema de avaliações;                                              (IGOR) Fazer o que for possível
 11. Imagens terem nomes unicos;                                         FEITO
 13. Criptografar senhas;                                                FEITO
-14. sobre nos e fale conosco;                                           (ANDREI) FACIL *
+14. sobre nós e fale conosco;                                           (ANDREI) FACIL *
 15. Tela de pagamento;                                                  MUITO QUASE AAAAAAAH
 16. no tratamento de erro, não poder voltar para a pag de criação de 
 cadastro caso tiver uma conta recem cadastrada, e n deixar quem n 

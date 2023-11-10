@@ -1,0 +1,76 @@
+/* Importar a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Definir a fonte personalizada 'lovelace' */
+@font-face {
+  font-family: 'lovelace';
+  src: url('font/lovelace.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.wrapper{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.box{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  width: 90vh;
+  height: 22vh;
+  padding: 10xp;
+  background-color: antiquewhite;
+  border-radius: 20px;
+}
+
+.box p{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.imagem{
+  width: fit-content;
+  height: fit-content;
+}
+
+.imagem img{
+  display: flex;
+  align-items: flex-end;
+  right: 0;
+  height: 300px;
+  width: 300px;
+}
+
+.content h2{
+  font-size: 25px;
+}
+
+.title h1{
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+.title h1{
+    color:black;
+    line-height: 50px;
+    font-weight: 500px;
+    font-size: 50px;
+    font-family: 'lovelace',Arial, sans-serif;
+    text-shadow: 0.1em 0.1em 0.2em rgb(155, 151, 151);
+  }

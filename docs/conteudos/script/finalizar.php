@@ -19,9 +19,10 @@
         $ped_rea->setcod_carrinho($row['cod_carrinho']);
         $pedidos_realizados = $ped_rea->consultar();
 
-        if(empty($pedido_realizado)){
+        if(empty($pedidos_realizados)){
             $ped_rea->setcod_carrinho($row['cod_carrinho']);
             $ped_rea->salvar();
+
         }
     }
 

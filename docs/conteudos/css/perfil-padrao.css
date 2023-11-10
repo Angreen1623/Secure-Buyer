@@ -217,14 +217,12 @@
     .pedidos{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 100%;
+        width: 80vw;
         padding: 0px 20px 0px 20px;
         margin: 0px;
-        width: 100%;
     }
     .pedidos .pedidos-box {
-        width: 65vw;
+        width: 100%;
     }
 
 }

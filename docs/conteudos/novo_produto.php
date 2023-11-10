@@ -38,12 +38,10 @@ function buying_page($prod_cod){
             <!-- div da lupa c/ seu texto-->
             <div class="left">
                 <label>
-                    <form action="../pesquisar.php" method="post">
-                        <!-- icone da lupa -->
-                        <button><img src="../img/lupa.png" alt=""></button>
-                        <!-- texto da lupa -->
-                        <input type="search" placeholder="Pesquisar">
-                    </form>
+                    <!-- icone da lupa -->
+                    <img src="../img/lupa.png" alt="">
+                    <!-- texto da lupa -->
+                    <input type="search" placeholder="Pesquisar">
                 </label>
             </div>
             <!-- fim da lupa -->
@@ -81,15 +79,11 @@ function buying_page($prod_cod){
                             }
                         }
                     
-                        if (isset($codper)) {
-                            if ($adm == true) {
-                                echo \'./adm-pages/admpage.php\';
-                            }else{
-                            echo \'perfil-padrao.php\';
-                            }
-                        } elseif (!isset($codper)) {
-                            echo \'entrar.php\';
-                        }?>">
+                    if(isset($codper)){
+                        echo "../perfil-padrao.php";
+                    }else{ 
+                        echo "../entrar.php";
+                    }?>">
                         <!-- foto do login -->
                         <img src="../img/user.png" alt="Logar">
                     </a>
@@ -117,7 +111,7 @@ function buying_page($prod_cod){
                 <li>
                     <a href="#">Ajuda</a>
                     <ul class="submenu">
-                        <li><a href="../sobrenos.php">Sobre nos</a></li>
+                        <li><a href="../sobrenos.html">Sobre nos</a></li>
                         <li><a href="../fale_conosco">Fale Conosco</a></li>
                     </ul>
                 </li>
@@ -243,7 +237,7 @@ function buying_page($prod_cod){
                 </div>
                 <?php
                         extract($_POST, EXTR_OVERWRITE);
-                        if(isset($btnaddaction))
+                        if(isset($btnaddactionz))
                          {
                              include_once \'../php-conexao-modelagem/cupom.php\';
                              $pro=new Cupom();
@@ -462,7 +456,7 @@ function buying_page($prod_cod){
                                     foreach($ped->consultar() as $row2){
                                         $cart->setcod_carrinho($row2["cod_carrinho"]);
                                         foreach($cart->consultar2() as $row3){
-                                            if($row3["cod_produto"] == "'.$prod_cod.'"){
+                                            if($row3["cod_produto"] == '.$prod_cod.'){
                                                 $produto_comprado = 1;
                                             }
                                         }
@@ -479,6 +473,7 @@ function buying_page($prod_cod){
                                     $avali = new Avaliacao();
 
                                     $avali->setcod_perfil($codper);
+                                    $avali->setcod_produto('.$prod_cod.');
                                     $avaliacoes = $avali->consultar2();
 
                                 if (empty($avaliacoes)) {  
@@ -597,6 +592,36 @@ function buying_page($prod_cod){
 
                 }
             ?>
+
+                <span class="close-about"><img src="../img/close.png" alt="fechar"></span>
+                <div class="about-sidebar">
+                    <div class="title">
+                        <h4>Sobre a loja</h4>
+                    </div>
+                    <div class="about-body">
+
+                        <div class="group">
+                            <div class="img">
+                                <img src="<?php echo ".".$img; ?>" alt="">
+                            </div>
+
+                            <div class="profile">
+                                <div class="name">
+                                    <h1><?php echo $loja; ?> - <?php echo $nome." ".$lastnm; ?></h1>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="description">
+                            <span>Avaliações: XX</span>
+                            <span>Produtos: XX</span>
+                            <span>Anunciante desde: XX/XX/XXXX</span>
+                            <span>CNPJ: <?php echo $cnpj; ?></span>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             <div class="detail">
@@ -1380,7 +1405,7 @@ function editing_page($prod_cod){
                         <h6>AJUDA</h6>
                         <ul>
                             <li> <a href="../fale_conosco.php">Fale conosco</a></li>
-                            <li> <a href="../sobrenos.php">Sobre nós</a></li>
+                            <li> <a href="../sobrenos.html">Sobre nós</a></li>
                         </ul>
                         </div>
                     <div class="footer-col">

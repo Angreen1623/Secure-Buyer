@@ -7,8 +7,6 @@
     include_once '../php-conexao-modelagem/carrinho.php';
     $cart = new Carrinho();
 
-    $pedido_realizado = false;
-
     $ped_rea->setpreco_final($total);
     $ped_rea->setforma_pagamento($forma_pag);
     $ped_rea->setdata_compra();
@@ -21,17 +19,13 @@
         $ped_rea->setcod_carrinho($row['cod_carrinho']);
         $pedidos_realizados = $ped_rea->consultar();
 
-        foreach($pedidos_realizados as $row2){
-            $cod_realizado = $row2['cod_carrinho'];
-            if($cod_realizado == $row['cod_carrinho']){
-                $pedido_realizado = true;
-            }
-        }
-        if($pedido_realizado == false){
+        if(empty($pedido_realizado)){
             $ped_rea->setcod_carrinho($row['cod_carrinho']);
             $ped_rea->salvar();
         }
     }
 
-    header("Location: ../acompanhar_pedido.php");
+    header("Location: ../index.php");
+
+    
 ?>

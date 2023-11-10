@@ -7,7 +7,7 @@
                 <label>
                     <form action="./pesquisar.php" method="post">
                         <!-- icone da lupa -->
-                        <img src="../conteudos/img/lupa.png" alt="">
+                        <button><img src="../conteudos/img/lupa.png" alt=""></button>
                         <!-- texto da lupa -->
                         <input type="text" name="pesquisa" placeholder="Pesquisar">
                     </form>
@@ -29,45 +29,41 @@
                 <div class="group">
                     <!-- se clicar no link vai para criar conta -->
                     <a class="singin-btn" href="<?php
-
-                                                $adm = false;
-                                                include_once 'php-conexao-modelagem/conexao.php';
-                                                $ip = new Conexao();
-                                                include_once 'php-conexao-modelagem/perfil.php';
-                                                $per = new Perfil();
-                                                if (!empty($_SERVER['HTTP_CLIENTE_IP'])) {
-                                                    $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
-                                                } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                                                    $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
-                                                } else {
-                                                    $ip_maquina = $_SERVER['REMOTE_ADDR'];
-                                                }
-                                                $ip->setendereco_ip($ip_maquina);
-
-                                                $ips = $ip->listar();
-
-                                                foreach ($ips as $row) {
-                                                    if ($ip_maquina == $row['endereco_ip']) {
-                                                        $codper = $row['cod_perfil'];
-                                                    }
-                                                }
-
-                                                $per->setcod_perfil($codper);
-                                                $perfiis = $per->consultar();
-
-                                                foreach ($perfiis as $row2) {
-                                                    if ($row2['adm'] == 1) {
-                                                        $adm = true;
-                                                    }
-                                                }
-
-                                                if (isset($codper)) {
-                                                    echo 'perfil-padrao.php';
-                                                } elseif (!isset($codper)) {
-                                                    echo 'entrar.php';
-                                                } elseif ($adm == true) {
-                                                    echo './adm-pages/admpage.php';
-                                                } ?>">
+                            $adm = false;
+                            include_once 'php-conexao-modelagem/conexao.php';
+                            $ip = new Conexao();
+                            include_once 'php-conexao-modelagem/perfil.php';
+                            $per = new Perfil();
+                            if (!empty($_SERVER['HTTP_CLIENTE_IP'])) {
+                                $ip_maquina = $_SERVER['HTTP_CLIENTE_IP'];
+                            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                                $ip_maquina = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                            } else {
+                                $ip_maquina = $_SERVER['REMOTE_ADDR'];
+                            }
+                            $ip->setendereco_ip($ip_maquina);
+                            $ips = $ip->listar();
+                            foreach ($ips as $row) {
+                                if ($ip_maquina == $row['endereco_ip']) {
+                                    $codper = $row['cod_perfil'];
+                                }
+                            }
+                            $per->setcod_perfil($codper);
+                            $perfiis = $per->consultar();
+                            foreach ($perfiis as $row2) {
+                                if ($row2['adm'] == 1) {
+                                    $adm = true;
+                                }
+                            }
+                            if (isset($codper)) {
+                                if ($adm == true) {
+                                    echo './adm-pages/admpage.php';
+                                }else{
+                                echo 'perfil-padrao.php';
+                                }
+                            } elseif (!isset($codper)) {
+                                echo 'entrar.php';
+                            }  ?>">
                         <!-- foto do login -->
                         <img src="../conteudos/img/user.png" alt="Logar">
                     </a>
@@ -149,7 +145,7 @@
                             }
                         }
 
-                        if (!isset($pedidos[$i])) {
+                        if (empty($pedidos_realizados)) {
                             $j++;
 
                             $carrinho_atual[$j] = intval($row['cod_carrinho']);

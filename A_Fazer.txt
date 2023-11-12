@@ -2,19 +2,36 @@
 2. 3 Imagens funcionando no adicionar anuncio;                          FEITO
 3. Finalizar editar anuncio;                                            FEITO
 4. Tratamento de erro;                                                  FEITO
-5. Responsividade;                                                      tem 4 dias :)
+5. Responsividade;                                                      FEITO
 6. Linkagem com o produtos.php;                                         FEITO
-7. Tela do ADM;                                                         (Andreeis)
+7. Tela do ADM;                                                         FEITO
 8. Cards do anúncio;                                                    FEITO
 9. Mudar esse nome fudido;                                              ************************
-10. Sistema de avaliações;                                              (IGOR) Fazer o que for possível
+10. Sistema de avaliações;                                              FEITO
 11. Imagens terem nomes unicos;                                         FEITO
 13. Criptografar senhas;                                                FEITO
-14. sobre nós e fale conosco;                                           (ANDREI) FACIL *
-15. Tela de pagamento;                                                  MUITO QUASE AAAAAAAH
+14. sobre nós e fale conosco;                                           FEITO
+15. Tela de pagamento;                                                  FEITO
 16. no tratamento de erro, não poder voltar para a pag de criação de 
 cadastro caso tiver uma conta recem cadastrada, e n deixar quem n 
 possui loja usar  link para acessar essa pagina                         FEITO
 
 
-ultima atualização: 05/11/23
+ultima atualização: ACABOU
+
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⡴⠒⣙⠓⠲⢦⣀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣀⣰⠋⣰⣿⠿⠿⢷⣦⡈⢻⡀⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⡎⢠⣦⠄⣴⣿⠇⠄⣶⣤⣤⣁⠄⣇⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⢀⡾⢀⣿⠃⢰⣿⣿⠄⠄⠙⠿⠿⣿⡧⢘⡇⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⢸⠄⣼⡏⢀⣿⣿⣿⣷⣤⣀⣀⡀⠄⢀⡼⠃⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⢿⠐⠿⠄⣼⣿⣿⣿⣿⣿⣿⣿⡿⠄⡾⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⢈⡷⠄⣴⣿⣿⠟⠿⣿⣿⣿⣿⠃⣸⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⢸⡅⠸⢿⡿⢃⡄⢠⣤⣬⡿⢃⣼⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠉⠓⠤⠴⠿⣄⠻⠿⢋⣠⠋⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠳⠖⠋⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄ 
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
